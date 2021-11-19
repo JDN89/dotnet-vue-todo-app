@@ -4,16 +4,19 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BaseBaseUtilityButtons: typeof import('./components/BaseBaseUtilityButtons.vue')['default']
+    BaseBaseUtilityButtons: typeof import("./components/BaseBaseUtilityButtons.vue")["default"];
     BaseUtilityButtons: typeof import('./components/BaseUtilityButtons.vue')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
-    CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
+    CarbonDicomOverlay: typeof import("~icons/carbon/dicom-overlay")["default"];
+    CarbonGroupAccount: typeof import('~icons/carbon/group-account')['default']
     CarbonLanguage: typeof import('~icons/carbon/language')['default']
+    CarbonLogin: typeof import('~icons/carbon/login')['default']
     CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
+    CarbonLogout: typeof import("~icons/carbon/logout")["default"];
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
-    CarbonPedestrian: typeof import('~icons/carbon/pedestrian')['default']
+    CarbonPedestrian: typeof import("~icons/carbon/pedestrian")["default"];
     CarbonSun: typeof import('~icons/carbon/sun')['default']
-    CarbonWarning: typeof import('~icons/carbon/warning')['default']
+    CarbonWarning: typeof import("~icons/carbon/warning")["default"];
     README: typeof import('./components/README.md')['default']
     TheHeader: typeof import('./components/TheHeader.vue')['default']
   }
