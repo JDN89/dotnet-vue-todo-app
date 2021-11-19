@@ -4,6 +4,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseBaseUtilityButtons: typeof import('./components/BaseBaseUtilityButtons.vue')['default']
+    BaseUtilityButtons: typeof import('./components/BaseUtilityButtons.vue')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
     CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
     CarbonLanguage: typeof import('~icons/carbon/language')['default']
@@ -12,8 +14,8 @@ declare module 'vue' {
     CarbonPedestrian: typeof import('~icons/carbon/pedestrian')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
-    UtilityButtons: typeof import('./components/UtilityButtons.vue')['default']
     README: typeof import('./components/README.md')['default']
+    TheHeader: typeof import('./components/TheHeader.vue')['default']
   }
 }
 
