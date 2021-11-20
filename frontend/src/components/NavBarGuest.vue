@@ -38,9 +38,8 @@ const toggleLocales = () => {
       <carbon-logo-github />
     </a>
 
-<div class="icon-btn mx-2">
-
-</div>
+    <div class="icon-btn mx-2"></div>
+    <div class="icon-btn mx-2"></div>
     <button
       class="icon-btn mx-2 !outline-none"
       :title="t('button.toggle_dark')"
