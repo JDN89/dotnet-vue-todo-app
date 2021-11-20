@@ -4,6 +4,7 @@ button:
   go: GO
   home: Home
   login: Login
+  logout: Logout
   register: Register
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
