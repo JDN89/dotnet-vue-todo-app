@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import Message from './Message.vue';
+import Message from "./Message.vue";
 </script>
 
 <template>
-  <div    class="flex">
-      <Message/>
-
-
- 
+  <div
+    class="sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:justify-center "
+  >
+    <Message />
   </div>
-
-  
 </template>
 
 <route lang="yaml">

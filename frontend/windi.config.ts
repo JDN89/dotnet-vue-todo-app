@@ -10,6 +10,11 @@ export default defineConfig({
   plugins: [typography()],
   theme: {
     extend: {
+      colors:{ dark:{
+       900: " #121212"
+      }
+
+      },
       typography: {
         DEFAULT: {
           css: {
