@@ -41,3 +41,12 @@ html.dark {
     hover:opacity-100 hover:text-teal-700;
   font-size: 0.9em;
 }
+
+.msg {
+  @apply flex-row flex-wrap mx-2
+  justify-center
+  flex-center
+  max-w-sm
+  bg-gray-100
+  border-1 border-black;
+}

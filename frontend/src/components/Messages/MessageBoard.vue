@@ -3,7 +3,7 @@ import Message from './Message.vue';
 </script>
 
 <template>
-  <div class="container sm:flexbox"   >
+  <div    class="flex">
       <Message/>
 
 

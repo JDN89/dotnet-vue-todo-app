@@ -2,15 +2,7 @@
 
 <template>
   <div
-    class="
-      message
-      flex flex-row flex-wrap
-      justify-center
-      max-w-sm
-      mx-auto
-      bg-gray-100
-      border-1 border-black
-    "
+    class="msg"
   >
     <p>
       ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
@@ -19,8 +11,7 @@
       iure quia?
     </p>
   </div>
-
-  <div class="message message max-w-sm mx-auto">
+  <div class="msg">
     <p>
       ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
       facere velit distinctio expedita nostrum minima magnam, possimus atque
@@ -29,7 +20,6 @@
     </p>
   </div>
 </template>
-plate>
 
 <route lang="yaml">
 meta:
