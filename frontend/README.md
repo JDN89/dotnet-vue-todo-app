@@ -1,10 +1,8 @@
 #
 
 ...
-Frontend is created with the vue composition api (TS + Pinia) and Axios
+Frontend is created with the vue composition api (TS + Pinia) and Axios - using the Vitesse starter template
 Backend is made with Dotnet Core and Postgress
-
-with the vitesse starter template
 
 ## Usage
 
