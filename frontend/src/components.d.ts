@@ -23,6 +23,8 @@ declare module 'vue' {
     NavBarUser: typeof import('./components/NavBarUser.vue')['default']
     README: typeof import('./components/README.md')['default']
     TheHeader: typeof import("./components/TheHeader.vue")["default"];
+    TodoList: typeof import('./components/todos/TodoList.vue')['default']
+    Todos: typeof import('./components/todos/Todos.vue')['default']
   }
 }
 
