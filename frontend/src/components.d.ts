@@ -21,10 +21,11 @@ declare module 'vue' {
     MessageBoard: typeof import('./components/Messages/MessageBoard.vue')['default']
     NavBarGuest: typeof import('./components/NavBarGuest.vue')['default']
     NavBarUser: typeof import('./components/NavBarUser.vue')['default']
+    NewList: typeof import('./components/todos/NewList.vue')['default']
     README: typeof import('./components/README.md')['default']
     TheHeader: typeof import("./components/TheHeader.vue")["default"];
     TodoList: typeof import('./components/todos/TodoList.vue')['default']
-    Todos: typeof import('./components/todos/Todos.vue')['default']
+    Todos: typeof import("./components/todos/Todos.vue")["default"];
   }
 }
 

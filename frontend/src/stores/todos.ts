@@ -24,6 +24,9 @@ export const useTodoStore = defineStore("todo", {
       },
     ],
   }),
+  getters: {
+    getLists: (state) => state.toDoLists,
+  },
 });
 
 if (import.meta.hot)

@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <p> Todos Page</p>
-<TodoList></TodoList>
-  
+  <div>
+    <h1>New List</h1>
+  </div>
 </template>
 
 <route lang="yaml">
