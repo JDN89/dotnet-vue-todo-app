@@ -14,6 +14,20 @@ console.log(todoStore.getLists);
           {{ list.title }}
         </h3>
       </div>
+      <div class="todos">
+        <ul>
+          <li v-for="todo in list.todos" :key="todo"><i></i>{{ todo }}</li>
+        </ul>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div class="archived">
+        <ul>
+
+          <li v-for="archived in list.archived" :key="archived"><i></i> {{ archived }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

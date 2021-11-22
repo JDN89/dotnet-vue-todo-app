@@ -20,7 +20,7 @@ export const useTodoStore = defineStore("todo", {
         userId: 1,
         title: "lawaai",
         todos: ["gitaar", "drum", "saxofoon"],
-        archived: [],
+        archived: ["anula", "monika", "blond meken"],
       },
     ],
   }),
