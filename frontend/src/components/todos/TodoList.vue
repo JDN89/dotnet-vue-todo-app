@@ -7,25 +7,34 @@ console.log(todoStore.getLists);
 <template>
   <p>TodoList</p>
 
-  <div class="container">
+  <div
+    class="
+      container
+      sm:flex
+      mx-auto
+      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:justify-center
+    "
+  >
     <div v-for="list in todoStore.getLists" :key="list.listId" class="list">
       <div class="title">
-        <h3>
+        <h2>
           {{ list.title }}
-        </h3>
+        </h2>
       </div>
+      <hr />
       <div class="todos">
         <ul>
           <li v-for="todo in list.todos" :key="todo"><i></i>{{ todo }}</li>
         </ul>
       </div>
-      <br />
+
       <hr />
-      <br />
+
       <div class="archived">
         <ul>
-
-          <li v-for="archived in list.archived" :key="archived"><i></i> {{ archived }}</li>
+          <li v-for="archived in list.archived" :key="archived">
+            <i></i> {{ archived }}
+          </li>
         </ul>
       </div>
     </div>
