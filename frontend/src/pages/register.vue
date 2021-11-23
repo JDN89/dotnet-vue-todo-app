@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
 
 <template>
-  <p>Register Page</p>
+  <div class="prose mx-auto py-6">
+    <h2>{{ t("page.register") }}</h2>
+  </div>
 </template>

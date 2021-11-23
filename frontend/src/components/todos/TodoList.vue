@@ -1,22 +1,11 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
 
-const { t, availableLocales, locale } = useI18n();
-
-
-const toggleLocales = () => {
-  // change to some real logic
-  const locales = availableLocales;
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
-};
-
 const todoStore = useTodoStore();
 console.log(todoStore.getLists);
 </script>
 
 <template>
-  <h1>My To do lists</h1>
-
   <div
     class="
       container

@@ -15,3 +15,9 @@ intro:
   aka: También conocido como
   whats-your-name: ¿Cómo te llamas?
 not-found: No se ha encontrado
+page:
+  home: Inicio
+  login: Acceso
+  logout: Cerrar sesión
+  register: Registrarse
+  todos: Mis listas de tareas pendientes

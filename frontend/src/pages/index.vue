@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import MessageBoard from '~/components/Messages/MessageBoard.vue';</script>
+const { t } = useI18n();
+
+</script>
 
 <template>
-  <div>
-    <h1 mb-2>Da home</h1>
-  <MessageBoard/>
+  <div class="prose mx-auto py-6">
+    <h2>{{ t("page.home") }}</h2>
   </div>
+  <MessageBoard/>
+  
 
   
 </template>
+
 
 <route lang="yaml">
 meta:
