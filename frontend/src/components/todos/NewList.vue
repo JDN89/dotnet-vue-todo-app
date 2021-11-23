@@ -4,8 +4,12 @@ import { newListInterface } from "~/types/interfaces";
 const todo = ref<string>("");
 
 const addNewTodo = () => {
-  newList.todos.push(todo.value);
-  todo.value = "";
+  if (todo.value.length > 0) {
+    newList.todos.push(todo.value);
+        todo.value = "";
+  } else {
+    alert("please fill in a todo item");
+  }
 };
 
 const newList: newListInterface = reactive({
@@ -26,7 +30,7 @@ const newList: newListInterface = reactive({
       justify-center
     "
   >
-    <div class="list devide-y">
+    <div class="list relative">
       <div class="title">
         <input
           type="text"
@@ -55,7 +59,11 @@ const newList: newListInterface = reactive({
       <hr class="hr" />
       <div class="newTodos">
         <ul class="pt-3 items-end">
-          <li v-for="todo in newList.todos" :key="todo" class="flex justify-left items-start">
+          <li
+            v-for="todo in newList.todos"
+            :key="todo"
+            class="flex justify-left items-start"
+          >
             <carbon-checkbox class="mx-3 my-auto" /> {{ todo }}
           </li>
         </ul>
