@@ -22,10 +22,12 @@ const todoStore = useTodoStore();
       </div>
       <hr class="hr" />
       <div class="todos">
-        <ul relative>
-          <li v-for="todo in list.todos" :key="todo">
-            <carbon-checkbox class="mr-2" />{{ todo }}
-          </li>
+        <ul>
+          <div class="listAlign relative">
+            <li v-for="todo in list.todos" :key="todo">
+              <carbon-checkbox class="mr-2 static bottom-0" />{{ todo }}
+            </li>
+          </div>
         </ul>
       </div>
 
@@ -50,9 +52,8 @@ meta:
 </route>
 
 <style scoped>
-.archived,
-.todos {
+.todos,
+.archived {
   text-align: left;
-  justify-content: start;
 }
 </style>
