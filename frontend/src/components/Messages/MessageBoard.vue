@@ -4,7 +4,7 @@ import Message from "./Message.vue";
 
 <template>
   <div
-    class="sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:justify-center "
+    class="sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-auto sm:justify-center "
   >
     <Message />
   </div>

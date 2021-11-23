@@ -59,7 +59,10 @@ max-w-xs
   dark:text-gray-200
   dark:border-1 dark:border-gray-600
   border-1 border-black
-  rounded-md;
+  rounded-md
+  cursor-pointer select-none
+    opacity-75 transition duration-200 ease-in-out
+    hover:opacity-100 hover:text-teal-700;
 }
 
 .list {
@@ -75,5 +78,8 @@ max-w-xs
   dark:text-gray-300
   dark:border-1 dark:border-gray-600
   border-1 border-black
-  rounded-md;
+  rounded-md
+  cursor-pointer select-none
+  opacity-75 transition duration-200 ease-in-out
+  hover:opacity-100 hover:text-teal-700;
 }
