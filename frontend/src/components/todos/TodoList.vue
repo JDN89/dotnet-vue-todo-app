@@ -5,6 +5,12 @@ const todoStore = useTodoStore();
 const deleteList = (listId: number) => {
   todoStore.deleteList(listId);
 };
+const archiveTask = (listId: number, todo: string) => {
+  todoStore.archiveTask(listId, todo);
+};
+const unArchiveTask = (listId: number, todo: string) => {
+  todoStore.unArchiveTask(listId, todo);
+};
 </script>
 
 <template>
@@ -35,7 +41,10 @@ const deleteList = (listId: number) => {
         <ul>
           <div class="listAlign relative">
             <li v-for="todo in list.todos" :key="todo">
-              <carbon-checkbox class="mr-2 my-auto" />{{ todo }}
+              <carbon-checkbox
+                @click="archiveTask(list.listId, todo)"
+                class="mr-2 my-auto"
+              />{{ todo }}
             </li>
           </div>
         </ul>
@@ -50,7 +59,10 @@ const deleteList = (listId: number) => {
             :key="archived"
             class="flex justify-left items-start"
           >
-            <carbon-checkbox-checked class="mr-2 my-auto" />
+            <carbon-checkbox-checked
+              @click="unArchiveTask(list.listId, archived)"
+              class="mr-2 my-auto"
+            />
 
             {{ archived }}
           </li>

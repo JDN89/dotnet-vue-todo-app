@@ -37,6 +37,18 @@ export const useTodoStore = defineStore("todo", {
     async deleteList(listId: number) {
       console.log(listId);
     },
+    // =========================================
+    // ===========   ARCHIVE TODO  ===============
+    // =========================================
+    async archiveTask(listId: number, todo: string) {
+      console.log(listId + " " + todo);
+    },
+    // =========================================
+    // ===========   UNARCHIVE TODO  ===============
+    // =========================================
+    async unArchiveTask(listId: number, todo: string) {
+      console.log(listId + " " + todo);
+    },
   },
   getters: {
     getLists: (state) => state.toDoLists,
