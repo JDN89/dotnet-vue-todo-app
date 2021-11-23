@@ -55,8 +55,8 @@ const newList: newListInterface = reactive({
       <hr class="hr" />
       <div class="newTodos">
         <ul class="pt-3 items-end">
-          <li v-for="todo in newList.todos" :key="todo">
-            <carbon-checkbox class="mx-3" /> {{ todo }}
+          <li v-for="todo in newList.todos" :key="todo" class="flex justify-left items-start">
+            <carbon-checkbox class="mx-3 my-auto" /> {{ todo }}
           </li>
         </ul>
       </div>

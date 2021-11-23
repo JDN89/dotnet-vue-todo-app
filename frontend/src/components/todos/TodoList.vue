@@ -24,8 +24,8 @@ const todoStore = useTodoStore();
       <div class="todos">
         <ul>
           <div class="listAlign relative">
-            <li v-for="todo in list.todos" :key="todo">
-              <carbon-checkbox class="mr-2 static bottom-0" />{{ todo }}
+            <li v-for="todo in list.todos" :key="todo" class="flex justify-left items-start">
+              <carbon-checkbox class="mr-2 my-auto" />{{ todo }}
             </li>
           </div>
         </ul>
@@ -35,11 +35,12 @@ const todoStore = useTodoStore();
 
       <div class="archived">
         <ul>
-          <div class="listAlign">
-            <li v-for="archived in list.archived" :key="archived">
-              <carbon-checkbox-checked class="icon mr-2" /> {{ archived }}
-            </li>
-          </div>
+          <li v-for="archived in list.archived" :key="archived" class="flex justify-left items-start ">
+            <carbon-checkbox-checked class="mr-2 my-auto" />
+            
+              {{ archived }}
+         
+          </li>
         </ul>
       </div>
     </div>
