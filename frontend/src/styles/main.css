@@ -54,7 +54,7 @@ max-w-xs
   min-h-32
   text-black
   bg-gray-100
-  dark: bg-dark-700
+  dark: bg-dark-200
   overflow-ellipsis
   dark:text-gray-200
   dark:border-1 dark:border-gray-600
@@ -70,7 +70,7 @@ max-w-xs
   sm:max-w-60
   text-black
   bg-gray-100
-  dark: bg-dark-700
+  dark: bg-dark-200
   overflow-hidden
   dark:text-gray-300
   dark:border-1 dark:border-gray-600
