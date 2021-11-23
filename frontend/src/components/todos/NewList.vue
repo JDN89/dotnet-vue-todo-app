@@ -17,31 +17,43 @@ const newList: newListInterface = reactive({
 </script>
 
 <template>
-  <div class="container">
-    <div class="title">
-      <input
-        type="text"
-        placeholder="Give your list a title"
-        v-model="newList.title"
-      />
-    </div>
-    <hr />
-    <div class="todo">
-      <input
-        type="text"
-        placeholder="Add your todo"
-        v-model="todo"
-        @keyup.enter="addNewTodo"
-        @blur="addNewTodo"
-      />
-    </div>
-    <hr />
-    <div class="newTodos">
-      <ul>
-        <li v-for="todo in newList.todos" :key="todo">
-          <carbon-checkbox class="mr-3" /> {{ todo }}
-        </li>
-      </ul>
+  <div
+    class="
+      container
+      sm:flex
+      mx-auto
+      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
+      justify-center
+    "
+  >
+    <div class="list">
+      <div class="title">
+        <input
+          type="text"
+          placeholder="Give your list a title"
+          v-model="newList.title"
+          class="bg-gray-100 focus:text focus:textColor-teal-700"
+        />
+      </div>
+      <hr class="w-3/4 mx-auto" />
+      <div class="todo">
+        <input
+          type="text"
+          placeholder="Add your todo"
+          v-model="todo"
+          @keyup.enter="addNewTodo"
+          @blur="addNewTodo"
+          class="bg-gray-100"
+        />
+      </div>
+      <hr class="w-3/4 mx-auto" />
+      <div class="newTodos">
+        <ul>
+          <li v-for="todo in newList.todos" :key="todo">
+            <carbon-checkbox class="mr-3" /> {{ todo }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -50,3 +62,5 @@ const newList: newListInterface = reactive({
 meta:
   layout: dashboard
 </route>
+
+<style scoped></style>

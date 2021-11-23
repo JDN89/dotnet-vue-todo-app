@@ -8,6 +8,14 @@ export default defineConfig({
   attributify: true,
 
   plugins: [typography()],
+  variants: {
+    extend: {
+      // ...
+
+     scale: ['active', 'group-hover','focus']
+
+  }
+},
   theme: {
     extend: {
       colors:{ dark:{
