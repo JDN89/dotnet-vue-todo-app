@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { ToDoListInterface } from "../types/interfaces";
+import { ToDoListInterface, newListInterface } from "../types/interfaces";
 
 interface TodoStateInterface {
   toDoLists: ToDoListInterface[];
@@ -24,6 +24,11 @@ export const useTodoStore = defineStore("todo", {
       },
     ],
   }),
+  actions: {
+    async add(newToDoList: newListInterface) {
+      console.log(newToDoList);
+    },
+  },
   getters: {
     getLists: (state) => state.toDoLists,
   },

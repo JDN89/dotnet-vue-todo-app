@@ -5,7 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     BaseNavBarGuest: typeof import("./components/BaseNavBarGuest.vue")["default"];
-    CarbonAddAlt: typeof import("~icons/carbon/add-alt")["default"];
+    CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
     CarbonCheckbox: typeof import('~icons/carbon/checkbox')['default']
     CarbonCheckboxChecked: typeof import('~icons/carbon/checkbox-checked')['default']
@@ -19,7 +19,7 @@ declare module 'vue' {
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonPedestrian: typeof import("~icons/carbon/pedestrian")["default"];
     CarbonSun: typeof import('~icons/carbon/sun')['default']
-    CarbonTrashCan: typeof import("~icons/carbon/trash-can")["default"];
+    CarbonTrashCan: typeof import('~icons/carbon/trash-can')['default']
     CarbonWarning: typeof import("~icons/carbon/warning")["default"];
     Message: typeof import('./components/Messages/Message.vue')['default']
     MessageBoard: typeof import('./components/Messages/MessageBoard.vue')['default']
