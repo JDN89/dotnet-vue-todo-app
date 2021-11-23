@@ -89,3 +89,6 @@ max-w-xs
 
 }
 
+.hr {
+  @apply w-3/4 mx-auto transition duration-500 my-2;
+}

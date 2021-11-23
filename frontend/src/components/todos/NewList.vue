@@ -26,16 +26,22 @@ const newList: newListInterface = reactive({
       justify-center
     "
   >
-    <div class="list">
+    <div class="list devide-y">
       <div class="title">
         <input
           type="text"
           placeholder="Give your list a title"
           v-model="newList.title"
-          class="bg-gray-100 focus:text focus:textColor-teal-700"
+          class="
+            transition
+            duration-500
+            bg-gray-100
+            dark:bg-dark-200
+            focus:text focus:textColor-teal-700
+          "
         />
       </div>
-      <hr class="w-3/4 mx-auto" />
+      <!-- <hr class="w-3/4 mx-auto dark:gray-100"   /> -->
       <div class="todo">
         <input
           type="text"
@@ -43,14 +49,14 @@ const newList: newListInterface = reactive({
           v-model="todo"
           @keyup.enter="addNewTodo"
           @blur="addNewTodo"
-          class="bg-gray-100"
+          class="bg-gray-100 dark:bg-dark-200 transition duration-500"
         />
       </div>
-      <hr class="w-3/4 mx-auto" />
+      <hr class="hr" />
       <div class="newTodos">
-        <ul>
+        <ul class="pt-3 items-end">
           <li v-for="todo in newList.todos" :key="todo">
-            <carbon-checkbox class="mr-3" /> {{ todo }}
+            <carbon-checkbox class="mx-3" /> {{ todo }}
           </li>
         </ul>
       </div>
@@ -63,4 +69,8 @@ meta:
   layout: dashboard
 </route>
 
-<style scoped></style>
+<style scoped>
+.newTodos {
+  text-align: left;
+}
+</style>
