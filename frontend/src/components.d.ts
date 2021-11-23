@@ -6,6 +6,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     BaseNavBarGuest: typeof import("./components/BaseNavBarGuest.vue")["default"];
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
+    CarbonCheckbox: typeof import('~icons/carbon/checkbox')['default']
+    CarbonCheckboxChecked: typeof import('~icons/carbon/checkbox-checked')['default']
     CarbonDicomOverlay: typeof import("~icons/carbon/dicom-overlay")["default"];
     CarbonGroupAccount: typeof import('~icons/carbon/group-account')['default']
     CarbonGroupLogout: typeof import("~icons/carbon/group-logout")["default"];

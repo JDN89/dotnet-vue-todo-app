@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
+
+const { t, availableLocales, locale } = useI18n();
+
+
+const toggleLocales = () => {
+  // change to some real logic
+  const locales = availableLocales;
+  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
+};
+
 const todoStore = useTodoStore();
 console.log(todoStore.getLists);
 </script>
 
 <template>
-  <p>TodoList</p>
+  <h1>My To do lists</h1>
 
   <div
     class="
@@ -24,7 +34,9 @@ console.log(todoStore.getLists);
       <hr class="m-2" />
       <div class="todos">
         <ul>
-          <li v-for="todo in list.todos" :key="todo"><i></i>{{ todo }}</li>
+          <li v-for="todo in list.todos" :key="todo">
+            <carbon-checkbox class="mr-3" />{{ todo }}
+          </li>
         </ul>
       </div>
 
@@ -33,7 +45,7 @@ console.log(todoStore.getLists);
       <div class="archived">
         <ul>
           <li v-for="archived in list.archived" :key="archived">
-            <i></i> {{ archived }}
+            <carbon-checkbox-checked /> {{ archived }}
           </li>
         </ul>
       </div>
