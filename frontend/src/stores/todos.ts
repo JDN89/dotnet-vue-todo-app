@@ -25,8 +25,17 @@ export const useTodoStore = defineStore("todo", {
     ],
   }),
   actions: {
+    // =========================================
+    // ===========   ADDLISTS  ===============
+    // =========================================
     async add(newToDoList: newListInterface) {
       console.log(newToDoList);
+    },
+    // =========================================
+    // ===========   DELETE list  ===============
+    // =====================================
+    async deleteList(listId: number) {
+      console.log(listId);
     },
   },
   getters: {

@@ -2,6 +2,9 @@
 import { useTodoStore } from "~/stores/todos";
 
 const todoStore = useTodoStore();
+const deleteList = (listId: number) => {
+  todoStore.deleteList(listId);
+};
 </script>
 
 <template>
@@ -14,7 +17,14 @@ const todoStore = useTodoStore();
       justify-center
     "
   >
-    <div v-for="list in todoStore.getLists" :key="list.listId" class="list">
+    <div
+      v-for="list in todoStore.getLists"
+      :key="list.listId"
+      class="list relative"
+    >
+      <button @click="deleteList(list.listId)" class="float-right">
+        <carbon-trash-can class="float-right" />
+      </button>
       <div class="title prose">
         <h3>
           {{ list.title }}
@@ -59,5 +69,10 @@ meta:
 .todos,
 .archived {
   text-align: left;
+}
+
+.list {
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 </style>

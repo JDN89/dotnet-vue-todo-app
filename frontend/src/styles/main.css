@@ -65,13 +65,14 @@ max-w-xs
     opacity-75 transition duration-200 ease-in-out
     hover:opacity-100 hover:text-teal-700 hover:border-teal-700
     transform transition duration-500 sm:hover:scale-115;
-    
 }
 
 .list {
   @apply m-7  p-2 
 mx-auto
 sm:m-3
+max-h-60
+min-h-32
 max-w-xs
   sm:max-w-60
   text-black
@@ -86,7 +87,6 @@ max-w-xs
   opacity-75 transition duration-200 ease-in-out
   hover:opacity-100 hover:text-teal-700 hover:border-teal-700
   transform transition duration-500 sm:hover:scale-115;
-
 }
 
 .hr {
