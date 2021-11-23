@@ -62,7 +62,7 @@ max-w-xs
   rounded-md
   cursor-pointer select-none
     opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-700;
+    hover:opacity-100 hover:text-teal-700 hover:border-teal-700;
 }
 
 .list {
@@ -81,5 +81,5 @@ max-w-xs
   rounded-md
   cursor-pointer select-none
   opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 hover:text-teal-700;
+  hover:opacity-100 hover:text-teal-700 hover:border-teal-700;
 }
