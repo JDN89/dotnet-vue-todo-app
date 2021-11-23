@@ -2,7 +2,6 @@
 import { useTodoStore } from "~/stores/todos";
 
 const todoStore = useTodoStore();
-console.log(todoStore.getLists);
 </script>
 
 <template>
@@ -49,7 +48,8 @@ meta:
 </route>
 
 <style scoped>
-.archived, .todos {
+.archived,
+.todos {
   text-align: left;
 }
 </style>
