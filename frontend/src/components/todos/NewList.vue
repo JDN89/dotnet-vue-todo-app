@@ -66,7 +66,7 @@ const addList = () => {
             duration-500
             bg-gray-100
             dark:bg-dark-200
-            focus:text focus:textColor-teal-700
+            focus:outline-none
           "
         />
       </div>
@@ -78,7 +78,13 @@ const addList = () => {
           v-model="todo"
           @keyup.enter="addNewTodo"
           @blur="addNewTodo"
-          class="bg-gray-100 dark:bg-dark-200 transition duration-500"
+          class="
+            bg-gray-100
+            dark:bg-dark-200
+            transition
+            duration-500
+            focus:outline-none
+          "
         />
       </div>
       <hr class="hr" />
