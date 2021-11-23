@@ -11,7 +11,8 @@ console.log(todoStore.getLists);
       container
       sm:flex
       mx-auto
-      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:justify-center
+      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
+      justify-center
     "
   >
     <div v-for="list in todoStore.getLists" :key="list.listId" class="list">
@@ -46,3 +47,9 @@ console.log(todoStore.getLists);
 meta:
   layout: dashboard
 </route>
+
+<style scoped>
+.archived, .todos {
+  text-align: left;
+}
+</style>
