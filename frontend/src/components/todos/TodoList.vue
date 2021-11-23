@@ -16,19 +16,19 @@ console.log(todoStore.getLists);
     "
   >
     <div v-for="list in todoStore.getLists" :key="list.listId" class="list">
-      <div class="title">
-        <h2>
+      <div class="title prose">
+        <h3>
           {{ list.title }}
-        </h2>
+        </h3>
       </div>
-      <hr />
+      <hr class="m-2" />
       <div class="todos">
         <ul>
           <li v-for="todo in list.todos" :key="todo"><i></i>{{ todo }}</li>
         </ul>
       </div>
 
-      <hr />
+      <hr class="m-2" v-if="list.archived.length > 0" />
 
       <div class="archived">
         <ul>
