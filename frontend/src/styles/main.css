@@ -68,11 +68,10 @@ max-w-xs
 }
 
 .list {
-  @apply m-7  p-2 
+  @apply mt-7  p-2 
 mx-auto
 sm:m-3
 max-h-60
-min-h-32
 max-w-xs
   sm:max-w-60
   text-black

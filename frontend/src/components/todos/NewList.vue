@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { newListInterface } from "~/types/interfaces";
-
 import { useTodoStore } from "~/stores/todos";
+
+let isVisible = ref(false);
+console.log(isVisible);
+
+const showHidden = () => {
+  isVisible.value = true;
+};
 
 const todoStore = useTodoStore();
 
@@ -40,6 +46,7 @@ const addList = () => {
       newList.title = "";
       newList.todos = [];
       newList.archived = [];
+      isVisible.value = false;
     }
   }
 };
@@ -55,8 +62,11 @@ const addList = () => {
       justify-center
     "
   >
-    <div class="list relative">
-      <div class="title">
+    <div @click="showHidden" v-if="!isVisible" class="list relative min-w-xs">
+      <h4>Create A New List</h4>
+    </div>
+    <div v-else class="list relative min-w-xs">
+      <div class="title ">
         <input
           type="text"
           placeholder="Give your list a title"
@@ -71,7 +81,7 @@ const addList = () => {
         />
       </div>
       <!-- <hr class="w-3/4 mx-auto dark:gray-100"   /> -->
-      <div class="todo">
+      <div class="todo" >
         <input
           type="text"
           placeholder="Add your todo"
