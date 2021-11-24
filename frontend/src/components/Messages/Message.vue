@@ -1,78 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useMessageStore } from "~/stores/messages";
+const messageStore = useMessageStore();
+</script>
 
 <template>
-  <div
-    class="msg"
-  >
+
+
+
+  <div class="msg" v-for="message in messageStore.messages" :key="message.id">
     <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-      facere velit distinctio expedita nostrum minima magnam, possimus atque
-      vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt
-      iure quia?
-    </p>
-  </div>
-  <div class="msg">
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-    
-    </p>
-  </div>
-  <div
-    class="msg "
-  >
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-      facere velit distinctio expedita nostrum minima magnam, possimus atque
-      vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt
-      iure quia?
-            ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-      facere velit distinctio expedita nostrum minima magnam, possimus atque
-      vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt
-      iure quia?
-    </p>
-  </div>
-  <div class="msg">
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-    
-    </p>
-  </div>
-  <div
-    class="msg"
-  >
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-      facere velit distinctio expedita nostrum minima magnam, possimus atque
-      vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt
-      iure quia?
-    </p>
-  </div>
-  <div class="msg">
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-    
-    </p>
-  </div>
-  <div class="msg">
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-    
-    </p>
-  </div>
-  <div
-    class="msg"
-  >
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-      facere velit distinctio expedita nostrum minima magnam, possimus atque
-      vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt
-      iure quia?
-    </p>
-  </div>
-  <div class="msg">
-    <p>
-      ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-    
+      {{ message.description }}
     </p>
   </div>
 </template>
