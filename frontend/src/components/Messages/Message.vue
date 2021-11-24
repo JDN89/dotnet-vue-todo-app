@@ -10,10 +10,10 @@ console.log(messageStore.getMessages);
     v-for="message in messageStore.getMessages"
     :key="message.id"
   >
-    <h3>{{ message.mTitle }}</h3>
+    <h3>{{ message.title }}</h3>
 
     <p>
-      {{ message.mDescription }}
+      {{ message.description }}
     </p>
   </div>
 </template>

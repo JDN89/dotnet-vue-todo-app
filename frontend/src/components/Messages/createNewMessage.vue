@@ -10,12 +10,33 @@ console.log(isVisible);
 const showHidden = () => {
   isVisible.value = true;
 };
-
+//change id of message and create a message interface
 let message = reactive({
-  id: null,
+  id: 0,
   title: "",
   description: "",
 });
+
+const addMessage = () => {
+  message.id = Math.floor(Math.random() * 100);
+  let copyOfMessage = Object.assign({}, message);
+  if (message.title?.length === 0) {
+    return alert("Please give your message a title");
+  } else if (message.description?.length == 0) {
+    return alert("Your To-Do list has 0 tasks");
+  } else {
+    try {
+      messageStore.addMessage(copyOfMessage);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      message.description = "";
+      message.title = "";
+
+      isVisible.value = false;
+    }
+  }
+};
 </script>
 
 <template>
@@ -72,6 +93,9 @@ let message = reactive({
             "
           />
         </div>
+        <button @click="addMessage" class="float-right">
+          <carbon-add-alt />
+        </button>
       </div>
     </div>
   </div>
