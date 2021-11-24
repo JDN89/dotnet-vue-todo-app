@@ -9,7 +9,7 @@ button:
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 page:
-  home: Hello from the other side
+  home: Say hello to the other side
   login: Login
   logout: Logout
   register: Register

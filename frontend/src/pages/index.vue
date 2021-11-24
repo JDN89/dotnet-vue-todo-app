@@ -1,18 +1,8 @@
-<script setup lang="ts">
-const { t } = useI18n();
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="prose mx-auto py-6">
-    <h2>{{ t("page.home") }}</h2>
-  </div>
-  <MessageBoard/>
-  
-
-  
+  <MessageBoard />
 </template>
-
 
 <route lang="yaml">
 meta:

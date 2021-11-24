@@ -16,7 +16,7 @@ intro:
   whats-your-name: ¿Cómo te llamas?
 not-found: No se ha encontrado
 page:
-  home: Hola desde el otro lado
+  home: Saluda al otro lado
   login: Acceso
   logout: Cerrar sesión
   register: Registrarse
