@@ -2,7 +2,8 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 
 interface Message {
   id: number;
-  description: string;
+  mTitle: string;
+  mDescription: string;
 }
 interface MessageStateInterface {
   messages: Message[];
@@ -13,46 +14,63 @@ export const useMessageStore = defineStore("messages", {
     messages: [
       {
         id: 1,
-        description:
+        mTitle: "Helo",
+        mDescription:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 2,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 3,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 4,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 5,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 6,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 7,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 8,
-        description:
-          "  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, facere velit distinctio expedita nostrum minima magnam, possimus atqu vero consectetur minus nulla beatae aliquam pariatur placeat. Neque sunt iure qui  ipsem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ration ",
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
+      },
+      {
+        id: 9,
+        mTitle: "Helo",
+        mDescription:
+          " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
     ],
   }),
+  getters: {
+    getMessages: (state) => state.messages,
+  },
 });
 
 if (import.meta.hot)

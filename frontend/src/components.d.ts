@@ -21,6 +21,7 @@ declare module 'vue' {
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonTrashCan: typeof import('~icons/carbon/trash-can')['default']
     CarbonWarning: typeof import("~icons/carbon/warning")["default"];
+    CreateNewMessage: typeof import('./components/Messages/createNewMessage.vue')['default']
     Message: typeof import('./components/Messages/Message.vue')['default']
     MessageBoard: typeof import('./components/Messages/MessageBoard.vue')['default']
     NavBarGuest: typeof import('./components/NavBarGuest.vue')['default']
