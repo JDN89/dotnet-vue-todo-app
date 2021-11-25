@@ -1,13 +1,8 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-
-interface Message {
-  id: number | undefined;
-  title: string;
-  description: string;
-}
+import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
-  messages: Message[];
+  messages: MessageInterface[];
 }
 
 export const useMessageStore = defineStore("messages", {
@@ -74,7 +69,7 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================
-    async addMessage(message: Message) {
+    async addMessage(message: MessageInterface) {
       console.log(message);
     },
   },

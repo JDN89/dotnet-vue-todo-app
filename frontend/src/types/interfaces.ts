@@ -27,3 +27,9 @@ export interface LogInUserInterface {
   email: string;
   password: string;
 }
+
+export interface MessageInterface {
+  id: number | undefined;
+  title: string;
+  description: string;
+}

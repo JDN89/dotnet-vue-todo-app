@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
+import { MessageInterface } from "~/types/interfaces";
+
 const messageStore = useMessageStore();
-const changeMessage = (message: any) => {};
+const changeMessage = (message: MessageInterface) => {};
 </script>
 
 <template>
@@ -24,6 +26,8 @@ const changeMessage = (message: any) => {};
       {{ message.description }}
     </p>
   </div>
+
+  <div class="updateModal"></div>
 </template>
 
 <route lang="yaml">
