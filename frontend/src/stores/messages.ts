@@ -3,10 +3,12 @@ import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
+  showModal: boolean;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
+    showModal: false,
     messages: [
       {
         id: 1,
@@ -69,6 +71,13 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================
+    async changeMessage(message: MessageInterface) {
+      console.log(message);
+      this.showModal = true;
+    },
+    // =========================================
+    // ===========   ADDMESSAGE  ===============
+    // =========================================
     async addMessage(message: MessageInterface) {
       console.log(message);
     },
@@ -76,6 +85,7 @@ export const useMessageStore = defineStore("messages", {
 
   getters: {
     getMessages: (state) => state.messages,
+    getShowModal: (state) => state.showModal,
   },
 });
 

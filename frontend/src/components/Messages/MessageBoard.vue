@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import Message from "./message/Message.vue";
+import UpdateMessage from "./message/UpdateMessage.vue";
+import { useMessageStore } from "~/stores/messages";
+
+const messageStore = useMessageStore();
+console.log(messageStore.getShowModal);
 </script>
 
 <template>
@@ -14,8 +19,9 @@ import Message from "./message/Message.vue";
     "
   >
     <Message />
-
-
+  </div>
+  <div>
+    <UpdateMessage v-if="messageStore.getShowModal" />
   </div>
 </template>
 

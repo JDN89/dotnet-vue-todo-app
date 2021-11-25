@@ -3,7 +3,9 @@ import { useMessageStore } from "~/stores/messages";
 import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
-const changeMessage = (message: MessageInterface) => {};
+const changeMessage = (message: MessageInterface) => {
+  messageStore.changeMessage(message)
+};
 </script>
 
 <template>

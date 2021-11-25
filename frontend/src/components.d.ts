@@ -33,7 +33,7 @@ declare module 'vue' {
     TodoList: typeof import('./components/todos/TodoList.vue')['default']
     Todos: typeof import("./components/todos/Todos.vue")["default"];
     updateMessage: typeof import('./components/Messages/message/updateMessage.vue')['default']
-    UpdateMessage: typeof import('./components/Messages/message/updateMessage.vue')['default']
+    UpdateMessage: typeof import('./components/Messages/message/UpdateMessage.vue')['default']
   }
 }
 
