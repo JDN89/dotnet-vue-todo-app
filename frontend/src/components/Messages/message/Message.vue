@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
 const messageStore = useMessageStore();
-const updateMessage = (message: any) => {
+const changeMessage = (message: any) => {
   console.log(message);
 };
 </script>
@@ -13,7 +13,7 @@ const updateMessage = (message: any) => {
     :key="message.id"
   >
     <div class="header">
-      <button @click="updateMessage(message)" class="float-right">
+      <button @click="changeMessage(message)" class="float-right">
         <carbon-edit class="float-right" />
       </button>
 
