@@ -73,7 +73,11 @@ export const useMessageStore = defineStore("messages", {
     // ===========   SHOWMODAL  ===============
     // =========================================
     async showModal() {
-      this.isVisible = true;
+      if (this.isVisible) {
+        this.isVisible = false;
+      } else {
+        this.isVisible = true;
+      }
     },
 
     // =========================================
