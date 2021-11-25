@@ -2,7 +2,6 @@
 const { t } = useI18n();
 import { useMessageStore } from "~/stores/messages";
 const messageStore = useMessageStore();
-console.log(messageStore);
 
 let isVisible = ref(false);
 console.log(isVisible);
@@ -54,7 +53,8 @@ const addMessage = () => {
       v-if="!isVisible"
       class="
         prose
-        list hover
+        list
+        hover
         relative
         min-w-xs
         bg-gray-600
@@ -80,7 +80,7 @@ const addMessage = () => {
           "
         />
         <div class="description">
-          <input
+          <textarea
             type="text"
             placeholder="Log"
             v-model="message.description"

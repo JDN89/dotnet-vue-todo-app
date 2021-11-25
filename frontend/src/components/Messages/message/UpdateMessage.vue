@@ -1,7 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import { useMessageStore } from "~/stores/messages";
+const messageStore = useMessageStore();
+
+</script>
 
 <template>
-  <p>SHOW MEEEEE</p>
+  <div v-if="messageStore.getShowModal">
+    <p>SHOW MEEEEE</p>
+  </div>
+
 </template>
 
 <route lang="yaml">
