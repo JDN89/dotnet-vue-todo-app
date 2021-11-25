@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Message from "./Message.vue";
+import Message from "./message/Message.vue";
 </script>
 
 <template>
@@ -14,6 +14,7 @@ import Message from "./Message.vue";
     "
   >
     <Message />
+    
   </div>
 </template>
 

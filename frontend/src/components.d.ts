@@ -21,8 +21,8 @@ declare module 'vue' {
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonTrashCan: typeof import('~icons/carbon/trash-can')['default']
     CarbonWarning: typeof import("~icons/carbon/warning")["default"];
-    CreateNewMessage: typeof import('./components/Messages/createNewMessage.vue')['default']
-    Message: typeof import('./components/Messages/Message.vue')['default']
+    CreateNewMessage: typeof import('./components/Messages/message/createNewMessage.vue')['default']
+    Message: typeof import('./components/Messages/message/Message.vue')['default']
     MessageBoard: typeof import('./components/Messages/MessageBoard.vue')['default']
     NavBarGuest: typeof import('./components/NavBarGuest.vue')['default']
     NavBarUser: typeof import('./components/NavBarUser.vue')['default']
@@ -31,6 +31,7 @@ declare module 'vue' {
     TheHeader: typeof import("./components/TheHeader.vue")["default"];
     TodoList: typeof import('./components/todos/TodoList.vue')['default']
     Todos: typeof import("./components/todos/Todos.vue")["default"];
+    UpdateMessage: typeof import('./components/Messages/message/updateMessage.vue')['default']
   }
 }
 

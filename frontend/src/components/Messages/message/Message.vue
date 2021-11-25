@@ -9,6 +9,7 @@ console.log(messageStore.getMessages);
     class="msg prose"
     v-for="message in messageStore.getMessages"
     :key="message.id"
+    
   >
     <h3>{{ message.title }}</h3>
 

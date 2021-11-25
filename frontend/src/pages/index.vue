@@ -2,9 +2,11 @@
 
 <template>
   <MessageBoard />
-</template>
 
+</template>
+s
 <route lang="yaml">
 meta:
   layout: default
-</route>
+</route>s
+s
