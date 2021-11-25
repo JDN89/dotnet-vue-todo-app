@@ -54,7 +54,7 @@ const addMessage = () => {
       v-if="!isVisible"
       class="
         prose
-        list
+        list hover
         relative
         min-w-xs
         bg-gray-600

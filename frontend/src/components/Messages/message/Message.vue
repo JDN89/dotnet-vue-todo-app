@@ -1,17 +1,26 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
 const messageStore = useMessageStore();
-console.log(messageStore.getMessages);
+const updateMessage = (message: any) => {
+  console.log(message);
+};
 </script>
 
 <template>
   <div
-    class="msg prose"
+    class="msg relative"
     v-for="message in messageStore.getMessages"
     :key="message.id"
-    
   >
-    <h3>{{ message.title }}</h3>
+    <div class="header">
+      <button @click="updateMessage(message)" class="float-right">
+        <carbon-edit class="float-right" />
+      </button>
+
+      <div class="prose">
+        <h3>{{ message.title }}</h3>
+      </div>
+    </div>
 
     <p>
       {{ message.description }}
@@ -23,3 +32,9 @@ console.log(messageStore.getMessages);
 meta:
   layout: default
 </route>
+
+<style scoped>
+h3 {
+  margin: 0em;
+}
+</style>

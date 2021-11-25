@@ -43,7 +43,7 @@ html.dark {
 }
 
 .msg {
-  @apply m-7  p-2 
+  @apply m-3  p-2 
   overflow-hidden
 content-center   
 mx-auto
@@ -60,11 +60,15 @@ max-w-xs
   dark:text-gray-200
   dark:border-1 dark:border-gray-600
   border-1 border-black
-  rounded-md
-  cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-700 hover:border-teal-700
-    transform transition duration-500 sm:hover:scale-115;
+  rounded-md;
+  
+}
+.hover {
+  @apply cursor-pointer select-none
+  opacity-75 transition duration-200 ease-in-out
+  hover:opacity-100 hover:text-teal-700 hover:border-teal-700
+  transform transition duration-500 sm:hover:scale-115;
+
 }
 
 .list {
@@ -81,11 +85,8 @@ max-w-xs
   dark:text-gray-300
   dark:border-1 dark:border-gray-600
   border-1 border-black
-  rounded-md
-  cursor-pointer select-none
-  opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 hover:text-teal-700 hover:border-teal-700
-  transform transition duration-500 sm:hover:scale-115;
+  rounded-md;
+ 
 }
 
 .hr {

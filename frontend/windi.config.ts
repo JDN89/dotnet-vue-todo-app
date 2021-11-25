@@ -43,7 +43,8 @@ export default defineConfig({
             em: { color: "inherit" },
             h1: { color: "inherit" },
             h2: { color: "inherit" },
-            h3: { color: "inherit" },
+            h3: { color: "inherit"},
+            
             h4: { color: "inherit" },
             code: { color: "inherit" },
           },

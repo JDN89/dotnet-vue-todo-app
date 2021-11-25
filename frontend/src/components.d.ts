@@ -10,6 +10,7 @@ declare module 'vue' {
     CarbonCheckbox: typeof import('~icons/carbon/checkbox')['default']
     CarbonCheckboxChecked: typeof import('~icons/carbon/checkbox-checked')['default']
     CarbonDicomOverlay: typeof import("~icons/carbon/dicom-overlay")["default"];
+    CarbonEdit: typeof import('~icons/carbon/edit')['default']
     CarbonGroupAccount: typeof import('~icons/carbon/group-account')['default']
     CarbonGroupLogout: typeof import("~icons/carbon/group-logout")["default"];
     CarbonLanguage: typeof import('~icons/carbon/language')['default']
