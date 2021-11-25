@@ -3,12 +3,12 @@ import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
-  showModal: boolean;
+  isVisible: boolean;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
-    showModal: false,
+    isVisible: false,
 
     messages: [
       {
@@ -70,10 +70,10 @@ export const useMessageStore = defineStore("messages", {
 
   actions: {
     // =========================================
-    // ===========   CHANGEMESSAGE  ===============
+    // ===========   SHOWMODAL  ===============
     // =========================================
-    async changeMessage(message: MessageInterface) {
-      this.showModal = true;
+    async showModal() {
+      this.isVisible = true;
     },
 
     // =========================================
@@ -86,7 +86,7 @@ export const useMessageStore = defineStore("messages", {
 
   getters: {
     getMessages: (state) => state.messages,
-    getShowModal: (state) => state.showModal,
+    getShowModal: (state) => state.isVisible,
   },
 });
 
