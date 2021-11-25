@@ -3,12 +3,18 @@ import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
+  updateMessage: MessageInterface;
   showModal: boolean;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
     showModal: false,
+    updateMessage: {
+      title: "title",
+      description: "description",
+      id: undefined,
+    },
     messages: [
       {
         id: 1,
@@ -69,10 +75,12 @@ export const useMessageStore = defineStore("messages", {
 
   actions: {
     // =========================================
-    // ===========   ADDMESSAGE  ===============
+    // ===========   UPDATEMESSAGE  ===============
     // =========================================
     async changeMessage(message: MessageInterface) {
-      console.log(message);
+      this.updateMessage.title = message.title;
+      this.updateMessage.description = message.description;
+      this.updateMessage.id = message.id;
       this.showModal = true;
     },
     // =========================================
