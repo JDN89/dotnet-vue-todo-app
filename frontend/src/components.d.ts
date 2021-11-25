@@ -32,6 +32,7 @@ declare module 'vue' {
     TheHeader: typeof import("./components/TheHeader.vue")["default"];
     TodoList: typeof import('./components/todos/TodoList.vue')['default']
     Todos: typeof import("./components/todos/Todos.vue")["default"];
+    updateMessage: typeof import('./components/Messages/message/updateMessage.vue')['default']
     UpdateMessage: typeof import('./components/Messages/message/updateMessage.vue')['default']
   }
 }

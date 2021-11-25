@@ -14,7 +14,8 @@ import Message from "./message/Message.vue";
     "
   >
     <Message />
-    
+
+
   </div>
 </template>
 

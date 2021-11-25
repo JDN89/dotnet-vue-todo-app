@@ -8,17 +8,10 @@ interface Message {
 
 interface MessageStateInterface {
   messages: Message[];
-  changedMessage: Message;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
-    changedMessage: {
-      id: undefined,
-      title: "",
-      description: "",
-    },
-
     messages: [
       {
         id: 1,
@@ -78,13 +71,6 @@ export const useMessageStore = defineStore("messages", {
   }),
 
   actions: {
-    // =========================================
-    // ===========   CHANGEMESSAGE  ===============
-    // =========================================
-    async changeMessage(message: Message) {
-      console.log(message);
-    },
-
     // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================

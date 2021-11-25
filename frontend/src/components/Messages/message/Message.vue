@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
 const messageStore = useMessageStore();
-const changeMessage = (message: any) => {
-  console.log(message);
-};
+const changeMessage = (message: any) => {};
 </script>
 
 <template>
