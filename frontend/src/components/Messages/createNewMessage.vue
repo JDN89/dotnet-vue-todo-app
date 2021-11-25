@@ -69,7 +69,7 @@ const addMessage = () => {
       <div class="title">
         <input
           type="text"
-          placeholder="title"
+          placeholder="Title"
           v-model="message.title"
           class="
             transition
@@ -82,7 +82,7 @@ const addMessage = () => {
         <div class="description">
           <input
             type="text"
-            placeholder="say something"
+            placeholder="Log"
             v-model="message.description"
             class="
               transition
