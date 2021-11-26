@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
-// import { MessageInterface } from "~/types/interfaces";
+import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
-const showModal = () => {
+const emit = defineEmits(["changeMessage"]);
+const changeMessage = (message: MessageInterface) => {
   messageStore.showModal();
+
+  emit("changeMessage", message);
 };
 </script>
 
@@ -15,7 +18,7 @@ const showModal = () => {
     :key="message.id"
   >
     <div class="header">
-      <button @click="showModal()" class="float-right">
+      <button @click="changeMessage(message)" class="float-right">
         <carbon-edit class="float-right" />
       </button>
 
@@ -29,7 +32,7 @@ const showModal = () => {
     </p>
   </div>
 
-  <div class="updateModal"></div>
+  <div class="updateModal "></div>
 </template>
 
 <route lang="yaml">
