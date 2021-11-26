@@ -42,7 +42,7 @@ if (messageStore.getChangedMessage) {
             @click="messageStore.updateMessage(messageToChange)"
             class="float-right"
           >
-            <carbon-edit class="float-right" />
+            <carbon-upload class="float-right" />
           </button>
 
           <input
