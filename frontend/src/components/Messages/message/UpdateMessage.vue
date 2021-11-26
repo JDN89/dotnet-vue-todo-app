@@ -1,16 +1,8 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
-import { MessageInterface } from "~/types/interfaces";
+// import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
-
-const props = defineProps<{
-  changeMessage: MessageInterface;
-}>();
-
-const { changeMessage } = toRefs(props);
-
-console.log(changeMessage.value.title);
 </script>
 
 <template>
@@ -45,7 +37,17 @@ console.log(changeMessage.value.title);
             <carbon-edit class="float-right" />
           </button>
 
-          <p>SHOW MEEEEE</p>
+          <input
+            type="text"
+            placeholder="Title"
+            class="
+              transition
+              duration-500
+              bg-gray-100
+              dark:bg-dark-200
+              focus:outline-none
+            "
+          />
 
           <textarea
             type="text"

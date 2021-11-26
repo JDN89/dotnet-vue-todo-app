@@ -85,6 +85,17 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     async addMessage(message: MessageInterface) {
       console.log(message);
+      
+      
+    },
+    // =========================================
+    // ===========   DELETEMESSAGE  ===============
+    // =========================================
+    async deleteMessage(message: MessageInterface) {
+      console.log(message);
+      this.isVisible = false;
+      console.log("delete");
+      
     },
   },
 

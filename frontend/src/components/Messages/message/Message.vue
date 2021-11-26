@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
-import { MessageInterface } from "~/types/interfaces";
+// import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
-const emit = defineEmits(["updateMessage"]);
-const changeMessage = (message: MessageInterface) => {
-  messageStore.showModal();
-
-  emit("updateMessage", message);
-};
 </script>
 
 <template>
@@ -18,7 +12,7 @@ const changeMessage = (message: MessageInterface) => {
     :key="message.id"
   >
     <div class="header">
-      <button @click="changeMessage(message)" class="float-right">
+      <button @click="messageStore.showModal" class="float-right">
         <carbon-edit class="float-right" />
       </button>
 
