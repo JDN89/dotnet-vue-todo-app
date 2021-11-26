@@ -81,7 +81,7 @@ content-center
 .hover {
   @apply cursor-pointer select-none
   opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 dark:hover:border-gray-200
+  hover:opacity-100 
   transform transition duration-500 sm:hover:scale-115;
 }
 
