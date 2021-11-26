@@ -74,17 +74,6 @@ export const useMessageStore = defineStore("messages", {
 
   actions: {
     // =========================================
-    // ===========   SHOWMODAL  ===============
-    // =========================================
-    async showModal() {
-      if (this.isVisible) {
-        this.isVisible = false;
-      } else {
-        this.isVisible = true;
-      }
-    },
-
-    // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================
     async addMessage(message: MessageInterface) {
