@@ -1,13 +1,17 @@
+import { thisExpression } from "@babel/types";
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
   isVisible: boolean;
+  changedMessage: MessageInterface | null;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
+    changedMessage: null,
+
     isVisible: false,
 
     messages: [
@@ -85,8 +89,6 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     async addMessage(message: MessageInterface) {
       console.log(message);
-      
-      
     },
     // =========================================
     // ===========   DELETEMESSAGE  ===============
@@ -95,8 +97,20 @@ export const useMessageStore = defineStore("messages", {
       console.log(message);
       this.isVisible = false;
       console.log("delete");
-      
     },
+    // =========================================
+    // ===========   CHANGEMESSAGE  ===============
+    // =========================================
+    async changeMessage(message: MessageInterface) {
+      this.isVisible = true;
+      this.changedMessage = message;
+
+      console.log(this.changedMessage);
+    },
+
+    // =========================================
+    // ===========   UPDATEMESSAGE  ===============
+    // =========================================
   },
 
   getters: {

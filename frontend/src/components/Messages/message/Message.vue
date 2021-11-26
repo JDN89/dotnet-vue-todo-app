@@ -12,7 +12,7 @@ const messageStore = useMessageStore();
     :key="message.id"
   >
     <div class="header">
-      <button @click="messageStore.showModal" class="float-right">
+      <button @click="messageStore.changeMessage(message)" class="float-right">
         <carbon-edit class="float-right" />
       </button>
 
