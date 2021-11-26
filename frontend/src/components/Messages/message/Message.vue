@@ -3,11 +3,11 @@ import { useMessageStore } from "~/stores/messages";
 import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
-const emit = defineEmits(["changeMessage"]);
+const emit = defineEmits(["updateMessage"]);
 const changeMessage = (message: MessageInterface) => {
   messageStore.showModal();
 
-  emit("changeMessage", message);
+  emit("updateMessage", message);
 };
 </script>
 
@@ -32,7 +32,7 @@ const changeMessage = (message: MessageInterface) => {
     </p>
   </div>
 
-  <div class="updateModal "></div>
+  <div class="updateModal"></div>
 </template>
 
 <route lang="yaml">
