@@ -55,11 +55,12 @@ max-w-xs
   min-h-32
   text-black
   bg-gray-100
-  dark: bg-dark-200
+  dark:bg-dark-700
   
-  dark:text-gray-200
-  dark:border-1 dark:border-gray-600
+  dark:text-gray-300
+  dark:border-3 dark:border-gray-500
   border-1 border-black
+
   rounded-md;
 }
 .update-msg {
@@ -80,7 +81,7 @@ content-center
 .hover {
   @apply cursor-pointer select-none
   opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 hover:text-teal-700 hover:border-teal-700
+  hover:opacity-100 dark:hover:border-gray-200
   transform transition duration-500 sm:hover:scale-115;
 }
 

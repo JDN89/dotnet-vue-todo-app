@@ -65,7 +65,7 @@ const addMessage = () => {
       <h3>{{ t("page.home") }}</h3>
     </div>
 
-    <div v-else class="list relative min-w-xs">
+    <div v-else class=" hover list relative min-w-xs">
       <div class="title">
         <input
           type="text"
@@ -90,6 +90,7 @@ const addMessage = () => {
               bg-gray-100
               dark:bg-dark-200
               focus:outline-none
+              overflow-hidden
             "
           />
         </div>

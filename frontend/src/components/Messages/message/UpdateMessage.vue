@@ -16,7 +16,19 @@ const messageStore = useMessageStore();
       items-center
     "
   >
-    <div class=" update-msg w-full m-1 p-2 max-h-52 min-h-22 sm:max-w-70 overflow-hidden sm:mx-auto">
+    <div
+      class="
+        update-msg
+        w-full
+        m-1
+        p-2
+        max-h-52
+        min-h-22
+        sm:max-w-70
+        overflow-hidden
+        sm:mx-auto
+      "
+    >
       <div v-if="messageStore.getShowModal">
         <div class="header">
           <button @click="messageStore.showModal" class="float-right">
@@ -24,7 +36,24 @@ const messageStore = useMessageStore();
           </button>
 
           <p>SHOW MEEEEE</p>
+
+          <textarea
+            type="text"
+            placeholder="SHOOOWWWW MEEE"
+            class="
+            
+              transition
+              duration-500
+              bg-gray-100
+              dark:bg-dark-200
+              focus:outline-none
+              overflow-hidden
+            "
+          ></textarea>
         </div>
+        <button @click="messageStore.showModal" class="float-right">
+          <carbon-trash-can />
+        </button>
       </div>
     </div>
   </div>

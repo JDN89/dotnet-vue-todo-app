@@ -13,7 +13,7 @@ const changeMessage = (message: MessageInterface) => {
 
 <template>
   <div
-    class="msg relative"
+    class="msg hover relative"
     v-for="message in messageStore.getMessages"
     :key="message.id"
   >
