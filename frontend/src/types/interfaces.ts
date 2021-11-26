@@ -29,7 +29,7 @@ export interface LogInUserInterface {
 }
 
 export interface MessageInterface {
-  id: number | undefined;
+  id: number;
   title: string;
   description: string;
 }

@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
-// import { MessageInterface } from "~/types/interfaces";
+import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
+
+let messageToChange: MessageInterface;
+if (messageStore.getChangedMessage) {
+  messageToChange = messageStore.getChangedMessage;
+}
 </script>
 
 <template>
@@ -33,13 +38,17 @@ const messageStore = useMessageStore();
     >
       <div v-if="messageStore.getShowModal">
         <div class="header">
-          <button @click="messageStore.showModal" class="float-right">
+          <button
+            @click="messageStore.updateMessage(messageToChange)"
+            class="float-right"
+          >
             <carbon-edit class="float-right" />
           </button>
 
           <input
             type="text"
             placeholder="Title"
+            v-model="messageToChange.title"
             class="
               transition
               duration-500
@@ -52,6 +61,7 @@ const messageStore = useMessageStore();
           <textarea
             type="text"
             placeholder="SHOOOWWWW MEEE"
+            v-model="messageToChange.description"
             class="
               transition
               duration-500
@@ -62,7 +72,10 @@ const messageStore = useMessageStore();
             "
           ></textarea>
         </div>
-        <button @click="messageStore.showModal" class="float-right">
+        <button
+          @click="messageStore.deleteMessage(messageToChange)"
+          class="float-right"
+        >
           <carbon-trash-can />
         </button>
       </div>

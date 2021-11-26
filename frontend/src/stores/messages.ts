@@ -1,16 +1,19 @@
-import { thisExpression } from "@babel/types";
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface } from "../types/interfaces";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
   isVisible: boolean;
-  changedMessage: MessageInterface | null;
+  changedMessage: MessageInterface;
 }
 
 export const useMessageStore = defineStore("messages", {
   state: (): MessageStateInterface => ({
-    changedMessage: null,
+    changedMessage: {
+      title: "",
+      id: 0,
+      description: "",
+    },
 
     isVisible: false,
 
@@ -100,11 +103,16 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   UPDATEMESSAGE  ===============
     // =========================================
+    async updateMessage(message: MessageInterface) {
+      this.isVisible = false;
+      console.log(message);
+    },
   },
 
   getters: {
     getMessages: (state) => state.messages,
     getShowModal: (state) => state.isVisible,
+    getChangedMessage: (state) => state.changedMessage,
   },
 });
 
