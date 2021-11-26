@@ -4,8 +4,16 @@ import { MessageInterface } from "~/types/interfaces";
 
 import { useMessageStore } from "~/stores/messages";
 
+let changeMessage: MessageInterface = reactive({
+  id: 0,
+  title: "helo",
+  description: "",
+});
+
 const onUpdateMessage = (message: MessageInterface) => {
   console.log(message);
+  changeMessage = message;
+  console.log(changeMessage);
 };
 
 const messageStore = useMessageStore();
@@ -26,7 +34,7 @@ console.log(messageStore.getShowModal);
     <Message @update-message="onUpdateMessage" />
   </div>
   <div>
-    <UpdateMessage v-if="messageStore.getShowModal" />
+    <UpdateMessage :changeMessage="changeMessage" v-if="messageStore.getShowModal" />
   </div>
 </template>
 

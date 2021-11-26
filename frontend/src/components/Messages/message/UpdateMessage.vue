@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
+import { MessageInterface } from "~/types/interfaces";
+
 const messageStore = useMessageStore();
+
+const props = defineProps<{
+  changeMessage: MessageInterface;
+}>();
+
+const { changeMessage } = toRefs(props);
+
+console.log(changeMessage.value.title);
 </script>
 
 <template>
@@ -41,7 +51,6 @@ const messageStore = useMessageStore();
             type="text"
             placeholder="SHOOOWWWW MEEE"
             class="
-            
               transition
               duration-500
               bg-gray-100
