@@ -6,7 +6,7 @@ interface TodoStateInterface {
 }
 
 export const useUserStore = defineStore("user", {
-  state: () => ({
+  state: (): TodoStateInterface => ({
     users: [
       {
         id: 0,
@@ -21,6 +21,9 @@ export const useUserStore = defineStore("user", {
     ],
   }),
   actions: {},
+  getters: {
+    getUsers: (state) => state.users,
+  },
 });
 
 if (import.meta.hot)
