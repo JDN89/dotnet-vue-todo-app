@@ -1,34 +1,27 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from "pinia";
+import { UsersInterface } from "../types/interfaces";
 
-export const useUserStore = defineStore('user', () => {
-  /**
-   * Current named of the user.
-   */
-  const savedName = ref('')
-  const previousNames = ref(new Set<string>())
+interface TodoStateInterface {
+  users: UsersInterface[];
+}
 
-  const usedNames = computed(() => Array.from(previousNames.value))
-  const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
-
-  /**
-   * Changes the current name of the user and saves the one that was used
-   * before.
-   *
-   * @param name - new name to set
-   */
-  function setNewName(name: string) {
-    if (savedName.value)
-      previousNames.value.add(savedName.value)
-
-    savedName.value = name
-  }
-
-  return {
-    setNewName,
-    otherNames,
-    savedName,
-  }
-})
+export const useUserStore = defineStore("user", {
+  state: () => ({
+    users: [
+      {
+        id: 0,
+        email: "Jogi@sien.com",
+        password: "123456",
+      },
+      {
+        id: 1,
+        email: "jan@niels.com",
+        password: "123456",
+      },
+    ],
+  }),
+  actions: {},
+});
 
 if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot));
