@@ -60,7 +60,7 @@ const onSubmit = handleSubmit(userStore.registerUser);
         <Field
           name="confirmPassword"
           type="password"
-          placeholder="confirmPassword"
+          placeholder="Confirm Password"
           class="field"
         />
         <ErrorMessage name="confirmPassword" class="errorMessage" />
