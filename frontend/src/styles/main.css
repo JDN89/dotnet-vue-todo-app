@@ -64,9 +64,7 @@ max-w-xs
   rounded-md;
 }
 .update-msg {
-  @apply 
-
-  overflow-hidden
+  @apply overflow-hidden
 content-center   
 
   text-black
@@ -104,4 +102,28 @@ max-w-xs
 
 .hr {
   @apply w-3/4 mx-auto transition duration-500 my-2;
+}
+
+.field {
+  @apply m-1
+  min-w-xs 
+  mx-auto
+  text-black
+  bg-gray-100
+  dark: bg-dark-200
+  overflow-hidden
+  dark:text-gray-300
+  dark:border-1 dark:border-gray-600
+  border-1 border-black
+  rounded-md
+  text-left;
+}
+
+.errorMessage {
+  @apply text-red-900 bg-red-100 min-w-xs 
+  m-1
+  border-1 border-red-900 rounded-md mx-auto
+  dark:text-red-300 dark:bg-red-900  
+  dark:border-1 dark:border-red-300 darkd:rounded-md
+  text-left;
 }

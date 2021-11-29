@@ -2,12 +2,15 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 import { UsersInterface } from "../types/interfaces";
 
 interface TodoStateInterface {
-  users: UsersInterface[];
+  usersData: UsersInterface[];
+  userData: UsersInterface | null;
 }
 
 export const useUserStore = defineStore("user", {
   state: (): TodoStateInterface => ({
-    users: [
+    userData: null,
+
+    usersData: [
       {
         id: 0,
         email: "Jogi@sien.com",
@@ -20,9 +23,14 @@ export const useUserStore = defineStore("user", {
       },
     ],
   }),
-  actions: {},
+  actions: {
+    registerUser() {
+      console.log(this.userData);
+    },
+  },
   getters: {
-    getUsers: (state) => state.users,
+    getUsers: (state) => state.usersData,
+    getUserData: (state) => state.userData,
   },
 });
 

@@ -7,7 +7,7 @@ button:
   logout: Logout
   register: Register
   toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
+  toggle_langs: ENG > ES
 page:
   home: Say hello to the other side
   login: Login
