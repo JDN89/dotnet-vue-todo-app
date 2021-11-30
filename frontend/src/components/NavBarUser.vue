@@ -13,11 +13,7 @@ const toggleLocales = () => {
 <template>
   <!-- style inherited from mainclass in the layouts folder -->
   <nav class="text-xl mt-6 mb-4">
-    <router-link
-      class="icon-btn mx-2"
-      to="/register"
-      :title="t('button.logout')"
-    >
+    <router-link class="icon-btn mx-2" to="/" :title="t('button.logout')">
       <carbon-logout />
     </router-link>
 
