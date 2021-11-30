@@ -4,10 +4,12 @@ import { UsersInterface } from "../types/interfaces";
 interface TodoStateInterface {
   usersData: UsersInterface[];
   userData: UsersInterface | null;
+  registrationFormIsVisible: boolean;
 }
 
 export const useUserStore = defineStore("user", {
   state: (): TodoStateInterface => ({
+    registrationFormIsVisible: false,
     userData: null,
 
     usersData: [
@@ -26,11 +28,13 @@ export const useUserStore = defineStore("user", {
   actions: {
     registerUser() {
       console.log(this.userData);
+      this.registrationFormIsVisible = true;
     },
   },
   getters: {
     getUsers: (state) => state.usersData,
     getUserData: (state) => state.userData,
+    getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
   },
 });
 

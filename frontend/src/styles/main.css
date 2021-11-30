@@ -29,101 +29,98 @@ html.dark {
 }
 
 .btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
+  @apply rounded cursor-pointer bg-teal-600 text-white
+    py-1 px-4 inline-block
     hover:bg-teal-700
     disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
 }
 
 .icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
+  @apply cursor-pointer opacity-75 transition
+    ease-in-out duration-200 inline-block select-none
     hover:opacity-100 hover:text-teal-700;
   font-size: 0.9em;
 }
 
 .msg {
-  @apply m-8  p-2 
-  overflow-hidden
-content-center   
-mx-auto
-sm:m-3
+  @apply border-black  rounded-md 
+  mx-auto
+max-w-xs   
+bg-gray-100
+border-1
 
-max-w-xs
-  sm:max-w-60
-  max-h-32
-  min-h-32
+m-8
   text-black
-  bg-gray-100
-  dark:bg-dark-700
+  min-h-32
+  max-h-32
+  p-2
+  overflow-hidden
+  content-center
   
-  dark:text-gray-300
+  sm:m-3
+  sm:max-w-60 dark:bg-dark-700
   dark:border-3 dark:border-gray-500
-  border-1 border-black
 
-  rounded-md;
+  dark:text-gray-300;
 }
 .update-msg {
-  @apply overflow-hidden
-content-center   
+  @apply border-black
+rounded-md   
 
-  text-black
   bg-gray-100
-  dark: bg-dark-200
+  border-1
+  text-black overflow-hidden
 
-  dark:text-gray-200
-  dark:border-1 dark:border-gray-600
-  border-1 border-black
-  rounded-md;
+  content-center
+  dark: bg-dark-200 dark:border-1 dark:border-gray-600
+  dark:text-gray-200 ;
 }
 .hover {
-  @apply cursor-pointer select-none
-  opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 
-  transform transition duration-500 sm:hover:scale-115;
+  @apply cursor-pointer opacity-75
+  transform transition ease-in-out duration-200
+  duration-500 
+  select-none hover:opacity-100 sm:hover:scale-115 ;
 }
 
 .list {
-  @apply mt-7  p-2 
+  @apply border-black  rounded-md 
 mx-auto
-sm:m-3
-max-h-60
 max-w-xs
-  sm:max-w-60
+bg-gray-100
+border-1
+  mt-7
   text-black
-  bg-gray-100
-  dark: bg-dark-200
-  overflow-hidden
-  dark:text-gray-300
-  dark:border-1 dark:border-gray-600
-  border-1 border-black
-  rounded-md;
+  max-h-60
+  p-2 overflow-hidden
+  sm:m-3
+  sm:max-w-60
+  dark: bg-dark-200 dark:border-1 dark:border-gray-600
+  dark:text-gray-300 ;
 }
 
 .hr {
-  @apply w-3/4 mx-auto transition duration-500 my-2;
+  @apply mx-auto my-2 transition w-3/4 duration-500;
 }
 
 .field {
-  @apply m-1
-  min-w-xs 
+  @apply border-black
+  rounded-md 
   mx-auto
-  text-black
+  min-w-xs
   bg-gray-100
-  dark: bg-dark-200
-  overflow-hidden
-  dark:text-gray-300
-  dark:border-1 dark:border-gray-600
-  border-1 border-black
-  rounded-md
-  text-left;
+  border-1 m-1
+  text-black
+  text-left
+  overflow-hidden dark: bg-dark-200 dark:border-1
+  dark:border-gray-600 dark:text-gray-300
+  ;
 }
 
 .errorMessage {
-  @apply text-red-900 bg-red-100 min-w-xs 
-  m-1
-  border-1 border-red-900 rounded-md mx-auto
-  dark:text-red-300 dark:bg-red-900  
-  dark:border-1 dark:border-red-300 darkd:rounded-md
-  text-left;
+  @apply rounded-md mx-auto min-w-xs 
+  bg-red-100
+  border-1 border-red-900 m-1 text-left
+  text-red-900 darkd:rounded-md  
+  dark:bg-red-900 dark:border-1 dark:border-red-300
+  dark:text-red-300;
 }

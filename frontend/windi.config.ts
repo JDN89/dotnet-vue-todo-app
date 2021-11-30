@@ -9,19 +9,18 @@ export default defineConfig({
 
   plugins: [typography()],
   variants: {
-    extend: {
-      // ...
+    // extend: {
+    //   // ...
 
-     scale: ['active', 'group-hover','focus']
-
-  }
-},
+    //   // scale: ['active', 'group-hover','focus'],
+    // },
+  },
   theme: {
     extend: {
-      colors:{ dark:{
-       900: " #121212"
-      }
-
+      colors: {
+        dark: {
+          900: " #121212",
+        },
       },
       typography: {
         DEFAULT: {
@@ -43,8 +42,8 @@ export default defineConfig({
             em: { color: "inherit" },
             h1: { color: "inherit" },
             h2: { color: "inherit" },
-            h3: { color: "inherit"},
-            
+            h3: { color: "inherit" },
+
             h4: { color: "inherit" },
             code: { color: "inherit" },
           },

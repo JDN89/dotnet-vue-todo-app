@@ -36,10 +36,14 @@ const onSubmit = handleSubmit(userStore.registerUser);
 </script>
 
 <template>
-  <div class="prose mx-auto min-w-xs max-w-xs mx-auto py-6">
+  <div class="mx-auto min-w-xs max-w-xs py-6 prose ">
     <h2>{{ t("page.register") }}</h2>
 
-    <form @submit="onSubmit" class="flex flex-col ">
+    <form
+      v-if="!userStore.getRegistrationFormIsVisible"
+      @submit="onSubmit"
+      class="flex flex-col"
+    >
       <div class="flex flex-col">
         <Field name="email" type="email" placeholder="Email" class="field" />
 
@@ -68,5 +72,23 @@ const onSubmit = handleSubmit(userStore.registerUser);
 
       <button type="submit">Submit</button>
     </form>
+    <h3
+      class="
+        rounded-md
+        mx-auto
+        min-w-xs
+        bg-green-100 border-1
+        border-green-900
+        m-1
+        text-center
+        text-green-900
+        darkd:rounded-md dark:bg-green-900 dark:border-1
+        dark:border-green-300
+        dark:text-green-300
+      "
+      v-else
+    >
+      Registration Succesfull!
+    </h3>
   </div>
 </template>
