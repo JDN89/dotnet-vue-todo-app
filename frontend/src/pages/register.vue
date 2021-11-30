@@ -72,7 +72,8 @@ const onSubmit = handleSubmit(userStore.registerUser);
 
       <button type="submit">Submit</button>
     </form>
-    <h3
+    <router-link to="login"
+
       class="
         rounded-md
         mx-auto
@@ -88,7 +89,7 @@ const onSubmit = handleSubmit(userStore.registerUser);
       "
       v-else
     >
-      Registration Succesfull!
-    </h3>
+      Registration Succesfull: Login
+    </router-link>
   </div>
 </template>
