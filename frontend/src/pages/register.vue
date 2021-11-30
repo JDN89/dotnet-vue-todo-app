@@ -36,7 +36,7 @@ const onSubmit = handleSubmit(userStore.registerUser);
 </script>
 
 <template>
-  <div class="mx-auto min-w-xs max-w-xs py-6 prose ">
+  <div class="mx-auto min-w-xs max-w-xs py-6 prose">
     <h2>{{ t("page.register") }}</h2>
 
     <form
@@ -72,24 +72,15 @@ const onSubmit = handleSubmit(userStore.registerUser);
 
       <button type="submit">Submit</button>
     </form>
-    <router-link to="login"
-
-      class="
-        rounded-md
-        mx-auto
-        min-w-xs
-        bg-green-100 border-1
-        border-green-900
-        m-1
-        text-center
-        text-green-900
-        darkd:rounded-md dark:bg-green-900 dark:border-1
-        dark:border-green-300
-        dark:text-green-300
-      "
+    <router-link
+      to="login"
+      w:border="1 green-900 dark:green-300"
+      w:text="center green-900 dark:green-300"
+      w:bg="green-100 dark:green-900"
+      class="rounded-md mx-auto min-w-xs"
       v-else
     >
-      Registration Succesfull: Login
+      Registration Succesfull > Login
     </router-link>
   </div>
 </template>
