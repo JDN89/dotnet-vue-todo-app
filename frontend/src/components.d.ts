@@ -7,8 +7,8 @@ declare module 'vue' {
     BaseNavBarGuest: typeof import("./components/BaseNavBarGuest.vue")["default"];
     CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
-    CarbonCheckbox: typeof import("~icons/carbon/checkbox")["default"];
-    CarbonCheckboxChecked: typeof import("~icons/carbon/checkbox-checked")["default"];
+    CarbonCheckbox: typeof import('~icons/carbon/checkbox')['default']
+    CarbonCheckboxChecked: typeof import('~icons/carbon/checkbox-checked')['default']
     CarbonDicomOverlay: typeof import("~icons/carbon/dicom-overlay")["default"];
     CarbonEdit: typeof import('~icons/carbon/edit')['default']
     CarbonGroupAccount: typeof import('~icons/carbon/group-account')['default']
@@ -16,7 +16,7 @@ declare module 'vue' {
     CarbonLanguage: typeof import('~icons/carbon/language')['default']
     CarbonLogin: typeof import('~icons/carbon/login')['default']
     CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
-    CarbonLogout: typeof import("~icons/carbon/logout")["default"];
+    CarbonLogout: typeof import('~icons/carbon/logout')['default']
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonPedestrian: typeof import("~icons/carbon/pedestrian")["default"];
     CarbonSun: typeof import('~icons/carbon/sun')['default']
