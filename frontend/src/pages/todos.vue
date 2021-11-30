@@ -11,6 +11,5 @@ const { t } = useI18n();
 </template>
 
 <route lang="yaml">
-meta:
-  layout: dashboard
+meta: { layout: dashboard, requiresAuth: true }
 </route>

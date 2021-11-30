@@ -1,7 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { UsersInterface, LogInUserInterface } from "../types/interfaces";
 
-
 interface TodoStateInterface {
   usersData: UsersInterface[];
   userData: UsersInterface | null;
@@ -37,15 +36,14 @@ export const useUserStore = defineStore("user", {
     },
     loginUser() {
       console.log(this.loginData);
-      this.isAuthenticated = false;
-     
+      this.isAuthenticated = true;
     },
   },
   getters: {
     getUsers: (state) => state.usersData,
     getUserData: (state) => state.userData,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
-    getIsAuthenticated: (state) => state.isAuthenticated
+    getIsAuthenticated: (state) => state.isAuthenticated,
   },
 });
 

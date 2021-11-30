@@ -2,6 +2,7 @@
 import { useUserStore } from "~/stores/user";
 import { useForm, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const userStore = useUserStore();
@@ -29,6 +30,14 @@ watch(values, (newFormData) => {
 // the store action will only run when the user submits valid form data
 const onSubmit = handleSubmit(userStore.loginUser);
 // resetForm()
+
+const router = useRouter();
+
+// })
+
+const engage = () => {
+  router.replace("todos");
+};
 </script>
 
 <template>
@@ -57,6 +66,7 @@ const onSubmit = handleSubmit(userStore.loginUser);
       </div>
 
       <button type="submit">Submit</button>
+      <button @click="engage">nav to todos</button>
     </form>
   </div>
 </template>
