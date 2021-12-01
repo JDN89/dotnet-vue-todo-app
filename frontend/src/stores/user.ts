@@ -34,9 +34,12 @@ export const useUserStore = defineStore("user", {
       console.log(this.userData);
       this.registrationFormIsVisible = true;
     },
-    loginUser() {
+    async loginUser() {
+      
       console.log(this.loginData);
       this.isAuthenticated = true;
+      return true
+      
     },
   },
   getters: {

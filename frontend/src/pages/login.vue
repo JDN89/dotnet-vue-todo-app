@@ -28,7 +28,16 @@ watch(values, (newFormData) => {
 
 // create a handler to submit the store state
 // the store action will only run when the user submits valid form data
-const onSubmit = handleSubmit(userStore.loginUser);
+const onSubmit = handleSubmit(async () => {
+  const response = await userStore.loginUser();
+  if (response == true) {
+    router.replace({
+      name: "todos",
+      params: { todos: userStore.getUsers[1].id },
+    });
+  }
+});
+
 // resetForm()
 
 const router = useRouter();
