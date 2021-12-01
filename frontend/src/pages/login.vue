@@ -36,7 +36,10 @@ const router = useRouter();
 // })
 
 const engage = () => {
-  router.replace("todos");
+  router.replace({
+    name: "todos",
+    params: { todos: userStore.getUsers[1].id },
+  });
 };
 </script>
 
