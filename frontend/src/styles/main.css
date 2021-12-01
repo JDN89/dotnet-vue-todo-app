@@ -44,12 +44,13 @@ html.dark {
 
 .msg {
   @apply border-black  rounded-md 
+  my-7
   mx-auto
 max-w-xs   
 bg-gray-100
 border-1
 
-m-8
+
   text-black
   min-h-32
   max-h-32
@@ -72,8 +73,7 @@ rounded-md
   text-black overflow-hidden
 
   content-center
-  dark: bg-dark-200 dark:border-1 dark:border-gray-600 dark:text-gray-200
-  ;
+  dark: bg-dark-200 dark:border-1 dark:border-gray-600 dark:text-gray-200;
 }
 .hover {
   @apply cursor-pointer opacity-75
@@ -94,8 +94,7 @@ border-1
   p-2 overflow-hidden
   sm:m-3
   sm:max-w-60
-  dark: bg-dark-200 dark:border-1 dark:border-gray-600 dark:text-gray-300
-  ;
+  dark: bg-dark-200 dark:border-1 dark:border-gray-600 dark:text-gray-300;
 }
 
 .hr {
@@ -112,7 +111,7 @@ border-1
   text-black
   text-left
   overflow-hidden dark: bg-dark-200 dark:border-1 dark:border-gray-600
-  dark:text-gray-300 ;
+  dark:text-gray-300;
 }
 
 .errorMessage {

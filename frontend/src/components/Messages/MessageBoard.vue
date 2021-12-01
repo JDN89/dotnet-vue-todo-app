@@ -13,6 +13,9 @@ const messageStore = useMessageStore();
   </div>
   <div
     class="
+      container
+      flex-col
+      sm:flex-row
       sm:flex
       mx-auto
       sm:flex-wrap sm:flex-grow-0 sm:flex-auto sm:justify-center
