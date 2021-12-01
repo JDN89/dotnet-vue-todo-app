@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { isDark, toggleDark } from "~/composables";
+import { useUserStore } from "~/stores/user";
 
 const { t, availableLocales, locale } = useI18n();
 
@@ -8,12 +9,20 @@ const toggleLocales = () => {
   const locales = availableLocales;
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
 };
+
+const userStore = useUserStore();
+const logout = userStore.logout;
 </script>
 
 <template>
   <!-- style inherited from mainclass in the layouts folder -->
   <nav class="text-xl mt-6 mb-4">
-    <router-link class="icon-btn mx-2" to="/" :title="t('button.logout')">
+    <router-link
+      @click="logout"
+      class="icon-btn mx-2"
+      to="/"
+      :title="t('button.logout')"
+    >
       <carbon-logout />
     </router-link>
 
