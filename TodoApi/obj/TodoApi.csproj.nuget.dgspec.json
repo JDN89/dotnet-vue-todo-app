@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jan/Coding/Projects/dotnet-todo-app/dotnet-todo-app/backend/TodoApi/TodoApi.csproj": {}
+    "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj": {}
   },
   "projects": {
-    "/home/jan/Coding/Projects/dotnet-todo-app/dotnet-todo-app/backend/TodoApi/TodoApi.csproj": {
+    "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jan/Coding/Projects/dotnet-todo-app/dotnet-todo-app/backend/TodoApi/TodoApi.csproj",
+        "projectUniqueName": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
         "projectName": "TodoApi",
-        "projectPath": "/home/jan/Coding/Projects/dotnet-todo-app/dotnet-todo-app/backend/TodoApi/TodoApi.csproj",
+        "projectPath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
         "packagesPath": "/home/jan/.nuget/packages/",
-        "outputPath": "/home/jan/Coding/Projects/dotnet-todo-app/dotnet-todo-app/backend/TodoApi/obj/",
+        "outputPath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jan/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
