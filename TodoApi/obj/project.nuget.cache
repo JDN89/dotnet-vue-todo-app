@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "t45sOYkoiLDifxusjpLyfC0cOV1Urc/MMXkaXBBndPcV7bjNejkVVo7NV90Yn2ufK/rW2P2VW/NDyzPvn2Ed4w==",
+  "success": true,
+  "projectFilePath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
+  "expectedPackageFiles": [
+    "/home/jan/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
