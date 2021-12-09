@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "8CReh9tMiBAXsUqIACeI1i03fHcf2FiZ68pHGZ8HSSHTaxdl5+waW3hjyz3BWYVzIsY2cFo9tSEyDREae66CuQ==",
+  "dgSpecHash": "qqpTEAcfr5wUmqABrZnSkajrv7bznGrVlBo5m0JQ3j9/2IK6yJSNjg1eoRZCQ42c7A2vrL0UFS0RCkh0uw1XFw==",
   "success": true,
   "projectFilePath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
     "/home/jan/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/jan/.nuget/packages/npgsql/6.0.1/npgsql.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "/home/jan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
   ],
   "logs": []
