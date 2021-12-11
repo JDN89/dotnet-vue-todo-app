@@ -1,7 +1,7 @@
 using Dapper;
 using Npgsql;
 using System.ComponentModel.DataAnnotations;
-
+using Carter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,11 @@ builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCarter();
+
 var app = builder.Build();
+
 
 await EnsureDb(app.Services, app.Logger);
 
@@ -26,15 +30,8 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
 
 app.MapSwagger();
 app.UseSwaggerUI();
+app.MapCarter();
 
-
-
-
-app.MapGet("/", () => "Hello World!");
-
-app.MapGet("/hello", async (NpgsqlConnection db) =>
-    await db.QueryAsync<Message>("SELECT * FROM public.message_board"))
-   .WithName("GetAllMessages");
 
 app.Run();
 
@@ -47,10 +44,3 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 
 }
 
-public class Message
-{
-    public int Id { get; set; }
-    [Required]
-    public string? Title { get; set; }
-    public string? Body { get; set; }
-}

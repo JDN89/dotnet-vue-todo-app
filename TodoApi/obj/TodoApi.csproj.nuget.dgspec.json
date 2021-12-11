@@ -53,6 +53,10 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "carter": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
