@@ -26,7 +26,13 @@ public class MessageModule : ICarterModule
         var newMessage = await db.QuerySingleAsync<Message>(
             "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", createdmessage);
 
-        return Results.Created($"/{newMessage.Id}", newMessage);
+        return Results.Created("/", newMessage);
+
+        // underlying returns a  dynamic route with the id of the created message
+        // in my case I don't need created because my / isn't a dynamic route??
+        // return Results.Created($"/{newMessage.Id}", newMessage);
+        // the Results.Ok doesn't take a Url
+        // return Results.Ok( newMessage);
     }
 
 }
