@@ -43,7 +43,7 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{connectionString}'", connectionString);
 
-    using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
+    await using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
 
 }
 
