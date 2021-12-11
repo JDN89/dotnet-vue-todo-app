@@ -91,8 +91,11 @@ export const useMessageStore = defineStore("messages", {
       console.log("delete");
     },
     // =========================================
-    // ===========   CHANGEMESSAGE  ===============
+    // ===========   (TEMPORARY)CHANGEMESSAGE  ===============
     // =========================================
+
+    //this action stores the temporary changed message in store
+    // before it gets send to the backend
     async changeMessage(message: MessageInterface) {
       this.isVisible = true;
       this.changedMessage = message;
@@ -103,6 +106,7 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   UPDATEMESSAGE  ===============
     // =========================================
+    //the changed message gets send to the backend
     async updateMessage(message: MessageInterface) {
       this.isVisible = false;
       console.log(message);
