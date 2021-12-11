@@ -21,9 +21,9 @@ public class MessageModule : ICarterModule
         await db.QueryAsync<Message>("SELECT * FROM public.messages");
 
     // make sure that you use the correct model property names
-    private static async Task<IResult> CreateMessage(CreateMessage createdmessage, NpgsqlConnection db)
+    private static async Task<IResult> CreateMessage(Message createdmessage, NpgsqlConnection db)
     {
-        var newMessage = await db.QuerySingleAsync<CreateMessage>(
+        var newMessage = await db.QuerySingleAsync<Message>(
             "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", createdmessage);
 
         return Results.Created($"/{newMessage.Id}", newMessage);
