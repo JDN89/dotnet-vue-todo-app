@@ -14,6 +14,7 @@ public class MessageModule : ICarterModule
     {
         app.MapGet("/", GetMessages);
         app.MapPost("/", CreateMessage);
+        app.MapDelete("/", DeleteMessage);
 
     }
 
@@ -34,7 +35,11 @@ public class MessageModule : ICarterModule
         // the Results.Ok doesn't take a Url
         // return Results.Ok( newMessage);
     }
-
+    private static async Task<IResult> DeleteMessage(int id, NpgsqlConnection db) =>
+        await db.ExecuteAsync(
+            "DELETE FROM public.messages WHERE id = @id", new { id }) == 1
+            ? Results.NoContent()
+            : Results.NotFound();
 }
 
 ///=================================================================
