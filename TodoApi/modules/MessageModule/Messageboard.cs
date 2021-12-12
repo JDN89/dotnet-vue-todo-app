@@ -15,6 +15,8 @@ public class MessageModule : ICarterModule
         app.MapGet("/", GetMessages);
         app.MapPost("/", CreateMessage);
         app.MapDelete("/", DeleteMessage);
+        app.MapPut("/", UpdateMessage);
+
 
     }
 
@@ -35,12 +37,24 @@ public class MessageModule : ICarterModule
         // the Results.Ok doesn't take a Url
         // return Results.Ok( newMessage);
     }
+
+
+    private static async Task<IResult> UpdateMessage(Message updatedMessage, NpgsqlConnection db)
+    {
+        var newMessage = await db.QuerySingleAsync<Message>(
+            "UPDATE public.messages SET title = @Title, body = @Body WHERE id = @Id RETURNING *", updatedMessage);
+
+        return Results.Created("/", newMessage);
+    }
+
+    // on successfull deletion status code 204 -> no content
     private static async Task<IResult> DeleteMessage(int id, NpgsqlConnection db) =>
         await db.ExecuteAsync(
             "DELETE FROM public.messages WHERE id = @id", new { id }) == 1
             ? Results.NoContent()
             : Results.NotFound();
 }
+
 
 ///=================================================================
 
