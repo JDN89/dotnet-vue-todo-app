@@ -27,15 +27,14 @@ public class TodosModule : ICarterModule
 
     //check udemy cours 44 and 45
 
-    private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db)
+    private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)
     {
-        var createdList = await db.QuerySingleAsync<NewList>(
-            "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", newList);
+        var createdList = await db.QueryAsync<CreatedList>(
+             "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 ", newList);
 
-        return Results.Created("/{userId}", createdList);
-
-
+        return Results.Ok();
     }
+
 
     //quest to ask in google: insert multiple rows into some table for every row in another table: unnest array
 
