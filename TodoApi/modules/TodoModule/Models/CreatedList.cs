@@ -1,6 +1,6 @@
-namespace TodoApi.modules.TodoModule
+namespace TodoApi.modules.TodoModule.Models
 {
-    public class Todo
+    public class NewList
     {
         public int Id { get; set; }
         public int ListID { get; set; }

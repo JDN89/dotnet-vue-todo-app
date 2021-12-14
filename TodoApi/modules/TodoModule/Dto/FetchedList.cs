@@ -1,6 +1,6 @@
 namespace TodoApi.modules.TodoModule.Dto
 {
-    public class NewList
+    public class FetchedList
     {
         public int ListID { get; set; }
         public string? Title { get; set; }
