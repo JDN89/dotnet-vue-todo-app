@@ -1,6 +1,5 @@
 namespace Todos;
 
-
 using Dapper;
 using Npgsql;
 using Carter;
@@ -15,6 +14,7 @@ public class TodosModule : ICarterModule
     {
         app.MapGet("/{userId}", FetchList);
         app.MapPost("/{userId}", CreateList);
+
 
 
 
@@ -36,30 +36,6 @@ public class TodosModule : ICarterModule
     }
 
 
-    //quest to ask in google: insert multiple rows into some table for every row in another table: unnest array
-
-    // PostgreSQL UNNEST() function
-    // Last update on October 20 2021 11:05:11 (UTC/GMT +8 hours)
-    // UNNEST() function
-
-    // This function is used to expand an array to a set of rows.
-
-    //example below value 1 is userID
-    // so i have to unest the todos array
-    //in my case user_id = list_id
-    // subservice_id = todos
-    // same with archived
-
-    // https://stackoverflow.com/questions/20815028/how-do-i-insert-multiple-values-into-a-postgres-table-at-once
-
-    //     CREATE TABLE user_subservices(
-    //   user_id        integer ,
-    //  subservice_id  text
-    // );
-
-
-    // insert into user_subservices(user_id, subservice_id) 
-    // values(1, unnest(array['sfsdfsdf', 'sdfsfdsf', 'sdfsdfsdf']));
 
 };
 

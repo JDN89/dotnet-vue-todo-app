@@ -5,7 +5,7 @@ using Carter;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; Database=postgres; Pooling=true;";
+var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; Database=tododb; Pooling=true;";
 
 builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
