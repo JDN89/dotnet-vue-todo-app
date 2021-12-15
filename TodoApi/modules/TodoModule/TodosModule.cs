@@ -15,7 +15,7 @@ public class TodosModule : ICarterModule
         app.MapGet("/{userId}", FetchList);
         app.MapPost("/{userId}", CreateList);
         app.MapDelete("/{userId}", DeleteList);
-        // app.MapPut("/{userId}", UpdateList);
+        app.MapPut("/{userId}", ArchiveTodo);
 
 
 
@@ -31,7 +31,7 @@ public class TodosModule : ICarterModule
 
     private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)
     {
-        var createdList = await db.QueryAsync<CreatedList>(
+        var createdList = await db.QueryAsync(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 ", newList);
 
         return Results.Ok();
@@ -43,5 +43,15 @@ public class TodosModule : ICarterModule
             "DELETE FROM public.todo_lists WHERE id = @listId", new { listId }) == 1
             ? Results.NoContent()
             : Results.NotFound();
+
+    //delete todo where ListId = todos.list_id
+    // create new archive with todo name
+    private static async Task<IResult> ArchiveTodo(UpdateList archivedTodo, NpgsqlConnection db)
+    {
+        await db.QueryAsync(
+            "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ", archivedTodo);
+        return Results.Ok();
+
+    }
 };
 
