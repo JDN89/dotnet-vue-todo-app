@@ -14,13 +14,15 @@ public class TodosModule : ICarterModule
     {
         app.MapGet("/{userId}", FetchList);
         app.MapPost("/{userId}", CreateList);
+        app.MapDelete("/{userId}", DeleteList);
+        // app.MapPut("/{userId}", UpdateList);
 
 
 
 
     }
 
-
+    //store list ids in the frontend
     private async Task<IEnumerable<FetchedList>> FetchList(int id, NpgsqlConnection db) =>
           await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,ARRAY_AGG(T.todo) as Todos ,ARRAY_AGG(A.archived) as Archived FROM todo_lists L inner join todos T on(L.id = T.list_id)inner join archived_todos A on(L.id = A.list_id) where L.user_id =@id group by L.id, L.title ", new { id });
 
@@ -35,7 +37,11 @@ public class TodosModule : ICarterModule
         return Results.Ok();
     }
 
-
-
+    //Foreign key set delete rule to cascade. List deleted => todos and archived deleted as well
+    private static async Task<IResult> DeleteList(int listId, NpgsqlConnection db) =>
+        await db.ExecuteAsync(
+            "DELETE FROM public.todo_lists WHERE id = @listId", new { listId }) == 1
+            ? Results.NoContent()
+            : Results.NotFound();
 };
 
