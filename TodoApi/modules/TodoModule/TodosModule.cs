@@ -15,7 +15,10 @@ public class TodosModule : ICarterModule
         app.MapGet("/{userId}", FetchList);
         app.MapPost("/{userId}", CreateList);
         app.MapDelete("/{userId}", DeleteList);
-        app.MapPut("/{userId}", ArchiveTodo);
+        app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList");
+        // .ProducesValidationProblem()
+        // .Produces(StatusCodes.Status204NoContent)
+        // .Produces(StatusCodes.Status404NotFound); ;
 
 
 
@@ -32,8 +35,8 @@ public class TodosModule : ICarterModule
     private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)
     {
         var createdList = await db.QueryAsync(
-             "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 ", newList);
-
+             "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 RETURNING* ", newList);
+        Console.WriteLine(createdList);
         return Results.Ok();
     }
 
@@ -44,14 +47,16 @@ public class TodosModule : ICarterModule
             ? Results.NoContent()
             : Results.NotFound();
 
-    //delete todo where ListId = todos.list_id
-    // create new archive with todo name
-    private static async Task<IResult> ArchiveTodo(UpdateList archivedTodo, NpgsqlConnection db)
-    {
-        await db.QueryAsync(
-            "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ", archivedTodo);
-        return Results.Ok();
+    //new {archivetodo doestn work} rewrite code like the above but  isntead of new {archiveTodo} == 2 > archiveTodo ==2 use ExecuteAsync
+    //dapper why does some of the code use the new c\keyword and what is the use of an anonymous type??
+    private static async Task<IResult> ArchiveTodo(UpdateList archivedTodo, NpgsqlConnection db) =>
 
-    }
+        await db.ExecuteAsync(
+            "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ", archivedTodo) == 1
+
+        ? Results.NoContent()
+            : Results.NotFound();
+
+
 };
 
