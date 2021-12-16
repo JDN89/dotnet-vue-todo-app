@@ -16,46 +16,37 @@ public class TodosModule : ICarterModule
         app.MapPost("/{userId}", CreateList);
         app.MapDelete("/{userId}", DeleteList);
         app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList");
-        // .ProducesValidationProblem()
-        // .Produces(StatusCodes.Status204NoContent)
-        // .Produces(StatusCodes.Status404NotFound); ;
-
-
 
 
     }
 
     //store list ids in the frontend
+    // listId necessary for deletelist DeleteList
     private async Task<IEnumerable<FetchedList>> FetchList(int id, NpgsqlConnection db) =>
           await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,ARRAY_AGG(T.todo) as Todos ,ARRAY_AGG(A.archived) as Archived FROM todo_lists L inner join todos T on(L.id = T.list_id)inner join archived_todos A on(L.id = A.list_id) where L.user_id =@id group by L.id, L.title ", new { id });
 
 
-    //check udemy cours 44 and 45
-
     private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)
     {
-        var createdList = await db.QueryAsync(
-             "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 RETURNING* ", newList);
-        Console.WriteLine(createdList);
-        return Results.Ok();
+        var ListId = await db.QuerySingleAsync<int>(
+             "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);
+        return Results.Created($"/{newList.UserId}", ListId);
     }
 
-    //Foreign key set delete rule to cascade. List deleted => todos and archived deleted as well
+    //Foreign key set delete rule to cascade => see db. 
     private static async Task<IResult> DeleteList(int listId, NpgsqlConnection db) =>
         await db.ExecuteAsync(
             "DELETE FROM public.todo_lists WHERE id = @listId", new { listId }) == 1
             ? Results.NoContent()
             : Results.NotFound();
 
-    //new {archivetodo doestn work} rewrite code like the above but  isntead of new {archiveTodo} == 2 > archiveTodo ==2 use ExecuteAsync
-    //dapper why does some of the code use the new c\keyword and what is the use of an anonymous type??
     private static async Task<IResult> ArchiveTodo(UpdateList archivedTodo, NpgsqlConnection db) =>
 
-        await db.ExecuteAsync(
-            "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ", archivedTodo) == 1
+    await db.ExecuteAsync(
+        "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ", archivedTodo) == 1
 
-        ? Results.NoContent()
-            : Results.NotFound();
+    ? Results.NoContent()
+        : Results.NotFound();
 
 
 };
