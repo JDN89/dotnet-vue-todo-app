@@ -4,7 +4,7 @@ namespace MessageBoard;
 using Dapper;
 using Npgsql;
 using Carter;
-using Microsoft.AspNetCore.Mvc;
+
 using TodoApi.modules.MessageModule.models;
 
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
