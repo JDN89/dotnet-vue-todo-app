@@ -28,6 +28,10 @@ export interface LogInUserInterface {
   password: string;
 }
 
+export interface NewMessageInterface {
+  title: string;
+  description: string;
+}
 export interface MessageInterface {
   id: number;
   title: string;

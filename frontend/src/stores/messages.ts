@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { MessageInterface } from "../types/interfaces";
+import { MessageInterface, NewMessageInterface } from "../types/interfaces";
 import axios from "axios";
 
 interface MessageStateInterface {
@@ -80,8 +80,16 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================
-    async addMessage(message: MessageInterface) {
+    async addMessage(message: NewMessageInterface) {
       console.log(message);
+      try {
+        const response = await axios.post(`https://localhost:7126/`, message);
+        if (response.status === 200) {
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
     // =========================================
     // ===========   DELETEMESSAGE  ===============

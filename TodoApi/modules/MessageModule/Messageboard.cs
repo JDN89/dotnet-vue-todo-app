@@ -24,12 +24,13 @@ public class MessageModule : ICarterModule
         await db.QueryAsync<Message>("SELECT * FROM public.messages");
 
     // make sure that you use the correct model property names
-    private static async Task<IResult> CreateMessage(Message createdmessage, NpgsqlConnection db)
+    private static async Task<IResult> CreateMessage(NewMessage newMessage, NpgsqlConnection db)
     {
-        var newMessage = await db.QuerySingleAsync<Message>(
-            "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", createdmessage);
+        Console.WriteLine(newMessage);
+        var createdMessage = await db.QuerySingleAsync<Message>(
+            "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", newMessage);
 
-        return Results.Created("/", newMessage);
+        return Results.Created("/", createdMessage);
 
         // underlying returns a  dynamic route with the id of the created message
         // in my case I don't need created because my / isn't a dynamic route??

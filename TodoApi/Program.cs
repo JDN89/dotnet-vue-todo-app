@@ -3,6 +3,7 @@ using Npgsql;
 using System.ComponentModel.DataAnnotations;
 using Carter;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; Database=tododb; Pooling=true;";
@@ -11,6 +12,7 @@ builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 builder.Services.AddCarter();
 
@@ -30,7 +32,9 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
 
 app.MapSwagger();
 app.UseSwaggerUI();
+app.UseCors();
 app.MapCarter();
+
 
 
 app.Run();
