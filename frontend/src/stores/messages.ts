@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface } from "../types/interfaces";
+import axios from "axios";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
