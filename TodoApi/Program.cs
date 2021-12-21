@@ -12,7 +12,13 @@ builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:4000/");
+    });
+});
 
 builder.Services.AddCarter();
 
@@ -32,7 +38,7 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
 
 app.MapSwagger();
 app.UseSwaggerUI();
-app.UseCors();
+app.UseCors("CorsPolicy");
 app.MapCarter();
 
 
