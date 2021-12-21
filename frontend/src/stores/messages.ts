@@ -83,7 +83,7 @@ export const useMessageStore = defineStore("messages", {
     async addMessage(message: NewMessageInterface) {
       console.log(message);
       try {
-        const response = await axios.post(`https://localhost:7126/`, message);
+        const response = await axios.post("https://localhost:7126/", message);
         if (response.status === 200) {
           console.log(response.data);
         }
