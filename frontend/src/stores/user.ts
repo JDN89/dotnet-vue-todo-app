@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { UsersInterface, LogInUserInterface } from "../types/interfaces";
+import axios from "axios";
 
 interface TodoStateInterface {
   usersData: UsersInterface[];
@@ -30,7 +31,15 @@ export const useUserStore = defineStore("user", {
     ],
   }),
   actions: {
-    registerUser() {
+    async registerUser() {
+      try {
+        const response = await axios.post("http://localhost:5230/register", this.userData);
+        if (response.status === 200) {
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
       console.log(this.userData);
       this.registrationFormIsVisible = true;
     },
