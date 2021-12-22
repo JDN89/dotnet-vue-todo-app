@@ -1,4 +1,13 @@
-// import axios from "axios";
+import axios from "axios";
+
+export default axios.create({
+  baseURL: "http://localhost:5230",
+  headers: {
+    Accept: "application/json",
+    "Content-type": "application/json"
+  }
+});
+
 
 
 
@@ -13,6 +22,7 @@
 //   });
   
 // };
+
 
 
 
