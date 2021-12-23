@@ -1,7 +1,7 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface, NewMessageInterface } from "../types/interfaces";
 import axios from "axios";
-import apiClient from "../composables/EventService"
+import apiClient from "../composables/EventService";
 
 interface MessageStateInterface {
   messages: MessageInterface[];
@@ -84,8 +84,9 @@ export const useMessageStore = defineStore("messages", {
     async addMessage(message: NewMessageInterface) {
       console.log(message);
       try {
-        const response = await apiClient.post("/", message,);
+        const response = await apiClient.post("/", message);
         if (response.status === 200) {
+          //change log to ('success')
           console.log(response.data);
         }
       } catch (error) {
