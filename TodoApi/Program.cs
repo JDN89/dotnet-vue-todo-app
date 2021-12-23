@@ -34,6 +34,14 @@ app.MapSwagger();
 app.UseSwaggerUI();
 app.MapCarter();
 
+app.UseSpa(builder =>
+{
+    if (app.Environment.IsDevelopment())
+    {
+        builder.UseProxyToSpaDevelopmentServer("http://localhost:4000/");
+    }
+
+});
 
 
 app.Run();
