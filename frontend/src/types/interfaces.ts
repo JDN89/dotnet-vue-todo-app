@@ -29,8 +29,8 @@ export interface LogInUserInterface {
 }
 
 export interface NewMessageInterface {
-  title: string;
-  description: string;
+  Title: string;
+  Body: string;
 }
 export interface MessageInterface {
   id: number;
