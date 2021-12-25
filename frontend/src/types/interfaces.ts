@@ -35,5 +35,5 @@ export interface NewMessageInterface {
 export interface MessageInterface {
   id: number;
   title: string;
-  description: string;
+  body: string;
 }
