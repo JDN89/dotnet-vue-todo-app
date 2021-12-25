@@ -4,6 +4,10 @@ import Message from "./message/Message.vue";
 
 import { useMessageStore } from "~/stores/messages";
 
+onBeforeMount(() => {
+  messageStore.fetchMessages();
+});
+
 const messageStore = useMessageStore();
 </script>
 
@@ -15,8 +19,7 @@ const messageStore = useMessageStore();
     class="
       container
       flex-col
-      sm:flex-row
-      sm:flex
+      sm:flex-row sm:flex
       mx-auto
       sm:flex-wrap sm:flex-grow-0 sm:flex-auto sm:justify-center
     "
