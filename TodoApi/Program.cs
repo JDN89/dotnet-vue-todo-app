@@ -13,20 +13,6 @@ builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
-// builder.Services.AddHttpLogging(logging =>
-//     {
-//         // Customize HTTP logging here.
-//         logging.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.ResponseBody;
-//         logging.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestBody;
-//         logging.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.Request;
-
-//         logging.RequestHeaders.Add("My-Request-Header");
-//         logging.ResponseHeaders.Add("My-Response-Header");
-//         logging.MediaTypeOptions.AddText("application/javascript");
-
-//         logging.RequestBodyLogLimit = 4096;
-//         logging.ResponseBodyLogLimit = 4096;
-//     });
 
 builder.Services.AddCarter();
 
@@ -49,16 +35,11 @@ if (app.Environment.IsDevelopment())
 
 
 }
-// DO I NEED TO USE ROUTING AND ENDPOINTS EXTENSIONS WITH DAPPER/
-// app.UseRouting();
+
+//routing and endpoints not necessary
 
 
-// app.UseEndpoints(endpoints =>
-// {
-//     endpoints.MapDefaultControllerRoute();
-// });
-
-// app.UseSpaStaticFiles();s
+// app.UseSpaStaticFiles();
 
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
    .ExcludeFromDescription();
