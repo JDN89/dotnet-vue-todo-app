@@ -61,7 +61,7 @@ if (messageStore.getChangedMessage) {
           <textarea
             type="text"
             placeholder="SHOOOWWWW MEEE"
-            v-model="messageToChange.description"
+            v-model="messageToChange.body"
             class="
               transition
               duration-500

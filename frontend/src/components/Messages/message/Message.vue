@@ -22,7 +22,7 @@ const messageStore = useMessageStore();
     </div>
 
     <p>
-      {{ message.description }}
+      {{ message.body }}
     </p>
   </div>
 

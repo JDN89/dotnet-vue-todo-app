@@ -6,7 +6,6 @@ const { t } = useI18n();
 const messageStore = useMessageStore();
 
 let isVisible = ref(false);
-console.log(isVisible);
 
 const showHidden = () => {
   isVisible.value = true;
