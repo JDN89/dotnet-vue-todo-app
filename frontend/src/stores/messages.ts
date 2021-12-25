@@ -14,7 +14,7 @@ export const useMessageStore = defineStore("messages", {
     changedMessage: {
       title: "",
       id: 0,
-      description: "",
+      body: "",
     },
 
     isVisible: false,
@@ -23,55 +23,55 @@ export const useMessageStore = defineStore("messages", {
       {
         id: 1,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 2,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 3,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 4,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 5,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 6,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 7,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 8,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
       {
         id: 9,
         title: "Helo",
-        description:
+        body:
           " ah bakkes Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sfsfsfskfjjwisfsfdsdfsfsdfsdfws sldkfjsoifjso sivjsoifjsofij ",
       },
     ],
@@ -79,18 +79,31 @@ export const useMessageStore = defineStore("messages", {
 
   actions: {
     // =========================================
+    // ===========   GETMESSAGEs  ===============
+    // =========================================
+    async fetchMessages() {
+      try {
+        const response = await axios.get("http://localhost:5230/");
+
+        if (response.status === 200) {
+          //change log to ('success')
+          console.log(response.data);
+          this.messages = response.data;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    // =========================================
     // ===========   ADDMESSAGE  ===============
     // =========================================
     async addMessage(message: NewMessageInterface) {
       console.log(message);
       try {
+        // const response = await axios.get("http://localhost:5230/")
 
-        const response = await axios.get("http://localhost:5230/")
-
-        // const response = await axios.post(
-        //   "http://localhost:5230/",
-        //   message
-        // );
+        const response = await axios.post("http://localhost:5230/", message);
         if (response.status === 200) {
           //change log to ('success')
           console.log(response.data);
