@@ -14,21 +14,14 @@ public class MessageModule : ICarterModule
     {
         app.MapGet("/", GetMessages);
         app.MapPost("/", CreateMessage);
-        app.MapGet("/test", SayHello);
         app.MapDelete("/", DeleteMessage);
         app.MapPut("/", UpdateMessage);
 
 
     }
 
-    private async Task<IResult> SayHello()
-    {
-         Console.Write("firei");
-        return Results.Ok("hello you");
-    }
-
     private async Task<IEnumerable<Message>> GetMessages(NpgsqlConnection db) =>
-        await db.QueryAsync<Message>("SELECT * FROM public.messages");
+     await db.QueryAsync<Message>("SELECT * FROM public.messages");
 
     // make sure that you use the correct model property names
     private static async Task<IResult> CreateMessage(NewMessage newMessage, NpgsqlConnection db)
