@@ -4,11 +4,10 @@ import Message from "./message/Message.vue";
 
 import { useMessageStore } from "~/stores/messages";
 
+const messageStore = useMessageStore();
 onBeforeMount(() => {
   messageStore.fetchMessages();
 });
-
-const messageStore = useMessageStore();
 </script>
 
 <template>

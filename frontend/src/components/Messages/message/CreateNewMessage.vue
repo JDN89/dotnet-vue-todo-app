@@ -10,14 +10,12 @@ let isVisible = ref(false);
 const showHidden = () => {
   isVisible.value = true;
 };
-//change id of message and create a message interface
 let message: NewMessageInterface = reactive({
   Title: "",
   Body: "",
 });
 
 const addMessage = () => {
-  // message.id = Math.floor(Math.random() * 100);
   let copyOfMessage = Object.assign({}, message);
   if (message.Title?.length === 0) {
     return alert("Please give your message a title");

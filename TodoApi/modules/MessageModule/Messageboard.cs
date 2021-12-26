@@ -31,11 +31,7 @@ public class MessageModule : ICarterModule
             "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", newMessage);
 
         return Results.Created("/", createdMessage);
-        // underlying returns a  dynamic route with the id of the created message
-        // in my case I don't need created because my / isn't a dynamic route??
-        // return Results.Created($"/{newMessage.Id}", newMessage);
-        // the Results.Ok doesn't take a Url
-        // return Results.Ok( newMessage);
+
     }
 
 
@@ -72,3 +68,9 @@ public class MessageModule : ICarterModule
 // without {} this is a regular route and Id is a query param;
 // test in postman => https://localhost:7126/?id=1
 // key: id value : 1
+
+// underlying returns a  dynamic route with the id of the created message
+// in my case I don't need created because my / isn't a dynamic route??
+// return Results.Created($"/{newMessage.Id}", newMessage);
+// the Results.Ok doesn't take a Url
+// return Results.Ok( newMessage);

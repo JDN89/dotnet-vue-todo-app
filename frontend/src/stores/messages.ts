@@ -19,9 +19,7 @@ export const useMessageStore = defineStore("messages", {
 
     isVisible: false,
 
-    messages: [
-      
-    ],
+    messages: [],
   }),
 
   actions: {
@@ -34,7 +32,6 @@ export const useMessageStore = defineStore("messages", {
 
         if (response.status === 200) {
           //change log to ('success')
-          console.log(response.data);
           this.messages = response.data;
         }
       } catch (error) {
@@ -46,14 +43,10 @@ export const useMessageStore = defineStore("messages", {
     // ===========   ADDMESSAGE  ===============
     // =========================================
     async addMessage(message: NewMessageInterface) {
-      console.log(message);
       try {
-        // const response = await axios.get("http://localhost:5230/")
-
         const response = await axios.post("http://localhost:5230/", message);
-        if (response.status === 200) {
-          //change log to ('success')
-          console.log(response.data);
+        if (response.status === 201) {
+          this.fetchMessages();
         }
       } catch (error) {
         console.error(error);
