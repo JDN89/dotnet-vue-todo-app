@@ -55,8 +55,16 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   DELETEMESSAGE  ===============
     // =========================================
-    async deleteMessage(message: MessageInterface) {
-      console.log(message);
+    async deleteMessage(id: number) {
+      console.log(id);
+      try {
+        const response = await axios.delete("http://localhost:5230/?id=" + id);
+        if (response.status === 204) {
+          this.fetchMessages();
+        }
+      } catch (error) {
+        console.error(error);
+      }
       this.isVisible = false;
       console.log("delete");
     },

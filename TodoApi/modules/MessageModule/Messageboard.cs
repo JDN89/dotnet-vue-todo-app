@@ -6,6 +6,7 @@ using Npgsql;
 using Carter;
 
 using TodoApi.modules.MessageModule.models;
+using Microsoft.AspNetCore.Mvc;
 
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
 public class MessageModule : ICarterModule

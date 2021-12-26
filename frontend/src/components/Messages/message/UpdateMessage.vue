@@ -73,7 +73,7 @@ if (messageStore.getChangedMessage) {
           ></textarea>
         </div>
         <button
-          @click="messageStore.deleteMessage(messageToChange)"
+          @click="messageStore.deleteMessage(messageToChange.id)"
           class="float-right"
         >
           <carbon-trash-can />
