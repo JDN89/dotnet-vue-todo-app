@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface, NewMessageInterface } from "../types/interfaces";
-import apiClient from "../composables/EventService";
+// import apiClient from "../composables/EventService";
 import axios from "axios";
 
 interface MessageStateInterface {
@@ -72,7 +72,8 @@ export const useMessageStore = defineStore("messages", {
 
     //this action stores the temporary changed message in store
     // before it gets send to the backend api
-    //explain why this middle step
+    // I stored the message in changeMessage so I could pass it easy to the UpdateMessage component
+    // Alter or delete it's title and body, before sending it to the backend
     async changeMessage(message: MessageInterface) {
       this.isVisible = true;
       this.changedMessage = message;

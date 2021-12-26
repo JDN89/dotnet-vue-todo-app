@@ -20,7 +20,7 @@ const addMessage = () => {
   if (message.Title?.length === 0) {
     return alert("Please give your message a title");
   } else if (message.Body?.length == 0) {
-    return alert("Your To-Do list has 0 tasks");
+    return alert("Please write a message that goes with the title");
   } else {
     try {
       messageStore.addMessage(copyOfMessage);

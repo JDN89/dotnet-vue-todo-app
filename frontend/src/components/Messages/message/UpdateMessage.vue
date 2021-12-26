@@ -4,6 +4,24 @@ import { MessageInterface } from "~/types/interfaces";
 
 const messageStore = useMessageStore();
 
+const updateMessage = () => {
+  let copyOfMessage = Object.assign({}, messageToChange);
+  if (messageToChange.title?.length === 0) {
+    return alert("Please give your message a title");
+  } else if (messageToChange.body?.length == 0) {
+    return alert("Please write a message that goes with the title");
+  } else {
+    try {
+      messageStore.updateMessage(copyOfMessage);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      messageToChange.title = "";
+      messageToChange.body = "";
+    }
+  }
+};
+
 let messageToChange: MessageInterface;
 if (messageStore.getChangedMessage) {
   messageToChange = messageStore.getChangedMessage;
@@ -38,10 +56,7 @@ if (messageStore.getChangedMessage) {
     >
       <div v-if="messageStore.getShowModal">
         <div class="header">
-          <button
-            @click="messageStore.updateMessage(messageToChange)"
-            class="float-right"
-          >
+          <button @click="updateMessage" class="float-right">
             <carbon-upload class="float-right" />
           </button>
 
@@ -60,7 +75,7 @@ if (messageStore.getChangedMessage) {
 
           <textarea
             type="text"
-            placeholder="SHOOOWWWW MEEE"
+            placeholder="Your message"
             v-model="messageToChange.body"
             class="
               transition
