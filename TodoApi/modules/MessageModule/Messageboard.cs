@@ -18,7 +18,6 @@ public class MessageModule : ICarterModule
         app.MapDelete("/", DeleteMessage);
         app.MapPut("/", UpdateMessage);
 
-
     }
 
     private async Task<IEnumerable<Message>> GetMessages(NpgsqlConnection db) =>

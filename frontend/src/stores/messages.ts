@@ -56,29 +56,26 @@ export const useMessageStore = defineStore("messages", {
     // ===========   DELETEMESSAGE  ===============
     // =========================================
     async deleteMessage(id: number) {
-      console.log(id);
       try {
         const response = await axios.delete("http://localhost:5230/?id=" + id);
         if (response.status === 204) {
           this.fetchMessages();
+          this.isVisible = false;
         }
       } catch (error) {
         console.error(error);
       }
-      this.isVisible = false;
-      console.log("delete");
     },
     // =========================================
     // ===========   (TEMPORARY)CHANGEMESSAGE  ===============
     // =========================================
 
     //this action stores the temporary changed message in store
-    // before it gets send to the backend
+    // before it gets send to the backend api
+    //explain why this middle step
     async changeMessage(message: MessageInterface) {
       this.isVisible = true;
       this.changedMessage = message;
-
-      console.log(this.changedMessage);
     },
 
     // =========================================
@@ -86,8 +83,15 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     //the changed message gets send to the backend
     async updateMessage(message: MessageInterface) {
-      this.isVisible = false;
-      console.log(message);
+      try {
+        const response = await axios.put("http://localhost:5230/", message);
+        if (response.status === 201) {
+          this.fetchMessages();
+          this.isVisible = false;
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 
