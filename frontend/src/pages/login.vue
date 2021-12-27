@@ -16,40 +16,32 @@ const schema = yup.object({
 
 //  IsSubmitting disables the submit button until the yup rules are met
 
-const { handleSubmit } = useForm({
+const { handleSubmit, values } = useForm({
   validationSchema: schema,
 });
 
 // Sync store state with vee-validate state
 // This is a one way binding
-// watch(values, (newFormData) => {
-//   userStore.$patch({ loginData: newFormData });
-// });
+watch(values, (newFormData) => {
+  userStore.$patch({ loginData: newFormData });
+});
 
 // create a handler to submit the store state
 // the store action will only run when the user submits valid form data
 const onSubmit = handleSubmit(async () => {
-  const response = await userStore.loginUser();
-  if (response == true) {
-    router.replace({
-      name: "todos",
-      params: { todos: userStore.getUsers[1].id },
-    });
-  }
+  // check if getLoginData is not null
+  if (userStore.getLoginData) {
+    const response = await userStore.loginUser(userStore.getLoginData);
+    if (response == true) {
+      router.replace({
+        name: "todos",
+        params: { todos: userStore.getUserId },
+      });
+    }
+  } else alert("Singin failed, could't retrieve login data");
 });
 
-// resetForm()
-
 const router = useRouter();
-
-// })
-
-const engage = () => {
-  router.replace({
-    name: "todos",
-    params: { todos: userStore.getUsers[1].id },
-  });
-};
 </script>
 
 <template>
@@ -73,7 +65,6 @@ const engage = () => {
       </div>
 
       <button type="submit">Submit</button>
-      <button @click="engage">nav to todos</button>
     </form>
   </div>
 </template>

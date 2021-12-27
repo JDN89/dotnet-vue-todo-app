@@ -25,10 +25,10 @@ public class UsersModule : ICarterModule
 
     private static async Task<IResult> LoginUser(LoggedinUser User, NpgsqlConnection db)
     {
-        var UserId = await db.QuerySingleAsync<int>(
+        int UserId = await db.QuerySingleAsync<int>(
             "SELECT id FROM users where email = @Email AND hash = @Hash", User);
 
-        return Results.Created("/register", UserId);
+        return Results.Ok(UserId);
 
     }
 

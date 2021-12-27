@@ -5,6 +5,8 @@ import axios from "axios";
 interface TodoStateInterface {
   usersData: UserInterface[];
   createdUserData: CreateUserInterface | null;
+  loginData: CreateUserInterface | null;
+  userId: number | null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
@@ -13,6 +15,8 @@ export const useUserStore = defineStore("user", {
   state: (): TodoStateInterface => ({
     registrationFormIsVisible: true,
     createdUserData: null,
+    loginData: null,
+    userId: null,
     isAuthenticated: false,
 
     usersData: [
@@ -31,6 +35,7 @@ export const useUserStore = defineStore("user", {
   actions: {
     // =========================================
     // ===========   REGISTER  ===============
+    //don't return sensitve data!
     // =========================================
     async registerUser() {
       try {
@@ -40,6 +45,7 @@ export const useUserStore = defineStore("user", {
         );
         if (response.status === 200) {
           console.log("User successfully created");
+          this.createdUserData = null;
         }
       } catch (error) {
         console.error(error);
@@ -50,11 +56,25 @@ export const useUserStore = defineStore("user", {
 
     // =========================================
     // ===========   LOGIN  ===============
+    //don't return sensitve data, only id
     // =========================================
-    async loginUser() {
+    async loginUser(user: CreateUserInterface) {
+      try {
+        const response = await axios.post("http://localhost:5230/login", user);
+        if (response.status === 200) {
+          this.userId = response.data;
+          this.loginData = null;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
       this.isAuthenticated = true;
       return true;
     },
+    // =========================================
+    // ===========   LOGOUT  ===============
+    // =========================================
     logout() {
       this.isAuthenticated = false;
       console.log("logged out");
@@ -62,6 +82,8 @@ export const useUserStore = defineStore("user", {
   },
   getters: {
     getUsers: (state) => state.usersData,
+    getLoginData: (state) => state.loginData,
+    getUserId: (state) => state.userId,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
     getIsAuthenticated: (state) => state.isAuthenticated,
   },
