@@ -1,8 +1,16 @@
-export interface UsersInterface {
-  id: number | null;
-  // primary key
+export interface CreateUserInterface {
   email: string;
-  password: string;
+  hash: string;
+}
+
+export interface UserInterface {
+  id: number;
+  email: string;
+  hash: string;
+}
+export interface NewMessageInterface {
+  Title: string;
+  Body: string;
 }
 
 export interface ToDoListInterface {
@@ -23,15 +31,6 @@ export interface newListInterface {
   archived: string[];
 }
 
-export interface LogInUserInterface {
-  email: string;
-  password: string;
-}
-
-export interface NewMessageInterface {
-  Title: string;
-  Body: string;
-}
 export interface MessageInterface {
   id: number;
   title: string;

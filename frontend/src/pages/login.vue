@@ -11,20 +11,20 @@ const userStore = useUserStore();
 
 const schema = yup.object({
   email: yup.string().required().email(),
-  password: yup.string().required().min(8),
+  hash: yup.string().required().min(8),
 });
 
 //  IsSubmitting disables the submit button until the yup rules are met
 
-const { handleSubmit, values } = useForm({
+const { handleSubmit } = useForm({
   validationSchema: schema,
 });
 
 // Sync store state with vee-validate state
 // This is a one way binding
-watch(values, (newFormData) => {
-  userStore.$patch({ loginData: newFormData });
-});
+// watch(values, (newFormData) => {
+//   userStore.$patch({ loginData: newFormData });
+// });
 
 // create a handler to submit the store state
 // the store action will only run when the user submits valid form data
@@ -68,13 +68,8 @@ const engage = () => {
       </div>
 
       <div class="flex flex-col">
-        <Field
-          name="password"
-          type="password"
-          placeholder="Password"
-          class="field"
-        />
-        <ErrorMessage name="password" class="errorMessage" />
+        <Field name="hash" type="hash" placeholder="hash" class="field" />
+        <ErrorMessage name="hash" class="errorMessage" />
       </div>
 
       <button type="submit">Submit</button>

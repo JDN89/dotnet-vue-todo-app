@@ -1,50 +1,62 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { UsersInterface, LogInUserInterface } from "../types/interfaces";
+import { CreateUserInterface, UserInterface } from "../types/interfaces";
 import axios from "axios";
 
 interface TodoStateInterface {
-  usersData: UsersInterface[];
-  userData: UsersInterface | null;
-  loginData: LogInUserInterface | null;
+  usersData: UserInterface[];
+  createdUserData: CreateUserInterface | null;
+  loggedinUser: UserInterface | null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
 
 export const useUserStore = defineStore("user", {
   state: (): TodoStateInterface => ({
-    registrationFormIsVisible: false,
-    userData: null,
-    loginData: null,
+    registrationFormIsVisible: true,
+    createdUserData: null,
+    loggedinUser: null,
     isAuthenticated: false,
 
     usersData: [
       {
         id: 0,
         email: "Jogi@sien.com",
-        password: "123456",
+        hash: "123456",
       },
       {
         id: 1,
         email: "jan@niels.com",
-        password: "123456",
+        hash: "123456",
       },
     ],
   }),
   actions: {
+    // =========================================
+    // ===========   REGISTER  ===============
+    // =========================================
     async registerUser() {
       try {
-        const response = await axios.post("http://localhost:5230/register", this.userData);
-        if (response.status === 200) {
-          console.log(response.data);
+        const response = await axios.post(
+          "http://localhost:5230/register",
+          this.createdUserData
+        );
+        if (response.status === 201) {
+          this.loggedinUser = response.data;
+          console.log(this.loggedinUser);
+          
         }
       } catch (error) {
         console.error(error);
       }
-      console.log(this.userData);
-      this.registrationFormIsVisible = true;
+     
+      this.registrationFormIsVisible = false;
     },
+
+    // =========================================
+    // ===========   LOGIN  ===============
+    // =========================================
     async loginUser() {
-      console.log(this.loginData);
+      console.log(this.loggedinUser);
       this.isAuthenticated = true;
       return true;
     },
@@ -55,7 +67,6 @@ export const useUserStore = defineStore("user", {
   },
   getters: {
     getUsers: (state) => state.usersData,
-    getUserData: (state) => state.userData,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
     getIsAuthenticated: (state) => state.isAuthenticated,
   },
