@@ -14,12 +14,12 @@ public class UsersModule : ICarterModule
         app.MapPost("/login", LoginUser);
     }
 
-    private static async Task<IResult> CreateUSer(User CreateUSer, NpgsqlConnection db)
+    private static async Task<IResult> CreateUSer(User CreatedUSer, NpgsqlConnection db)
     {
-        var newUser = await db.QuerySingleAsync<User>(
-            "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING * ", CreateUSer);
+        var newUserId = await db.QuerySingleAsync<int>(
+            "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
 
-        return Results.Created("/register", newUser);
+        return Results.Created("/register", newUserId);
 
     }
 

@@ -5,7 +5,7 @@ import axios from "axios";
 interface TodoStateInterface {
   usersData: UserInterface[];
   createdUserData: CreateUserInterface | null;
-  loggedinUser: UserInterface | null;
+  loggedinUserId: number | null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
@@ -14,7 +14,7 @@ export const useUserStore = defineStore("user", {
   state: (): TodoStateInterface => ({
     registrationFormIsVisible: true,
     createdUserData: null,
-    loggedinUser: null,
+    loggedinUserId: null,
     isAuthenticated: false,
 
     usersData: [
@@ -41,14 +41,13 @@ export const useUserStore = defineStore("user", {
           this.createdUserData
         );
         if (response.status === 201) {
-          this.loggedinUser = response.data;
-          console.log(this.loggedinUser);
-          
+          this.loggedinUserId = response.data;
+          console.log(this.loggedinUserId);
         }
       } catch (error) {
         console.error(error);
       }
-     
+
       this.registrationFormIsVisible = false;
     },
 
@@ -56,7 +55,7 @@ export const useUserStore = defineStore("user", {
     // ===========   LOGIN  ===============
     // =========================================
     async loginUser() {
-      console.log(this.loggedinUser);
+      console.log(this.loggedinUserId);
       this.isAuthenticated = true;
       return true;
     },
