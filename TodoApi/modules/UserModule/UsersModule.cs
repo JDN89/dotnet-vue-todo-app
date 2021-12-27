@@ -16,10 +16,10 @@ public class UsersModule : ICarterModule
 
     private static async Task<IResult> CreateUSer(User CreatedUSer, NpgsqlConnection db)
     {
-        var newUserId = await db.QuerySingleAsync<int>(
+        var newUserId = await db.QuerySingleAsync(
             "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
 
-        return Results.Created("/register", newUserId);
+        return Results.Ok();
 
     }
 
