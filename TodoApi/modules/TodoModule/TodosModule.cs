@@ -12,7 +12,7 @@ public class TodosModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/{userId}", FetchList);
+        app.MapGet("/{userId}", FetchLists);
         app.MapPost("/{userId}", CreateList);
         app.MapDelete("/{userId}", DeleteList);
         app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList");
@@ -22,7 +22,7 @@ public class TodosModule : ICarterModule
 
     //store list ids in the frontend
     // listId necessary for deletelist DeleteList
-    private async Task<IEnumerable<FetchedList>> FetchList(int id, NpgsqlConnection db) =>
+    private async Task<IEnumerable<FetchedList>> FetchLists(int id, NpgsqlConnection db) =>
           await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,ARRAY_AGG(T.todo) as Todos ,ARRAY_AGG(A.archived) as Archived FROM todo_lists L inner join todos T on(L.id = T.list_id)inner join archived_todos A on(L.id = A.list_id) where L.user_id =@id group by L.id, L.title ", new { id });
 
 
