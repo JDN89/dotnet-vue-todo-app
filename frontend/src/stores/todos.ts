@@ -1,5 +1,7 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { ToDoListInterface, newListInterface } from "../types/interfaces";
+import axios from "axios";
+import { useUserStore } from "./user";
 
 interface TodoStateInterface {
   toDoLists: ToDoListInterface[];
@@ -7,24 +9,28 @@ interface TodoStateInterface {
 
 export const useTodoStore = defineStore("todo", {
   state: (): TodoStateInterface => ({
-    toDoLists: [
-      {
-        listId: 1,
-        userId: 1,
-        title: "beestenboos Toon",
-        todos: ["2 katten", "1 hond", "1000 luizen"],
-        archived: [],
-      },
-      {
-        listId: 2,
-        userId: 1,
-        title: "lawaai",
-        todos: ["gitaar", "drum", "saxofoon"],
-        archived: ["anula", "monika", "blond meken"],
-      },
-    ],
+    toDoLists: [],
   }),
   actions: {
+    async fetchTodoLists() {
+      const userStore = useUserStore();
+      const userId = userStore.getUserId;
+      console.log(userId);
+
+      try {
+        const response = await axios.get(
+          "http://localhost:5230/${userId}?userId=" + userId
+        );
+
+        if (response.status === 200) {
+          //change log to ('success')
+          this.toDoLists = response.data;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     // =========================================
     // ===========   ADDLISTS  ===============
     // =========================================

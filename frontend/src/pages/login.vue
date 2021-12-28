@@ -48,11 +48,7 @@ const router = useRouter();
   <div class="mx-auto min-w-xs max-w-xs py-6 prose">
     <h2>{{ t("page.login") }}</h2>
 
-    <form
-      v-if="!userStore.getRegistrationFormIsVisible"
-      @submit="onSubmit"
-      class="flex flex-col"
-    >
+    <form @submit="onSubmit" class="flex flex-col">
       <div class="flex flex-col">
         <Field name="email" type="email" placeholder="Email" class="field" />
 

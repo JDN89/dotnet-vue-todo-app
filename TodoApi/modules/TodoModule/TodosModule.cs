@@ -22,8 +22,8 @@ public class TodosModule : ICarterModule
 
     //store list ids in the frontend
     // listId necessary for deletelist DeleteList
-    private async Task<IEnumerable<FetchedList>> FetchLists(int id, NpgsqlConnection db) =>
-          await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,ARRAY_AGG(T.todo) as Todos ,ARRAY_AGG(A.archived) as Archived FROM todo_lists L inner join todos T on(L.id = T.list_id)inner join archived_todos A on(L.id = A.list_id) where L.user_id =@id group by L.id, L.title ", new { id });
+    private async Task<IEnumerable<FetchedList>> FetchLists([FromQuery] int userId, NpgsqlConnection db) =>
+          await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ", new { userId });
 
 
     private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)

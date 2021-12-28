@@ -1,11 +1,17 @@
 <script setup lang="ts">
 const { t } = useI18n();
+import { useTodoStore } from "~/stores/todos";
 
 const props = defineProps({
   todos: String,
 });
 // simplest way to convert string to number
 console.log(Number(props.todos));
+
+const todoStore = useTodoStore();
+onBeforeMount(() => {
+  todoStore.fetchTodoLists();
+});
 </script>
 
 <template>
