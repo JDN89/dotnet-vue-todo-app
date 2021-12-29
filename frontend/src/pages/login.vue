@@ -56,7 +56,7 @@ const router = useRouter();
       </div>
 
       <div class="flex flex-col">
-        <Field name="hash" type="hash" placeholder="hash" class="field" />
+        <Field name="hash" type="hash" placeholder="Password" class="field" />
         <ErrorMessage name="hash" class="errorMessage" />
       </div>
 
