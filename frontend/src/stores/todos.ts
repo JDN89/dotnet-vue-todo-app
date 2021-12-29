@@ -22,8 +22,8 @@ export const useTodoStore = defineStore("todo", {
         );
 
         if (response.status === 200) {
-          //change log to ('success')
           this.toDoLists = response.data;
+          console.log(this.toDoLists);
         }
       } catch (error) {
         console.error(error);
@@ -41,19 +41,27 @@ export const useTodoStore = defineStore("todo", {
         );
 
         if (response.status === 200) {
-          //change log to ('success')
           this.fetchTodoLists();
         }
       } catch (error) {
         console.error(error);
       }
-      console.log(newToDoList);
     },
     // =========================================
     // ===========   DELETE list  ===============
     // =====================================
     async deleteList(listId: number) {
-      console.log(listId);
+      try {
+        const response = await axios.delete(
+          "http://localhost:5230/${userId}?listId=" + listId
+        );
+
+        if (response.status === 204) {
+          this.fetchTodoLists();
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
     // =========================================
     // ===========   ARCHIVE TODO  ===============

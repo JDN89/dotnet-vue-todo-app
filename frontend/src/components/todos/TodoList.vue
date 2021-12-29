@@ -2,6 +2,7 @@
 import { useTodoStore } from "~/stores/todos";
 
 const todoStore = useTodoStore();
+
 const deleteList = (listId: number) => {
   todoStore.deleteList(listId);
 };
@@ -50,7 +51,7 @@ const unArchiveTask = (listId: number, todo: string) => {
         </ul>
       </div>
 
-      <hr v-if="list.archived!== null||undefined" class="m-2" />
+      <hr v-if="list.archived !== null || undefined" class="m-2" />
 
       <div class="archived">
         <ul>

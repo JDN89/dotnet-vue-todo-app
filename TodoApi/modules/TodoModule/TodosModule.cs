@@ -36,7 +36,7 @@ public class TodosModule : ICarterModule
     }
 
     //Foreign key set delete rule to cascade => see db. 
-    private static async Task<IResult> DeleteList(int listId, NpgsqlConnection db) =>
+    private static async Task<IResult> DeleteList([FromQuery] int listId, NpgsqlConnection db) =>
         await db.ExecuteAsync(
             "DELETE FROM public.todo_lists WHERE id = @listId", new { listId }) == 1
             ? Results.NoContent()
