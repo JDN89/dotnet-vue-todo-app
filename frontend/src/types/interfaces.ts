@@ -27,8 +27,6 @@ export interface newListInterface {
   userId: number | null;
   title: string;
   todos: string[];
-
-  archived: string[];
 }
 
 export interface MessageInterface {

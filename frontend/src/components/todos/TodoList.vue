@@ -50,7 +50,7 @@ const unArchiveTask = (listId: number, todo: string) => {
         </ul>
       </div>
 
-      <hr class="m-2" v-if="list.archived.length > 0" />
+      <hr v-if="list.archived!== null||undefined" class="m-2" />
 
       <div class="archived">
         <ul>

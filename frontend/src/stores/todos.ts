@@ -15,7 +15,6 @@ export const useTodoStore = defineStore("todo", {
     async fetchTodoLists() {
       const userStore = useUserStore();
       const userId = userStore.getUserId;
-      console.log(userId);
 
       try {
         const response = await axios.get(
@@ -35,6 +34,19 @@ export const useTodoStore = defineStore("todo", {
     // ===========   ADDLISTS  ===============
     // =========================================
     async add(newToDoList: newListInterface) {
+      try {
+        const response = await axios.post(
+          "http://localhost:5230/${userId}",
+          newToDoList
+        );
+
+        if (response.status === 200) {
+          //change log to ('success')
+          this.fetchTodoLists();
+        }
+      } catch (error) {
+        console.error(error);
+      }
       console.log(newToDoList);
     },
     // =========================================

@@ -32,7 +32,7 @@ public class TodosModule : ICarterModule
     {
         var ListId = await db.QueryAsync<int>(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);
-        return Results.Created($"/{newList.UserId}", ListId);
+        return Results.Ok($"/{newList.UserId}");
     }
 
     //Foreign key set delete rule to cascade => see db. 
