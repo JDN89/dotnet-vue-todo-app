@@ -89,8 +89,25 @@ export const useTodoStore = defineStore("todo", {
     // =========================================
     // ===========   UNARCHIVE TODO  ===============
     // =========================================
-    async unArchiveTask(listId: number, todo: string) {
-      console.log(listId + " " + todo);
+    async unArchiveTask(listId: number, archived: string) {
+      const unArchiveTodo = {
+        listId: listId,
+        archived: archived,
+      };
+      console.log(listId, archived);
+
+      try {
+        const response = await axios.put(
+          "http://localhost:5230/unarchive/${userId}",
+          unArchiveTodo
+        );
+
+        if (response.status === 204) {
+          this.fetchTodoLists();
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
   getters: {

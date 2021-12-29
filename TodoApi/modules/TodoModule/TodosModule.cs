@@ -16,6 +16,7 @@ public class TodosModule : ICarterModule
         app.MapPost("/{userId}", CreateList);
         app.MapDelete("/{userId}", DeleteList);
         app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList");
+        app.MapPut("/unarchive/{userId}", UnArchiveTodo).WithName("ArchiveTodo");
 
 
     }
@@ -50,6 +51,13 @@ public class TodosModule : ICarterModule
     ? Results.NoContent()
         : Results.NotFound();
 
+    private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, NpgsqlConnection db) =>
+
+     await db.ExecuteAsync(
+         "with foo as (delete from public.archived_todos where archived = @Archived returning list_id,archived) insert into public.todos (list_id,todo) select * from foo ", unArchivedTodo) == 1
+
+     ? Results.NoContent()
+         : Results.NotFound();
 
 };
 
