@@ -13,10 +13,10 @@ public class MessageModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/", GetMessages);
-        app.MapPost("/", CreateMessage);
-        app.MapDelete("/", DeleteMessage);
-        app.MapPut("/", UpdateMessage);
+        app.MapGet("/", GetMessages).AllowAnonymous();
+        app.MapPost("/", CreateMessage).AllowAnonymous();
+        app.MapDelete("/", DeleteMessage).AllowAnonymous();
+        app.MapPut("/", UpdateMessage).AllowAnonymous();
 
     }
 

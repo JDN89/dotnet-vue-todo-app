@@ -4,14 +4,13 @@ using Npgsql;
 using Carter;
 using UserModel;
 using TodoApi.modules.UserModule.Models;
-using Microsoft.AspNetCore.Mvc;
 
 public class UsersModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/register", CreateUSer);
-        app.MapPost("/login", LoginUser);
+        app.MapPost("/register", CreateUSer).AllowAnonymous();
+        app.MapPost("/login", LoginUser).AllowAnonymous();
     }
 
     private static async Task<IResult> CreateUSer(User CreatedUSer, NpgsqlConnection db)

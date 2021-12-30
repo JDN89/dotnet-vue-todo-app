@@ -1,8 +1,7 @@
-using Dapper;
 using Npgsql;
-using System.ComponentModel.DataAnnotations;
 using Carter;
-
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +10,34 @@ var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; D
 builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(x =>
+{
+    x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the bearer scheme",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    });
+    x.AddSecurityRequirement(new OpenApiSecurityRequirement{
+    {
+    new OpenApiSecurityScheme{Reference = new OpenApiReference {
+        Id = "Bearer",
+        Type = ReferenceType.SecurityScheme
+    }}, new List<string>()
+}
+});
+
+}
+);
+
+
 builder.Services.AddCors();
 
 builder.Services.AddCarter();
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+builder.Services.AddAuthorization(o => o.AddPolicy("AdminsOnly",
+                                  b => b.RequireClaim("admin", "true")));
 var app = builder.Build();
 
 
@@ -46,6 +68,10 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
 
 app.MapSwagger();
 app.UseSwaggerUI();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapCarter();
 // app.UseHttpLogging();
 
