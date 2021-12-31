@@ -4,6 +4,6 @@ namespace TodoApi.modules.UserModule.Services
 {
     public interface IAuthService
     {
-        public Task<User> CreateHash(User user, string password);
+        public Task<EncryptedPassword> CreateHash(User user, string password);
     }
 }

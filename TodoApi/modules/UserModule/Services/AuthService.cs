@@ -17,16 +17,18 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public async Task<User> CreateHash(User user, string password)
+        public async Task<EncryptedPassword> CreateHash(User user, string password)
         {
 
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            EncryptedPassword encryptedPassword = new();
+            encryptedPassword.Hash = passwordHash;
+            encryptedPassword.Salt = passwordSalt;
+            ;
 
 
 
-            return user;
+            return encryptedPassword;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
