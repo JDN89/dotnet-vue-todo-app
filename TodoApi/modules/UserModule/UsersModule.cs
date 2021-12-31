@@ -2,23 +2,42 @@ namespace TodoApi.modules.UserModule;
 using Dapper;
 using Npgsql;
 using Carter;
-using UserModel;
+using TodoApi.modules.UserModule.Dto;
 using TodoApi.modules.UserModule.Models;
+using TodoApi.modules.UserModule.Services;
 
 public class UsersModule : ICarterModule
 {
+    //normally we would inject a service via services.addScoped<>()
+    // into a controller
+    // but here I don't use controllers
+    // so I'll inject the AuthService via namespace usage
+    // ------------
+    //With Minimal APIs we can still benefit from dependency injection but instead of using constructor injection, 
+    //the dependencies are passed as parameters in the handler delegate:
+    // This approach is slightly more pure and can make testing easier. The downside is that 
+    //once you get to more than a few dependencies your handler definitions can become quite noisy.
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/register", CreateUSer).AllowAnonymous();
+        app.MapPost("/register", Register).AllowAnonymous();
         app.MapPost("/login", LoginUser).AllowAnonymous();
     }
 
-    private static async Task<IResult> CreateUSer(User CreatedUSer, NpgsqlConnection db)
+    private static async Task<IResult> Register(UserDto CreatedUSer, NpgsqlConnection db, IAuthService AuthService)
     {
-        var newUserId = await db.QuerySingleAsync(
-            "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
+        //check if user exists in DB
 
-        return Results.Ok();
+
+
+        var response = await AuthService.CreateHash(
+                new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
+            );
+    // log response with privatelogger
+
+        // var newUserId = await db.QuerySingleAsync(
+        //     "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
+
+        return Results.Ok(response);
 
     }
 

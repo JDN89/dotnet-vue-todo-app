@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace UserModel
+namespace TodoApi.modules.UserModule.Models
 {
     public class User
     {
@@ -9,6 +9,7 @@ namespace UserModel
         [Required]
         public string? Email { get; set; }
         [Required]
-        public String? Hash { get; set; }
+          public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }

@@ -2,6 +2,10 @@ using Npgsql;
 using Carter;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using TodoApi.modules.UserModule.Services;
+ using System.Text;
+ using Microsoft.IdentityModel.Tokens;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,7 @@ builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
+//add authorize to swagger and show which routes are authorized
 {
     x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -35,9 +40,22 @@ builder.Services.AddSwaggerGen(x =>
 builder.Services.AddCors();
 
 builder.Services.AddCarter();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.ASCII.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+
+                };
+            });
 builder.Services.AddAuthorization(o => o.AddPolicy("AdminsOnly",
                                   b => b.RequireClaim("admin", "true")));
+// try to add authservice as a DI
+builder.Services.AddSingleton<IAuthService, AuthService>();
+
 var app = builder.Build();
 
 
@@ -71,6 +89,7 @@ app.UseSwaggerUI();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseHttpsRedirection();
 
 app.MapCarter();
 // app.UseHttpLogging();
