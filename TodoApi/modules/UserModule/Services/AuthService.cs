@@ -1,5 +1,6 @@
-using Microsoft.Extensions.Configuration;
 using TodoApi.modules.UserModule.Models;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace TodoApi.modules.UserModule.Services
 {
@@ -17,28 +18,49 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public async Task<EncryptedPassword> CreateHash(User user, string password)
+        public async Task<User> CreateHash(User user, string password)
         {
 
-            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
-            EncryptedPassword encryptedPassword = new();
-            encryptedPassword.Hash = passwordHash;
-            encryptedPassword.Salt = passwordSalt;
-            ;
+            CreatePasswordHash(password, out string hashed, out byte[] salt);
 
 
+            user.Hash = hashed;
+            user.Salt = salt;
 
-            return encryptedPassword;
+            return user;
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        private void CreatePasswordHash(string password, out string hashed, out byte[] salt)
         {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+
+            // generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
+            salt = new byte[128 / 8];
+            using (var rngCsp = new RNGCryptoServiceProvider())
             {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                rngCsp.GetNonZeroBytes(salt);
             }
+
+            hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+              password: password,
+              salt: salt,
+              prf: KeyDerivationPrf.HMACSHA256,
+              iterationCount: 100000,
+              numBytesRequested: 256 / 8));
+            Console.WriteLine($"Hashed: {hashed}");
+
+
+
+
         }
+
+
+
+
+
+
+
+
+
 
 
     }

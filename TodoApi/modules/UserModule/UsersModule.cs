@@ -28,11 +28,12 @@ public class UsersModule : ICarterModule
         //check if user exists in DB
 
 
-
         var response = await AuthService.CreateHash(
                 new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
             );
     // log response with privatelogger
+
+    //store response in db
 
         // var newUserId = await db.QuerySingleAsync(
         //     "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
