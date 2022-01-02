@@ -18,7 +18,7 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public async Task<User> CreateHash(User user, string password)
+        public User CreateHash(User user, string password)
         {
 
             CreatePasswordHash(password, out string hashed, out byte[] salt);
@@ -47,9 +47,6 @@ namespace TodoApi.modules.UserModule.Services
               iterationCount: 100000,
               numBytesRequested: 256 / 8));
             Console.WriteLine($"Hashed: {hashed}");
-
-
-
 
         }
 

@@ -31,7 +31,7 @@ public class UsersModule : ICarterModule
         ArgumentNullException.ThrowIfNull(CreatedUSer.PassWord);
 
 
-        var response = await AuthService.CreateHash(
+        var response = AuthService.CreateHash(
                 new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
             );
 
