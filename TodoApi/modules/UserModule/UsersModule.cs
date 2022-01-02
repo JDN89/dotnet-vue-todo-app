@@ -26,14 +26,18 @@ public class UsersModule : ICarterModule
     private static async Task<IResult> Register(UserDto CreatedUSer, NpgsqlConnection db, IAuthService AuthService)
     {
         //check if user exists in DB
-
+        if (CreatedUSer.PassWord == null || CreatedUSer.PassWord.Length <= 0)
+        {
+            return Results.BadRequest("password is null");
+        }
 
         var response = await AuthService.CreateHash(
                 new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
             );
-    // log response with privatelogger
 
-    //store response in db
+        // log response with privatelogger
+
+        //store response in db
 
         // var newUserId = await db.QuerySingleAsync(
         //     "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
