@@ -26,10 +26,8 @@ public class UsersModule : ICarterModule
     private static async Task<IResult> Register(UserDto CreatedUSer, NpgsqlConnection db, IAuthService AuthService)
     {
         //check if user exists in DB
-        if (CreatedUSer.PassWord == null || CreatedUSer.PassWord.Length <= 0)
-        {
-            return Results.BadRequest("password is null");
-        }
+        ArgumentNullException.ThrowIfNull(CreatedUSer.PassWord);
+      
 
         var response = await AuthService.CreateHash(
                 new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
