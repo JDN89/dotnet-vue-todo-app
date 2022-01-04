@@ -31,7 +31,6 @@ public class UsersModule : ICarterModule
 
         //check if user exists in DB
         var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
-        Console.WriteLine($"{exists}");
         if (exists == true)
         {
 
@@ -51,19 +50,12 @@ public class UsersModule : ICarterModule
             "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
         return Results.Ok(newUser);
 
-        // log response with privatelogger
-
-        //store response in db
-
-
-        // return Results.Ok(response)
-
     }
 
     private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
     {
 
-ArgumentNullException.ThrowIfNull(oUser.Email);
+        ArgumentNullException.ThrowIfNull(oUser.Email);
         var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
         Console.WriteLine($"{exists}");
         if (exists == false)
@@ -74,27 +66,13 @@ ArgumentNullException.ThrowIfNull(oUser.Email);
             "SELECT * FROM users where email = @Email", oUser);
         Console.WriteLine($"{user}");
 
-ArgumentNullException.ThrowIfNull(oUser.PassWord);
-var verified = await AuthService.VerifyPassword(oUser.PassWord, user.Hash);
+        ArgumentNullException.ThrowIfNull(oUser.PassWord);
+        ArgumentNullException.ThrowIfNull(user.Hash);
+        var verified = await AuthService.VerifyPassword(oUser.PassWord, user.Hash);
 
         if (verified)
             return Results.Ok(oUser);
         return Results.BadRequest("wrong password");
-
-
-        // ArgumentNullException.ThrowIfNull(user);
-        // ArgumentNullException.ThrowIfNull(user.Hash);
-        // ArgumentNullException.ThrowIfNull(loggedinUser.Password);
-
-
-        // Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash)}");
-
-        // if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash))
-        // {
-
-        //     return Results.BadRequest();
-        // }
-
 
     }
 

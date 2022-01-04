@@ -32,17 +32,7 @@ namespace TodoApi.modules.UserModule.Services
 
         }
 
-        private void CreatePasswordHash(string password, out byte[] hashed, out byte[] salt)
-        {
-
-            using (var hmac = new System.Security.Cryptography.HMACSHA256())
-            {
-                salt = hmac.Key;
-                hashed = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
-
-        }
-
+             
     }
 
 
