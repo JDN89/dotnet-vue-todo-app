@@ -30,7 +30,6 @@ public class UsersModule : ICarterModule
         //new way of checking for null: c#10
         ArgumentNullException.ThrowIfNull(CreatedUSer.PassWord);
 
-
         var response = AuthService.CreateHash(
                 new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
             );
@@ -46,12 +45,26 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(LoggedinUser User, NpgsqlConnection db)
+    private static async Task<IResult> LoginUser(LoggedinUser loggedinUser, NpgsqlConnection db, IAuthService AuthService)
     {
-        int UserId = await db.QuerySingleAsync<int>(
-            "SELECT id FROM users where email = @Email AND hash = @Hash", User);
 
-        return Results.Ok(UserId);
+        User user = await db.QuerySingleAsync<User>(
+            "SELECT * FROM users where email = @Email", loggedinUser);
+                    ArgumentNullException.ThrowIfNull(user);
+                    ArgumentNullException.ThrowIfNull(user.Hash);
+                    ArgumentNullException.ThrowIfNull(user.Salt);
+                    ArgumentNullException.ThrowIfNull(loggedinUser.Password);
+
+                    Console.WriteLine($"{user.Hash}, ' ' {user.Salt} ");
+
+Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash,user.Salt)}");
+
+if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash,user.Salt)) {
+
+    return Results.BadRequest();
+}
+
+        return Results.Ok(user);
 
     }
 

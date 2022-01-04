@@ -21,7 +21,7 @@ namespace TodoApi.modules.UserModule.Services
         public User CreateHash(User user, string password)
         {
 
-            CreatePasswordHash(password, out string hashed, out byte[] salt);
+            CreatePasswordHash(password, out byte[] hashed, out byte[] salt);
 
 
             user.Hash = hashed;
@@ -30,7 +30,7 @@ namespace TodoApi.modules.UserModule.Services
             return user;
         }
 
-        private void CreatePasswordHash(string password, out string hashed, out byte[] salt)
+        private void CreatePasswordHash(string password, out byte [] hashed, out byte[] salt)
         {
 
             // generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
@@ -40,7 +40,7 @@ namespace TodoApi.modules.UserModule.Services
                 rngCsp.GetNonZeroBytes(salt);
             }
 
-            hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            hashed = (KeyDerivation.Pbkdf2(
               password: password,
               salt: salt,
               prf: KeyDerivationPrf.HMACSHA256,
@@ -48,6 +48,23 @@ namespace TodoApi.modules.UserModule.Services
               numBytesRequested: 256 / 8));
             Console.WriteLine($"Hashed: {hashed}");
 
+        }
+
+//different hashing method in verification methods, use the same as in the rpg
+            public bool VerifyPasswordHash(string password, byte [] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA256(passwordSalt))
+            {
+                Console.WriteLine($"Hashed: {passwordHash}");
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                Console.WriteLine($"ComputedHashed: {computedHash}");
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != passwordHash[i]
+                    ) { return false; }
+                }
+                return true;
+            }
         }
 
 

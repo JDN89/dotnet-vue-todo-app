@@ -7,6 +7,6 @@ namespace TodoApi.modules.UserModule.Models
         [Required]
         public string? Email { get; set; }
         [Required]
-        public String? Hash { get; set; }
+        public String? Password { get; set; }
     }
 }
