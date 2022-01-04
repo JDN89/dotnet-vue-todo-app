@@ -25,29 +25,36 @@ public class UsersModule : ICarterModule
 
     private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
     {
-        //check if user exists in DB
 
         //new way of checking for null: c#10
-        ArgumentNullException.ThrowIfNull(oUser.PassWord);
-        
-         var exists = await db.QueryFirstOrDefaultAsync<bool> ("SELECT * FROM public.users Where email=@Email", oUser);
-            Console.WriteLine($"{exists}");
-            if (exists != false) {
-                
+        ArgumentNullException.ThrowIfNull(oUser.Email);
+
+        //check if user exists in DB
+        var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
+        Console.WriteLine($"{exists}");
+        if (exists != false)
+        {
+
             return Results.BadRequest("user is allready registered");
-            }
+        }
 
-
+        ArgumentNullException.ThrowIfNull(oUser.PassWord);
+        //hash password via Bcrypt
         var hashed = await AuthService.Register(oUser.PassWord);
 
-            return Results.Ok(hashed);
+        User newUser = new User();
+
+        newUser.Email = oUser.Email;
+        newUser.Hash = hashed;
+
+        var newUserId = await db.QuerySingleAsync(
+            "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
+        return Results.Ok(newUser);
 
         // log response with privatelogger
 
         //store response in db
 
-        // var newUserId = await db.QuerySingleAsync(
-        //     "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
 
         // return Results.Ok(response)
 
@@ -56,24 +63,22 @@ public class UsersModule : ICarterModule
     private static async Task<IResult> LoginUser(LoggedinUser loggedinUser, NpgsqlConnection db, IAuthService AuthService)
     {
 
-        User user = await db.QuerySingleAsync<User>(
-            "SELECT * FROM users where email = @Email", loggedinUser);
-        ArgumentNullException.ThrowIfNull(user);
-        ArgumentNullException.ThrowIfNull(user.Hash);
-        ArgumentNullException.ThrowIfNull(user.Salt);
-        ArgumentNullException.ThrowIfNull(loggedinUser.Password);
+        // User user = await db.QuerySingleAsync<User>(
+        //     "SELECT * FROM users where email = @Email", loggedinUser);
+        // ArgumentNullException.ThrowIfNull(user);
+        // ArgumentNullException.ThrowIfNull(user.Hash);
+        // ArgumentNullException.ThrowIfNull(loggedinUser.Password);
 
-        Console.WriteLine($"{user.Hash}, ' ' {user.Salt} ");
 
-        Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash, user.Salt)}");
+        // Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash)}");
 
-        if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash, user.Salt))
-        {
+        // if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash))
+        // {
 
-            return Results.BadRequest();
-        }
+        //     return Results.BadRequest();
+        // }
 
-        return Results.Ok(user);
+        return Results.Ok();
 
     }
 
