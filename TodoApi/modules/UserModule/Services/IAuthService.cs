@@ -8,7 +8,7 @@ namespace TodoApi.modules.UserModule.Services
 {
     public interface IAuthService
     {
-         public Task<Boolean> Register  ( UserDto oUser);
-       public bool VerifyPasswordHash(string password, byte [] passwordHash, byte[] passwordSalt);
+        public Task<string> Register(string password);
+        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt);
     }
 }

@@ -32,13 +32,15 @@ public class UsersModule : ICarterModule
         
          var exists = await db.QueryFirstOrDefaultAsync<bool> ("SELECT * FROM public.users Where email=@Email", oUser);
             Console.WriteLine($"{exists}");
-            if (exists == false) {
+            if (exists != false) {
                 
             return Results.BadRequest("user is allready registered");
             }
 
-        var response = await AuthService.Register(oUser);
-            return Results.Ok(response);
+
+        var hashed = await AuthService.Register(oUser.PassWord);
+
+            return Results.Ok(hashed);
 
         // log response with privatelogger
 

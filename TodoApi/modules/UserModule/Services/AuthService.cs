@@ -19,9 +19,10 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public async  Task<Boolean> Register(UserDto oUser)
+        public async  Task<string> Register(string password)
         {
-            return true;
+             var encryptedPassword =   BCrypt.Net.BCrypt.HashPassword(password);
+             return encryptedPassword;
 
 
         }
