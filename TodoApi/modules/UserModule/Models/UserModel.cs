@@ -7,7 +7,7 @@ namespace TodoApi.modules.UserModule.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        public string? Email { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         
           public byte[]? Hash { get; set; }
         public byte[]? Salt { get; set; }

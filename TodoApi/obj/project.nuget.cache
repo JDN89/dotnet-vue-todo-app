@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xk32sLmXP3krr963NOoLMn/aLDNAWiRMEiSOA3K0WV53QJXLTeTvdClG/39r75IIX9FuSffwQsEmkNwFr9+yfQ==",
+  "dgSpecHash": "UMNhjmmdxXttsl5ScxzW2O6NsEqQGZZOWntPhK6ww8WMLRrfli/MkbWcVIwyiyALqYAPMaduNqJQSmX3M1bHUA==",
   "success": true,
   "projectFilePath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
+    "/home/jan/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/home/jan/.nuget/packages/carter/6.0.0/carter.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
     "/home/jan/.nuget/packages/fluentvalidation/10.3.4/fluentvalidation.10.3.4.nupkg.sha512",

@@ -1,6 +1,7 @@
-using TodoApi.modules.UserModule.Models;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using TodoApi.modules.UserModule.Dto;
+
+using Dapper;
+using Npgsql;
 
 namespace TodoApi.modules.UserModule.Services
 {
@@ -18,40 +19,26 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public User CreateHash(User user, string password)
+        public async  Task<Boolean> Register(UserDto oUser)
         {
+            return true;
 
-            CreatePasswordHash(password, out byte[] hashed, out byte[] salt);
 
-
-            user.Hash = hashed;
-            user.Salt = salt;
-
-            return user;
         }
 
-        private void CreatePasswordHash(string password, out byte [] hashed, out byte[] salt)
+        private void CreatePasswordHash(string password, out byte[] hashed, out byte[] salt)
         {
 
-            // generate a 128-bit salt using a cryptographically strong random sequence of nonzero values
-            salt = new byte[128 / 8];
-            using (var rngCsp = new RNGCryptoServiceProvider())
+            using (var hmac = new System.Security.Cryptography.HMACSHA256())
             {
-                rngCsp.GetNonZeroBytes(salt);
+                salt = hmac.Key;
+                hashed = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
 
-            hashed = (KeyDerivation.Pbkdf2(
-              password: password,
-              salt: salt,
-              prf: KeyDerivationPrf.HMACSHA256,
-              iterationCount: 100000,
-              numBytesRequested: 256 / 8));
-            Console.WriteLine($"Hashed: {hashed}");
-
         }
 
-//different hashing method in verification methods, use the same as in the rpg
-            public bool VerifyPasswordHash(string password, byte [] passwordHash, byte[] passwordSalt)
+        //different hashing method in verification methods, use the same as in the rpg
+        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA256(passwordSalt))
             {

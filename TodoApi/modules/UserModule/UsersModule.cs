@@ -23,16 +23,22 @@ public class UsersModule : ICarterModule
         app.MapPost("/login", LoginUser).AllowAnonymous();
     }
 
-    private static async Task<IResult> Register(UserDto CreatedUSer, NpgsqlConnection db, IAuthService AuthService)
+    private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
     {
         //check if user exists in DB
 
         //new way of checking for null: c#10
-        ArgumentNullException.ThrowIfNull(CreatedUSer.PassWord);
+        ArgumentNullException.ThrowIfNull(oUser.PassWord);
+        
+         var exists = await db.QueryFirstOrDefaultAsync<bool> ("SELECT * FROM public.users Where email=@Email", oUser);
+            Console.WriteLine($"{exists}");
+            if (exists == false) {
+                
+            return Results.BadRequest("user is allready registered");
+            }
 
-        var response = AuthService.CreateHash(
-                new User { Email = CreatedUSer.Email }, CreatedUSer.PassWord
-            );
+        var response = await AuthService.Register(oUser);
+            return Results.Ok(response);
 
         // log response with privatelogger
 
@@ -41,7 +47,7 @@ public class UsersModule : ICarterModule
         // var newUserId = await db.QuerySingleAsync(
         //     "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", CreatedUSer);
 
-        return Results.Ok(response);
+        // return Results.Ok(response)
 
     }
 
@@ -50,19 +56,20 @@ public class UsersModule : ICarterModule
 
         User user = await db.QuerySingleAsync<User>(
             "SELECT * FROM users where email = @Email", loggedinUser);
-                    ArgumentNullException.ThrowIfNull(user);
-                    ArgumentNullException.ThrowIfNull(user.Hash);
-                    ArgumentNullException.ThrowIfNull(user.Salt);
-                    ArgumentNullException.ThrowIfNull(loggedinUser.Password);
+        ArgumentNullException.ThrowIfNull(user);
+        ArgumentNullException.ThrowIfNull(user.Hash);
+        ArgumentNullException.ThrowIfNull(user.Salt);
+        ArgumentNullException.ThrowIfNull(loggedinUser.Password);
 
-                    Console.WriteLine($"{user.Hash}, ' ' {user.Salt} ");
+        Console.WriteLine($"{user.Hash}, ' ' {user.Salt} ");
 
-Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash,user.Salt)}");
+        Console.WriteLine($"test:  {AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash, user.Salt)}");
 
-if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash,user.Salt)) {
+        if (!AuthService.VerifyPasswordHash(loggedinUser.Password, user.Hash, user.Salt))
+        {
 
-    return Results.BadRequest();
-}
+            return Results.BadRequest();
+        }
 
         return Results.Ok(user);
 
