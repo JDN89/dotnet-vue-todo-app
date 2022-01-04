@@ -19,11 +19,16 @@ namespace TodoApi.modules.UserModule.Services
         }
 
         // change to method with return type user
-        public async  Task<string> Register(string password)
+        public async Task<string> EncryptPassword(string password)
         {
-             var encryptedPassword =   BCrypt.Net.BCrypt.HashPassword(password);
-             return encryptedPassword;
+            var encryptedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            return encryptedPassword;
 
+        }
+        public async Task<bool> VerifyPassword(string password, string dbPassword)
+        {
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(password, dbPassword);
+            return isValidPassword;
 
         }
 
@@ -37,33 +42,6 @@ namespace TodoApi.modules.UserModule.Services
             }
 
         }
-
-        //different hashing method in verification methods, use the same as in the rpg
-        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA256(passwordSalt))
-            {
-                Console.WriteLine($"Hashed: {passwordHash}");
-                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                Console.WriteLine($"ComputedHashed: {computedHash}");
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i]
-                    ) { return false; }
-                }
-                return true;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
 
     }
 

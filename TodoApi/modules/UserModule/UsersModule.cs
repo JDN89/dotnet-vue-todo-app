@@ -32,7 +32,7 @@ public class UsersModule : ICarterModule
         //check if user exists in DB
         var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
         Console.WriteLine($"{exists}");
-        if (exists != false)
+        if (exists == true)
         {
 
             return Results.BadRequest("user is allready registered");
@@ -40,7 +40,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         //hash password via Bcrypt
-        var hashed = await AuthService.Register(oUser.PassWord);
+        var hashed = await AuthService.EncryptPassword(oUser.PassWord);
 
         User newUser = new User();
 
@@ -60,11 +60,28 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(LoggedinUser loggedinUser, NpgsqlConnection db, IAuthService AuthService)
+    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
     {
 
-        // User user = await db.QuerySingleAsync<User>(
-        //     "SELECT * FROM users where email = @Email", loggedinUser);
+ArgumentNullException.ThrowIfNull(oUser.Email);
+        var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
+        Console.WriteLine($"{exists}");
+        if (exists == false)
+            return Results.BadRequest("user doesn't exist");
+
+
+        User user = await db.QuerySingleAsync<User>(
+            "SELECT * FROM users where email = @Email", oUser);
+        Console.WriteLine($"{user}");
+
+ArgumentNullException.ThrowIfNull(oUser.PassWord);
+var verified = await AuthService.VerifyPassword(oUser.PassWord, user.Hash);
+
+        if (verified)
+            return Results.Ok(oUser);
+        return Results.BadRequest("wrong password");
+
+
         // ArgumentNullException.ThrowIfNull(user);
         // ArgumentNullException.ThrowIfNull(user.Hash);
         // ArgumentNullException.ThrowIfNull(loggedinUser.Password);
@@ -78,7 +95,6 @@ public class UsersModule : ICarterModule
         //     return Results.BadRequest();
         // }
 
-        return Results.Ok();
 
     }
 
