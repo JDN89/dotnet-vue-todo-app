@@ -23,7 +23,7 @@ public class UsersModule : ICarterModule
         app.MapPost("/login", LoginUser).AllowAnonymous();
     }
 
-    private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
+    private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService)
     {
 
         //new way of checking for null: c#10
@@ -39,7 +39,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         //hash password via Bcrypt
-        var hashed = await AuthService.EncryptPassword(oUser.PassWord);
+        var hashed = await EncryptionService.EncryptPassword(oUser.PassWord);
 
         User newUser = new User();
 
@@ -52,7 +52,7 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IAuthService AuthService)
+    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService)
     {
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
@@ -68,7 +68,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         ArgumentNullException.ThrowIfNull(user.Hash);
-        var verified = await AuthService.VerifyPassword(oUser.PassWord, user.Hash);
+        var verified = await EncryptionService.VerifyPassword(oUser.PassWord, user.Hash);
 
         if (verified)
             return Results.Ok(oUser);

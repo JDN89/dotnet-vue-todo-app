@@ -5,13 +5,13 @@ using Npgsql;
 
 namespace TodoApi.modules.UserModule.Services
 {
-    public class AuthService : IAuthService
+    public class EncryptionService : IEncryptionService
     {
 
         //IConfiguration gives us access to appsettings.json and other configuration settings
         private readonly IConfiguration _configuration;
 
-        public AuthService(IConfiguration configuration)
+        public EncryptionService(IConfiguration configuration)
         {
             _configuration = configuration;
 

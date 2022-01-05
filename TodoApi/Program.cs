@@ -54,7 +54,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddAuthorization(o => o.AddPolicy("AdminsOnly",
                                   b => b.RequireClaim("admin", "true")));
 // try to add authservice as a DI
-builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 
 var app = builder.Build();
 
