@@ -48,7 +48,7 @@ public class UsersModule : ICarterModule
 
         var newUserId = await db.QuerySingleAsync(
             "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
-        return Results.Ok(newUser);
+        return Results.Ok(newUserId);
 
     }
 
@@ -71,7 +71,7 @@ public class UsersModule : ICarterModule
         var verified = await EncryptionService.VerifyPassword(oUser.PassWord, user.Hash);
 
         if (verified)
-            return Results.Ok(oUser);
+            return Results.Ok();
         return Results.BadRequest("wrong password");
 
     }
