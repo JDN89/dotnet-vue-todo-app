@@ -8,10 +8,8 @@ using TodoApi.modules.UserModule.Services;
 
 public class UsersModule : ICarterModule
 {
-    //normally we would inject a service via services.addScoped<>()
-    // into a controller
-    // but here I don't use controllers
-    // so I'll inject the AuthService via namespace usage
+    // inject the AuthService via namespace usage
+    //alternetive do it via DI = cleaner
     // ------------
     //With Minimal APIs we can still benefit from dependency injection but instead of using constructor injection, 
     //the dependencies are passed as parameters in the handler delegate:
@@ -56,6 +54,7 @@ public class UsersModule : ICarterModule
     {
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
+        //check if oUser exists in db
         User user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
         if (user == null)
             return Results.NotFound("user not found exist");
@@ -65,6 +64,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         ArgumentNullException.ThrowIfNull(user.Hash);
+        //verify user his password
         var verified = await EncryptionService.VerifyPassword(oUser.PassWord, user.Hash);
 
 
