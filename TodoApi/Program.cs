@@ -36,7 +36,7 @@ builder.Services.AddSwaggerGen(x =>
 
 }
 );
-
+ 
 
 builder.Services.AddCors();
 
@@ -56,6 +56,7 @@ builder.Services.AddAuthorization(o => o.AddPolicy("AuthenticatedOnly",
                                   b => b.RequireClaim("Authenticated", "true")));
 // try to add authservice as a DI
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
+builder.Services.AddSingleton<IUserService, UserService>();
 
 var app = builder.Build();
 
