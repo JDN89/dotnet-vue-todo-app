@@ -57,9 +57,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
             });
 builder.Services.AddAuthorization(o => o.AddPolicy("AuthenticatedOnly",
                                   b => b.RequireClaim("Authenticated", "true")));
-// try to add authservice as a DI
+// Inject Services as DI in your Api endpoints or services
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<ITokenService, TokenService>();
 
 var app = builder.Build();
 

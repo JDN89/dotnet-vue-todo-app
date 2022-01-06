@@ -9,14 +9,7 @@ namespace TodoApi.modules.UserModule.Services
     {
 
         //IConfiguration gives us access to appsettings.json and other configuration settings
-        private readonly IConfiguration _configuration;
-
-        public EncryptionService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-
-
-        }
+      
 
         // change to method with return type user
         public async Task<string> EncryptPassword(string password)
