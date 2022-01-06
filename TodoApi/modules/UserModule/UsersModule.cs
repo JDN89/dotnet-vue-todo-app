@@ -52,27 +52,25 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService)
+    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService, IUserService UserService)
     {
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
-        var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
-        Console.WriteLine($"{exists}");
-        if (exists == false)
+        User user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
+        if (user == null)
             return Results.BadRequest("user doesn't exist");
 
 
-        User user = await db.QuerySingleAsync<User>(
-            "SELECT * FROM users where email = @Email", oUser);
         Console.WriteLine($"{user}");
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         ArgumentNullException.ThrowIfNull(user.Hash);
         var verified = await EncryptionService.VerifyPassword(oUser.PassWord, user.Hash);
 
+
         if (verified)
-            return Results.Ok();
-        return Results.BadRequest("wrong password");
+            return Results.Ok(user);
+        return Results.Unauthorized();
 
     }
 
