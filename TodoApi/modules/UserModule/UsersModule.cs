@@ -58,7 +58,7 @@ public class UsersModule : ICarterModule
         ArgumentNullException.ThrowIfNull(oUser.Email);
         User user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
         if (user == null)
-            return Results.BadRequest("user doesn't exist");
+            return Results.NotFound("user not found exist");
 
 
         Console.WriteLine($"{user}");
