@@ -14,6 +14,7 @@ var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; D
 builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen(x =>
 //add authorize to swagger and show which routes are authorized
 {
@@ -51,8 +52,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
                 };
             });
-builder.Services.AddAuthorization(o => o.AddPolicy("AdminsOnly",
-                                  b => b.RequireClaim("admin", "true")));
+builder.Services.AddAuthorization(o => o.AddPolicy("AuthenticatedOnly",
+                                  b => b.RequireClaim("Authenticated", "true")));
 // try to add authservice as a DI
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 
