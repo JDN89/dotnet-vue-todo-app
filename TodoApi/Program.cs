@@ -25,14 +25,13 @@ builder.Services.AddSwaggerGen(x =>
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey
     });
-    x.AddSecurityRequirement(new OpenApiSecurityRequirement{
+    x.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
-    new OpenApiSecurityScheme{Reference = new OpenApiReference {
-        Id = "Bearer",
-        Type = ReferenceType.SecurityScheme
-    }}, new List<string>()
-}
-});
+        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
 
 }
 );
@@ -43,7 +42,7 @@ builder.Services.AddCors();
 builder.Services.AddCarter();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateActor = true,
                     ValidateAudience = true,
