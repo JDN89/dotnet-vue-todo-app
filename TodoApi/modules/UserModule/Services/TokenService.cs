@@ -25,7 +25,6 @@ public string CreateToken(User user)
             {
 
                 new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Role, "Admin")
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
@@ -37,7 +36,7 @@ public string CreateToken(User user)
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddDays(1),
+                expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
