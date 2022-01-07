@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HC2WxH3Y4jFSL4R6dTuv56HyhB5WyoFxpk0IQmnrGF0bie7gbpIqEvtadbITrDvXcT4N6vkd2ABVYZ6JGtopYg==",
+  "dgSpecHash": "UMNhjmmdxXttsl5ScxzW2O6NsEqQGZZOWntPhK6ww8WMLRrfli/MkbWcVIwyiyALqYAPMaduNqJQSmX3M1bHUA==",
   "success": true,
   "projectFilePath": "/home/jan/Coding/Projects/dotnet-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
@@ -11,8 +11,6 @@
     "/home/jan/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.1/microsoft.aspnetcore.authentication.jwtbearer.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.aspnetcore.spaservices.extensions/6.0.1/microsoft.aspnetcore.spaservices.extensions.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
-    "/home/jan/.nuget/packages/microsoft.extensions.dependencyinjection/2.1.0/microsoft.extensions.dependencyinjection.2.1.0.nupkg.sha512",
-    "/home/jan/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.9/microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.dependencymodel/6.0.0/microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.fileproviders.abstractions/6.0.0/microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.fileproviders.physical/6.0.0/microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
@@ -26,9 +24,6 @@
     "/home/jan/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/npgsql/6.0.1/npgsql.6.0.1.nupkg.sha512",
-    "/home/jan/.nuget/packages/scrutor/3.3.0/scrutor.3.3.0.nupkg.sha512",
-    "/home/jan/.nuget/packages/swashbuckle.aspnetcore.filters/7.0.2/swashbuckle.aspnetcore.filters.7.0.2.nupkg.sha512",
-    "/home/jan/.nuget/packages/swashbuckle.aspnetcore.filters.abstractions/7.0.2/swashbuckle.aspnetcore.filters.abstractions.7.0.2.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",

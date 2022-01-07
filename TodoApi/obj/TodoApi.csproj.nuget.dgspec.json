@@ -58,10 +58,6 @@
               "target": "Package",
               "version": "[6.0.1, )"
             },
-            "Swashbuckle.AspNetCore.Filters": {
-              "target": "Package",
-              "version": "[7.0.2, )"
-            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.2.3, )"
