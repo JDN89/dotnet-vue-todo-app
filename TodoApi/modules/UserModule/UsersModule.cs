@@ -59,9 +59,6 @@ public class UsersModule : ICarterModule
         if (user == null)
             return Results.NotFound("user not found exist");
 
-
-        Console.WriteLine($"{user}");
-
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         ArgumentNullException.ThrowIfNull(user.Hash);
         //verify user his password
