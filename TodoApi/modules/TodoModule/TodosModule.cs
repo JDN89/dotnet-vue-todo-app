@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using TodoApi.modules.TodoModule.Dto;
 using TodoApi.modules.TodoModule.Models;
 
+
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
 public class TodosModule : ICarterModule
 {
