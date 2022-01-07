@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApi.modules.UserModule.Services;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Filters;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,42 +21,44 @@ builder.Services.AddSwaggerGen(x =>
 {
     x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the bearer scheme",
+        // in the authorzation lock > Bearer token
+        //so write Bearer and paste token
+        //above took me long time to figure out > REMEMBER for next project
+        Description = "JWT Authorization header using the bearer scheme  ",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey
     });
-    x.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    x.AddSecurityRequirement(new OpenApiSecurityRequirement{
     {
-        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
-        In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
-    });
+    new OpenApiSecurityScheme{Reference = new OpenApiReference {
+        Id = "Bearer",
+        Type = ReferenceType.SecurityScheme
+    }}, new List<string>()
+}
+});
 
 }
 );
 
-
 builder.Services.AddCors();
 
 builder.Services.AddCarter();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateActor = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                    ValidAudience = builder.Configuration["Jwt:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                .GetBytes(builder.Configuration.GetSection("Jwt:Token").Value)),
+            ValidateLifetime = true,
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+builder.Services.AddAuthorization();
 
-                };
-            });
-builder.Services.AddAuthorization(o => o.AddPolicy("AuthenticatedOnly",
-                                  b => b.RequireClaim("Authenticated", "true")));
 // Inject Services as DI in your Api endpoints or services
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 builder.Services.AddSingleton<IUserService, UserService>();
@@ -77,6 +80,8 @@ if (app.Environment.IsDevelopment())
     // PLAATS HIER JE CORS SETTINGS
     app.UseDeveloperExceptionPage();
     app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+    app.MapSwagger();
+    app.UseSwaggerUI();
 
 
 }
@@ -88,9 +93,6 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
    .ExcludeFromDescription();
-
-app.MapSwagger();
-app.UseSwaggerUI();
 
 app.UseAuthentication();
 app.UseAuthorization();

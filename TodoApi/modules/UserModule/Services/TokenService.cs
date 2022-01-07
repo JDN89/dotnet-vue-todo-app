@@ -7,10 +7,10 @@ using TodoApi.modules.UserModule.Models;
 
 namespace TodoApi.modules.UserModule.Services
 {
-    public class TokenService:ITokenService
+    public class TokenService : ITokenService
     {
 
-          private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public TokenService(IConfiguration configuration)
         {
@@ -18,29 +18,31 @@ namespace TodoApi.modules.UserModule.Services
 
 
         }
-public string CreateToken(User user)
+        public string CreateToken(User user)
         {
             ArgumentNullException.ThrowIfNull(user.Email);
             List<Claim> claims = new List<Claim>
             {
 
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                            };
+
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt:Token").Value));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddHours(8),
+                SigningCredentials = creds
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-                      
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-                _configuration.GetSection("Jwt:Key").Value));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
-
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: creds);
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return jwt;
-        }    }
+            return tokenHandler.WriteToken(token);
+            ;
+        }
+    }
 }
