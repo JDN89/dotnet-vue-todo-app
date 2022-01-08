@@ -14,7 +14,7 @@ public class TodosModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/{userId}", FetchLists).RequireAuthorization();
+        app.MapGet("/{userId}", FetchLists).RequireAuthorization("UsersOnly");
         app.MapPost("/{userId}", CreateList).RequireAuthorization();
         app.MapDelete("/{userId}", DeleteList).RequireAuthorization();
         app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList").RequireAuthorization();

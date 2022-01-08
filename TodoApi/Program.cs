@@ -57,7 +57,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization( options => {
+    options.AddPolicy("UsersOnly", policy => policy.RequireClaim("user", "registered"));
+});
 
 // Inject Services as DI in your Api endpoints or services
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
@@ -98,7 +100,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 // useHttpLogging to log your endpoints
-// app.UseHttpLogging();
+app.UseHttpLogging();
 
 app.MapCarter();
 
