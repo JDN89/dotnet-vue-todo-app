@@ -97,30 +97,11 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
-
-app.MapCarter();
+// useHttpLogging to log your endpoints
 // app.UseHttpLogging();
 
+app.MapCarter();
 
-
-//  app.Use(async (context, next) =>
-//     {
-//         await next();
-//         if (context.Response.StatusCode == 404)
-//         {
-//             context.Request.Path = "/Home";
-//             await next();
-//         }
-//     });
-
-// app.UseSpa(builder =>
-// {
-//     if (app.Environment.IsDevelopment())
-//     {
-//         builder.UseProxyToSpaDevelopmentServer("http://localhost:4000/");
-//     }
-
-// });
 
 
 app.Run();

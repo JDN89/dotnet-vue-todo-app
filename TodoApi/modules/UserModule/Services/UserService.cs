@@ -1,33 +1,33 @@
-using TodoApi.modules.UserModule.Models;
-using TodoApi.modules.UserModule.Dto;
-using Npgsql;
 using System.Security.Claims;
-
 namespace TodoApi.modules.UserModule.Services;
-
 
 public class UserService : IUserService
 {
 
     // // pass httpContect in the constructor otherwise you have to add it in the GetUser 
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly ILogger _logger;
 
-
-    public UserService(IHttpContextAccessor httpContextAccessor)
+    public UserService(IHttpContextAccessor httpContextAccessor, ILogger<UserService> logger)
     {
         _httpContextAccessor = httpContextAccessor;
-
+        _logger = logger;
 
     }
 
     public string GetUser()
     {
-        var result = string.Empty;
-        if(_httpContextAccessor.HttpContext !=null)
+        var userId = string.Empty;
+        if (_httpContextAccessor.HttpContext != null)
         {
-            result = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // .FindFirstValue(ClaimTypes.NameIdentifier);
+      
         }
-        return result;
+        _logger.LogInformation(userId);
+
+        return userId;
     }
 
 

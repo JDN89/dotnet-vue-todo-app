@@ -50,7 +50,7 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService, IUserService UserService, ITokenService tokenService)
+    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService, ITokenService tokenService)
     {
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
@@ -64,10 +64,10 @@ public class UsersModule : ICarterModule
         //verify user his password
         var verified = await EncryptionService.VerifyPassword(oUser.PassWord, user.Hash);
         if (!verified)
-        return Results.Unauthorized();
+            return Results.Unauthorized();
 
         string token = tokenService.CreateToken(user);
-            return Results.Ok(token);
+        return Results.Ok(token);
 
     }
 

@@ -6,6 +6,7 @@ using Carter;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.modules.TodoModule.Dto;
 using TodoApi.modules.TodoModule.Models;
+using TodoApi.modules.UserModule.Services;
 
 
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
@@ -24,8 +25,11 @@ public class TodosModule : ICarterModule
 
     //store list ids in the frontend
     // listId necessary for deletelist DeleteList
-    private async Task<IEnumerable<FetchedList>> FetchLists([FromQuery] int userId, NpgsqlConnection db) =>
-          await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ", new { userId });
+    private async Task<IEnumerable<FetchedList>> FetchLists([FromQuery] int userId, NpgsqlConnection db, IUserService userService)
+    {
+        int pwe = Int32.Parse(userService.GetUser());
+        return await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@pwe group by L.id, L.title ", new { pwe });
+    }
 
 
     // CHORE: figure how to return single list Id instead of multiple list id's
