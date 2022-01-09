@@ -12,13 +12,18 @@ export const useTodoStore = defineStore("todo", {
     toDoLists: [],
   }),
   actions: {
+
+    // =========================================
+    // ===========   FETCHLISTS  ===============
+    // =========================================
     async fetchTodoLists() {
       const userStore = useUserStore();
       const userId = userStore.getUserId;
+      const userToken = userStore.token;
 
       try {
         const response = await axios.get(
-          "http://localhost:5230/${userId}?userId=" + userId
+          "https://localhost:7126/${userId}?userId=" + userId
         );
 
         if (response.status === 200) {

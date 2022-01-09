@@ -9,7 +9,9 @@ const props = defineProps({
 console.log(Number(props.todos));
 
 const todoStore = useTodoStore();
-onBeforeMount(() => {
+onMounted(() => {
+  console.log("firing");
+  
   todoStore.fetchTodoLists();
 });
 </script>
