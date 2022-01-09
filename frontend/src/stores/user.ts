@@ -1,12 +1,12 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { CreateUserInterface, UserInterface } from "../types/interfaces";
+import { CreateUserInterface } from "../types/interfaces";
 import axios from "axios";
 
 interface TodoStateInterface {
-  usersData: UserInterface[];
   createdUserData: CreateUserInterface | null;
   loginData: CreateUserInterface | null;
   userId: number | null;
+  token:number|null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
@@ -17,20 +17,10 @@ export const useUserStore = defineStore("user", {
     createdUserData: null,
     loginData: null,
     userId: null,
+    token:null,
     isAuthenticated: false,
 
-    usersData: [
-      {
-        id: 0,
-        email: "Jogi@sien.com",
-        hash: "123456",
-      },
-      {
-        id: 1,
-        email: "jan@niels.com",
-        hash: "123456",
-      },
-    ],
+   
   }),
   actions: {
     // =========================================
@@ -81,7 +71,6 @@ export const useUserStore = defineStore("user", {
     },
   },
   getters: {
-    getUsers: (state) => state.usersData,
     getLoginData: (state) => state.loginData,
     getUserId: (state) => state.userId,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
