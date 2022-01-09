@@ -6,7 +6,7 @@ interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
   loginData: CreateUserInterface | null;
   userId: number | null;
-  token:number|null;
+  token: number | null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
@@ -17,10 +17,8 @@ export const useUserStore = defineStore("user", {
     createdUserData: null,
     loginData: null,
     userId: null,
-    token:null,
+    token: null,
     isAuthenticated: false,
-
-   
   }),
   actions: {
     // =========================================
@@ -50,9 +48,14 @@ export const useUserStore = defineStore("user", {
     // =========================================
     async loginUser(user: CreateUserInterface) {
       try {
-        const response = await axios.post("http://localhost:5230/login", user);
+        console.log(user);
+        
+        const response = await axios.post("https://localhost:7126/login", user);
         if (response.status === 200) {
-          this.userId = response.data;
+          this.token = response.data;
+          console.log(this.token);
+          console.log(response.data);
+
           this.loginData = null;
         }
       } catch (error) {
