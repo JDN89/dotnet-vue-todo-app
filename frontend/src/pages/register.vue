@@ -10,10 +10,10 @@ const userStore = useUserStore();
 
 const schema = yup.object({
   email: yup.string().required().email(),
-  hash: yup.string().required().min(8),
-  confirmhash: yup
+  password: yup.string().required().min(8),
+  confirmpassword: yup
     .string()
-    .oneOf([yup.ref("hash"), null], "Confirmed hash doesn't match")
+    .oneOf([yup.ref("password"), null], "Confirmed password doesn't match")
     .required(),
 });
 
@@ -24,7 +24,7 @@ const { handleSubmit, values } = useForm({
 });
 
 // Sync store state with vee-validate state
-// store formData(email,hash) in createdUserData
+// store formData(email,password) in createdUserData
 // This is a one way binding
 watch(values, (newFormData) => {
   userStore.$patch({ createdUserData: newFormData });
@@ -53,22 +53,22 @@ const onSubmit = handleSubmit(userStore.registerUser);
 
       <div class="flex flex-col">
         <Field
-          name="hash"
+          name="password"
           type="password"
           placeholder="password"
           class="field"
         />
-        <ErrorMessage name="hash" class="errorMessage" />
+        <ErrorMessage name="password" class="errorMessage" />
       </div>
 
       <div class="flex flex-col">
         <Field
-          name="confirmhash"
+          name="confirmpassword"
           type="password"
           placeholder="Confirm password"
           class="field"
         />
-        <ErrorMessage name="confirmhash" class="errorMessage" />
+        <ErrorMessage name="confirmpassword" class="errorMessage" />
       </div>
 
       <button type="submit">Submit</button>

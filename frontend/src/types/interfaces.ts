@@ -1,12 +1,12 @@
 export interface CreateUserInterface {
   email: string;
-  hash: string;
+  password: string;
 }
 
 export interface UserInterface {
   id: number;
   email: string;
-  hash: string;
+  password: string;
 }
 export interface NewMessageInterface {
   Title: string;

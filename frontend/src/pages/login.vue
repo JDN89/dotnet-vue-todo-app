@@ -11,7 +11,7 @@ const userStore = useUserStore();
 
 const schema = yup.object({
   email: yup.string().required().email(),
-  hash: yup.string().required().min(8),
+  password: yup.string().required().min(8),
 });
 
 //  IsSubmitting disables the submit button until the yup rules are met
@@ -56,8 +56,8 @@ const router = useRouter();
       </div>
 
       <div class="flex flex-col">
-        <Field name="hash" type="hash" placeholder="Password" class="field" />
-        <ErrorMessage name="hash" class="errorMessage" />
+        <Field name="password" type="password" placeholder="Password" class="field" />
+        <ErrorMessage name="password" class="errorMessage" />
       </div>
 
       <button type="submit">Submit</button>
