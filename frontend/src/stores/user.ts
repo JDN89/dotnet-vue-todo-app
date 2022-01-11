@@ -34,7 +34,6 @@ export const useUserStore = defineStore("user", {
           this.createdUserData
         );
         if (response.status === 200) {
-          console.log("User successfully created");
           this.createdUserData = null;
         }
       } catch (error) {
@@ -50,8 +49,6 @@ export const useUserStore = defineStore("user", {
     // =========================================
     async loginUser(user: CreateUserInterface) {
       try {
-        console.log(user);
-
         const response = await axios.post("https://localhost:7126/login", user);
         if (response.status === 200) {
           this.token = response.data;
@@ -81,16 +78,12 @@ export const useUserStore = defineStore("user", {
       // ###########
       try {
         const response = await todoStore.fetchTodoLists();
-        console.log(response);
-        console.log(token);
-        if (response == true) return this.isAuthenticated = true;
-     
-        
+
+        if (response == true) return (this.isAuthenticated = true);
       } catch (error) {
         // one error redirect back to login
         // otherwise you see the dashboard (correct loging)
         // even if token was not verified on the backend
-        
       }
     },
 
@@ -99,6 +92,7 @@ export const useUserStore = defineStore("user", {
     // =========================================
     logout() {
       this.isAuthenticated = false;
+      window.sessionStorage.removeItem("token");
       console.log("logged out");
     },
   },
