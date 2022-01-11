@@ -15,20 +15,12 @@ onBeforeMount(async () => {
     //retrieve Sessions (action pass tokene en userId)
 
     const response = await uStore.retrieveSession(token);
-    console.log(response);
-    
-    if (response !== true) {
-      console.log(response);
 
+    if (response == true) {
       router.replace({
         name: "myTodos",
       });
-    } else {
-      console.log( "response is false");
-      
-     }
-  } else {
-    console.log("no token is present");
+    }
   }
 });
 

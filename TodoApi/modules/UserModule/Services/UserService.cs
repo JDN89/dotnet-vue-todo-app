@@ -15,7 +15,7 @@ public class UserService : IUserService
 
     }
 
-    public string GetUser()
+    public string GetUserId()
     {
         var userId = string.Empty;
         if (_httpContextAccessor.HttpContext != null)

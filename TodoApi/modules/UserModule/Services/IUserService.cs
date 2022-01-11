@@ -4,6 +4,6 @@ namespace TodoApi.modules.UserModule.Services
 {
     public interface IUserService
     {
-         public string GetUser();
+         public string GetUserId();
     }
 }

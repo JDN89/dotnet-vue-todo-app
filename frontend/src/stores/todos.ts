@@ -18,17 +18,19 @@ export const useTodoStore = defineStore("todo", {
     // =========================================
     async fetchTodoLists() {
       const userStore = useUserStore();
-      const userId = userStore.getUserId;
-      const userToken = userStore.token;
+      const userToken = userStore.getToken;
 
       try {
         const response = await axios.get(
-          "https://localhost:7126/${userId}?userId=" + userId
+          "https://localhost:7126/myTodos",{
+            headers: {
+              Authorization: "Bearer " + userToken, //the token is a variable which holds the token
+            },
+          }
         );
 
         if (response.status === 200) {
           this.toDoLists = response.data;
-          console.log(this.toDoLists);
           return true
         
         } 

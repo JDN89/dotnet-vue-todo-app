@@ -79,18 +79,18 @@ export const useUserStore = defineStore("user", {
       // ###########3
       // REMOVE. place when response fethTodoLists is true
       // ###########
-      this.isAuthenticated = true;
       try {
         const response = await todoStore.fetchTodoLists();
         console.log(response);
         console.log(token);
-        if (response == true) return true;
-        return false;
+        if (response == true) return this.isAuthenticated = true;
+     
+        
       } catch (error) {
         // one error redirect back to login
         // otherwise you see the dashboard (correct loging)
         // even if token was not verified on the backend
-        return false;
+        
       }
     },
 

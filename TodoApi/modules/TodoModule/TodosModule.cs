@@ -14,7 +14,7 @@ public class TodosModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/{userId}", FetchLists).RequireAuthorization("UsersOnly");
+        app.MapGet("/myTodos", FetchLists).RequireAuthorization("UsersOnly");
         app.MapPost("/{userId}", CreateList).RequireAuthorization();
         app.MapDelete("/{userId}", DeleteList).RequireAuthorization();
         app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
@@ -25,9 +25,9 @@ public class TodosModule : ICarterModule
 
     //store list ids in the frontend
     // listId necessary for deletelist DeleteList
-    private async Task<IEnumerable<FetchedList>> FetchLists([FromQuery] int userId, NpgsqlConnection db, IUserService userService)
+    private async Task<IEnumerable<FetchedList>> FetchLists( NpgsqlConnection db, IUserService userService)
     {
-        int pwe = Int32.Parse(userService.GetUser());
+        int userId = Int32.Parse(userService.GetUserId());
         return await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ", new { userId });
     }
 
