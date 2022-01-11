@@ -1,6 +1,8 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { CreateUserInterface } from "../types/interfaces";
 import axios from "axios";
+import { useTodoStore } from "~/stores/todos";
+import { useRouter } from "vue-router";
 
 interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
@@ -55,8 +57,7 @@ export const useUserStore = defineStore("user", {
           this.token = response.data;
           if (this.token == null) return console.error("no token set");
           window.sessionStorage.setItem("token", this.token);
-          console.log(this.token);
-          console.log(response.data);
+
           this.loginData = null;
         }
       } catch (error) {
@@ -66,6 +67,33 @@ export const useUserStore = defineStore("user", {
       this.isAuthenticated = true;
       return true;
     },
+
+    // ===================================
+    // ===========  RETRIEVE SESSION  ===============
+    // ===================================
+
+    async retrieveSession(token: string) {
+      // const router = useRouter();      // on mounted --> trigger fetchLists
+      const todoStore = useTodoStore();
+      this.token = token;
+      // ###########3
+      // REMOVE. place when response fethTodoLists is true
+      // ###########
+      this.isAuthenticated = true;
+      try {
+        const response = await todoStore.fetchTodoLists();
+        console.log(response);
+        console.log(token);
+        if (response == true) return true;
+        return false;
+      } catch (error) {
+        // one error redirect back to login
+        // otherwise you see the dashboard (correct loging)
+        // even if token was not verified on the backend
+        return false;
+      }
+    },
+
     // =========================================
     // ===========   LOGOUT  ===============
     // =========================================

@@ -29,10 +29,14 @@ export const useTodoStore = defineStore("todo", {
         if (response.status === 200) {
           this.toDoLists = response.data;
           console.log(this.toDoLists);
-        }
+          return true
+        
+        } 
       } catch (error) {
-        console.error(error);
+        console.error(error); 
+        return false;
       }
+      
     },
 
     // =========================================
