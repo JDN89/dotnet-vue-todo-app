@@ -12,7 +12,6 @@ export const useTodoStore = defineStore("todo", {
     toDoLists: [],
   }),
   actions: {
-
     // =========================================
     // ===========   FETCHLISTS  ===============
     // =========================================
@@ -21,34 +20,41 @@ export const useTodoStore = defineStore("todo", {
       const userToken = userStore.getToken;
 
       try {
-        const response = await axios.get(
-          "https://localhost:7126/myTodos",{
-            headers: {
-              Authorization: "Bearer " + userToken, //the token is a variable which holds the token
-            },
-          }
-        );
+        const response = await axios.get("https://localhost:7126/myTodos", {
+          // the userId is added as a claimIdentifier to the token
+          // we extract the userId from the token in the backend via UserService
+          //so no need to send the UserId as a seperate value via qurystring,...
+          headers: {
+            Authorization: "Bearer " + userToken,
+          },
+        });
 
         if (response.status === 200) {
           this.toDoLists = response.data;
-          return true
-        
-        } 
+          return true;
+        }
       } catch (error) {
-        console.error(error); 
+        console.error(error);
         return false;
       }
-      
     },
 
     // =========================================
     // ===========   ADDLISTS  ===============
     // =========================================
     async add(newToDoList: newListInterface) {
+      const userStore = useUserStore();
+      const userToken = userStore.getToken;
       try {
         const response = await axios.post(
-          "http://localhost:5230/${userId}",
-          newToDoList
+          "https://localhost:7126/myTodos",
+          newToDoList,
+          // the UserId in newToDoList is initially set to null
+          // we  extract the userId from the token in the backend
+          // then we set the newtoDoList.userId = id retrieved from token
+          {
+            headers: { Authorization: "Bearer " + userToken },
+          }
         );
 
         if (response.status === 200) {
@@ -64,7 +70,7 @@ export const useTodoStore = defineStore("todo", {
     async deleteList(listId: number) {
       try {
         const response = await axios.delete(
-          "http://localhost:5230/${userId}?listId=" + listId
+          "hhttps://localhost:7126/myTodos?listId=" + listId
         );
 
         if (response.status === 204) {
@@ -86,7 +92,7 @@ export const useTodoStore = defineStore("todo", {
 
       try {
         const response = await axios.put(
-          "http://localhost:5230/${userId}",
+          "https://localhost:7126/myTodos",
           archiveTodo
         );
 
@@ -109,7 +115,7 @@ export const useTodoStore = defineStore("todo", {
 
       try {
         const response = await axios.put(
-          "http://localhost:5230/unarchive/${userId}",
+          "https://localhost:7126/myTodos/unarchive/",
           unArchiveTodo
         );
 

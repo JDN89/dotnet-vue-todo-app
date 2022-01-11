@@ -2,7 +2,6 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 import { CreateUserInterface } from "../types/interfaces";
 import axios from "axios";
 import { useTodoStore } from "~/stores/todos";
-import { useRouter } from "vue-router";
 
 interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
@@ -30,7 +29,7 @@ export const useUserStore = defineStore("user", {
     async registerUser() {
       try {
         const response = await axios.post(
-          "http://localhost:5230/register",
+          "https://localhost:7126/register",
           this.createdUserData
         );
         if (response.status === 200) {
@@ -98,7 +97,6 @@ export const useUserStore = defineStore("user", {
   },
   getters: {
     getLoginData: (state) => state.loginData,
-    getUserId: (state) => state.userId,
     getToken: (state) => state.token,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
     getIsAuthenticated: (state) => state.isAuthenticated,

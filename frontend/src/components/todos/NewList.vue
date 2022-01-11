@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { newListInterface } from "~/types/interfaces";
 import { useTodoStore } from "~/stores/todos";
-import { useUserStore } from "~/stores/user";
 
 let isVisible = ref(false);
 console.log(isVisible);
@@ -29,10 +28,8 @@ const newList: newListInterface = reactive({
   todos: [],
 });
 
-const userStore = useUserStore();
 
 const addList = () => {
-  newList.userId = userStore.getUserId;
   let copyOfList = Object.assign({}, newList);
   if (newList.title?.length === 0) {
     return alert("Give your To-Do List a title");
@@ -44,7 +41,6 @@ const addList = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      newList.userId = null;
       newList.title = "";
       newList.todos = [];
       isVisible.value = false;

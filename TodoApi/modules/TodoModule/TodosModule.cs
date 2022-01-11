@@ -15,10 +15,10 @@ public class TodosModule : ICarterModule
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         app.MapGet("/myTodos", FetchLists).RequireAuthorization("UsersOnly");
-        app.MapPost("/{userId}", CreateList).RequireAuthorization();
-        app.MapDelete("/{userId}", DeleteList).RequireAuthorization();
-        app.MapPut("/{userId}", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
-        app.MapPut("/unarchive/{userId}", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
+        app.MapPost("/myTodos", CreateList).RequireAuthorization();
+        app.MapDelete("/myTodos", DeleteList).RequireAuthorization();
+        app.MapPut("/myTodos", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
+        app.MapPut("/myTodos/unarchive/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
 
 
     }
@@ -34,11 +34,13 @@ public class TodosModule : ICarterModule
 
     // CHORE: figure how to return single list Id instead of multiple list id's
     // QuerySingleAsync is not the solution, throw IEnumerable error
-    private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db)
+    private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db, IUserService userService)
     {
+            int Id = Int32.Parse(userService.GetUserId());
+            newList.UserId = Id;
         var ListId = await db.QueryAsync<int>(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);
-        return Results.Ok($"/{newList.UserId}");
+        return Results.Ok(Id);
     }
 
     //Foreign key set delete rule to cascade => see db. 
