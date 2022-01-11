@@ -6,7 +6,7 @@ interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
   loginData: CreateUserInterface | null;
   userId: number | null;
-  token: number | null;
+  token: string | null;
   registrationFormIsVisible: boolean;
   isAuthenticated: boolean;
 }
@@ -49,10 +49,12 @@ export const useUserStore = defineStore("user", {
     async loginUser(user: CreateUserInterface) {
       try {
         console.log(user);
-        
+
         const response = await axios.post("https://localhost:7126/login", user);
         if (response.status === 200) {
           this.token = response.data;
+          if (this.token == null) return console.error("no token set");
+          window.sessionStorage.setItem("token", this.token);
           console.log(this.token);
           console.log(response.data);
           this.loginData = null;
