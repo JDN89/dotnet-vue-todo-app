@@ -66,9 +66,14 @@ public class UsersModule : ICarterModule
         if (!verified)
             return Results.Unauthorized();
 
-        string token = tokenService.CreateToken(user);
 
-        return Results.Ok(user.Id);
+        TokenDto tokenInfo = new TokenDto();
+
+        tokenInfo.Token = tokenService.CreateToken(user);
+        tokenInfo.UserdId = user.Id;
+
+
+        return Results.Ok(tokenInfo);
 
     }
 
