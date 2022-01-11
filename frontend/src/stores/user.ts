@@ -9,7 +9,6 @@ interface TodoStateInterface {
   userId: number | null;
   token: string | null;
   registrationFormIsVisible: boolean;
-  isAuthenticated: boolean;
 }
 
 export const useUserStore = defineStore("user", {
@@ -19,7 +18,6 @@ export const useUserStore = defineStore("user", {
     loginData: null,
     userId: null,
     token: null,
-    isAuthenticated: false,
   }),
   actions: {
     // =========================================
@@ -60,7 +58,6 @@ export const useUserStore = defineStore("user", {
         console.error(error);
       }
 
-      this.isAuthenticated = true;
       return true;
     },
 
@@ -69,20 +66,13 @@ export const useUserStore = defineStore("user", {
     // ===================================
 
     async retrieveSession(token: string) {
-      // const router = useRouter();      // on mounted --> trigger fetchLists
-      const todoStore = useTodoStore();
       this.token = token;
-      // ###########3
-      // REMOVE. place when response fethTodoLists is true
-      // ###########
-      try {
-        const response = await todoStore.fetchTodoLists();
+      const todoStore = useTodoStore();
 
-        if (response == true) return (this.isAuthenticated = true);
+      try {
+        await todoStore.fetchTodoLists();
       } catch (error) {
-        // one error redirect back to login
-        // otherwise you see the dashboard (correct loging)
-        // even if token was not verified on the backend
+        console.error(error);
       }
     },
 
@@ -90,7 +80,6 @@ export const useUserStore = defineStore("user", {
     // ===========   LOGOUT  ===============
     // =========================================
     logout() {
-      this.isAuthenticated = false;
       window.sessionStorage.removeItem("token");
       console.log("logged out");
     },
@@ -99,7 +88,6 @@ export const useUserStore = defineStore("user", {
     getLoginData: (state) => state.loginData,
     getToken: (state) => state.token,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
-    getIsAuthenticated: (state) => state.isAuthenticated,
   },
 });
 

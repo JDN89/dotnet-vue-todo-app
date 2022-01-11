@@ -20,7 +20,7 @@ const { handleSubmit, values } = useForm({
   validationSchema: schema,
 });
 
-// Sync store state with vee-validate state
+// Sync Userstore state with vee-validate state
 // This is a one way binding
 watch(values, (newFormData) => {
   userStore.$patch({ loginData: newFormData });
@@ -30,6 +30,7 @@ watch(values, (newFormData) => {
 // the store action will only run when the user submits valid form data
 const onSubmit = handleSubmit(async () => {
   // check if getLoginData is not null
+  // logindata are the form values that the user filled inf
   if (userStore.getLoginData) {
     const response = await userStore.loginUser(userStore.getLoginData);
     if (response == true) {
@@ -38,7 +39,7 @@ const onSubmit = handleSubmit(async () => {
         
       });
     }
-  } else alert("Singin failed, could't retrieve login data");
+  } else console.error("Singin failed, could't retrieve login data");
 });
 
 const router = useRouter();

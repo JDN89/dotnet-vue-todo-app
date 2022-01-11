@@ -12,6 +12,13 @@ export const useTodoStore = defineStore("todo", {
     toDoLists: [],
   }),
   actions: {
+    // the userId is added as a claimIdentifier to the token in the backend - see tokenService
+    // we save this id in session Storage
+    // and with each request we send the token (containing the id) in request header to the api
+    // we extract the userId from the token in the backend via UserService
+    // and use this id to retrieve the user his lists from the db user his list
+    // so no need to send the UserId as a seperate value via qurystring,...
+
     // =========================================
     // ===========   FETCHLISTS  ===============
     // =========================================
@@ -21,9 +28,6 @@ export const useTodoStore = defineStore("todo", {
 
       try {
         const response = await axios.get("https://localhost:7126/myTodos", {
-          // the userId is added as a claimIdentifier to the token
-          // we extract the userId from the token in the backend via UserService
-          //so no need to send the UserId as a seperate value via qurystring,...
           headers: {
             Authorization: "Bearer " + userToken,
           },
@@ -49,9 +53,7 @@ export const useTodoStore = defineStore("todo", {
         const response = await axios.post(
           "https://localhost:7126/myTodos",
           newToDoList,
-          // the UserId in newToDoList is initially set to null
-          // we  extract the userId from the token in the backend
-          // then we set the newtoDoList.userId = id retrieved from token
+
           {
             headers: { Authorization: "Bearer " + userToken },
           }

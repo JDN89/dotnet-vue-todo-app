@@ -20,24 +20,19 @@ public class TodosModule : ICarterModule
         app.MapPut("/myTodos", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
         app.MapPut("/myTodos/unarchive/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
 
-
     }
 
-    //store list ids in the frontend
-    // listId necessary for deletelist DeleteList
-    private async Task<IEnumerable<FetchedList>> FetchLists( NpgsqlConnection db, IUserService userService)
+    private async Task<IEnumerable<FetchedList>> FetchLists(NpgsqlConnection db, IUserService userService)
     {
         int userId = Int32.Parse(userService.GetUserId());
         return await db.QueryAsync<FetchedList>("SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ", new { userId });
     }
 
 
-    // CHORE: figure how to return single list Id instead of multiple list id's
-    // QuerySingleAsync is not the solution, throw IEnumerable error
-    private static async Task<IResult> CreateList(CreatedList newList, NpgsqlConnection db, IUserService userService)
+    private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db, IUserService userService)
     {
-            int Id = Int32.Parse(userService.GetUserId());
-            newList.UserId = Id;
+        int Id = Int32.Parse(userService.GetUserId());
+        newList.UserId = Id;
         var ListId = await db.QueryAsync<int>(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);
         return Results.Ok(Id);

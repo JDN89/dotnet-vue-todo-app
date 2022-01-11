@@ -5,25 +5,21 @@ import { useUserStore } from "~/stores/user";
 
 export const install: UserModule = ({ app, router, isClient }) => {
   if (isClient) {
-    // use const inside export function, otherwise error that pinis is not isntalled yet
+    // use const inside export function, otherwise pinia error
+    // route guard: check if auth is required and token is present
     const userStore = useUserStore();
     router.beforeEach((to, from, next) => {
-      if (to.meta?.requiresAuth && userStore.getIsAuthenticated) {
+      if (to.meta?.requiresAuth && userStore.getToken) {
         console.log("authorized");
 
         next();
       } else if (to.meta?.requiresAuth) {
-        console.log("unauthorized");
+        console.error("unauthorized");
 
         next("/login");
       } else {
         next();
       }
-
-      //   console.log(userStore.getIsAuthenticated);
-
-      //   console.log(to);
-      //   console.log(from);
     });
   }
 };

@@ -24,7 +24,7 @@ export interface ToDoListInterface {
   archived: string[];
 }
 export interface newListInterface {
-  userId: number | null;
+  // userId: number | null;
   title: string;
   todos: string[];
 }

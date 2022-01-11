@@ -1,6 +1,6 @@
 namespace TodoApi.modules.TodoModule.Models
 {
-    public class CreatedList
+    public class NewList
     {
         public int? UserId { get; set; }
         public string? Title { get; set; }

@@ -6,21 +6,21 @@
 import { useUserStore } from "~/stores/user";
 import { useRouter } from "vue-router";
 
+// on loading the app
+//check session to see if there is a token present
+// if token present => login user and go to his todos page
 onBeforeMount(async () => {
   const uStore = useUserStore();
   const router = useRouter();
+
   const token: string | null = window.sessionStorage.getItem("token");
 
   if (token) {
-    //retrieve Sessions (action pass tokene en userId)
+    await uStore.retrieveSession (token);
 
-    const response = await uStore.retrieveSession(token);
-
-    if (response == true) {
-      router.replace({
-        name: "myTodos",
-      });
-    }
+    router.replace({
+      name: "myTodos",
+    });
   }
 });
 
