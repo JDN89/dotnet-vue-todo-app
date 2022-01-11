@@ -27,5 +27,5 @@ onMounted(() => {
 </template>
 
 <route lang="yaml">
-meta: { layout: dashboard, requiresAuth: true }
+meta: { name: myTodos, layout: dashboard, requiresAuth: true }
 </route>

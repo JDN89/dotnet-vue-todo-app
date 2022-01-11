@@ -34,8 +34,8 @@ const onSubmit = handleSubmit(async () => {
     const response = await userStore.loginUser(userStore.getLoginData);
     if (response == true) {
       router.replace({
-        name: "todos",
-        params: { todos: userStore.getUserId },
+        name: "myTodos"
+        
       });
     }
   } else alert("Singin failed, could't retrieve login data");
