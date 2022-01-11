@@ -52,11 +52,9 @@ export const useUserStore = defineStore("user", {
         
         const response = await axios.post("https://localhost:7126/login", user);
         if (response.status === 200) {
-          this.userId = response.data;
-          // this.token = response.data;
-          // console.log(this.token);
+          this.token = response.data;
+          console.log(this.token);
           console.log(response.data);
-
           this.loginData = null;
         }
       } catch (error) {
@@ -77,6 +75,7 @@ export const useUserStore = defineStore("user", {
   getters: {
     getLoginData: (state) => state.loginData,
     getUserId: (state) => state.userId,
+    getToken: (state) => state.token,
     getRegistrationFormIsVisible: (state) => state.registrationFormIsVisible,
     getIsAuthenticated: (state) => state.isAuthenticated,
   },

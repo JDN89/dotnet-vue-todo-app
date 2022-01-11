@@ -4,11 +4,8 @@ namespace TodoApi.modules.UserModule.Dto
     {
         public int? UserdId { get; set; }
 
-        public string Token { get; set; }
-        
-        
+        public string? Token { get; set; }
 
-        
-        
+
     }
 }
