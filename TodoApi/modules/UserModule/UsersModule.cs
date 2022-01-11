@@ -57,7 +57,7 @@ public class UsersModule : ICarterModule
         //check if oUser exists in db
         User user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
         if (user == null)
-            return Results.NotFound("user not found exist");
+            return Results.NotFound("user not found");
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         ArgumentNullException.ThrowIfNull(user.Hash);
