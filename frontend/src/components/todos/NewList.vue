@@ -23,8 +23,7 @@ const addNewTodo = () => {
 };
 
 const newList: newListInterface = reactive({
-  userId: null,
-  title: "",
+   title: "",
   todos: [],
 });
 

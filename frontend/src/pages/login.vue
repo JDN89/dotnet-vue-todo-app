@@ -32,8 +32,8 @@ const onSubmit = handleSubmit(async () => {
   // check if getLoginData is not null
   // logindata are the form values that the user filled inf
   if (userStore.getLoginData) {
-    const response = await userStore.loginUser(userStore.getLoginData);
-    if (response == true) {
+    await userStore.loginUser(userStore.getLoginData);
+    if (userStore.getToken !== null ) {
       router.replace({
         name: "myTodos"
         

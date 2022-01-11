@@ -6,7 +6,6 @@ import { useTodoStore } from "~/stores/todos";
 interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
   loginData: CreateUserInterface | null;
-  userId: number | null;
   token: string | null;
   registrationFormIsVisible: boolean;
 }
@@ -16,7 +15,6 @@ export const useUserStore = defineStore("user", {
     registrationFormIsVisible: true,
     createdUserData: null,
     loginData: null,
-    userId: null,
     token: null,
   }),
   actions: {
@@ -57,8 +55,6 @@ export const useUserStore = defineStore("user", {
       } catch (error) {
         console.error(error);
       }
-
-      return true;
     },
 
     // ===================================
