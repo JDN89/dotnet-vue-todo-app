@@ -77,7 +77,12 @@ export const useUserStore = defineStore("user", {
     // =========================================
     logout() {
       window.sessionStorage.removeItem("token");
-      console.log("logged out");
+      const todoStore = useTodoStore();
+      //set TodoLists to null upon logout 
+      //otherwise the next users that logs in sees for a brief second the previous user his todolists
+      //because the previous list stored in memory hasn't been overwritten yet
+      //by the lists retrieved from the db
+      todoStore.toDoLists = null
     },
   },
   getters: {

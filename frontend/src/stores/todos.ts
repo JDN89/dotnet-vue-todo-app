@@ -4,12 +4,12 @@ import axios from "axios";
 import { useUserStore } from "./user";
 
 interface TodoStateInterface {
-  toDoLists: ToDoListInterface[];
+  toDoLists: ToDoListInterface[]| null;
 }
 
 export const useTodoStore = defineStore("todo", {
   state: (): TodoStateInterface => ({
-    toDoLists: [],
+    toDoLists: null,
   }),
   actions: {
     // the userId is added as a claimIdentifier to the token in the backend - see tokenService
@@ -125,8 +125,6 @@ export const useTodoStore = defineStore("todo", {
         listId: listId,
         archived: archived,
       };
-      console.log(listId, archived);
-
       try {
         const response = await axios.put(
           "https://localhost:7126/myTodos/unarchive/",
