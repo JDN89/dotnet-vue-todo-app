@@ -70,9 +70,14 @@ export const useTodoStore = defineStore("todo", {
     // ===========   DELETE list  ===============
     // =====================================
     async deleteList(listId: number) {
+      const userStore = useUserStore();
+      const userToken = userStore.getToken;
       try {
         const response = await axios.delete(
-          "hhttps://localhost:7126/myTodos?listId=" + listId
+          "https://localhost:7126/myTodos?listId=" + listId,
+          {
+            headers: { Authorization: "Bearer " + userToken },
+          }
         );
 
         if (response.status === 204) {
@@ -86,16 +91,21 @@ export const useTodoStore = defineStore("todo", {
     // ===========   ARCHIVE TODO  ===============
     // =========================================
     async archiveTask(listId: number, todo: string) {
+      const userStore = useUserStore();
+      const userToken = userStore.getToken;
       const archiveTodo = {
         listId: listId,
         todo: todo,
       };
-      console.log(listId, todo);
-
+   
       try {
+        
         const response = await axios.put(
           "https://localhost:7126/myTodos",
-          archiveTodo
+          archiveTodo,
+          {
+            headers: { Authorization: "Bearer " + userToken },
+          }
         );
 
         if (response.status === 204) {
@@ -109,6 +119,8 @@ export const useTodoStore = defineStore("todo", {
     // ===========   UNARCHIVE TODO  ===============
     // =========================================
     async unArchiveTask(listId: number, archived: string) {
+      const userStore = useUserStore();
+      const userToken = userStore.getToken;
       const unArchiveTodo = {
         listId: listId,
         archived: archived,
@@ -118,7 +130,10 @@ export const useTodoStore = defineStore("todo", {
       try {
         const response = await axios.put(
           "https://localhost:7126/myTodos/unarchive/",
-          unArchiveTodo
+          unArchiveTodo, 
+          {
+            headers: { Authorization: "Bearer " + userToken },
+          }
         );
 
         if (response.status === 204) {
