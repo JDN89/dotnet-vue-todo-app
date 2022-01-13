@@ -37,7 +37,7 @@ const addMessage = () => {
 </script>
 
 <template>
-  <div
+  <div 
     class="
       container
       sm:flex
@@ -46,22 +46,20 @@ const addMessage = () => {
       justify-center
     "
   >
-    <div
+    <button :title="t('page.home')"
       @click="showHidden"
       v-if="!isVisible"
       class="
         prose
-        list
-        hover
+                hover
         relative
-        min-w-xs
-        bg-gray-600
-        text-gray-200
-        dark:bg-gray-200 dark:text-gray-900
+        text-black-200
+         dark:text-gray-100
       "
     >
-      <h3>{{ t("page.home") }}</h3>
-    </div>
+     <carbon-add-alt />
+      <!-- <h3>{{ t("page.home") }}</h3> -->
+    </button>
 
     <div v-else class="hover list relative min-w-xs">
       <div class="title">
