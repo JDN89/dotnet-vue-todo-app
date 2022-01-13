@@ -41,7 +41,7 @@ const toggleLocales = () => {
     <div class="icon-btn mx-2"></div>
     <div class="icon-btn mx-2"></div>
     <button
-      class="icon-nav-btn mx-2 !outline-none"
+      class="icon-btn mx-2 !outline-none"
       :title="t('button.toggle_dark')"
       @click="toggleDark()"
     >
@@ -50,7 +50,7 @@ const toggleLocales = () => {
     </button>
 
     <a
-      class="icon-nav-btn mx-2"
+      class="icon-btn mx-2"
       :title="t('button.toggle_langs')"
       @click="toggleLocales"
     >

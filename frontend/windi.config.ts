@@ -22,7 +22,9 @@ export default defineConfig({
         dark: {
           900: " #121212",
         },
-        "nav-link": "#d79921",
+        "nav-link": "#9d0006",
+        "nav-link-dark": "#fabd2f",
+        "msg-bg":"#fabd2f",
         'button': "#cc241d",
         'title': "#98971a",
       },

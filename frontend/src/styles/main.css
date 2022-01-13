@@ -1,6 +1,6 @@
 @import "./markdown.css";
 
-html,
+html {background: #fbf1c7;},
 body,
 #app {
   height: 100%;
@@ -38,14 +38,13 @@ html.dark {
 .icon-btn {
   @apply cursor-pointer opacity-75 transition
     ease-in-out duration-200 inline-block select-none
-    hover:opacity-100 hover:text-teal-700;
+    hover:opacity-100 hover:text-teal-700 dark:text-gray-200;
   font-size: 0.9em;
 }
 .icon-nav-btn {
   @apply cursor-pointer opacity-75 transition
     ease-in-out duration-200 inline-block select-none
-    hover:opacity-100 hover:text-teal-700
-     text-nav-link
+    hover:opacity-100 hover:text-teal-700 text-nav-link dark:text-nav-link-dark
   font-size: 0.9em;
 }
 
@@ -54,7 +53,7 @@ html.dark {
   my-7
   mx-auto
 max-w-xs   
-bg-gray-100
+bg-msg-bg
 border-1
 
 
@@ -68,7 +67,7 @@ border-1
   sm:m-3
   sm:max-w-60 dark:bg-dark-700
   dark:border-3 dark:border-gray-500
-
+  
   dark:text-gray-300;
 }
 .update-msg {
