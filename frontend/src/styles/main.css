@@ -49,17 +49,20 @@ html.dark {
 }
 
 .msg {
-  @apply border-black  rounded-md 
+  @apply border-yellow-500  rounded-md 
+ 
+ 
   my-7
   mx-auto
 max-w-xs   
+min-w-28
 bg-msg-bg
 border-1
 
 
   text-black
   min-h-32
-  max-h-32
+  max-h-40
   p-2
   overflow-hidden
   content-center

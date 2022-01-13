@@ -20,6 +20,7 @@ onBeforeMount(() => {
       flex-col
       sm:flex-row sm:flex
       mx-auto
+      max-w-6xl
       sm:flex-wrap sm:flex-grow-0 sm:flex-auto sm:justify-center
     "
   >
