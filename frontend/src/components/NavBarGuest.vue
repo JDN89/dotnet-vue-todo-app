@@ -13,15 +13,15 @@ const toggleLocales = () => {
 <template>
   <!-- style inherited from mainclass in the layouts folder -->
   <nav class="text-xl mt-6 mb-4">
-    <router-link class="icon-btn mx-2" to="/" :title="t('button.home')">
+    <router-link class="icon-nav-btn mx-2" to="/" :title="t('button.home')">
       <carbon-campsite />
     </router-link>
-    <router-link class="icon-btn mx-2" to="/login" :title="t('button.login')">
+    <router-link class="icon-nav-btn mx-2" to="/login" :title="t('button.login')">
       <carbon-login />
     </router-link>
 
     <router-link
-      class="icon-btn mx-2"
+      class="icon-nav-btn mx-2"
       to="/register"
       :title="t('button.register')"
     >
@@ -29,7 +29,7 @@ const toggleLocales = () => {
     </router-link>
 
     <a
-      class="icon-btn mx-2"
+      class="icon-nav-btn mx-2"
       rel="noreferrer"
       href="https://github.com/JDN89/dotnet-todo-app"
       target="_blank"
@@ -41,7 +41,7 @@ const toggleLocales = () => {
     <div class="icon-btn mx-2"></div>
     <div class="icon-btn mx-2"></div>
     <button
-      class="icon-btn mx-2 !outline-none"
+      class="icon-nav-btn mx-2 !outline-none"
       :title="t('button.toggle_dark')"
       @click="toggleDark()"
     >
@@ -50,7 +50,7 @@ const toggleLocales = () => {
     </button>
 
     <a
-      class="icon-btn mx-2"
+      class="icon-nav-btn mx-2"
       :title="t('button.toggle_langs')"
       @click="toggleLocales"
     >

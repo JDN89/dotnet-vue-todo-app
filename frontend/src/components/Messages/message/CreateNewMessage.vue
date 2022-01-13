@@ -37,28 +37,16 @@ const addMessage = () => {
 </script>
 
 <template>
-  <div 
-    class="
-      container
-      sm:flex
-      mx-auto
-      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
-      justify-center
-    "
+  <div
+    class="container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
-    <button :title="t('page.home')"
+    <button
+      :title="t('page.home')"
       @click="showHidden"
       v-if="!isVisible"
-      class="
-        prose
-                hover
-        relative
-        text-black-200
-         dark:text-gray-100
-      "
+      class="prose hover relative text-black-200 dark:text-gray-100"
     >
-     <carbon-add-alt />
-      <!-- <h3>{{ t("page.home") }}</h3> -->
+      <carbon-add-alt />
     </button>
 
     <div v-else class="hover list relative min-w-xs">
@@ -67,27 +55,14 @@ const addMessage = () => {
           type="text"
           placeholder="Title"
           v-model="message.Title"
-          class="
-            transition
-            duration-500
-            bg-gray-100
-            dark:bg-dark-200
-            focus:outline-none
-          "
+          class="transition duration-500 bg-gray-100 dark:bg-dark-200 focus:outline-none"
         />
         <div class="description">
           <textarea
             type="text"
             placeholder="Log"
             v-model="message.Body"
-            class="
-              transition
-              duration-500
-              bg-gray-100
-              dark:bg-dark-200
-              focus:outline-none
-              overflow-hidden
-            "
+            class="transition duration-500 bg-gray-100 dark:bg-dark-200 focus:outline-none overflow-hidden"
           />
         </div>
         <button @click="addMessage" class="float-right">

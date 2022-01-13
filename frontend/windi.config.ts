@@ -22,6 +22,9 @@ export default defineConfig({
         dark: {
           900: " #121212",
         },
+        "nav-link": "#d79921",
+        'button': "#cc241d",
+        'title': "#98971a",
       },
       typography: {
         DEFAULT: {
