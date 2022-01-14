@@ -16,7 +16,7 @@ const messageStore = useMessageStore();
         <carbon-edit class="float-right" />
       </button>
 
-      <div class="prose pb-3">
+      <div class="prose pb-3 pl-4">
         <h4 >{{ message.title }}</h4>
       </div>
     </div>

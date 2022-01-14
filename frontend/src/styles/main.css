@@ -69,7 +69,10 @@ min-w-28
 min-h-32
 max-h-52
    
+overflow-ellipsis
+whitespace-pre-wrap
 overflow-hidden
+
 content-center;
 }
 
