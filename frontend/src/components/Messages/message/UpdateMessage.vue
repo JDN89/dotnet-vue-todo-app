@@ -9,7 +9,7 @@ const updateMessage = () => {
   if (messageToChange.title?.length === 0) {
     return alert("Please give your message a title");
   } else if (messageToChange.body?.length == 0) {
-    return alert("Please write a message that goes with the title");
+    return alert("Please write a message ");
   } else {
     try {
       messageStore.updateMessage(copyOfMessage);
@@ -30,29 +30,10 @@ if (messageStore.getChangedMessage) {
 
 <template>
   <div
-    class="
-      flex
-      bg-gray-800 bg-opacity-50
-      fixed
-      left-0
-      right-0
-      bottom-0
-      top-0
-      items-center
-    "
+    class="flex bg-gray-800 bg-opacity-50 fixed left-0 right-0 bottom-0 top-0 items-center"
   >
     <div
-      class="
-        update-msg
-        w-full
-        m-1
-        p-2
-        max-h-52
-        min-h-22
-        sm:max-w-70
-        overflow-hidden
-        sm:mx-auto
-      "
+      class="msg w-full m-1 p-2 max-h-52 min-h-22 sm:max-w-70 content-center sm:mx-auto mx-auto"
     >
       <div v-if="messageStore.getShowModal">
         <div class="header">
@@ -64,27 +45,16 @@ if (messageStore.getChangedMessage) {
             type="text"
             placeholder="Title"
             v-model="messageToChange.title"
-            class="
-              transition
-              duration-500
-              bg-gray-100
-              dark:bg-dark-200
-              focus:outline-none
-            "
+            class="float-left bg-transparent transition duration-500 overflow-hidden focus:outline-none"
           />
 
           <textarea
             type="text"
+            spellcheck="false"
+            w:resize="none"
             placeholder="Your message"
             v-model="messageToChange.body"
-            class="
-              transition
-              duration-500
-              bg-gray-100
-              dark:bg-dark-200
-              focus:outline-none
-              overflow-hidden
-            "
+            class="bg-transparent float-left transition duration-500 focus:outline-none overflow-hidden"
           ></textarea>
         </div>
         <button

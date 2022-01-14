@@ -16,8 +16,8 @@ const messageStore = useMessageStore();
         <carbon-edit class="float-right" />
       </button>
 
-      <div class="prose">
-        <h3>{{ message.title }}</h3>
+      <div class="prose pb-3">
+        <h4 >{{ message.title }}</h4>
       </div>
     </div>
 
@@ -35,7 +35,7 @@ meta:
 </route>
 
 <style scoped>
-h3 {
+h4 {
   margin: 0em;
 }
 </style>

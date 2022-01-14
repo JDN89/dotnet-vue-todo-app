@@ -41,6 +41,7 @@ const addMessage = () => {
     class="container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
     <button
+   
       :title="t('page.home')"
       @click="showHidden"
       v-if="!isVisible"
@@ -49,20 +50,20 @@ const addMessage = () => {
       <carbon-add-alt />
     </button>
 
-    <div v-else class="hover list relative min-w-xs">
+    <div v-else class="hover msg relative min-w-xs">
       <div class="title">
         <input
           type="text"
           placeholder="Title"
           v-model="message.Title"
-          class="transition duration-500 bg-gray-100 dark:bg-dark-200 focus:outline-none"
+          class="transition duration-500 text-dark-900 bg-yellow-300 dark:bg-dark-200 focus:outline-none"
         />
         <div class="description">
           <textarea
             type="text"
             placeholder="Log"
             v-model="message.Body"
-            class="transition duration-500 bg-gray-100 dark:bg-dark-200 focus:outline-none overflow-hidden"
+            class="transition duration-500 bg-yellow-300 dark:bg-dark-200 focus:outline-none overflow-hidden"
           />
         </div>
         <button @click="addMessage" class="float-right">
