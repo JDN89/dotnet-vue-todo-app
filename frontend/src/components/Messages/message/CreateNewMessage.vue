@@ -38,17 +38,26 @@ const addMessage = () => {
 
 <template>
   <div
-    class="container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center"
+    class="container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
+    <!-- <div
+      v-if="!isVisible"
+      w:border="yellow-300 1 rounded-lg"
+      w:dark="border-gray-50 bg-teal-700 text-white"
+      class="font-medium content-center align-middle w-25 bg-red-700 text-yellow-400"
+    >
+      <span>
+        {{ t("page.home") }}
+      </span> -->
     <button
-   
+      v-if="!isVisible"
       :title="t('page.home')"
       @click="showHidden"
-      v-if="!isVisible"
-      class="prose hover relative text-black-200 dark:text-gray-100"
+      class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50"
     >
-      <carbon-add-alt />
+      <ant-design-message-filled />
     </button>
+    <!-- </div> -->
 
     <div v-else class="hover msg relative min-w-xs">
       <div class="title">
@@ -56,14 +65,16 @@ const addMessage = () => {
           type="text"
           placeholder="Title"
           v-model="message.Title"
-          class="transition duration-500 text-dark-900 bg-yellow-300 dark:bg-dark-200 focus:outline-none"
+          class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
         />
         <div class="description">
           <textarea
+            spellcheck="false"
+            w:resize="none"
             type="text"
             placeholder="Log"
             v-model="message.Body"
-            class="transition duration-500 bg-yellow-300 dark:bg-dark-200 focus:outline-none overflow-hidden"
+            class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
         <button @click="addMessage" class="float-right">

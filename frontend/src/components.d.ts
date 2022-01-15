@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AntDesignMessageFilled: typeof import('~icons/ant-design/message-filled')['default']
     CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
     CarbonEdit: typeof import('~icons/carbon/edit')['default']

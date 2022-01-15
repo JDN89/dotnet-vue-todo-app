@@ -2,14 +2,14 @@ button:
   about: About
   back: Back
   go: GO
-  home: home
+  home: Home
   login: Login
   logout: Logout
   register: Register
   toggle_dark: Toggle dark mode
   toggle_langs: ENG > ES
 page:
-  home: Say hello to the other side
+  home: Say hello
   login: Login
   logout: Logout
   register: Register
