@@ -38,6 +38,14 @@ const toggleLocales = () => {
       <carbon-logo-github />
     </a>
 
+     <router-link
+      class="icon-nav-btn mx-2"
+      to="/about"
+      :title="t('button.about')"
+    >
+      <eva-question-mark-circle-fill />
+    </router-link>
+
     <div class="icon-btn mx-2"></div>
     <div class="icon-btn mx-2"></div>
     <button
