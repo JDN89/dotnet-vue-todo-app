@@ -1,10 +1,9 @@
-namespace MessageBoard;
-
+using Carter;
 using Dapper;
 using Npgsql;
-using Carter;
 using TodoApi.modules.MessageModule.models;
 
+namespace TodoApi.modules.MessageModule;
 
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
 public class MessageModule : ICarterModule
@@ -41,7 +40,7 @@ public class MessageModule : ICarterModule
         return Results.Created("/", newMessage);
     }
 
-    // on successfull deletion status code 204 -> no content
+    // on successful deletion status code 204 -> no content
     private static async Task<IResult> DeleteMessage(int id, NpgsqlConnection db) =>
         await db.ExecuteAsync(
             "DELETE FROM public.messages WHERE id = @id", new { id }) == 1
@@ -50,9 +49,9 @@ public class MessageModule : ICarterModule
 }
 
 
-///=================================================================
+//=================================================================
 
-// routing explenation for later reference: dynamix route
+// routing explanation for later reference: dynamic route
 // this is a dynamic route
 // test in postman : https://localhost:7126/1
 // replace 1 with the ID value you want to retrieve

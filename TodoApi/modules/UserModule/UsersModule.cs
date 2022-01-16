@@ -2,14 +2,14 @@ namespace TodoApi.modules.UserModule;
 using Dapper;
 using Npgsql;
 using Carter;
-using TodoApi.modules.UserModule.Dto;
-using TodoApi.modules.UserModule.Models;
-using TodoApi.modules.UserModule.Services;
+using Dto;
+using Models;
+using Services;
 
 public class UsersModule : ICarterModule
 {
     // inject the AuthService via namespace usage
-    //alternetive do it via DI = cleaner
+    //alternative do it via DI = cleaner
     // ------------
     //With Minimal APIs we can still benefit from dependency injection but instead of using constructor injection, 
     //the dependencies are passed as parameters in the handler delegate:
@@ -21,7 +21,7 @@ public class UsersModule : ICarterModule
         app.MapPost("/login", LoginUser).AllowAnonymous();
     }
 
-    private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService)
+    private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IEncryptionService encryptionService)
     {
 
         //new way of checking for null: c#10
@@ -29,20 +29,23 @@ public class UsersModule : ICarterModule
 
         //check if user exists in DB
         var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
-        if (exists == true)
+        if (exists)
         {
 
-            return Results.BadRequest("user is allready registered");
+            return Results.BadRequest("user is already registered");
         }
 
         ArgumentNullException.ThrowIfNull(oUser.PassWord);
         //hash password via Bcrypt
-        var hashed = await EncryptionService.EncryptPassword(oUser.PassWord);
+        var hash = await EncryptionService.EncryptPassword(oUser.PassWord);
 
-        User newUser = new User();
-
-        newUser.Email = oUser.Email;
-        newUser.Hash = hashed;
+        var newUser = new User
+        {
+            Id = 0,
+            Email = oUser.Email,
+            Hash = hash
+        };
+       
 
         var newUserId = await db.QuerySingleAsync(
             "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
@@ -50,7 +53,7 @@ public class UsersModule : ICarterModule
 
     }
 
-    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService EncryptionService, ITokenService tokenService)
+    private static async Task<IResult> LoginUser(UserDto oUser, NpgsqlConnection db, IEncryptionService encryptionService, ITokenService tokenService)
     {
 
         ArgumentNullException.ThrowIfNull(oUser.Email);

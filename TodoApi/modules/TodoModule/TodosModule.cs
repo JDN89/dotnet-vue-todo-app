@@ -1,13 +1,12 @@
-namespace Todos;
-
-using Dapper;
-using Npgsql;
 using Carter;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 using TodoApi.modules.TodoModule.Dto;
 using TodoApi.modules.TodoModule.Models;
 using TodoApi.modules.UserModule.Services;
 
+namespace TodoApi.modules.TodoModule;
 
 //Carter: Modules are registered based on assemblies scanning and added to DI automatically
 public class TodosModule : ICarterModule
@@ -31,11 +30,11 @@ public class TodosModule : ICarterModule
 
     private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db, IUserService userService)
     {
-        int Id = Int32.Parse(userService.GetUserId());
-        newList.UserId = Id;
-        var ListId = await db.QueryAsync<int>(
+        var id = Int32.Parse(userService.GetUserId());
+        newList.UserId = id;
+        var listId = await db.QueryAsync<int>(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);
-        return Results.Ok(Id);
+        return Results.Ok(listId);
     }
 
     //Foreign key set delete rule to cascade => see db. 
