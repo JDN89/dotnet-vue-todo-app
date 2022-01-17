@@ -20,27 +20,30 @@ export const useUserStore = defineStore("user", {
   actions: {
     // =========================================
     // ===========   REGISTER  ===============
-    //don't return sensitve data!
+    //don't return sensitive data!
     // =========================================
     async registerUser() {
       try {
         const response = await axios.post(
           "https://localhost:7126/register",
           this.createdUserData
-        );
-        if (response.status === 200) {
-          this.createdUserData = null;
-        }
-      } catch (error) {
-        console.error(error);
-      }
+          );
+          if (response.status === 200) {
+            this.createdUserData = null;
 
-      this.registrationFormIsVisible = false;
-    },
+            this.registrationFormIsVisible = false;
+            
+            
+            
+          } 
+        } catch (error) {
+          console.error(error);
+        }
+        },
 
     // =========================================
     // ===========   LOGIN  ===============
-    //don't return sensitve data, only id
+    //don't return sensitive data, only id
     // =========================================
     async loginUser(user: CreateUserInterface) {
       try {

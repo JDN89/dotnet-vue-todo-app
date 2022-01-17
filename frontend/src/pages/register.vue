@@ -33,12 +33,23 @@ watch(values, (newFormData) => {
 // create a handler to submit the store state
 // the store action will only run when the user submits valid form data
 const onSubmit = handleSubmit(userStore.registerUser);
-// resetForm()
+
+// Upon successful registration, reroute to login page after 2 seconds
+const router = useRouter();
+onUpdated(() => {
+  if (userStore.getRegistrationFormIsVisible == false) {
+    setTimeout(() => {
+      router.replace({
+        name: "login",
+      });
+    }, 2000);
+  }
+});
 </script>
 
 <template>
   <div class="mx-auto min-w-xs max-w-xs py-6 prose">
-    <h2>{{ t("page.register") }}</h2>
+    <h2 class>{{ t("page.register") }}</h2>
 
     <form
       v-if="userStore.getRegistrationFormIsVisible"
@@ -55,7 +66,7 @@ const onSubmit = handleSubmit(userStore.registerUser);
         <Field
           name="password"
           type="password"
-           :placeholder="t('text.password') "
+          :placeholder="t('text.password')"
           class="field"
         />
         <ErrorMessage name="password" class="errorMessage" />
@@ -71,22 +82,21 @@ const onSubmit = handleSubmit(userStore.registerUser);
         <ErrorMessage name="confirmPassword" class="errorMessage" />
       </div>
 
-           <button
+      <button
         type="submit"
-        class=" hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
+        class="hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
       >
         {{ t("button.submit") }}
       </button>
     </form>
-    <router-link
+    <p
       to="login"
-      w:border="1 green-900 dark:green-300"
-      w:text="center green-900 dark:green-300"
-      w:bg="green-100 dark:green-900"
-      class="rounded-md mx-auto min-w-xs"
+      w:text="center 2xl  yellow-300 dark:light-50"
+      w:bg="red-900 dark:teal-700"
+      class="font-bold rounded-2xl text-yellow-300 mx-auto mx-1"
       v-else
     >
-      Registration Succesfull > Login
-    </router-link>
+      {{ t("text.registrationSuccessful") }}
+    </p>
   </div>
 </template>

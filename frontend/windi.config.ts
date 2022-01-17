@@ -31,13 +31,13 @@ export default defineConfig({
             maxWidth: "165ch",
             color: "inherit",
             a: {
-              color: "inherit",
+              color: "yellow-300",
               opacity: 0.75,
               fontWeight: "500",
-              textDecoration: "underline",
+              textDecoration: "",
               "&:hover": {
                 opacity: 1,
-                color: colors.teal[600],
+                
               },
             },
             b: { color: "inherit" },

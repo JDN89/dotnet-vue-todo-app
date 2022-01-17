@@ -19,6 +19,7 @@ not-found: No se ha encontrado
 text:
   password: Contraseña 
   confirmPassword: Confirmar contraseña
+  registrationSuccessful: ¡Registro exitoso!
 page:
   home: Dile hola
   login: Acceso

@@ -18,6 +18,7 @@ page:
 text:
   password: Password
   confirmPassword: Confirm password
+  registrationSuccessful: Registration successful!
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route
