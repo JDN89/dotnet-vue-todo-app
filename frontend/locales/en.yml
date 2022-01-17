@@ -17,6 +17,7 @@ page:
   todos: My to do lists
 text:
   password: Password
+  confirmPassword: Confirm password
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route

@@ -8,7 +8,7 @@ button:
   logout: Cerrar sesión
   toggle_dark: Alternar modo oscuro
   toggle_langs: ES > ENG
-  submit: Asplicar
+  submit: Aplicar
 intro:
   desc: Plantilla de Inicio de Vite Dogmática
   dynamic-route: Demo de ruta dinámica
@@ -18,6 +18,7 @@ intro:
 not-found: No se ha encontrado
 text:
   password: Contraseña 
+  confirmPassword: Confirmar contraseña
 page:
   home: Dile hola
   login: Acceso

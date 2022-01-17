@@ -11,7 +11,7 @@ const userStore = useUserStore();
 const schema = yup.object({
   email: yup.string().required().email(),
   password: yup.string().required().min(8),
-  confirmpassword: yup
+  confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null], "Confirmed password doesn't match")
     .required(),
@@ -55,7 +55,7 @@ const onSubmit = handleSubmit(userStore.registerUser);
         <Field
           name="password"
           type="password"
-          placeholder="password"
+           :placeholder="t('text.password') "
           class="field"
         />
         <ErrorMessage name="password" class="errorMessage" />
@@ -63,15 +63,20 @@ const onSubmit = handleSubmit(userStore.registerUser);
 
       <div class="flex flex-col">
         <Field
-          name="confirmpassword"
+          name="confirmPassword"
           type="password"
-          placeholder="Confirm password"
+          :placeholder="t('text.confirmPassword')"
           class="field"
         />
-        <ErrorMessage name="confirmpassword" class="errorMessage" />
+        <ErrorMessage name="confirmPassword" class="errorMessage" />
       </div>
 
-      <button type="submit">Submit</button>
+           <button
+        type="submit"
+        class=" hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
+      >
+        {{ t("button.submit") }}
+      </button>
     </form>
     <router-link
       to="login"
