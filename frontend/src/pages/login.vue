@@ -39,7 +39,7 @@ const onSubmit = handleSubmit(async () => {
         
       });
     }
-  } else console.error("Singin failed, could't retrieve login data");
+  } else console.error("login failed, could't retrieve login data");
 });
 
 const router = useRouter();
@@ -50,6 +50,7 @@ const router = useRouter();
     <h2>{{ t("page.login") }}</h2>
 
     <form @submit="onSubmit" class="flex flex-col">
+    
       <div class="flex flex-col">
         <Field name="email" type="email" placeholder="Email" class="field" />
 
