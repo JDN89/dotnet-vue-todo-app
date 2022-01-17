@@ -18,7 +18,7 @@ onBeforeMount(async () => {
   if (token) {
     await uStore.retrieveSession (token);
 
-    router.replace({
+    await router.replace({
       name: "myTodos",
     });
   }

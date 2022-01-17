@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { MessageInterface, NewMessageInterface } from "../types/interfaces";
-// import apiClient from "../composables/EventService";
+import { MessageInterface, NewMessageInterface } from "~/types/interfaces";
+// import apiClient from "../composable/EventService";
 import axios from "axios";
 
 interface MessageStateInterface {
@@ -24,7 +24,7 @@ export const useMessageStore = defineStore("messages", {
 
   actions: {
     // =========================================
-    // ===========   GETMESSAGEs  ===============
+    // ===========   GET MESSAGES  ===============
     // =========================================
     async fetchMessages() {
       try {
@@ -40,7 +40,7 @@ export const useMessageStore = defineStore("messages", {
     },
 
     // =========================================
-    // ===========   ADDMESSAGE  ===============
+    // ===========   ADD MESSAGE  ===============
     // =========================================
     async addMessage(message: NewMessageInterface) {
       try {
@@ -53,7 +53,7 @@ export const useMessageStore = defineStore("messages", {
       }
     },
     // =========================================
-    // ===========   DELETEMESSAGE  ===============
+    // ===========   DELETE MESSAGE  ===============
     // =========================================
     async deleteMessage(id: number) {
       try {
@@ -67,12 +67,12 @@ export const useMessageStore = defineStore("messages", {
       }
     },
     // =========================================
-    // ===========   (TEMPORARY)CHANGEMESSAGE  ===============
+    // ===========   (TEMPORARY)CHANGE MESSAGE  ===============
     // =========================================
 
     //this action stores the temporary changed message in store
     // before it gets send to the backend api
-    // I stored the message in changeMessage so I could pass it easy to the UpdateMessage component
+    // I stored the message in changeMessage, so I could pass it easy to the UpdateMessage component
     // Alter or delete it's title and body, before sending it to the backend
     async changeMessage(message: MessageInterface) {
       this.isVisible = true;
@@ -80,7 +80,7 @@ export const useMessageStore = defineStore("messages", {
     },
 
     // =========================================
-    // ===========   UPDATEMESSAGE  ===============
+    // ===========   UPDATE MESSAGE  ===============
     // =========================================
     //the changed message gets send to the backend
     async updateMessage(message: MessageInterface) {

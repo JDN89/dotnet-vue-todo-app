@@ -17,7 +17,7 @@ public class TodosModule : ICarterModule
         app.MapPost("/myTodos", CreateList).RequireAuthorization();
         app.MapDelete("/myTodos", DeleteList).RequireAuthorization();
         app.MapPut("/myTodos", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
-        app.MapPut("/myTodos/unarchive/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
+        app.MapPut("/myTodos/unarchived/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
 
     }
 
@@ -30,7 +30,7 @@ public class TodosModule : ICarterModule
 
     private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db, IUserService userService)
     {
-        var id = Int32.Parse(userService.GetUserId());
+        var id = int.Parse(userService.GetUserId());
         newList.UserId = id;
         var listId = await db.QueryAsync<int>(
              "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ", newList);

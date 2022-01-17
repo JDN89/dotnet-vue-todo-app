@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { ToDoListInterface, newListInterface } from "../types/interfaces";
+import { ToDoListInterface, newListInterface } from "~/types/interfaces";
 import axios from "axios";
 import { useUserStore } from "./user";
 
@@ -17,10 +17,10 @@ export const useTodoStore = defineStore("todo", {
     // and with each request we send the token (containing the id) in request header to the api
     // we extract the userId from the token in the backend via UserService
     // and use this id to retrieve the user his lists from the db user his list
-    // so no need to send the UserId as a seperate value via qurystring,...
+    // so no need to send the UserId as a separate value via querystring,...
 
     // =========================================
-    // ===========   FETCHLISTS  ===============
+    // ===========   FETCH-LISTS  ===============
     // =========================================
     async fetchTodoLists() {
       const userStore = useUserStore();
@@ -44,7 +44,7 @@ export const useTodoStore = defineStore("todo", {
     },
 
     // =========================================
-    // ===========   ADDLISTS  ===============
+    // ===========   ADD LISTS  ===============
     // =========================================
     async add(newToDoList: newListInterface) {
       const userStore = useUserStore();
@@ -127,7 +127,7 @@ export const useTodoStore = defineStore("todo", {
       };
       try {
         const response = await axios.put(
-          "https://localhost:7126/myTodos/unarchive/",
+          "https://localhost:7126/myTodos/unarchived/",
           unArchiveTodo, 
           {
             headers: { Authorization: "Bearer " + userToken },
