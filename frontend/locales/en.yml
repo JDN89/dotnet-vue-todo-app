@@ -8,12 +8,15 @@ button:
   register: Register
   toggle_dark: Toggle dark mode
   toggle_langs: ENG > ES
+  submit: Submit
 page:
   home: Say hello
   login: Login
   logout: Logout
   register: Register
   todos: My to do lists
+text:
+  password: Password
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route

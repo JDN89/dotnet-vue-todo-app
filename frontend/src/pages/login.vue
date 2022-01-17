@@ -33,10 +33,9 @@ const onSubmit = handleSubmit(async () => {
   // logindata are the form values that the user filled inf
   if (userStore.getLoginData) {
     await userStore.loginUser(userStore.getLoginData);
-    if (userStore.getToken !== null ) {
+    if (userStore.getToken !== null) {
       router.replace({
-        name: "myTodos"
-        
+        name: "myTodos",
       });
     }
   } else console.error("login failed, could't retrieve login data");
@@ -50,7 +49,6 @@ const router = useRouter();
     <h2>{{ t("page.login") }}</h2>
 
     <form @submit="onSubmit" class="flex flex-col">
-    
       <div class="flex flex-col">
         <Field name="email" type="email" placeholder="Email" class="field" />
 
@@ -58,11 +56,22 @@ const router = useRouter();
       </div>
 
       <div class="flex flex-col">
-        <Field name="password" type="password" placeholder="Password" class="field" />
+        <Field
+          name="password"
+          type="password"
+          :placeholder="t('text.password') "
+          :title="t('text.password')"
+          class="field"
+        />
         <ErrorMessage name="password" class="errorMessage" />
       </div>
 
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        class=" hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
+      >
+        {{ t("button.submit") }}
+      </button>
     </form>
   </div>
 </template>

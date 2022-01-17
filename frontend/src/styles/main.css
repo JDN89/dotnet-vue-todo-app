@@ -103,23 +103,29 @@ border-1
 }
 
 .field {
-  @apply border-black
-  rounded-md 
+  @apply border-orange-300 border rounded-2xl 
+  hover:border-2 hover:border-red-800
+    dark:border-1 dark:border-gray-400 dark:hover:border-teal-300
+   bg-yellow-300 bg:hover:bg-orange-600
+   dark:bg-dark-200 dark:hover:bg-gray-600
+   text:black dark:text-gray-50
+   hover:text-red-900 dark:hover:text-teal-300
+
   mx-auto
-  min-w-xs
-  bg-gray-100
-  border-1 m-1
-  text-black
+  min-w-xs my-2 pl-3
+  
+
+  
   text-left
-  overflow-hidden dark: bg-dark-200 dark:border-1 dark:border-gray-600
-  dark:text-gray-300;
+  overflow-hidden;
 }
 
 .errorMessage {
-  @apply rounded-md mx-auto min-w-xs 
+  @apply rounded-2xl mx-auto min-w-xs 
   bg-red-100
   border-1 border-red-900 m-1 text-left
-  text-red-900 darkd:rounded-md  
+  text-red-900 dar:rounded-md  
   dark:bg-red-900 dark:border-1 dark:border-red-300
-  dark:text-red-300;
+  dark:text-red-300
+  pl-3;
 }
