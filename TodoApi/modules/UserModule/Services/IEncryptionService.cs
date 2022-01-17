@@ -1,9 +1,8 @@
-namespace TodoApi.modules.UserModule.Services
+namespace TodoApi.modules.UserModule.Services;
+
+public interface IEncryptionService
 {
-    public interface IEncryptionService
-    {
      
 
        
-    }
 }

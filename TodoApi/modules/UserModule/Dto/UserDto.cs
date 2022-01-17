@@ -1,10 +1,9 @@
-namespace TodoApi.modules.UserModule.Dto
+namespace TodoApi.modules.UserModule.Dto;
+
+public record UserDto
 {
-    public class UserDto
-    {
-        public string? Email { get; set; }
+    public string? Email { get; set; }
 
-        public string? PassWord { get; set; }
+    public string? PassWord { get; set; }
 
-    }
 }

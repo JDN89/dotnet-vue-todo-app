@@ -4,14 +4,14 @@ namespace TodoApi.modules.UserModule.Services;
 public class UserService : IUserService
 {
 
-    // // pass httpContect in the constructor otherwise you have to add it in the GetUser 
+    // // pass httpContext in the constructor otherwise you have to add it in the GetUser 
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly ILogger _logger;
+   
 
-    public UserService(IHttpContextAccessor httpContextAccessor, ILogger<UserService> logger)
+    public UserService(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
-        _logger = logger;
+       
 
     }
 
@@ -25,8 +25,7 @@ public class UserService : IUserService
             // .FindFirstValue(ClaimTypes.NameIdentifier);
       
         }
-        _logger.LogInformation(userId);
-
+       
         return userId;
     }
 

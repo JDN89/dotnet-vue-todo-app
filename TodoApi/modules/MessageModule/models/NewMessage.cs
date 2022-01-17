@@ -1,6 +1,6 @@
 namespace TodoApi.modules.MessageModule.models
 {
-    public class NewMessage
+    public record NewMessage
     {
         public string? Title { get; set; }
         public string? Body { get; set; }

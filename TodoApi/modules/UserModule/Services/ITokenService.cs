@@ -2,10 +2,9 @@
 
 using TodoApi.modules.UserModule.Models;
 
-namespace TodoApi.modules.UserModule.Services
+namespace TodoApi.modules.UserModule.Services;
+
+public interface ITokenService
 {
-    public interface ITokenService
-    {
-        public String CreateToken(User user);
-    }
+    public string CreateToken(User user);
 }

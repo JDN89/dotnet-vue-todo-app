@@ -58,7 +58,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
         //check if oUser exists in db
-        User user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
+        var user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
         if (user == null)
             return Results.NotFound("user not found");
 
@@ -70,7 +70,7 @@ public class UsersModule : ICarterModule
             return Results.Unauthorized();
 
 
-        string token = tokenService.CreateToken(user);
+        var token = tokenService.CreateToken(user);
 
         return Results.Ok(token); 
 

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TodoApi.modules.MessageModule.models
 {
-    public class Message
+    public record Message
     {
         [Required]
         public int Id { get; set; }
@@ -10,4 +10,5 @@ namespace TodoApi.modules.MessageModule.models
         public string? Body { get; set; }
 
     }
-}
+
+  }
