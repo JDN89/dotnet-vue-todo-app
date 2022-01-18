@@ -19,7 +19,7 @@ const logout = userStore.logout;
   <nav class="text-xl mt-6 mb-4">
     <router-link
       @click="logout"
-      class="icon-btn mx-2"
+      class="icon-nav-btn mx-2"
       to="/"
       :title="t('button.logout')"
     >
@@ -27,7 +27,7 @@ const logout = userStore.logout;
     </router-link>
 
     <a
-      class="icon-btn mx-2"
+      class="icon-nav-btn mx-2"
       rel="noreferrer"
       href="https://github.com/JDN89/dotnet-todo-app"
       target="_blank"
