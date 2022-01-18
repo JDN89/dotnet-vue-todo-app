@@ -55,13 +55,14 @@ const addList = () => {
       sm:flex
       mx-auto
       sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
-      justify-center
+      justify-center pt-12 pb-7
     "
   >
-    <div @click="showHidden" v-if="!isVisible" class="list relative min-w-xs">
-      <h4>Create A New List</h4>
-    </div>
-    <div v-else class="list relative min-w-xs">
+    <button @click="showHidden" v-if="!isVisible" 
+class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50"    >
+    <octicon-checklist-16/>
+</button>
+    <div v-else class="msg relative min-w-xs">
       <div class="title">
         <input
           type="text"
@@ -69,9 +70,9 @@ const addList = () => {
           v-model="newList.title"
           class="
             transition
+
             duration-500
-            bg-gray-100
-            dark:bg-dark-200
+         bg-transparent
             focus:outline-none
           "
         />
@@ -85,8 +86,7 @@ const addList = () => {
           @keyup.enter="addNewTodo"
           @blur="addNewTodo"
           class="
-            bg-gray-100
-            dark:bg-dark-200
+       bg-transparent
             transition
             duration-500
             focus:outline-none
@@ -104,7 +104,7 @@ const addList = () => {
             <carbon-checkbox class="mx-3 my-auto" /> {{ todo }}
           </li>
         </ul>
-        <button @click="addList" class="float-right">
+        <button @click="addList" class="float-right hover">
           <carbon-add-alt />
         </button>
       </div>
