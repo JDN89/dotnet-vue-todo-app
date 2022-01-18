@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { t } = useI18n();
 import { useTodoStore } from "~/stores/todos";
 
 const props = defineProps({
@@ -19,9 +18,7 @@ onMounted(() => {
 <template>
   <div>
     <NewList />
-    <div class="prose mx-auto py-6">
-      <h2>{{ t("page.todos") }}</h2>
-    </div>
+   
     <TodoList />
   </div>
 </template>

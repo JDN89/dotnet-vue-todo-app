@@ -27,24 +27,24 @@ const unArchiveTask = (listId: number, todo: string) => {
     <div
       v-for="list in todoStore.getLists"
       :key="list.listId"
-      class="list relative"
+      class="msg hover relative"
     >
       <button @click="deleteList(list.listId)" class="float-right">
-        <carbon-trash-can class="float-right" />
+        <carbon-trash-can class="float-right hover" />
       </button>
       <div class="title prose">
         <h3>
           {{ list.title }}
         </h3>
       </div>
-      <hr class="hr" />
+      <hr class="hr max-w-27 pb-3" />
       <div class="todos">
         <ul>
           <div class="listAlign relative">
             <li v-for="todo in list.todos" :key="todo">
               <carbon-checkbox
                 @click="archiveTask(list.listId, todo)"
-                class="mr-2 my-auto"
+                class="mr-2 my-auto hover"
               />{{ todo }}
             </li>
           </div>
@@ -62,7 +62,7 @@ const unArchiveTask = (listId: number, todo: string) => {
           >
             <carbon-checkbox-checked
               @click="unArchiveTask(list.listId, archived)"
-              class="mr-2 my-auto"
+              class="mr-2 my-auto hover"
             />
 
             {{ archived }}
