@@ -26,6 +26,7 @@ declare module 'vue' {
     NavBarGuest: typeof import('./components/NavBarGuest.vue')['default']
     NavBarUser: typeof import('./components/NavBarUser.vue')['default']
     NewList: typeof import('./components/todos/NewList.vue')['default']
+    OcticonChecklist16: typeof import('~icons/octicon/checklist16')['default']
     README: typeof import('./components/README.md')['default']
     TodoList: typeof import('./components/todos/TodoList.vue')['default']
     UpdateMessage: typeof import('./components/Messages/message/UpdateMessage.vue')['default']
