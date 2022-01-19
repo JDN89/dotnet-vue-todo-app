@@ -3,7 +3,7 @@
 <template>
   <div class="text-black dark:text-light-50">
     <div
-      class=" msg py-7 max-w-sm mx-auto bg-yellow-400 dark:bg-teal-700 rounded-2xl"
+      class="msg py-7 max-w-sm mx-auto bg-yellow-400 dark:bg-teal-700 rounded-2xl"
     >
       <p>
         I created this project to try out the new minimal web API with ASP.NET
@@ -17,7 +17,7 @@
     </div>
     <br />
     <div
-      class="msg prose py-7 max-w-sm mx-auto bg-yellow-400 dark:bg-teal-700 rounded-2xl"
+      class="msg prose max-h-prose py-7 max-w-sm mx-auto bg-yellow-400 dark:bg-teal-700 rounded-2xl"
     >
       <h3>How to use project</h3>
       <p>
@@ -29,22 +29,28 @@
       </p>
     </div>
     <br />
+    
+    <!-- If I use prose on top of the dive container, I overwrite the list styling with default styling -->
+    <!-- wrap the elements that you need to have the rose style tag in seperate div containters -->
 
     <div
-      class="pt-4 min-h-md max-h-prose msg prose max-w-sm mx-auto bg-yellow-400 dark:bg-teal-700 rounded-2xl"
+      class="pt-4 msg min-h-99 max-w-sm mx-auto bg-yellow-400 border-none dark:bg-teal-700 rounded-2xl"
     >
-      <h3 class="my-0 pb-0 my-0">Technologies used:</h3>
-      <ul>
-        <h4 class="my-o py-0">Frontend</h4>
+      <div class="prose">
+        <h3 class="my-0 pb-2 my-0">Technologies used:</h3>
+      </div>
+      <ul class="prose list-disc list-inside">
+        <h4>Frontend</h4>
 
-        <li>Vue 3 Composition API, using the new script setup syntax</li>
-        <li>Pinia:Vue Store to share a state across components/pages</li>
-        <li>Windi CSS</li>
-        <li>Typescript</li>
+        <li><span class="ml-3"> Vue 3 Composition API </span></li>
+        <li><span class="ml-3"> Pinia:Vue Store </span></li>
+        <li><span class="ml-3"> Windi CSS </span></li>
+        <li><span class="ml-3"> Typescript </span></li>
+
         <h4>Backend</h4>
-        <li>ASP.NET Core minimal web API</li>
-        <li>PostgreSQL</li>
-        <li>Dapper: object–relational mapping</li>
+        <li><span class="ml-3"> ASP.NET Core minimal web API </span></li>
+        <li><span class="ml-3"> PostgreSQL </span></li>
+        <li><span class="ml-3"> Dapper: object–relational mapping </span></li>
       </ul>
     </div>
   </div>
@@ -58,5 +64,8 @@ meta:
 <style scoped>
 li {
   text-align: left;
+}
+li::before {
+  background-color: dark;
 }
 </style>

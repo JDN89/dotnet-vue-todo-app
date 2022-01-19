@@ -39,8 +39,11 @@ export default defineConfig({
                 opacity: 1,
                 
               },
+            
             },
             b: { color: "inherit" },
+            before: { color: "black" },
+
             strong: { color: "inherit" },
             em: { color: "inherit" },
             h1: { color: "inherit" },

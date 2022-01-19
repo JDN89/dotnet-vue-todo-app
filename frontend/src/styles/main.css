@@ -83,20 +83,7 @@ content-center;
   select-none sm:hover:scale-115;
 }
 
-.list {
-  @apply border-black  rounded-md 
-mx-auto
-max-w-xs
-bg-gray-100
-border-1
-  mt-7
-  text-black
-  max-h-60
-  p-2 overflow-hidden
-  sm:m-3
-  sm:max-w-60
-  dark: bg-dark-200 dark:border-1 dark:border-gray-600 dark:text-gray-300;
-}
+
 
 .hr {
   @apply mx-auto my-2 transition w-3/4 duration-500;
