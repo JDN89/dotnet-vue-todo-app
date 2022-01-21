@@ -52,9 +52,9 @@ public class TodosModule : ICarterModule
             ? Results.NoContent()
             : Results.NotFound();
 
-    private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, NpgsqlConnection db) =>
+    private static async Task<IResult> UnArchiveTodo(UpdateList unArchivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "with foo as (delete from archived_todos where archived = @Archived returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
+            "with foo as (delete from archived_todos where archived = @Todo returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
             unArchivedTodo) == 1
             ? Results.NoContent()
             : Results.NotFound();
