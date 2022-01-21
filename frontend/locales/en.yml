@@ -9,6 +9,7 @@ button:
   toggle_dark: Toggle dark mode
   toggle_langs: ENG > ES
   submit: Submit
+  createList: Create a new list
 page:
   home: Say hello
   login: Login
@@ -21,6 +22,7 @@ text:
 input:
   title: Title
   message: Message
+  todo: Todo
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route

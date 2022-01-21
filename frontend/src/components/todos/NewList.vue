@@ -2,6 +2,8 @@
 import { newListInterface } from "~/types/interfaces";
 import { useTodoStore } from "~/stores/todos";
 
+const { t } = useI18n();
+
 let isVisible = ref(false);
 console.log(isVisible);
 
@@ -23,10 +25,9 @@ const addNewTodo = () => {
 };
 
 const newList: newListInterface = reactive({
-   title: "",
+  title: "",
   todos: [],
 });
-
 
 const addList = () => {
   let copyOfList = Object.assign({}, newList);
@@ -50,50 +51,37 @@ const addList = () => {
 
 <template>
   <div
-    class="
-      container
-      sm:flex
-      mx-auto
-      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
-      justify-center pt-12 pb-7
-    "
+    class="container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7"
   >
-    <button @click="showHidden" v-if="!isVisible" 
-class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50"    >
-    <octicon-checklist-16/>
-</button>
-    <div v-else class="msg relative min-w-xs">
+    <button
+      @click="showHidden"
+      v-if="!isVisible"
+      :title="t('button.createList')"
+      class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50"
+    >
+      <octicon-checklist-16 />
+    </button>
+    <div v-else class="msg relative min-w-xs overflow-y-auto">
       <div class="title">
         <input
           type="text"
-          placeholder="Give your list a title"
+          :placeholder="t('input.title')"
           v-model="newList.title"
-          class="
-            transition
-
-            duration-500
-         bg-transparent
-            focus:outline-none
-          "
+          class="transition duration-500 bg-transparent focus:outline-none"
         />
       </div>
       <!-- <hr class="w-3/4 mx-auto dark:gray-100"   /> -->
       <div class="todo">
         <input
           type="text"
-          placeholder="Add your todo"
+          :placeholder="t('input.todo')"
           v-model="todo"
           @keyup.enter="addNewTodo"
           @blur="addNewTodo"
-          class="
-       bg-transparent
-            transition
-            duration-500
-            focus:outline-none
-          "
+          class="bg-transparent transition duration-500 focus:outline-none"
         />
       </div>
-      <hr class="hr" />
+      <hr class="max-w-xs mx-auto" />
       <div class="newTodos">
         <ul class="pt-3 items-end">
           <li
@@ -104,7 +92,11 @@ class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-da
             <carbon-checkbox class="mx-3 my-auto" /> {{ todo }}
           </li>
         </ul>
-        <button @click="addList" class="float-right hover">
+        <button
+          @click="addList"
+          class="float-right hover"
+          :title="t('button.submit')"
+        >
           <carbon-add-alt />
         </button>
       </div>
@@ -121,4 +113,5 @@ meta:
 .newTodos {
   text-align: left;
 }
+
 </style>

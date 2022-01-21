@@ -9,6 +9,7 @@ button:
   toggle_dark: Alternar modo oscuro
   toggle_langs: ES > ENG
   submit: Aplicar
+  createList: Crear una nueva lista
 intro:
   desc: Plantilla de Inicio de Vite Dogmática
   dynamic-route: Demo de ruta dinámica
@@ -19,6 +20,7 @@ not-found: No se ha encontrado
 input:
   title: Título
   message: Mensaje
+  todo: Hacer
 text:
   password: Contraseña 
   confirmPassword: Confirmar contraseña
