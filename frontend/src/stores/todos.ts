@@ -4,7 +4,7 @@ import axios from "axios";
 import { useUserStore } from "./user";
 
 interface TodoStateInterface {
-  toDoLists: ToDoListInterface[]| null;
+  toDoLists: ToDoListInterface[] | null;
 }
 
 export const useTodoStore = defineStore("todo", {
@@ -35,11 +35,23 @@ export const useTodoStore = defineStore("todo", {
 
         if (response.status === 200) {
           this.toDoLists = response.data;
-          return true;
         }
       } catch (error) {
-        console.error(error);
-        return false;
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
 
@@ -63,7 +75,21 @@ export const useTodoStore = defineStore("todo", {
           this.fetchTodoLists();
         }
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
     // =========================================
@@ -84,7 +110,21 @@ export const useTodoStore = defineStore("todo", {
           this.fetchTodoLists();
         }
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
     // =========================================
@@ -97,9 +137,8 @@ export const useTodoStore = defineStore("todo", {
         listId: listId,
         todo: todo,
       };
-   
+
       try {
-        
         const response = await axios.put(
           "https://localhost:7126/myTodos",
           archiveTodo,
@@ -112,7 +151,21 @@ export const useTodoStore = defineStore("todo", {
           this.fetchTodoLists();
         }
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
     // =========================================
@@ -128,7 +181,7 @@ export const useTodoStore = defineStore("todo", {
       try {
         const response = await axios.put(
           "https://localhost:7126/myTodos/unarchived/",
-          unArchiveTodo, 
+          unArchiveTodo,
           {
             headers: { Authorization: "Bearer " + userToken },
           }
@@ -138,7 +191,21 @@ export const useTodoStore = defineStore("todo", {
           this.fetchTodoLists();
         }
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
   },

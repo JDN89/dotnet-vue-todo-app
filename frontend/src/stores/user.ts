@@ -27,19 +27,30 @@ export const useUserStore = defineStore("user", {
         const response = await axios.post(
           "https://localhost:7126/register",
           this.createdUserData
-          );
-          if (response.status === 200) {
-            this.createdUserData = null;
+        );
+        if (response.status === 200) {
+          this.createdUserData = null;
 
-            this.registrationFormIsVisible = false;
-            
-            
-            
-          } 
-        } catch (error) {
-          console.error(error);
+          this.registrationFormIsVisible = false;
         }
-        },
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
+      }
+    },
 
     // =========================================
     // ===========   LOGIN  ===============
@@ -56,7 +67,21 @@ export const useUserStore = defineStore("user", {
           this.loginData = null;
         }
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
 
@@ -71,7 +96,21 @@ export const useUserStore = defineStore("user", {
       try {
         await todoStore.fetchTodoLists();
       } catch (error) {
-        console.error(error);
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            console.log(error.response?.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+        }
       }
     },
 
@@ -81,11 +120,11 @@ export const useUserStore = defineStore("user", {
     logout() {
       window.sessionStorage.removeItem("token");
       const todoStore = useTodoStore();
-      //set TodoLists to null upon logout 
+      //set TodoLists to null upon logout
       //otherwise the next users that logs in sees for a brief second the previous user his todolists
       //because the previous list stored in memory hasn't been overwritten yet
       //by the lists retrieved from the db
-      todoStore.toDoLists = null
+      todoStore.toDoLists = null;
     },
   },
   getters: {
