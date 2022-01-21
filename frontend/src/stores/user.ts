@@ -2,6 +2,7 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 import { CreateUserInterface } from "../types/interfaces";
 import axios from "axios";
 import { useTodoStore } from "~/stores/todos";
+import EventService from "~/composables/EventService";
 
 interface TodoStateInterface {
   createdUserData: CreateUserInterface | null;
@@ -23,33 +24,29 @@ export const useUserStore = defineStore("user", {
     //don't return sensitive data!
     // =========================================
     async registerUser() {
-      try {
-        const response = await axios.post(
-          "https://localhost:7126/register",
-          this.createdUserData
-        );
-        if (response.status === 200) {
-          this.createdUserData = null;
-
-          this.registrationFormIsVisible = false;
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
-          }
-        }
-      }
+      if (this.createdUserData)
+        await EventService.registerUser(this.createdUserData)
+          .then(() => {
+            this.createdUserData = null;
+            this.registrationFormIsVisible = false;
+          })
+          .catch((error) => {
+            if (axios.isAxiosError(error)) {
+              if (error.response) {
+                console.log(error.response?.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+              } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+              }
+            }
+          });
     },
 
     // =========================================
@@ -57,32 +54,30 @@ export const useUserStore = defineStore("user", {
     //don't return sensitive data, only id
     // =========================================
     async loginUser(user: CreateUserInterface) {
-      try {
-        const response = await axios.post("https://localhost:7126/login", user);
-        if (response.status === 200) {
-          this.token = response.data;
+      await EventService.loginUser(user)
+        .then((res) => {
+          this.token = res.data;
           if (this.token == null) return console.error("no token set");
           window.sessionStorage.setItem("token", this.token);
-
           this.loginData = null;
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
+        })
+        .catch((error) => {
+          if (axios.isAxiosError(error)) {
+            if (error.response) {
+              console.log(error.response?.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
           }
-        }
-      }
+        });
     },
 
     // ===================================

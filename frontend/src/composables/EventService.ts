@@ -1,5 +1,9 @@
 import axios from "axios";
-import { MessageInterface, NewMessageInterface } from "~/types/interfaces";
+import {
+  MessageInterface,
+  NewMessageInterface,
+  CreateUserInterface,
+} from "~/types/interfaces";
 
 axios.defaults.baseURL = "https://localhost:7126";
 
@@ -20,6 +24,12 @@ export default {
   },
   putMessage(message: MessageInterface) {
     return apiClient.put("/", message);
+  },
+  registerUser(user: CreateUserInterface) {
+    return apiClient.post("/register", user);
+  },
+  loginUser(user: CreateUserInterface) {
+    return apiClient.post("/login", user);
   },
 };
 
