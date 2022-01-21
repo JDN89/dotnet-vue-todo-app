@@ -48,7 +48,7 @@ public class UsersModule : ICarterModule
        
 
         var newUserId = await db.QuerySingleAsync(
-            "INSERT INTO public.users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
+            "INSERT INTO users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
         return Results.Ok(newUserId);
 
     }
@@ -58,7 +58,7 @@ public class UsersModule : ICarterModule
 
         ArgumentNullException.ThrowIfNull(oUser.Email);
         //check if oUser exists in db
-        var user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM public.users Where email=@Email", oUser);
+        var user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM users Where email=@Email", oUser);
         if (user == null)
             return Results.NotFound("user not found");
 

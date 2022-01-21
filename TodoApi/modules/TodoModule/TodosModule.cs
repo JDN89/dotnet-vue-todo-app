@@ -33,7 +33,7 @@ public class TodosModule : ICarterModule
         var id = int.Parse(userService.GetUserId());
         newList.UserId = id;
         var listId = await db.QueryAsync<int>(
-            "WITH ins1 AS (INSERT INTO public.todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO public.todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ",
+            "WITH ins1 AS (INSERT INTO todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ",
             newList);
         return Results.Ok(listId);
     }
@@ -41,20 +41,20 @@ public class TodosModule : ICarterModule
     //Foreign key set delete rule to cascade => see db. 
     private static async Task<IResult> DeleteList([FromQuery] int listId, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "DELETE FROM public.todo_lists WHERE id = @listId", new {listId}) == 1
+            "DELETE FROM todo_lists WHERE id = @listId", new {listId}) == 1
             ? Results.NoContent()
             : Results.NotFound();
 
     private static async Task<IResult> ArchiveTodo(UpdateList archivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "with foo as (delete from public.todos where todo = @Todo returning list_id,todo) insert into public.archived_todos (list_id,archived) select * from foo ",
+            "with foo as (delete from todos where todo = @Todo returning list_id,todo) insert into archived_todos (list_id,archived) select * from foo ",
             archivedTodo) == 1
             ? Results.NoContent()
             : Results.NotFound();
 
     private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "with foo as (delete from public.archived_todos where archived = @Archived returning list_id,archived) insert into public.todos (list_id,todo) select * from foo ",
+            "with foo as (delete from archived_todos where archived = @Archived returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
             unArchivedTodo) == 1
             ? Results.NoContent()
             : Results.NotFound();

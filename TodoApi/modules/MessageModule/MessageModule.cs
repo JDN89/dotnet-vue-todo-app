@@ -18,14 +18,14 @@ public class MessageModule : ICarterModule
     }
 
     private async Task<IEnumerable<Message>> GetMessages(NpgsqlConnection db) =>
-     await db.QueryAsync<Message>("SELECT * FROM public.messages");
+     await db.QueryAsync<Message>("SELECT * FROM messages");
 
     // make sure that you use the correct model property names
     private static async Task<IResult> CreateMessage(NewMessage newMessage, NpgsqlConnection db)
     {
 
         var createdMessage = await db.QuerySingleAsync<Message>(
-            "INSERT INTO public.messages (title, body) VALUES (@Title, @Body) RETURNING * ", newMessage);
+            "INSERT INTO messages (title, body) VALUES (@Title, @Body) RETURNING * ", newMessage);
 
         return Results.Created("/", createdMessage);
 
@@ -35,7 +35,7 @@ public class MessageModule : ICarterModule
     private static async Task<IResult> UpdateMessage(Message updatedMessage, NpgsqlConnection db)
     {
         var newMessage = await db.QuerySingleAsync<Message>(
-            "UPDATE public.messages SET title = @Title, body = @Body WHERE id = @Id RETURNING *", updatedMessage);
+            "UPDATE messages SET title = @Title, body = @Body WHERE id = @Id RETURNING *", updatedMessage);
 
         return Results.Created("/", newMessage);
     }
@@ -43,7 +43,7 @@ public class MessageModule : ICarterModule
     // on successful deletion status code 204 -> no content
     private static async Task<IResult> DeleteMessage(int id, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "DELETE FROM public.messages WHERE id = @id", new { id }) == 1
+            "DELETE FROM messages WHERE id = @id", new { id }) == 1
             ? Results.NoContent()
             : Results.NotFound();
 }
