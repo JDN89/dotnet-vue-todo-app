@@ -1,35 +1,28 @@
 import axios from "axios";
+import { MessageInterface, NewMessageInterface } from "~/types/interfaces";
 
-export default axios.create({
-  baseURL: "http://localhost:5230",
-  headers: {
-    Accept: "application/json",
-    "Content-type": "application/json"
-  }
+axios.defaults.baseURL = "https://localhost:7126";
+
+const apiClient = axios.create({
+  baseURL: "https://localhost:7126",
+  withCredentials: false,
 });
 
-
-
-
-// export default  {
-//    apiClient = axios.create({
-//     baseURL: "https://localhost:7126",
-//     withCredentials: false,
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json",
-//     },
-//   });
-  
-// };
-
-
-
-
-// getEvents() {
-//  return apiClient.get("/");
-// },
+export default {
+  getMessages() {
+    return apiClient.get("/");
+  },
+  postMessage(message: NewMessageInterface) {
+    return apiClient.post("/", message);
+  },
+  deleteMessage(id: number) {
+    return apiClient.delete("/?id=" + id);
+  },
+  putMessage(message: MessageInterface) {
+    return apiClient.put("/", message);
+  },
+};
 
 // postEvents(message) {
-//   return apiClient.post("/" + message);
+//   return apiClient.post("/" + message);s
 // },

@@ -1,6 +1,7 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { MessageInterface, NewMessageInterface } from "~/types/interfaces";
-// import apiClient from "../composable/EventService";
+import EventService from "../composables/EventService";
+
 import axios from "axios";
 
 interface MessageStateInterface {
@@ -26,87 +27,83 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     // ===========   GET MESSAGES  ===============
     // =========================================
+    // one way of defining code with .then().catch()
+    // all the responses different then 2xx will be caught by the catch block!
     async fetchMessages() {
-      try {
-        const response = await axios.get("http://localhost:5230/");
-
-        if (response.status === 200) {
-          //change log to ('success')
-          this.messages = response.data;
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
+      await EventService.getMessages()
+        .then((res) => {
+          this.messages = res.data;
+        })
+        .catch((error) => {
+          if (axios.isAxiosError(error)) {
+            if (error.response) {
+              console.log(error.response?.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
           }
-        }
-      }
+        });
     },
 
     // =========================================
     // ===========   ADD MESSAGE  ===============
     // =========================================
+    //other way by wrapping in try catch block
     async addMessage(message: NewMessageInterface) {
-      try {
-        const response = await axios.post("http://localhost:5230/", message);
-        if (response.status === 201) {
-          this.fetchMessages();
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
+      await EventService.postMessage(message)
+        .then(() => this.fetchMessages())
+        .catch((error) => {
+          if (axios.isAxiosError(error)) {
+            if (error.response) {
+              console.log(error.response?.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
           }
-        }
-      }
+        });
     },
     // =========================================
     // ===========   DELETE MESSAGE  ===============
     // =========================================
     async deleteMessage(id: number) {
-      try {
-        const response = await axios.delete("http://localhost:5230/?id=" + id);
-        if (response.status === 204) {
+      await EventService.deleteMessage(id)
+        .then(() => {
           this.fetchMessages();
           this.isVisible = false;
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
+        })
+        .catch((error) => {
+          if (axios.isAxiosError(error)) {
+            if (error.response) {
+              console.log(error.response?.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
           }
-        }
-      }
+        });
     },
     // =========================================
     // ===========   (TEMPORARY)CHANGE MESSAGE  ===============
@@ -126,29 +123,28 @@ export const useMessageStore = defineStore("messages", {
     // =========================================
     //the changed message gets send to the backend
     async updateMessage(message: MessageInterface) {
-      try {
-        const response = await axios.put("http://localhost:5230/", message);
-        if (response.status === 201) {
+      await EventService.putMessage(message)
+        .then(() => {
           this.fetchMessages();
           this.isVisible = false;
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            console.log(error.response?.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
+        })
+        .catch((error) => {
+          if (axios.isAxiosError(error)) {
+            if (error.response) {
+              console.log(error.response?.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
           }
-        }
-      }
+        });
     },
   },
 
