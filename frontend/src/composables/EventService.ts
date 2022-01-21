@@ -16,6 +16,7 @@ const apiClient = axios.create({
 
 export default {
   // ===========  Message Requests  ===============
+
   async getMessages() {
     return await apiClient.get("/");
   },
@@ -28,14 +29,18 @@ export default {
   async putMessage(message: MessageInterface) {
     return await apiClient.put("/", message);
   },
+
   // ===========  User Requests  ===============
+
   async registerUser(user: CreateUserInterface) {
     return await apiClient.post("/register", user);
   },
   async loginUser(user: CreateUserInterface) {
     return await apiClient.post("/login", user);
   },
+
   // ===========  TODO Requests  ===============
+
   async getTodoLists(userToken: string) {
     return await apiClient.get("/myTodos", {
       headers: {
@@ -64,7 +69,3 @@ export default {
     });
   },
 };
-
-// postEvents(message) {
-//   return apiClient.post("/" + message);s
-// },
