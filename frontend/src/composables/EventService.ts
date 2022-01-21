@@ -3,6 +3,8 @@ import {
   MessageInterface,
   NewMessageInterface,
   CreateUserInterface,
+  newListInterface,
+  ArchiveTodoInterface,
 } from "~/types/interfaces";
 
 axios.defaults.baseURL = "https://localhost:7126";
@@ -13,23 +15,53 @@ const apiClient = axios.create({
 });
 
 export default {
-  getMessages() {
-    return apiClient.get("/");
+  // ===========  Message Requests  ===============
+  async getMessages() {
+    return await apiClient.get("/");
   },
-  postMessage(message: NewMessageInterface) {
-    return apiClient.post("/", message);
+  async postMessage(message: NewMessageInterface) {
+    return await apiClient.post("/", message);
   },
-  deleteMessage(id: number) {
-    return apiClient.delete("/?id=" + id);
+  async deleteMessage(id: number) {
+    return await apiClient.delete("/?id=" + id);
   },
-  putMessage(message: MessageInterface) {
-    return apiClient.put("/", message);
+  async putMessage(message: MessageInterface) {
+    return await apiClient.put("/", message);
   },
-  registerUser(user: CreateUserInterface) {
-    return apiClient.post("/register", user);
+  // ===========  User Requests  ===============
+  async registerUser(user: CreateUserInterface) {
+    return await apiClient.post("/register", user);
   },
-  loginUser(user: CreateUserInterface) {
-    return apiClient.post("/login", user);
+  async loginUser(user: CreateUserInterface) {
+    return await apiClient.post("/login", user);
+  },
+  // ===========  TODO Requests  ===============
+  async getTodoLists(userToken: string) {
+    return await apiClient.get("/myTodos", {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    });
+  },
+  async postTodoList(todoList: newListInterface, userToken: string) {
+    return await apiClient.post("/myTodos", todoList, {
+      headers: { Authorization: "Bearer " + userToken },
+    });
+  },
+  async deleteTodoList(listId: number, userToken: string) {
+    return await apiClient.delete("/myTodos?listId=" + listId, {
+      headers: { Authorization: "Bearer " + userToken },
+    });
+  },
+  async archiveTodo(archiveTodo: ArchiveTodoInterface, userToken: string) {
+    return await apiClient.put("/myTodos", archiveTodo, {
+      headers: { Authorization: "Bearer " + userToken },
+    });
+  },
+  async unArchiveTodo(unArchiveTodo: ArchiveTodoInterface, userToken: string) {
+    return await apiClient.put("/myTodos/unarchived", unArchiveTodo, {
+      headers: { Authorization: "Bearer " + userToken },
+    });
   },
 };
 

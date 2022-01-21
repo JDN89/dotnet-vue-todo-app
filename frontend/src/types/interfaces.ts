@@ -28,6 +28,11 @@ export interface newListInterface {
   title: string;
   todos: string[];
 }
+export interface ArchiveTodoInterface {
+  // userId: number | null;
+  listId: number;
+  todo: string;
+}
 
 export interface MessageInterface {
   id: number;
