@@ -16,6 +16,9 @@ intro:
   aka: También conocido como
   whats-your-name: ¿Cómo te llamas?
 not-found: No se ha encontrado
+input:
+  title: Título
+  message: Mensaje
 text:
   password: Contraseña 
   confirmPassword: Confirmar contraseña

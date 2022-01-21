@@ -60,10 +60,10 @@ const addMessage = () => {
     <!-- </div> -->
 
     <div v-else class="hover msg relative min-w-xs">
-      <div class="title">
+      <div class="message">
         <input
           type="text"
-          placeholder="Title"
+          :placeholder="t('input.title')"
           v-model="message.Title"
           class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
         />
@@ -72,12 +72,12 @@ const addMessage = () => {
             spellcheck="false"
             w:resize="none"
             type="text"
-            placeholder="Log"
+            :placeholder="t('input.message')"
             v-model="message.Body"
             class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-        <button @click="addMessage" class="float-right">
+        <button @click="addMessage" class="float-right" :title="t('button.submit')">
           <carbon-add-alt />
         </button>
       </div>
