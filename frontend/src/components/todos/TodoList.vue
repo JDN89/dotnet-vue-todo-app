@@ -27,7 +27,7 @@ const unArchiveTask = (listId: number, todo: string) => {
     <div
       v-for="list in todoStore.getLists"
       :key="list.listId"
-      class="msg hover relative"
+      class="msg hover max-h-screen-lg overflow-auto"
     >
       <button @click="deleteList(list.listId)" class="float-right">
         <carbon-trash-can class="float-right hover" />
