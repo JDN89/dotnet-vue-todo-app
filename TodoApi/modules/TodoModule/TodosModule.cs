@@ -18,14 +18,17 @@ public class TodosModule : ICarterModule
         app.MapDelete("/myTodos", DeleteList).RequireAuthorization();
         app.MapPut("/myTodos", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
         app.MapPut("/myTodos/unarchived/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
+
     }
 
+    //How to remove duplicates, which are generated with array_agg postgres function
+    // distinct keyword
     private async Task<IEnumerable<FetchedList>> FetchLists(NpgsqlConnection db, IUserService userService)
     {
         var userId = int.Parse(userService.GetUserId());
         return await db.QueryAsync<FetchedList>(
-            "SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG(distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ",
-            new {userId});
+            "SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG( distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ",
+            new { userId });
     }
 
     private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db, IUserService userService)
@@ -41,21 +44,28 @@ public class TodosModule : ICarterModule
     //Foreign key set delete rule to cascade => see db. 
     private static async Task<IResult> DeleteList([FromQuery] int listId, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "DELETE FROM todo_lists WHERE id = @listId", new {listId}) == 1
+            "DELETE FROM todo_lists WHERE id = @listId", new { listId }) == 1
             ? Results.NoContent()
             : Results.NotFound();
-
+// filter on todo and list_id otherwise db malfunctions
+// when you filter only on todo and there are is a similar todo in another table
+// same issue with archive id
+// another solution is to send the todoId and archiveId to the frontend with the fetchLists request
+// and then send it back with every archive and unarchive request
+// and then select where id = @todoId || id =@archiveId
     private static async Task<IResult> ArchiveTodo(ArchiveTodo archivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "with foo as (delete from todos where todo = @Todo returning list_id,todo) insert into archived_todos (list_id,archived) select * from foo ",
+            "with foo as (delete from todos where todo = @Todo AND list_id = @ListId returning list_id,todo) insert into archived_todos (list_id,archived) select * from foo ",
             archivedTodo) == 1
             ? Results.NoContent()
             : Results.NotFound();
 
     private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
-            "with foo as (delete from archived_todos where archived = @Todo returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
+            "with foo as (delete from archived_todos where archived = @Todo AND list_id = @ListId returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
             unArchivedTodo) == 1
             ? Results.NoContent()
             : Results.NotFound();
+
 }
+
