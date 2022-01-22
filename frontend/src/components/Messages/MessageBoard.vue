@@ -16,12 +16,12 @@ onBeforeMount(() => {
   </div>
   <div
     class="
-      container
-      flex-col
-      sm:flex-row sm:flex
+         
+         container
+      sm:flex
       mx-auto
-      max-w-7xl
-      sm:flex-wrap sm:flex-grow-0 sm:flex-auto sm:justify-center
+      sm:flex-wrap sm:flex-grow-0 sm:flex-none sm:
+      justify-center
     "
   >
     <Message />

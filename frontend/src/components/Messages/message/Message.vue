@@ -6,8 +6,11 @@ const messageStore = useMessageStore();
 </script>
 
 <template>
+ <masonry :cols="{ default:5, 1280:4 , 1192: 3, 768: 2, 450: 1 }"
+        :gutter="{ default: '20px', 700: '15px', 500:'0px' }" class="HERE mx-auto container justify-center">
+
   <div
-    class="msg hover relative"
+    class="msg max-h-lg hover relative"
     v-for="message in messageStore.getMessages"
     :key="message.id"
   >
@@ -25,6 +28,7 @@ const messageStore = useMessageStore();
       {{ message.body }}
     </p>
   </div>
+  </masonry>
 
   <div class="updateModal"></div>
 </template>

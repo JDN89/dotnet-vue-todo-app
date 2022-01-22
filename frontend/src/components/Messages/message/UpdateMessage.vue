@@ -33,7 +33,7 @@ if (messageStore.getChangedMessage) {
     class="flex bg-gray-800 bg-opacity-50 fixed left-0 right-0 bottom-0 top-0 items-center"
   >
     <div
-      class="msg w-full m-1 p-2 max-h-52 min-h-22 sm:max-w-70 content-center sm:mx-auto mx-auto"
+      class="msg min-h-44 max-h-lg w-full m-1 p-2 sm:max-w-70 content-center sm:mx-auto mx-auto"
     >
       <div v-if="messageStore.getShowModal">
         <div class="header">
@@ -45,8 +45,9 @@ if (messageStore.getChangedMessage) {
             type="text"
             placeholder="Title"
             v-model="messageToChange.title"
-            class="float-left bg-transparent transition duration-500 overflow-hidden focus:outline-none"
+            class=" py-3 float-left bg-transparent transition duration-500 overflow-hidden focus:outline-none"
           />
+
 
           <textarea
             type="text"
@@ -54,7 +55,7 @@ if (messageStore.getChangedMessage) {
             w:resize="none"
             placeholder="Your message"
             v-model="messageToChange.body"
-            class="bg-transparent float-left transition duration-500 focus:outline-none overflow-hidden"
+            class="bg-transparent float-left min-h-44 max-h-66 min-w-full transition duration-500 focus:outline-none overflow-auto"
           ></textarea>
         </div>
         <button
