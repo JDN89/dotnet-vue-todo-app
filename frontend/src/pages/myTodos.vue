@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="mx-auto">
     <NewList />
    
     <TodoList />

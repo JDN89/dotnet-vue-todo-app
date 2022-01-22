@@ -25,13 +25,13 @@ const unArchiveTask = (listId: number, todo: string) => {
     "
   >
   <!-- <div class="mx-auto"> -->
-    <masonry :cols="{ default: 4, 1192: 3, 768: 2, 450: 1 }"
-        :gutter="{ default: '20px', 700: '15px' }" class="mx-auto container justify-center">
+    <masonry :cols="{ default:5, 1280:4 , 1192: 3, 768: 2, 450: 1 }"
+        :gutter="{ default: '20px', 700: '15px', 500:'0px' }" class="HERE mx-auto container justify-center">
 
     <div
       v-for="list in todoStore.getLists"
       :key="list.listId"
-      class="msg hover max-h-screen-lg overflow-auto"
+      class=" THERE msg hover max-h-screen-lg overflow-auto"
     >
       <button @click="deleteList(list.listId)" class="float-right">
         <carbon-trash-can class="float-right hover" />

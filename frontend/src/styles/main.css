@@ -80,7 +80,7 @@ content-center;
   @apply cursor-pointer
   transform transition ease-in-out duration-200
   duration-500 
-  select-none sm:hover:scale-115;
+  select-none sm:hover:scale-105 xl:hover:scale-110;
 }
 
 
