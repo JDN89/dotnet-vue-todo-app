@@ -24,6 +24,10 @@ const unArchiveTask = (listId: number, todo: string) => {
       justify-center
     "
   >
+  <!-- <div class="mx-auto"> -->
+    <masonry :cols="{ default: 4, 1192: 3, 768: 2, 450: 1 }"
+        :gutter="{ default: '20px', 700: '15px' }" class="mx-auto container justify-center">
+
     <div
       v-for="list in todoStore.getLists"
       :key="list.listId"
@@ -70,6 +74,7 @@ const unArchiveTask = (listId: number, todo: string) => {
         </ul>
       </div>
     </div>
+    </masonry>
   </div>
 </template>
 
