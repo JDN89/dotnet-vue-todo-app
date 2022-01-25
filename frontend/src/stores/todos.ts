@@ -53,9 +53,22 @@ export const useTodoStore = defineStore("todo", {
     },
 
     // =========================================
+    // ===========   CHECK-DUPLICATE TODO ITEMS  ===============
+    // =========================================
+
+    async checkDuplicates(todosArr: string[]) {
+      const filteredTodos = [...new Set(todosArr)];
+      console.log(filteredTodos);
+      return filteredTodos;
+    },
+
+    // =========================================
     // ===========   ADD LISTS  ===============
     // =========================================
     async add(newToDoList: newListInterface) {
+      let filteredArr = await this.checkDuplicates(newToDoList.todos);
+      console.log(filteredArr);
+      newToDoList.todos = filteredArr;
       const userStore = useUserStore();
       const userToken = userStore.getToken;
       if (userToken)
