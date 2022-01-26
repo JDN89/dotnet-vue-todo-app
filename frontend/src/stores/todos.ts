@@ -2,7 +2,7 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 import {
   ToDoListInterface,
   newListInterface,
-  ArchiveTodoInterface,
+  TodoInterface,
 } from "~/types/interfaces";
 import axios from "axios";
 import { useUserStore } from "./user";
@@ -10,11 +10,13 @@ import EventService from "~/composables/EventService";
 
 interface TodoStateInterface {
   toDoLists: ToDoListInterface[] | null;
+  showAddTask:Boolean|null
 }
 
 export const useTodoStore = defineStore("todo", {
   state: (): TodoStateInterface => ({
     toDoLists: null,
+    showAddTask:null
   }),
   actions: {
     // the userId is added as a claimIdentifier to the token in the backend - see tokenService
@@ -123,13 +125,46 @@ export const useTodoStore = defineStore("todo", {
             }
           });
     },
+
+    // =========================================
+    // ===========   ADD NEW TODO  ===============
+    // =========================================
+    async addTodo(listId: number, todo: string) {
+      const userStore = useUserStore();
+      const userToken = userStore.getToken;
+      const archiveTodo: TodoInterface = {
+        listId: listId,
+        todo: todo,
+      };
+      if (userToken)
+        await EventService.archiveTodo(archiveTodo, userToken)
+          .then(() => this.fetchTodoLists())
+          .catch((error) => {
+            if (axios.isAxiosError(error)) {
+              if (error.response) {
+                console.log(error.response?.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+              } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+              }
+            }
+          });
+    },
+
     // =========================================
     // ===========   ARCHIVE TODO  ===============
     // =========================================
     async archiveTask(listId: number, todo: string) {
       const userStore = useUserStore();
       const userToken = userStore.getToken;
-      const archiveTodo: ArchiveTodoInterface = {
+      const archiveTodo: TodoInterface = {
         listId: listId,
         todo: todo,
       };
@@ -160,7 +195,7 @@ export const useTodoStore = defineStore("todo", {
     async unArchiveTask(listId: number, archived: string) {
       const userStore = useUserStore();
       const userToken = userStore.getToken;
-      const unArchiveTodo: ArchiveTodoInterface = {
+      const unArchiveTodo: TodoInterface = {
         listId: listId,
         todo: archived,
       };
@@ -188,6 +223,7 @@ export const useTodoStore = defineStore("todo", {
   },
   getters: {
     getLists: (state) => state.toDoLists,
+    getShowAddTask: (state) => state.showAddTask,
   },
 });
 

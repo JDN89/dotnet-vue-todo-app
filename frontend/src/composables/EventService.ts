@@ -4,7 +4,7 @@ import {
   NewMessageInterface,
   CreateUserInterface,
   newListInterface,
-  ArchiveTodoInterface,
+  TodoInterface,
 } from "~/types/interfaces";
 
 axios.defaults.baseURL = "https://localhost:7126";
@@ -58,12 +58,18 @@ export default {
       headers: { Authorization: "Bearer " + userToken },
     });
   },
-  async archiveTodo(archiveTodo: ArchiveTodoInterface, userToken: string) {
+  async addTodo(archiveTodo: TodoInterface, userToken: string) {
     return await apiClient.put("/myTodos", archiveTodo, {
       headers: { Authorization: "Bearer " + userToken },
     });
   },
-  async unArchiveTodo(unArchiveTodo: ArchiveTodoInterface, userToken: string) {
+
+  async archiveTodo(archiveTodo: TodoInterface, userToken: string) {
+    return await apiClient.put("/myTodos/archived", archiveTodo, {
+      headers: { Authorization: "Bearer " + userToken },
+    });
+  },
+  async unArchiveTodo(unArchiveTodo: TodoInterface, userToken: string) {
     return await apiClient.put("/myTodos/unarchived", unArchiveTodo, {
       headers: { Authorization: "Bearer " + userToken },
     });

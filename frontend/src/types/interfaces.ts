@@ -28,7 +28,7 @@ export interface newListInterface {
   title: string;
   todos: string[];
 }
-export interface ArchiveTodoInterface {
+export interface TodoInterface {
   // userId: number | null;
   listId: number;
   todo: string;
