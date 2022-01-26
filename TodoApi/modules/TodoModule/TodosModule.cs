@@ -16,7 +16,7 @@ public class TodosModule : ICarterModule
         app.MapGet("/myTodos", FetchLists).RequireAuthorization("UsersOnly");
         app.MapPost("/myTodos", CreateList).RequireAuthorization();
         app.MapDelete("/myTodos", DeleteList).RequireAuthorization();
-        app.MapPut("/myTodos", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
+        app.MapPut("/myTodos/archived", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
         app.MapPut("/myTodos/unarchived/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
 
     }
