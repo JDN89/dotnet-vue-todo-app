@@ -19,12 +19,29 @@ let newTodo = ref<string|null>(null);
 const addNewTodo = (
   listId: number,
   todo: string | null,
-  todos: string[]
+  todos: string[],
+  archived: string[]
 ) => {
   if (todo?.length == null) return alert("todo is null");
+  // if todo item allready exists, give an alert
+  // current design of DB gives error if we have duplicate todo and archive descriptions
+  // in the same list
+  // reason => we fecth list title + listId +todo and archive
+  // when we (un)archive a task we filter on the todo description instead of the id
+  // this is a mistake
+  // CHORE => rewrite the fechtList query and retrieve also the todoId and archiveId
+  // use the id's as :key in the v-for="todo" block
+  // and in the v-for="archived" block
+  // The CURRENT temporary solution is making sure that no duplicate items exist
+  // in the todos array and archived array befor we push them to the backend
   if (todos.includes(todo)) return alert("todo item already exists!");
+  if (archived.includes(todo)) {
+     
+  todoStore.unArchiveTask(listId,todo)
+  return newTodo.value = null
+  };
   todoStore.addTodo(listId, todo);
-  newTodo.value = null
+  return newTodo.value = null
 };
 </script>
 
@@ -75,8 +92,8 @@ const addNewTodo = (
               type="text"
               v-model="newTodo"
               placeholder="Add a new todo"
-              class="max-w-43 bg-transparent mx-auto ml-3 overflow-hidden"
-              @blur="addNewTodo(list.listId, newTodo, list.todos)"
+              class="max-w-43 bg-transparent mx-auto ml-2 overflow-hidden"
+              @blur="addNewTodo(list.listId, newTodo, list.todos, list.archived)"
             />
           </div>
         </div>
