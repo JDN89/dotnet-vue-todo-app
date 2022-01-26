@@ -13,13 +13,17 @@ const unArchiveTask = (listId: number, todo: string) => {
   todoStore.unArchiveTask(listId, todo);
 };
 
-const newTodo:string|null = null;
+const newTodo: string | null = null;
 
-const addNewTodo = (listId: number, newTodo: string|null,todos:string[]) => {
-  if(newTodo == null) return alert("todo is null")
+const addNewTodo = (
+  listId: number,
+  newTodo: string | null,
+  todos: string[]
+) => {
+  if (newTodo == null) return alert("todo is null");
   //check for duplicates!!
   console.log(`listId ${listId} , newTodo ${newTodo}`);
-  
+
   // if (newTodo.length > 0) {
   //   newList.todos.push(todo.value);
   //   todo.value = "";
@@ -55,7 +59,7 @@ const addNewTodo = (listId: number, newTodo: string|null,todos:string[]) => {
         <hr class="hr max-w-27 pb-3" />
         <div class="todos">
           <ul>
-            <div class="listAlign relative">
+            <div class="relative">
               <li v-for="todo in list.todos" :key="todo">
                 <carbon-checkbox
                   @click="archiveTask(list.listId, todo)"
@@ -64,18 +68,26 @@ const addNewTodo = (listId: number, newTodo: string|null,todos:string[]) => {
               </li>
             </div>
           </ul>
-        </div>
-        <div>
-          <input
-            type="text"
-            v-model="newTodo"
-            placeholder=" + Add a new todo item"
-            class="bg-transparent"
-            @blur="addNewTodo(list.listId, newTodo,list.todos)"
-          />
+
+          <div class="relative">
+            <bi-plus-lg
+              @click="todoStore.showAddTask = true"
+              v-if="!todoStore.getShowAddTask"
+              class="justify-start"
+            />
+
+            <input
+              v-else
+              type="text"
+              v-model="newTodo"
+              placeholder=" + Add a new todo item"
+              class="bg-transparent"
+              @blur="addNewTodo(list.listId, newTodo, list.todos)"
+            />
+          </div>
         </div>
 
-        <hr v-show="list.archived !== null || undefined" class="m-2" />
+        <hr class="m-2" />
 
         <div class="archived">
           <ul>

@@ -4,7 +4,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AkarIconsPlus: typeof import('~icons/akar-icons/plus')['default']
     AntDesignMessageFilled: typeof import('~icons/ant-design/message-filled')['default']
+    BiPlusLg: typeof import('~icons/bi/plus-lg')['default']
     CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
     CarbonCheckbox: typeof import('~icons/carbon/checkbox')['default']
