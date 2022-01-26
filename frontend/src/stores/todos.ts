@@ -55,6 +55,8 @@ export const useTodoStore = defineStore("todo", {
     // =========================================
     // ===========   CHECK-DUPLICATE TODO ITEMS  ===============
     // =========================================
+    // filter out duplicate todo items before you send them to the backend
+    // because, why would you need duplicate todoItems?
 
     async checkDuplicates(todosArr: string[]) {
       const filteredTodos = [...new Set(todosArr)];
