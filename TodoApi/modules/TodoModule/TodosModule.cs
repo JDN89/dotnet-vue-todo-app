@@ -16,6 +16,7 @@ public class TodosModule : ICarterModule
         app.MapGet("/myTodos", FetchLists).RequireAuthorization("UsersOnly");
         app.MapPost("/myTodos", CreateList).RequireAuthorization();
         app.MapDelete("/myTodos", DeleteList).RequireAuthorization();
+        app.MapPost("/myTodos/todo", AddNewTodo).RequireAuthorization();
         app.MapPut("/myTodos/archived", ArchiveTodo).WithName("UpdateList").RequireAuthorization();
         app.MapPut("/myTodos/unarchived/", UnArchiveTodo).WithName("ArchiveTodo").RequireAuthorization();
 
@@ -47,12 +48,26 @@ public class TodosModule : ICarterModule
             "DELETE FROM todo_lists WHERE id = @listId", new { listId }) == 1
             ? Results.NoContent()
             : Results.NotFound();
-// filter on todo and list_id otherwise db malfunctions
-// when you filter only on todo and there are is a similar todo in another table
-// same issue with archive id
-// another solution is to send the todoId and archiveId to the frontend with the fetchLists request
-// and then send it back with every archive and unarchive request
-// and then select where id = @todoId || id =@archiveId
+
+    private static async Task<IResult> AddNewTodo(ArchiveTodo newTodo, NpgsqlConnection db)
+    {
+                Console.WriteLine($"{newTodo}");
+        var todoId = await db.QueryAsync<int>(
+             "insert into todos (list_id,todo) VALUES (@ListId, @Todo) returning id",
+             newTodo);
+        return Results.Ok(todoId);
+
+    }
+
+
+
+    // filter on todo and list_id otherwise db malfunctions
+    // when you filter only on todo and there are is a similar todo in another table
+    // same issue with archive id
+    // another solution is to send the todoId and archiveId to the frontend with the fetchLists request
+    // and then send it back with every archive and unarchive request
+    // and then select where id = @todoId || id =@archiveId
+
     private static async Task<IResult> ArchiveTodo(ArchiveTodo archivedTodo, NpgsqlConnection db) =>
         await db.ExecuteAsync(
             "with foo as (delete from todos where todo = @Todo AND list_id = @ListId returning list_id,todo) insert into archived_todos (list_id,archived) select * from foo ",

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
+import{ref} from 'vue'
 
 const todoStore = useTodoStore();
 
@@ -13,23 +14,17 @@ const unArchiveTask = (listId: number, todo: string) => {
   todoStore.unArchiveTask(listId, todo);
 };
 
-const newTodo: string | null = null;
+let newTodo = ref<string|null>(null);
 
 const addNewTodo = (
   listId: number,
-  newTodo: string | null,
+  todo: string | null,
   todos: string[]
 ) => {
-  if (newTodo == null) return alert("todo is null");
-  //check for duplicates!!
-  console.log(`listId ${listId} , newTodo ${newTodo}`);
-
-  // if (newTodo.length > 0) {
-  //   newList.todos.push(todo.value);
-  //   todo.value = "";
-  // } else {
-  //   alert("please fill in a todo item");
-  // }
+  if (todo?.length == null) return alert("todo is null");
+  if (todos.includes(todo)) return alert("todo item already exists!");
+  todoStore.addTodo(listId, todo);
+  newTodo.value = null
 };
 </script>
 
@@ -39,14 +34,14 @@ const addNewTodo = (
   >
     <!-- <div class="mx-auto"> -->
     <masonry
-      :cols="{ default: 5, 1280: 4, 1192: 3, 768: 2, 450: 1 }"
+      :cols="{ default: 5, 1280: 4, 1192: 3, 840: 2, 520: 1 }"
       :gutter="{ default: '20px', 700: '15px', 500: '0px' }"
-      class="HERE mx-auto container justify-center"
+      class="mx-auto container justify-center"
     >
       <div
         v-for="list in todoStore.getLists"
         :key="list.listId"
-        class="THERE msg hover max-h-screen-lg overflow-auto"
+        class="msg hover max-h-screen-lg overflow-auto"
       >
         <button @click="deleteList(list.listId)" class="float-right">
           <carbon-trash-can class="float-right hover" />
@@ -72,16 +67,15 @@ const addNewTodo = (
           <div class="relative">
             <bi-plus-lg
               @click="todoStore.showAddTask = true"
-              v-if="!todoStore.getShowAddTask"
+              :key="list.listId"
               class="justify-start"
             />
 
             <input
-              v-else
               type="text"
               v-model="newTodo"
-              placeholder=" + Add a new todo item"
-              class="bg-transparent"
+              placeholder="Add a new todo"
+              class="max-w-43 bg-transparent mx-auto ml-3 overflow-hidden"
               @blur="addNewTodo(list.listId, newTodo, list.todos)"
             />
           </div>

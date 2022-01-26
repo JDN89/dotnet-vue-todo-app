@@ -132,12 +132,12 @@ export const useTodoStore = defineStore("todo", {
     async addTodo(listId: number, todo: string) {
       const userStore = useUserStore();
       const userToken = userStore.getToken;
-      const archiveTodo: TodoInterface = {
+      const newTodo: TodoInterface = {
         listId: listId,
         todo: todo,
       };
       if (userToken)
-        await EventService.archiveTodo(archiveTodo, userToken)
+        await EventService.addTodo(newTodo, userToken)
           .then(() => this.fetchTodoLists())
           .catch((error) => {
             if (axios.isAxiosError(error)) {

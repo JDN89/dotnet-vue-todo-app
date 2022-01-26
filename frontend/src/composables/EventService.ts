@@ -58,8 +58,8 @@ export default {
       headers: { Authorization: "Bearer " + userToken },
     });
   },
-  async addTodo(archiveTodo: TodoInterface, userToken: string) {
-    return await apiClient.put("/myTodos", archiveTodo, {
+  async addTodo(newTodo: TodoInterface, userToken: string) {
+    return await apiClient.post("/myTodos/todo", newTodo, {
       headers: { Authorization: "Bearer " + userToken },
     });
   },

@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AddTodo: typeof import('./components/todos/AddTodo.vue')['default']
     AkarIconsPlus: typeof import('~icons/akar-icons/plus')['default']
     AntDesignMessageFilled: typeof import('~icons/ant-design/message-filled')['default']
     BiPlusLg: typeof import('~icons/bi/plus-lg')['default']
