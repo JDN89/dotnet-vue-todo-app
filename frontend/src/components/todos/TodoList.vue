@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
-import{ref} from 'vue'
+import { ref } from "vue";
+
+const { t } = useI18n();
 
 const todoStore = useTodoStore();
 
@@ -14,7 +16,7 @@ const unArchiveTask = (listId: number, todo: string) => {
   todoStore.unArchiveTask(listId, todo);
 };
 
-let newTodo = ref<string|null>(null);
+let newTodo = ref<string | null>(null);
 
 const addNewTodo = (
   listId: number,
@@ -22,26 +24,25 @@ const addNewTodo = (
   todos: string[],
   archived: string[]
 ) => {
-  if (todo?.length == null) return alert("todo is null");
-  // if todo item allready exists, give an alert
+  // if todo item already exists, give an alert
   // current design of DB gives error if we have duplicate todo and archive descriptions
   // in the same list
-  // reason => we fecth list title + listId +todo and archive
+  // reason => we fetch list title + listId +todo and archive
   // when we (un)archive a task we filter on the todo description instead of the id
   // this is a mistake
-  // CHORE => rewrite the fechtList query and retrieve also the todoId and archiveId
+  // CHORE => rewrite the fetchList query and retrieve also the todoId and archiveId
   // use the id's as :key in the v-for="todo" block
   // and in the v-for="archived" block
   // The CURRENT temporary solution is making sure that no duplicate items exist
-  // in the todos array and archived array befor we push them to the backend
-  if (todos.includes(todo)) return alert("todo item already exists!");
+  // in the todos array and archived array before we push them to the backend
+  if (todo?.length == null) return alert(t('alert.todoNull'));
+  if (todos.includes(todo)) return alert(t('alert.todoDuplicate'));
   if (archived.includes(todo)) {
-     
-  todoStore.unArchiveTask(listId,todo)
-  return newTodo.value = null
-  };
+    todoStore.unArchiveTask(listId, todo);
+    return (newTodo.value = null);
+  }
   todoStore.addTodo(listId, todo);
-  return newTodo.value = null
+  return (newTodo.value = null);
 };
 </script>
 
@@ -83,17 +84,20 @@ const addNewTodo = (
 
           <div class="relative">
             <bi-plus-lg
-              @click="todoStore.showAddTask = true"
-              :key="list.listId"
+              @click="addNewTodo(list.listId, newTodo, list.todos, list.archived)"
+             
               class="justify-start"
             />
 
             <input
               type="text"
+              key="user-input"
               v-model="newTodo"
               placeholder="Add a new todo"
-              class="max-w-43 bg-transparent mx-auto ml-2 overflow-hidden"
-              @blur="addNewTodo(list.listId, newTodo, list.todos, list.archived)"
+              class="max-w-43 bg-transparent mx-auto ml-2 overflow-hidden focus:outline-none placeholder-true-gray-600 placeholder-opacity-20 dark:placeholder-light-50 dark:placeholder-opacity-20"
+              @blur="
+                addNewTodo(list.listId, newTodo, list.todos, list.archived)
+              "
             />
           </div>
         </div>
