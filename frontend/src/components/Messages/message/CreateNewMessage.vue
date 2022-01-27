@@ -77,7 +77,11 @@ const addMessage = () => {
             class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-        <button @click="addMessage" class="float-right" :title="t('button.submit')">
+        <button
+          @click="addMessage"
+          class="float-right"
+          :title="t('button.submit')"
+        >
           <carbon-add-alt />
         </button>
       </div>
