@@ -15,6 +15,9 @@ page:
   login: Login
   logout: Logout
   register: Register
+alert:
+  todoNull: Please fill in a todo description
+  todoDuplicate: Todo item is already present in the current list, no need to add duplicate tasks ;)
 text:
   password: Password
   confirmPassword: Confirm password

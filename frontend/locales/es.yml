@@ -16,6 +16,9 @@ intro:
   hi: ¡Hola, {name}!
   aka: También conocido como
   whats-your-name: ¿Cómo te llamas?
+alert:
+  todoNull: Por favor, complete una descripción de todo
+  todoDuplicate: El Todo ya está presente en la lista actual, no es necesario agregar tareas duplicadas ;)
 not-found: No se ha encontrado
 input:
   title: Título
