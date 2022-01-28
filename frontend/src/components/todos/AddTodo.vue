@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
+import { useAlertStore } from "~/stores/alertStore";
 
 const { t } = useI18n();
 const todoStore = useTodoStore();
+const alertStore = useAlertStore();
 
 let showInput = ref<boolean>(false);
 
@@ -24,8 +26,15 @@ const addNewTodo = async (
   // and in the v-for="archived" block
   // The CURRENT temporary solution is making sure that no duplicate items exist
   // in the todos array and archived array before we push them to the backend
-  if (todo?.length == null) return alert(t("alert.todoNull"));
-  if (todos.includes(todo)) return alert(t("alert.todoDuplicate"));
+  if (todo?.length == null) {
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.todoNull"));
+  }
+
+  if (todos.includes(todo)) {
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.todoDuplicate"));
+  }
   if (archived.includes(todo)) {
     await todoStore
       .unArchiveTask(listId, todo)
@@ -125,6 +134,7 @@ const unArchiveTask = async (listId: number, todo: string) => {
           </li>
         </ul>
       </div>
+      <Alert v-if="alertStore.getShowAlert" />
     </div>
   </div>
 </template>
