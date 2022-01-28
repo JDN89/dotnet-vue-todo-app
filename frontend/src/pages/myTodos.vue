@@ -21,6 +21,9 @@ onMounted(() => {
    
     <TodoList />
   </div>
+  <div v-if="todoStore.getShowAddTodoComponent">
+    <AddTodo/> 
+  </div>
 </template>
 
 <route lang="yaml">
