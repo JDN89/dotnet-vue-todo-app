@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
-import { ref } from "vue";
-
-const { t } = useI18n();
 
 const todoStore = useTodoStore();
 
@@ -15,39 +12,11 @@ const archiveTask = (listId: number, todo: string) => {
 const unArchiveTask = (listId: number, todo: string) => {
   todoStore.unArchiveTask(listId, todo);
 };
-
-let newTodo = ref<string | null>(null);
-
-const addNewTodo = (
-  listId: number,
-  todo: string | null,
-  todos: string[],
-  archived: string[]
-) => {
-  // if todo item already exists, give an alert
-  // current design of DB gives error if we have duplicate todo and archive descriptions
-  // in the same list
-  // reason => we fetch list title + listId +todo and archive
-  // when we (un)archive a task we filter on the todo description instead of the id
-  // this is a mistake
-  // CHORE => rewrite the fetchList query and retrieve also the todoId and archiveId
-  // use the id's as :key in the v-for="todo" block
-  // and in the v-for="archived" block
-  // The CURRENT temporary solution is making sure that no duplicate items exist
-  // in the todos array and archived array before we push them to the backend
-  if (todo?.length == null) return alert(t('alert.todoNull'));
-  if (todos.includes(todo)) return alert(t('alert.todoDuplicate'));
-  if (archived.includes(todo)) {
-    todoStore.unArchiveTask(listId, todo);
-    return (newTodo.value = null);
-  }
-  todoStore.addTodo(listId, todo);
-  return (newTodo.value = null);
-};
 </script>
 
 <template>
   <div
+    id="List"
     class="container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
     <!-- <div class="mx-auto"> -->
@@ -61,10 +30,11 @@ const addNewTodo = (
         :key="list.listId"
         class="msg hover max-h-screen-lg overflow-auto"
       >
-        <button @click="deleteList(list.listId)" class="float-right">
-          <carbon-trash-can class="float-right hover" />
-        </button>
+       <button class="float-right hover">
+            <carbon-edit @click="todoStore.changeList(list)" />
+          </button>
         <div class="title prose">
+         
           <h3>
             {{ list.title }}
           </h3>
@@ -81,25 +51,6 @@ const addNewTodo = (
               </li>
             </div>
           </ul>
-
-          <div class="relative">
-            <bi-plus-lg
-              @click="addNewTodo(list.listId, newTodo, list.todos, list.archived)"
-             
-              class="justify-start"
-            />
-
-            <input
-              type="text"
-              key="user-input"
-              v-model="newTodo"
-              placeholder="Add a new todo"
-              class="max-w-43 bg-transparent mx-auto ml-2 overflow-hidden focus:outline-none placeholder-true-gray-600 placeholder-opacity-20 dark:placeholder-light-50 dark:placeholder-opacity-20"
-              @blur="
-                addNewTodo(list.listId, newTodo, list.todos, list.archived)
-              "
-            />
-          </div>
         </div>
 
         <hr class="m-2" />
@@ -120,6 +71,9 @@ const addNewTodo = (
             </li>
           </ul>
         </div>
+        <button @click="deleteList(list.listId)" class="float-right">
+          <carbon-trash-can class="float-right hover" />
+        </button>
       </div>
     </masonry>
   </div>
