@@ -10,8 +10,8 @@ import EventService from "~/composables/EventService";
 
 interface TodoStateInterface {
   toDoLists: ToDoListInterface[] | null;
-  updateList: ToDoListInterface | null;
-  showUpdateListModal: boolean | null;
+  temporaryList: ToDoListInterface | null;
+  showAddTodoComp: boolean | null;
   showAddTask: Boolean | null;
 }
 
@@ -19,14 +19,10 @@ export const useTodoStore = defineStore("todo", {
   state: (): TodoStateInterface => ({
     toDoLists: null,
     showAddTask: null,
-    showUpdateListModal: null,
-    updateList: null,
+    showAddTodoComp: false,
+    temporaryList: null,
   }),
   actions: {
-
-    
-
-
     // the userId is added as a claimIdentifier to the token in the backend - see tokenService
     // we save this id in session Storage
     // and with each request we send the token (containing the id) in request header to the api
@@ -135,22 +131,31 @@ export const useTodoStore = defineStore("todo", {
     },
 
     // =========================================
-    // ===========   TEMPORARY CHANGE LIST STATE IN STORE  ===============
+    // ===========   TEMPORARY SOTRE LIST (you want to change) STATE ===============
     // =========================================
     // I can't directly add a input field in the Todolist.vue component
-    // because then the newly written todo gets rendered in al the 
+    // because then the newly written todo gets rendered in al the
     // todolist containers via the v-for loop
     // if you write todo: item 1 => this wil appear in the input field in all your todolist containers
-    // solution: create an updateList container 
+    // solution: create an temporaryList container
     // load the list you want to change in this container (that's why we save the state via this function)
     // add an input field for the new todo
     // check for null and duplicate values
     // send to api
-    
+
     async changeList(list: ToDoListInterface) {
-      this.showUpdateListModal = true;
-      this.updateList = list;
+          this.showAddTodoComp = true;
+      this.temporaryList = list;
     },
+
+    async fetchList (listId:number) {
+     if(this.toDoLists == null) {throw console.error("toDoLists is null");
+     }     
+      const lookup = this.toDoLists.find(list =>  list.listId == listId )
+      if (lookup == undefined)  {throw console.error("lookup is undefined")
+    } return this.temporaryList = lookup;
+  },
+
 
     // =========================================
     // ===========   ADD NEW TODO  ===============
@@ -250,6 +255,8 @@ export const useTodoStore = defineStore("todo", {
   getters: {
     getLists: (state) => state.toDoLists,
     getShowAddTask: (state) => state.showAddTask,
+    getShowAddTodoComponent: (state) => state.showAddTodoComp,
+    getTemporaryList: (state) => state.temporaryList,
   },
 });
 
