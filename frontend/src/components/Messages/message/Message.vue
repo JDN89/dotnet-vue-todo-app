@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useMessageStore } from "~/stores/messages";
 // import { MessageInterface } from "~/types/interfaces";
+const { t } = useI18n();
 
 const messageStore = useMessageStore();
 </script>
@@ -15,8 +16,8 @@ const messageStore = useMessageStore();
     :key="message.id"
   >
     <div class="header">
-      <button @click="messageStore.changeMessage(message)" class="float-right">
-        <carbon-edit class="float-right" />
+      <button :title="t('button.change')" @click="messageStore.changeMessage(message)" class="float-right">
+        <carbon-edit class="float-right hover" />
       </button>
 
       <div class="prose pb-3 pl-4">

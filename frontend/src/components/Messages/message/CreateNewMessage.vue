@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { NewMessageInterface } from "~/types/interfaces";
 import { useMessageStore } from "~/stores/messages";
+import { useAlertStore } from "~/stores/alertStore";
+
+const alertStore = useAlertStore();
 
 const { t } = useI18n();
 const messageStore = useMessageStore();
@@ -18,9 +21,10 @@ let message: NewMessageInterface = reactive({
 const addMessage = () => {
   let copyOfMessage = Object.assign({}, message);
   if (message.Title?.length === 0) {
-    return alert("Please give your message a title");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.title"));
   } else if (message.Body?.length == 0) {
-    return alert("Please write a message that goes with the title");
+    return (alertStore.alertMessage = t("alert.content"));
   } else {
     try {
       messageStore.addMessage(copyOfMessage);
@@ -79,13 +83,14 @@ const addMessage = () => {
         </div>
         <button
           @click="addMessage"
-          class="float-right"
+          class="float-right hover"
           :title="t('button.submit')"
         >
           <carbon-add-alt />
         </button>
       </div>
     </div>
+  <Alert v-if="alertStore.getShowAlert" class="pb-100 sm:pb-50" />
   </div>
 </template>
 

@@ -10,6 +10,10 @@ button:
   toggle_langs: ENG > ES
   submit: Submit
   createList: Create a new list
+  change: Change message
+  edit: Edit list
+  delete: Delete
+  close: Close
 page:
   home: Say hello
   login: Login
@@ -18,10 +22,21 @@ page:
 alert:
   todoNull: Please fill in a todo description
   todoDuplicate: Todo item is already present in the current list, no need to add duplicate tasks ;)
+  zeroTasks: Your todo list has zero tasks
+  listTitle: Please give your list a title
+  title: Please give your message a title
+  content: Please write a message that goes with the title
 text:
   password: Password
   confirmPassword: Confirm password
   registrationSuccessful: Registration successful!
+  intro: This project is inspired by Google keep and is not meant to be used as a real todo list app.
+about:
+  titleHowTo: How to use project
+  homepage: On the Homepage you can leave a message and say hello.
+  register: Register with a fake email and login in order to create, modify and delete your personal todo lists.
+  security: Authentication and Authorization, via JWT tokens and claims, is being used to secure and access the user his personal todo lists
+  tech: Technologies used
 input:
   title: Title
   message: Message

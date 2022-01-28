@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useTodoStore } from "~/stores/todos";
 
+const { t } = useI18n();
+
 const todoStore = useTodoStore();
 
 const deleteList = (listId: number) => {
@@ -30,11 +32,10 @@ const unArchiveTask = (listId: number, todo: string) => {
         :key="list.listId"
         class="msg hover max-h-screen-lg overflow-auto"
       >
-       <button class="float-right hover">
-            <carbon-edit @click="todoStore.changeList(list)" />
-          </button>
+        <button :title="t('button.edit')" class="float-right hover">
+          <carbon-edit @click="todoStore.changeList(list)" />
+        </button>
         <div class="title prose">
-         
           <h3>
             {{ list.title }}
           </h3>
@@ -71,7 +72,11 @@ const unArchiveTask = (listId: number, todo: string) => {
             </li>
           </ul>
         </div>
-        <button @click="deleteList(list.listId)" class="float-right">
+        <button
+          :title="t('button.delete')"
+          @click="deleteList(list.listId)"
+          class="float-right"
+        >
           <carbon-trash-can class="float-right hover" />
         </button>
       </div>

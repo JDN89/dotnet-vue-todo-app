@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { newListInterface } from "~/types/interfaces";
 import { useTodoStore } from "~/stores/todos";
+import { useAlertStore } from "~/stores/alertStore";
 
 const { t } = useI18n();
+
+const alertStore = useAlertStore();
 
 let isVisible = ref(false);
 console.log(isVisible);
@@ -20,7 +23,8 @@ const addNewTodo = () => {
     newList.todos.push(todo.value);
     todo.value = "";
   } else {
-    alert("please fill in a todo item");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.todoNull"));
   }
 };
 
@@ -32,9 +36,11 @@ const newList: newListInterface = reactive({
 const addList = () => {
   let copyOfList = Object.assign({}, newList);
   if (newList.title?.length === 0) {
-    return alert("Give your To-Do List a title");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.listTitle"));
   } else if (newList.todos?.length == 0) {
-    return alert("Your To-Do list has 0 tasks");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.zeroTasks"));
   } else {
     try {
       todoStore.add(copyOfList);
@@ -113,5 +119,4 @@ meta:
 .newTodos {
   text-align: left;
 }
-
 </style>

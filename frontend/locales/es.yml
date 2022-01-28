@@ -10,6 +10,10 @@ button:
   toggle_langs: ES > ENG
   submit: Aplicar
   createList: Crear una nueva lista
+  change: Cambiar mensaje
+  edit: Edita tu lista
+  delete: Borrar
+  close: Cerrar
 intro:
   desc: Plantilla de Inicio de Vite Dogmática
   dynamic-route: Demo de ruta dinámica
@@ -19,6 +23,10 @@ intro:
 alert:
   todoNull: Por favor, complete una descripción de todo
   todoDuplicate: El Todo ya está presente en la lista actual, no es necesario agregar tareas duplicadas ;)
+  zeroTasks: Tu lista de tareas tiene cero tareas
+  listTitle: Por favor, dale un título a tu lista.
+  title: Por favor dale un título a tu mensaje
+  content: Por favor escribe un mensaje que vaya con el título.
 not-found: No se ha encontrado
 input:
   title: Título
@@ -28,6 +36,13 @@ text:
   password: Contraseña 
   confirmPassword: Confirmar contraseña
   registrationSuccessful: ¡Registro exitoso!
+  intro: Este proyecto está inspirado en Google Keep y no está destinado a ser utilizado como una aplicación de lista de tareas real.
+about:
+  titleHowTo: Cómo usar el proyecto
+  homepage: En la página de inicio puedes dejar un mensaje y saludar.
+  register: Regístrese con un correo electrónico falso e inicie sesión para crear, modificar y eliminar sus listas de tareas personales.
+  security: La autenticación y autorización, a través de tokens y reclamos JWT, se utiliza para asegurar y acceder al usuario a sus listas personales de tareas pendientes.
+  tech: Tecnologías utilizadas
 page:
   home: Dile hola
   login: Acceso

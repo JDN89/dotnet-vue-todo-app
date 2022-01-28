@@ -84,7 +84,7 @@ onUpdated(() => {
 
       <button
         type="submit"
-        class="hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
+        class="mt-2 hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto"
       >
         {{ t("button.submit") }}
       </button>

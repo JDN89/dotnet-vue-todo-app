@@ -1,15 +1,20 @@
 <script setup lang="ts">
+import { useAlertStore } from "~/stores/alertStore";
 import { useMessageStore } from "~/stores/messages";
 import { MessageInterface } from "~/types/interfaces";
 
+const { t } = useI18n();
 const messageStore = useMessageStore();
+const alertStore = useAlertStore();
 
 const updateMessage = () => {
   let copyOfMessage = Object.assign({}, messageToChange);
   if (messageToChange.title?.length === 0) {
-    return alert("Please give your message a title");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.title"));
   } else if (messageToChange.body?.length == 0) {
-    return alert("Please write a message ");
+    alertStore.showAlert = true;
+    return (alertStore.alertMessage = t("alert.content"));
   } else {
     try {
       messageStore.updateMessage(copyOfMessage);
@@ -37,7 +42,11 @@ if (messageStore.getChangedMessage) {
     >
       <div v-if="messageStore.getShowModal">
         <div class="header">
-          <button @click="updateMessage" class="float-right">
+          <button
+            :title="t('button.submit')"
+            @click="updateMessage"
+            class="float-right"
+          >
             <carbon-upload class="float-right" />
           </button>
 
@@ -45,9 +54,8 @@ if (messageStore.getChangedMessage) {
             type="text"
             placeholder="Title"
             v-model="messageToChange.title"
-            class=" py-3 float-left bg-transparent transition duration-500 overflow-hidden focus:outline-none"
+            class="py-3 float-left bg-transparent transition duration-500 overflow-hidden focus:outline-none"
           />
-
 
           <textarea
             type="text"
@@ -59,12 +67,14 @@ if (messageStore.getChangedMessage) {
           ></textarea>
         </div>
         <button
+          :title="t('button.delete')"
           @click="messageStore.deleteMessage(messageToChange.id)"
           class="float-right"
         >
           <carbon-trash-can />
         </button>
       </div>
+      <Alert v-if="alertStore.getShowAlert" />
     </div>
   </div>
 </template>

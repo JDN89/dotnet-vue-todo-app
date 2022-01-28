@@ -67,6 +67,7 @@ const unArchiveTask = async (listId: number, todo: string) => {
       class="msg content-center min-h-44 max-h-lg w-full m-1 p-2 sm:max-w-70 sm:mx-auto mx-auto"
     >
       <button
+        :title="t('button.close')"
         class="float-right hover mt-1 mr-1"
         @click="todoStore.showAddTodoComp = false"
       >
