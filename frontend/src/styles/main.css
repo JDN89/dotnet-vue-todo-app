@@ -76,6 +76,31 @@ overflow-hidden
 content-center;
 }
 
+.alert{
+  @apply border-red-500 border rounded-2xl 
+  hover:border-2 hover:border-red-900
+    dark:border-1 dark:border-red-400 dark:hover:border-orange-300
+   bg-red-400 bg:hover:bg-orange-600
+   dark:bg-red-600 dark:hover:bg-orange-600
+  my-7 mx-auto
+  text:bg-black dark:text-yellow-50
+  hover:bg-orange-600 dark:hover:text-yellow-300
+  sm:m-3 sm:max-w-xs sm:min-w-60 
+  p-2
+ 
+max-w-xs   
+min-w-28
+min-h-32
+max-h-52
+   
+overflow-ellipsis
+whitespace-pre-wrap
+overflow-hidden
+
+content-center;
+
+}
+
 .hover {
   @apply cursor-pointer
   transform transition ease-in-out duration-200
