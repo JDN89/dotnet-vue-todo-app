@@ -27,18 +27,21 @@ const addNewTodo = async (
   if (todo?.length == null) return alert(t("alert.todoNull"));
   if (todos.includes(todo)) return alert(t("alert.todoDuplicate"));
   if (archived.includes(todo)) {
-    await todoStore.unArchiveTask(listId, todo);
+    await todoStore
+      .unArchiveTask(listId, todo)
+      .then(() => (showInput.value = false))
+      .then(() => (newTodo.value = null));
+    return await todoStore.fetchList(listId);
+  } else {
+    await todoStore.addTodo(listId, todo);
     showInput.value = false;
+    await todoStore.fetchList(listId);
     return (newTodo.value = null);
   }
-  await todoStore.addTodo(listId, todo);
-  showInput.value = false;
-  await todoStore.fetchList(listId);
-  return (newTodo.value = null);
 };
 
 const archiveTask = async (listId: number, todo: string) => {
- await todoStore.archiveTask(listId, todo);
+  await todoStore.archiveTask(listId, todo);
   await todoStore.fetchList(listId);
 };
 const unArchiveTask = async (listId: number, todo: string) => {
@@ -54,6 +57,12 @@ const unArchiveTask = async (listId: number, todo: string) => {
     <div
       class="msg content-center min-h-44 max-h-lg w-full m-1 p-2 sm:max-w-70 sm:mx-auto mx-auto"
     >
+      <button
+        class="float-right hover mt-1 mr-1"
+        @click="todoStore.showAddTodoComp = false"
+      >
+        <bi-x-lg />
+      </button>
       <div class="title prose">
         <h3>
           {{ todoStore.getTemporaryList!.title }}
@@ -78,11 +87,7 @@ const unArchiveTask = async (listId: number, todo: string) => {
         </ul>
       </div>
       <div class="flex justify-left items-start">
-        <bi-plus-lg
-          v-if="!showInput"
-          @click="showInput = true" class="justify-start"
-          
-        />
+        <bi-plus-lg v-if="!showInput" @click="showInput = true" class="hover" />
 
         <input
           v-else
