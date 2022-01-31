@@ -7,10 +7,8 @@ import {
   TodoInterface,
 } from "~/types/interfaces";
 
-axios.defaults.baseURL = "https://localhost:7126";
-
 const apiClient = axios.create({
-  baseURL: "https://localhost:7126",
+  baseURL: "https://localhost:7126/api",
   withCredentials: false,
 });
 
