@@ -10,10 +10,10 @@ public class MessageModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/", GetMessages).AllowAnonymous();
-        app.MapPost("/", CreateMessage).AllowAnonymous();
-        app.MapDelete("/", DeleteMessage).AllowAnonymous();
-        app.MapPut("/", UpdateMessage).AllowAnonymous();
+        app.MapGet("api/", GetMessages).AllowAnonymous();
+        app.MapPost("api/", CreateMessage).AllowAnonymous();
+        app.MapDelete("api/", DeleteMessage).AllowAnonymous();
+        app.MapPut("api/", UpdateMessage).AllowAnonymous();
 
     }
 

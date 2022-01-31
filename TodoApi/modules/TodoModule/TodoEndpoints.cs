@@ -13,12 +13,12 @@ public class TodosModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/myTodos", FetchLists).RequireAuthorization("UsersOnly");
-        app.MapPost("/myTodos", CreateList).RequireAuthorization("UsersOnly");
-        app.MapDelete("/myTodos", DeleteList).RequireAuthorization("UsersOnly");
-        app.MapPost("/myTodos/todo", AddNewTodo).RequireAuthorization("UsersOnly");
-        app.MapPut("/myTodos/archived", ArchiveTodo).WithName("ArchiveTodo").RequireAuthorization("UsersOnly");
-        app.MapPut("/myTodos/unarchived/", UnArchiveTodo).WithName("UnArchiveTodo").RequireAuthorization("UsersOnly");
+        app.MapGet("api/myTodos", FetchLists).RequireAuthorization("UsersOnly");
+        app.MapPost("api/myTodos", CreateList).RequireAuthorization("UsersOnly");
+        app.MapDelete("api/myTodos", DeleteList).RequireAuthorization("UsersOnly");
+        app.MapPost("api/myTodos/todo", AddNewTodo).RequireAuthorization("UsersOnly");
+        app.MapPut("api/myTodos/archived", ArchiveTodo).WithName("ArchiveTodo").RequireAuthorization("UsersOnly");
+        app.MapPut("api/myTodos/unarchived/", UnArchiveTodo).WithName("UnArchiveTodo").RequireAuthorization("UsersOnly");
 
     }
 

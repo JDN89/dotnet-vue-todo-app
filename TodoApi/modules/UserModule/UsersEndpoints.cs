@@ -17,8 +17,8 @@ public class UsersModule : ICarterModule
     //once you get to more than a few dependencies your handler definitions can become quite noisy.
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/register", Register).AllowAnonymous();
-        app.MapPost("/login", LoginUser).AllowAnonymous();
+        app.MapPost("api/register", Register).AllowAnonymous();
+        app.MapPost("api/login", LoginUser).AllowAnonymous();
     }
 
     private static async Task<IResult> Register(UserDto oUser, NpgsqlConnection db, IEncryptionService encryptionService)
