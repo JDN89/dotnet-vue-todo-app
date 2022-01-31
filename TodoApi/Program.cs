@@ -15,6 +15,9 @@ var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; D
 builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSpaStaticFiles(config => {
+//     config.RootPath="dist";
+// });
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen(x =>
 //add authorize to swagger and show which routes are authorized
@@ -57,7 +60,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
-builder.Services.AddAuthorization( options => {
+builder.Services.AddAuthorization(options =>
+{
     options.AddPolicy("UsersOnly", policy => policy.RequireClaim("user", "registered"));
 });
 
@@ -79,6 +83,12 @@ if (!app.Environment.IsDevelopment())
 }
 if (app.Environment.IsDevelopment())
 {
+    // launch client app as npm run dev!!
+    // app.UseSpa(builder =>
+    // {
+    //     if (app.Environment.IsDevelopment())
+    //         builder.UseProxyToSpaDevelopmentServer("http://localhost:3333/");
+    // });
     // PLAATS HIER JE CORS SETTINGS
     app.UseDeveloperExceptionPage();
     app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
@@ -93,8 +103,11 @@ if (app.Environment.IsDevelopment())
 
 // app.UseSpaStaticFiles();
 
+
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
    .ExcludeFromDescription();
+
+// app.UseSpaStaticFiles();
 
 app.UseAuthentication();
 app.UseAuthorization();
