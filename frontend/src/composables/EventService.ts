@@ -7,17 +7,6 @@ import {
   TodoInterface,
 } from "~/types/interfaces";
 
-if(import.meta.env.VITE_APP_API_URL !== undefined) {
-  console.log("defined");
-  
-} else { 
-
-  console.log("undefined");
-} 
-
-console.log(import.meta.env.VITE_APP_API_URL);
-
-
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_APP_API_URL,
   withCredentials: false,

@@ -8,7 +8,6 @@ const { t } = useI18n();
 const alertStore = useAlertStore();
 
 let isVisible = ref(false);
-console.log(isVisible);
 
 const showHidden = () => {
   isVisible.value = true;

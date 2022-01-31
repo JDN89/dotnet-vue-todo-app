@@ -10,12 +10,8 @@ export const install: UserModule = ({ app, router, isClient }) => {
     const userStore = useUserStore();
     router.beforeEach((to, from, next) => {
       if (to.meta?.requiresAuth && userStore.getToken) {
-        console.log("authorized");
-
         next();
       } else if (to.meta?.requiresAuth) {
-        console.error("unauthorized");
-
         next("/login");
       } else {
         next();
