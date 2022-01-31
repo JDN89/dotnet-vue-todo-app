@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "build1": "vite build",
     "dev": "vite --port 3333 --open",
     "lint": "eslint \"**/*.{vue,ts,js}\"",
     "test": "cypress open",
@@ -60,6 +61,7 @@
     "vite-plugin-windicss": "^1.6.3",
     "vite-ssg": "^0.15.6",
     "vue-tsc": "^0.28.10",
-    "windicss": "^3.4.3"
+    "windicss": "^3.4.3",
+    "workbox-window": "6.4.2"
   }
 }
