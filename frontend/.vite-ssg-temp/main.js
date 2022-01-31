@@ -493,10 +493,6 @@ var __glob_9_4 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   install: install$1
 });
-{
-  console.log("defined");
-}
-console.log("/api");
 const apiClient = axios__default["default"].create({
   baseURL: "/api",
   withCredentials: false
@@ -807,10 +803,8 @@ const install = ({ app, router, isClient }) => {
     router.beforeEach((to, from, next) => {
       var _a, _b;
       if (((_a = to.meta) == null ? void 0 : _a.requiresAuth) && userStore.getToken) {
-        console.log("authorized");
         next();
       } else if ((_b = to.meta) == null ? void 0 : _b.requiresAuth) {
-        console.error("unauthorized");
         next("/login");
       } else {
         next();
@@ -1298,15 +1292,15 @@ _sfc_main$6.setup = (props, ctx) => {
 };
 var _src_pages_index_vue = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
 const routes$1 = [{ "name": "about", "path": "/about", "component": () => Promise.resolve().then(function() {
-  return require("./assets/about.56a176b3.js");
+  return require("./assets/about.c60a46cb.js");
 }), "props": true, "meta": { "layout": "default" } }, { "name": "index", "path": "/", "component": _src_pages_index_vue, "props": true, "meta": { "layout": "default" } }, { "name": "login", "path": "/login", "component": () => Promise.resolve().then(function() {
-  return require("./assets/login.e3cb89ec.js");
+  return require("./assets/login.ba9da542.js");
 }), "props": true }, { "name": "myTodos", "path": "/mytodos", "component": () => Promise.resolve().then(function() {
-  return require("./assets/myTodos.2ab0a17b.js");
+  return require("./assets/myTodos.baa97507.js");
 }), "props": true, "meta": { "name": "myTodos", "layout": "dashboard", "requiresAuth": true } }, { "name": "README", "path": "/readme", "component": () => Promise.resolve().then(function() {
   return require("./assets/README.a90754f0.js");
 }), "props": true }, { "name": "register", "path": "/register", "component": () => Promise.resolve().then(function() {
-  return require("./assets/register.b5c8b0a9.js");
+  return require("./assets/register.fc0ba58e.js");
 }), "props": true }, { "name": "[...all}", "path": "/[...all}", "component": () => Promise.resolve().then(function() {
   return require("./assets/_...all_.accd36e2.js");
 }), "props": true, "meta": { "layout": 404 } }];

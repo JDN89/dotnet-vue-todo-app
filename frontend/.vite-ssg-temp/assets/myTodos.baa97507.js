@@ -281,7 +281,6 @@ const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     const { t } = vueI18n.useI18n();
     main.useAlertStore();
     let isVisible = vue.ref(false);
-    console.log(isVisible);
     main.useTodoStore();
     const todo = vue.ref("");
     const newList = vue.reactive({
@@ -292,19 +291,19 @@ const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
       const _component_octicon_checklist_16 = __unplugin_components_0$1;
       const _component_carbon_checkbox = __unplugin_components_1$1;
       const _component_carbon_add_alt = main.__unplugin_components_2;
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-1c55e3e6>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-7215ba42>`);
       if (!vue.unref(isVisible)) {
-        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-1c55e3e6>`);
+        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-7215ba42>`);
         _push(serverRenderer.ssrRenderComponent(_component_octicon_checklist_16, null, null, _parent));
         _push(`</button>`);
       } else {
-        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-1c55e3e6><div class="title" data-v-1c55e3e6><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-1c55e3e6></div><div class="todo" data-v-1c55e3e6><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-1c55e3e6></div><hr class="max-w-xs mx-auto" data-v-1c55e3e6><div class="newTodos" data-v-1c55e3e6><ul class="pt-3 items-end" data-v-1c55e3e6><!--[-->`);
+        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-7215ba42><div class="title" data-v-7215ba42><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-7215ba42></div><div class="todo" data-v-7215ba42><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-7215ba42></div><hr class="max-w-xs mx-auto" data-v-7215ba42><div class="newTodos" data-v-7215ba42><ul class="pt-3 items-end" data-v-7215ba42><!--[-->`);
         serverRenderer.ssrRenderList(vue.unref(newList).todos, (todo2) => {
-          _push(`<li class="flex justify-left items-start" data-v-1c55e3e6>`);
+          _push(`<li class="flex justify-left items-start" data-v-7215ba42>`);
           _push(serverRenderer.ssrRenderComponent(_component_carbon_checkbox, { class: "mx-3 my-auto" }, null, _parent));
           _push(` ${serverRenderer.ssrInterpolate(todo2)}</li>`);
         });
-        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-1c55e3e6>`);
+        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-7215ba42>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_add_alt, null, null, _parent));
         _push(`</button></div></div>`);
       }
@@ -320,19 +319,13 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/todos/NewList.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-1c55e3e6"]]);
+var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-7215ba42"]]);
 var block0 = {};
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,
-  props: {
-    todos: String
-  },
   setup(__props) {
-    const props = __props;
-    console.log(Number(props.todos));
     const todoStore = main.useTodoStore();
     vue.onMounted(() => {
-      console.log("firing");
       todoStore.fetchTodoLists();
     });
     return (_ctx, _push, _parent, _attrs) => {
