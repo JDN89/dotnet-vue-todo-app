@@ -191,19 +191,19 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
 );"; */
 
-    /*
+    
     var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
 	id serial4 NOT NULL,
-	list_id int4 NOT NULL DEFAULT,
+	list_id int4 NOT NULL,
 	archived text NOT NULL,
 	CONSTRAINT archived_todos_pk PRIMARY KEY (id),
 	CONSTRAINT archived_todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; */
+);"; 
 
 
     await db.ExecuteAsync(sql);
     await db.ExecuteAsync(sql1);
     await db.ExecuteAsync(sql2);
     //await db.ExecuteAsync(sql3);
-   // await db.ExecuteAsync(sql4);
+    await db.ExecuteAsync(sql4);
 }
