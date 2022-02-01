@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApi.modules.UserModule.Services;
 using System.Text;
+using Dapper;
 using Microsoft.IdentityModel.Tokens;
 
 
@@ -158,6 +159,18 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));
+    
 
     await using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
+    
+    var sql = $@"CREATE TABLE IF NOT EXISTS users (
+              id serial4 NOT NULL,
+    email text NOT NULL,
+    hash text NOT NULL,
+    CONSTRAINT users_pk PRIMARY KEY (id)
+                 );";
+    
+    
+    
+    await db.ExecuteAsync(sql);
 }
