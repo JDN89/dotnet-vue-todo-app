@@ -116,7 +116,6 @@ await EnsureDb(app.Services, app.Logger);
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
-  
 }
 
 if (app.Environment.IsDevelopment())
@@ -141,7 +140,6 @@ app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500
     .ExcludeFromDescription();
 
 
-
 // app.UseSpaStaticFiles();
 
 app.UseAuthentication();
@@ -159,12 +157,12 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));
-    
+
 
     await using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
-    
+
     var sql = $@"CREATE TABLE IF NOT EXISTS messages (
-	id int4,
+	id serial4 NOT NULL,
 	title text NOT NULL,
 	body text NOT NULL,
 	CONSTRAINT message_board_pk PRIMARY KEY (id)
@@ -175,9 +173,35 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
     hash text NOT NULL,
     CONSTRAINT users_pk PRIMARY KEY (id)
                  );";
-    
-    
-    
+
+    var sql2 = $@"CREATE TABLE IF NOT EXISTS todo_lists (
+	id serial4 NOT NULL,
+	user_id serial4 NOT NULL,
+	title text NOT NULL,
+	CONSTRAINT todo_lists_pk PRIMARY KEY (id),
+	CONSTRAINT todo_lists_fk FOREIGN KEY (user_id) REFERENCES public.users(id)
+);";
+
+    var sql3 = $@"CREATE TABLE IF NOT EXISTS todos (
+	id serial4 NOT NULL,
+	list_id int4 NOT NULL DEFAULT nextval('todos_user_id_seq'::regclass),
+	todo text NOT NULL,
+	CONSTRAINT todos_pk PRIMARY KEY (id),
+	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES public.todo_lists(id) ON DELETE CASCADE
+);";
+
+    var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
+	id serial4 NOT NULL,
+	list_id int4 NOT NULL DEFAULT nextval('archived_todos_user_id_seq'::regclass),
+	archived text NOT NULL,
+	CONSTRAINT archived_todos_pk PRIMARY KEY (id),
+	CONSTRAINT archived_todos_fk FOREIGN KEY (list_id) REFERENCES public.todo_lists(id) ON DELETE CASCADE
+);";
+
+
     await db.ExecuteAsync(sql);
     await db.ExecuteAsync(sql1);
+    await db.ExecuteAsync(sql2);
+    await db.ExecuteAsync(sql3);
+    await db.ExecuteAsync(sql4);
 }
