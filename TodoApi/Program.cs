@@ -204,6 +204,6 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
     await db.ExecuteAsync(sql);
     await db.ExecuteAsync(sql1);
     await db.ExecuteAsync(sql2);
-    await db.ExecuteAsync(sql3);
-    await db.ExecuteAsync(sql4);
+    //await db.ExecuteAsync(sql3);
+   // await db.ExecuteAsync(sql4);
 }
