@@ -1,8 +1,10 @@
 # Description
 
-....
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
-...
+
+DEMO: https://dotnet-vue-todo-app.herokuapp.com/
+
+
  - Frontend:
     - Vue 3 Composition API 
     - Pinia: Vue Store 
@@ -12,22 +14,23 @@ This project is inspired by Google keep and is not meant to be used as a real to
     -  ASP.NET Core minimal web API 
     - PostgreSQL
     - Dapper: object–relational mapping 
+    
 ## Usage
 On the Homepage you can leave a message and say hello.
 
 Register with a fake email and login in order to create, modify and delete your personal todo lists.
 ### Development
 
-Just run and visit http://localhost:3333
 
-...
 Client:
 ```bash
 npm run dev
 ```
-...
+
 API:
+```bash
 dotnet watch run
+```
 
 #### Build
 
