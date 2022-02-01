@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hYu5E+QfImaeLumc/w2RZHElkTuhVM3U4N8PU8C0g6+u8rKliMO8YAM/wxU4DWiZdlALnoQTE63BOJxeAbIe0A==",
+  "dgSpecHash": "7OSxoSbbzVYj/2A2j9wQAMfPy22ehDVlArbQZbtmVO0buY52tAhCSfsDXhRWjEbEq2ne2dBp/PiZa2B6qy2aSA==",
   "success": true,
   "projectFilePath": "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,8 @@
     "/home/jan/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/npgsql/6.0.1/npgsql.6.0.1.nupkg.sha512",
+    "/home/jan/.nuget/packages/nwebsec.aspnetcore.core/3.0.0/nwebsec.aspnetcore.core.3.0.0.nupkg.sha512",
+    "/home/jan/.nuget/packages/nwebsec.aspnetcore.middleware/3.0.0/nwebsec.aspnetcore.middleware.3.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",

@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[6.0.1, )"
             },
+            "NWebsec.AspNetCore.Middleware": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Npgsql": {
               "target": "Package",
               "version": "[6.0.1, )"
