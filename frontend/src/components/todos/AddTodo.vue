@@ -26,7 +26,7 @@ const addNewTodo = async (
   // and in the v-for="archived" block
   // The CURRENT temporary solution is making sure that no duplicate items exist
   // in the todos array and archived array before we push them to the backend
-  if (todo?.length == null) {
+  if (todo?.trim.length == null) {
     alertStore.showAlert = true;
     return (alertStore.alertMessage = t("alert.todoNull"));
   }

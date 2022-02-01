@@ -52,7 +52,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSpaStaticFiles(config => { config.RootPath = "dist"; });
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen(x =>
-//add authorize to swagger and show which routes are authorized
+//add authorize to swagger and show which routes need authorization
     {
         x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
@@ -132,23 +132,18 @@ if (app.Environment.IsDevelopment())
 
 //routing and endpoints not necessary
 
-
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
     .ExcludeFromDescription();
 
-
-// app.UseSpaStaticFiles();
-
 app.UseAuthentication();
 app.UseAuthorization();
-//app.UseHttpsRedirection();
+
 // useHttpLogging to log your endpoints
 
 app.MapCarter();
-
 
 app.Run();
 
