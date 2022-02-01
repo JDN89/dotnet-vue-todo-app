@@ -115,8 +115,7 @@ await EnsureDb(app.Services, app.Logger);
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
-    app.UseSpaStaticFiles();
-    app.UseStaticFiles();
+  
 }
 
 if (app.Environment.IsDevelopment())
@@ -134,8 +133,13 @@ if (app.Environment.IsDevelopment())
 //routing and endpoints not necessary
 
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
     .ExcludeFromDescription();
+
+
 
 // app.UseSpaStaticFiles();
 
