@@ -163,7 +163,13 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 
     await using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
     
-    var sql = $@"CREATE TABLE IF NOT EXISTS users (
+    var sql = $@"CREATE TABLE IF NOT EXISTS messages (
+	id int4 NOT NULL DEFAULT nextval('message_board_message_id_seq'::regclass),
+	title text NOT NULL,
+	body text NOT NULL,
+	CONSTRAINT message_board_pk PRIMARY KEY (id)
+);";
+    var sql1 = $@"CREATE TABLE IF NOT EXISTS users (
               id serial4 NOT NULL,
     email text NOT NULL,
     hash text NOT NULL,
