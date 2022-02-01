@@ -182,14 +182,14 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 	CONSTRAINT todo_lists_fk FOREIGN KEY (user_id) REFERENCES users(id)
 );";
 
-    /*
+    
     var sql3 = $@"CREATE TABLE IF NOT EXISTS todos (
 	id serial4 NOT NULL,
-	list_id int4 NOT NULL DEFAULT,
+	list_id int4 NOT NULL,
 	todo text NOT NULL,
 	CONSTRAINT todos_pk PRIMARY KEY (id),
 	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; */
+);"; 
 
     
     var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
@@ -204,6 +204,6 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
     await db.ExecuteAsync(sql);
     await db.ExecuteAsync(sql1);
     await db.ExecuteAsync(sql2);
-    //await db.ExecuteAsync(sql3);
+    await db.ExecuteAsync(sql3);
     await db.ExecuteAsync(sql4);
 }
