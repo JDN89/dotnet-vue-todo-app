@@ -15,9 +15,9 @@ var connectionString = "User ID=jan; Password=9450; Host=localhost; Port=5432; D
 builder.Services.AddScoped(_ => new NpgsqlConnection(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddSpaStaticFiles(config => {
-//     config.RootPath="dist";
-// });
+builder.Services.AddSpaStaticFiles(config => {
+    config.RootPath="dist";
+});
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen(x =>
 //add authorize to swagger and show which routes are authorized
@@ -90,10 +90,15 @@ if (app.Environment.IsDevelopment())
     //         builder.UseProxyToSpaDevelopmentServer("http://localhost:3333/");
     // });
     // PLAATS HIER JE CORS SETTINGS
+// app.UseHttpLogging();
     app.UseDeveloperExceptionPage();
+
+   app.UseDefaultFiles();
+app.UseSpaStaticFiles();
+
     app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
     app.MapSwagger();
-    app.UseSwaggerUI();
+    app.UseStaticFiles();
 
 
 }
@@ -101,7 +106,6 @@ if (app.Environment.IsDevelopment())
 //routing and endpoints not necessary
 
 
-// app.UseSpaStaticFiles();
 
 
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
@@ -113,7 +117,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 // useHttpLogging to log your endpoints
-app.UseHttpLogging();
 
 app.MapCarter();
 

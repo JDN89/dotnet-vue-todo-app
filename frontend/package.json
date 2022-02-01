@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "postbuild": "mv dist ../TodoApi/wwwroot",
     "build1": "vite build",
     "dev": "vite --port 3333 --open",
     "lint": "eslint \"**/*.{vue,ts,js}\"",

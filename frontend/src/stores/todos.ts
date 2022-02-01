@@ -66,8 +66,7 @@ export const useTodoStore = defineStore("todo", {
 
     async checkDuplicates(todosArr: string[]) {
       const filteredTodos = [...new Set(todosArr)];
-      console.log(filteredTodos);
-      return filteredTodos;
+           return filteredTodos;
     },
 
     // =========================================
@@ -75,8 +74,7 @@ export const useTodoStore = defineStore("todo", {
     // =========================================
     async add(newToDoList: newListInterface) {
       let filteredArr = await this.checkDuplicates(newToDoList.todos);
-      console.log(filteredArr);
-      newToDoList.todos = filteredArr;
+           newToDoList.todos = filteredArr;
       const userStore = useUserStore();
       const userToken = userStore.getToken;
       if (userToken)

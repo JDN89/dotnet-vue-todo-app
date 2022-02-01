@@ -578,12 +578,10 @@ const useTodoStore = pinia.defineStore("todo", {
     },
     async checkDuplicates(todosArr) {
       const filteredTodos = [...new Set(todosArr)];
-      console.log(filteredTodos);
       return filteredTodos;
     },
     async add(newToDoList) {
       let filteredArr = await this.checkDuplicates(newToDoList.todos);
-      console.log(filteredArr);
       newToDoList.todos = filteredArr;
       const userStore = useUserStore();
       const userToken = userStore.getToken;
@@ -1292,15 +1290,15 @@ _sfc_main$6.setup = (props, ctx) => {
 };
 var _src_pages_index_vue = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
 const routes$1 = [{ "name": "about", "path": "/about", "component": () => Promise.resolve().then(function() {
-  return require("./assets/about.c60a46cb.js");
+  return require("./assets/about.3dc740a4.js");
 }), "props": true, "meta": { "layout": "default" } }, { "name": "index", "path": "/", "component": _src_pages_index_vue, "props": true, "meta": { "layout": "default" } }, { "name": "login", "path": "/login", "component": () => Promise.resolve().then(function() {
-  return require("./assets/login.ba9da542.js");
+  return require("./assets/login.69e05551.js");
 }), "props": true }, { "name": "myTodos", "path": "/mytodos", "component": () => Promise.resolve().then(function() {
-  return require("./assets/myTodos.baa97507.js");
+  return require("./assets/myTodos.b299599b.js");
 }), "props": true, "meta": { "name": "myTodos", "layout": "dashboard", "requiresAuth": true } }, { "name": "README", "path": "/readme", "component": () => Promise.resolve().then(function() {
   return require("./assets/README.a90754f0.js");
 }), "props": true }, { "name": "register", "path": "/register", "component": () => Promise.resolve().then(function() {
-  return require("./assets/register.fc0ba58e.js");
+  return require("./assets/register.eed67726.js");
 }), "props": true }, { "name": "[...all}", "path": "/[...all}", "component": () => Promise.resolve().then(function() {
   return require("./assets/_...all_.accd36e2.js");
 }), "props": true, "meta": { "layout": 404 } }];

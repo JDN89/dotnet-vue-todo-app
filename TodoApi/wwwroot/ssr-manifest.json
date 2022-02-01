@@ -349,19 +349,19 @@
     "/assets/virtual_pwa-register.149c0d5d.js"
   ],
   "src/pages/about.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/about.982f7d75.js",
+    "/assets/about.bdbeb8af.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/about.982f7d75.js",
+    "/assets/about.bdbeb8af.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue": [
-    "/assets/about.982f7d75.js",
+    "/assets/about.bdbeb8af.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/login.vue": [
-    "/assets/login.802f8c32.js"
+    "/assets/login.e0bb4180.js"
   ],
   "node_modules/.pnpm/vee-validate@4.5.7_vue@3.2.28/node_modules/vee-validate/dist/vee-validate.esm.js": [
     "/assets/object.01f07b72.js"
@@ -871,66 +871,66 @@
     "/assets/object.01f07b72.js"
   ],
   "~icons/carbon/checkbox-checked": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "~icons/bi/plus-lg": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "~icons/carbon/checkbox": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/AddTodo.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/AddTodo.vue": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/TodoList.vue": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "~icons/octicon/checklist16": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/NewList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/NewList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/components/todos/NewList.vue": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/pages/myTodos.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/pages/myTodos.vue": [
-    "/assets/myTodos.a26566a1.js",
+    "/assets/myTodos.96aa580d.js",
     "/assets/myTodos.b8739213.css"
   ],
   "src/pages/README.md": [
     "/assets/README.14c8274a.js"
   ],
   "src/pages/register.vue": [
-    "/assets/register.28c238e1.js"
+    "/assets/register.131363f2.js"
   ],
   "src/pages/[...all}.vue?vue&type=route&index=0&lang.yaml": [
     "/assets/_...all_.af56b585.js"
@@ -945,12 +945,12 @@
     "/assets/404.6bc6106b.js"
   ],
   "~icons/carbon/logout": [
-    "/assets/dashboard.ada9b7c6.js"
+    "/assets/dashboard.d1874e6c.js"
   ],
   "src/components/NavBarUser.vue": [
-    "/assets/dashboard.ada9b7c6.js"
+    "/assets/dashboard.d1874e6c.js"
   ],
   "src/layouts/dashboard.vue": [
-    "/assets/dashboard.ada9b7c6.js"
+    "/assets/dashboard.d1874e6c.js"
   ]
 }
