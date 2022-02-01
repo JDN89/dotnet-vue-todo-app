@@ -115,6 +115,8 @@ await EnsureDb(app.Services, app.Logger);
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
+    app.UseSpaStaticFiles();
+    app.UseStaticFiles();
 }
 
 if (app.Environment.IsDevelopment())
