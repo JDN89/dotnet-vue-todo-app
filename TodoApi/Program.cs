@@ -122,7 +122,7 @@ app.UseCsp(opt => opt
     .FontSources(s => s.Self())
     .FormActions(s => s.Self())
     .FrameAncestors(s => s.Self())
-    .ImageSources(s => s.Self().CustomSources("iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFI0lEQVRYR8VXWUiVWxT+nK6piClOaYqQWFxRUUEh6UF8ECFJRVEcMHypwAmVrBwylUYHCCN6UHCesAfFRARRQVOjLAPBAY1QsjL0OOd0b9+G//ccjnpO6eUuOHiO/7/X+va31l7r2zr//DL8j6ZzEgC4Bx0dnT/axm8BYKCtrS3x0dXVxd7eHra3t8V3YyNjGPxlIIPQFpBWABhobW0Nq6ur6O3txdTUFL58+QKFQoGdnR2cOnUKZmZm8PL0gruHOy5cuAAjIyOtGNEIYGNjA9XV1RgcHMSrV6/w9evXIx0z8KVLl3D//n24u7vDwGCflYMWHgiAVO/u7mJiYgKxsbEYGRnRajfKL5mYmCAlJQVpaWkwNzcXafotAN3d3YiOjsa3b9/U1unp6cHNzQ02NjaiDvhZWVnB6OgoNjc35fdPnz6Ny5cvIz8/H...8/BsH0MpXMOfuKr6+vON76+vqqAKT+7e3tjU+fPsksUExwPB82zzXxT33AgHFxcXB1dRVKKTg4WF6mMo53tnfQ1NwkBhIZkczFxQUvXrwQtEmjWNvewKFEiUY2fXx8xGzgTJBMTQ+wYu/evYunT5+qFCS1Xnp6uujlHK2ygyPkOFnljh8+fCh6DIeQl5eXCmlqiojHZGFhQTQOigoWkLKRDY5Vfg5Tvgy8sb6BmtoacfQyMzNFgbv+7QodXdX7w6GilGOYCuj169dCkisb6YyKihI7Y1XTpMsJ/1K2s4tywLGds6lxpB+kpA6V5XREkfny5UtxFJX1IfPPcVpTUyM3L4oY9pJnz54Jbch8Uz96eHgcKWaOvBcQBKuYwZuamoSk4lHi/0krJTfHNYWHxBQLjgOHlxWapmLVeDGR7q6sjfn5eVHBpFIWFL/YUL7fSgG1vS9qBKCce22davueYEjShJoayn/1/F/PdvW/9LzXsQAAAABJRU5ErkJggg=="))
+    .ImageSources(s => s.Self().CustomSources("data:image/png"))
     .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
 
