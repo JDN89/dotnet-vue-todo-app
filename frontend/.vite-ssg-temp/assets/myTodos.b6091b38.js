@@ -12,64 +12,64 @@ require("vite-ssg");
 require("vue-router");
 require("@vueuse/core");
 require("@vueuse/head");
-const _hoisted_1$3 = {
+const _hoisted_1$4 = {
   width: "1.2em",
   height: "1.2em",
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$3 = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_2$4 = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM6 26V6h20v20z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$3 = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_3$4 = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M14 21.5l-5-4.96L10.59 15L14 18.35L21.41 11L23 12.58l-9 8.92z",
   fill: "currentColor"
 }, null, -1);
 const _hoisted_4 = [
-  _hoisted_2$3,
-  _hoisted_3$3
+  _hoisted_2$4,
+  _hoisted_3$4
 ];
-function render$3(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$3, _hoisted_4);
+function render$4(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$4, _hoisted_4);
 }
-var __unplugin_components_2$2 = { name: "carbon-checkbox-checked", render: render$3 };
-const _hoisted_1$2 = {
+var __unplugin_components_2$2 = { name: "carbon-checkbox-checked", render: render$4 };
+const _hoisted_1$3 = {
   width: "1.2em",
   height: "1.2em",
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 16 16"
 };
-const _hoisted_2$2 = /* @__PURE__ */ vue.createElementVNode("g", { fill: "currentColor" }, [
+const _hoisted_2$3 = /* @__PURE__ */ vue.createElementVNode("g", { fill: "currentColor" }, [
   /* @__PURE__ */ vue.createElementVNode("path", {
     "fill-rule": "evenodd",
     d: "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2z"
   })
 ], -1);
+const _hoisted_3$3 = [
+  _hoisted_2$3
+];
+function render$3(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$3, _hoisted_3$3);
+}
+var __unplugin_components_2$1 = { name: "bi-plus-lg", render: render$3 };
+const _hoisted_1$2 = {
+  width: "1.2em",
+  height: "1.2em",
+  preserveAspectRatio: "xMidYMid meet",
+  viewBox: "0 0 32 32"
+};
+const _hoisted_2$2 = /* @__PURE__ */ vue.createElementVNode("path", {
+  d: "M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM6 26V6h20v20z",
+  fill: "currentColor"
+}, null, -1);
 const _hoisted_3$2 = [
   _hoisted_2$2
 ];
 function render$2(_ctx, _cache) {
   return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$2, _hoisted_3$2);
 }
-var __unplugin_components_2$1 = { name: "bi-plus-lg", render: render$2 };
-const _hoisted_1$1 = {
-  width: "1.2em",
-  height: "1.2em",
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 32 32"
-};
-const _hoisted_2$1 = /* @__PURE__ */ vue.createElementVNode("path", {
-  d: "M26 4H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM6 26V6h20v20z",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_3$1 = [
-  _hoisted_2$1
-];
-function render$1(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$1, _hoisted_3$1);
-}
-var __unplugin_components_2 = { name: "carbon-checkbox", render: render$1 };
+var __unplugin_components_2 = { name: "carbon-checkbox", render: render$2 };
 var block0$3 = {};
 const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,
@@ -254,7 +254,24 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/todos/TodoList.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-var __unplugin_components_1 = /* @__PURE__ */ main._export_sfc(_sfc_main$2, [["__scopeId", "data-v-996a03fa"]]);
+var __unplugin_components_1$1 = /* @__PURE__ */ main._export_sfc(_sfc_main$2, [["__scopeId", "data-v-996a03fa"]]);
+const _hoisted_1$1 = {
+  width: "1.2em",
+  height: "1.2em",
+  preserveAspectRatio: "xMidYMid meet",
+  viewBox: "0 0 32 32"
+};
+const _hoisted_2$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+  d: "M29.707 5.293l-3-3a1 1 0 0 0-1.414 0L19.586 8h-2.491a11.012 11.012 0 0 0-10.383 7.366L2.056 28.67a1 1 0 0 0 1.275 1.274l13.303-4.656A11.012 11.012 0 0 0 24 14.905v-2.49l5.707-5.708a1 1 0 0 0 0-1.414zm-7.414 6A1 1 0 0 0 22 12v2.905a9.01 9.01 0 0 1-6.027 8.495l-9.168 3.209L16 17.414L14.586 16L5.39 25.195L8.6 16.027A9.01 9.01 0 0 1 17.095 10H20a1 1 0 0 0 .707-.293L26 4.414L27.586 6z",
+  fill: "currentColor"
+}, null, -1);
+const _hoisted_3$1 = [
+  _hoisted_2$1
+];
+function render$1(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$1, _hoisted_3$1);
+}
+var __unplugin_components_1 = { name: "carbon-pen-fountain", render: render$1 };
 const _hoisted_1 = {
   width: "1.2em",
   height: "1.2em",
@@ -289,7 +306,7 @@ const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_octicon_checklist_16 = __unplugin_components_0$1;
-      const _component_carbon_pen_fountain = main.__unplugin_components_1;
+      const _component_carbon_pen_fountain = __unplugin_components_1;
       const _component_carbon_checkbox = __unplugin_components_2;
       const _component_carbon_add_alt = main.__unplugin_components_3$1;
       _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-28c55ecc>`);
@@ -335,7 +352,7 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NewList = __unplugin_components_0;
-      const _component_TodoList = __unplugin_components_1;
+      const _component_TodoList = __unplugin_components_1$1;
       const _component_AddTodo = _sfc_main$3;
       _push(`<!--[--><div class="mx-auto">`);
       _push(serverRenderer.ssrRenderComponent(_component_NewList, null, null, _parent));

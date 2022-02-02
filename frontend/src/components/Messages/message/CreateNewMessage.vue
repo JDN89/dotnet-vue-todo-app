@@ -41,8 +41,7 @@ const addMessage = () => {
 </script>
 
 <template>
-  <div
-    class="container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center"
+  <div    class="container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
     <!-- <div
       v-if="!isVisible"
@@ -64,18 +63,14 @@ const addMessage = () => {
     <!-- </div> -->
 
     <div v-else class="hover msg relative min-w-xs">
-      <div class="message mx-auto">
-        <div class="mx-auto">
-          <carbon-pen-fountain class="mt-1 absolute" />
-          <input
-            type="text"
-            :placeholder="t('input.title')"
-            v-model="message.Title"
-            class="transition duration-500 text-dark-900 bg-transparent focus:outline-none overflow-hidden"
-          />
-        </div>
-        <div class="mx-auto">
-          <carbon-pen-fountain class="mt-1 absolute" />
+ <div class="message">
+        <input
+          type="text"
+          :placeholder="t('input.title')"
+          v-model="message.Title"
+          class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
+        />
+        <div class="description">
           <textarea
             spellcheck="false"
             w:resize="none"
@@ -85,7 +80,7 @@ const addMessage = () => {
             class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-      </div>
+        </div>
       <button
         @click="addMessage"
         class="float-right hover"

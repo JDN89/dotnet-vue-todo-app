@@ -22,7 +22,6 @@
   "src/components/Messages/message/UpdateMessage.vue?vue&type=route&index=0&lang.yaml": [],
   "src/components/Messages/message/UpdateMessage.vue": [],
   "~icons/carbon/add-alt": [],
-  "~icons/carbon/pen-fountain": [],
   "~icons/ant-design/message-filled": [],
   "src/components/Messages/message/CreateNewMessage.vue?vue&type=style&index=0&scoped=true&lang.css": [],
   "src/components/Messages/message/CreateNewMessage.vue?vue&type=route&index=0&lang.yaml": [],
@@ -351,23 +350,23 @@
     "/assets/virtual_pwa-register.149c0d5d.js"
   ],
   "src/pages/about.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/about.df3fbb62.js",
+    "/assets/about.6b39b96a.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/about.df3fbb62.js",
+    "/assets/about.6b39b96a.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue": [
-    "/assets/about.df3fbb62.js",
+    "/assets/about.6b39b96a.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/login.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/login.72810e5e.js",
+    "/assets/login.aecba2c2.js",
     "/assets/login.8ec7bccd.css"
   ],
   "src/pages/login.vue": [
-    "/assets/login.72810e5e.js",
+    "/assets/login.aecba2c2.js",
     "/assets/login.8ec7bccd.css"
   ],
   "~icons/carbon/password": [
@@ -884,70 +883,74 @@
     "/assets/object.46396afd.js"
   ],
   "~icons/carbon/checkbox-checked": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "~icons/bi/plus-lg": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "~icons/carbon/checkbox": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/AddTodo.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/AddTodo.vue": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/TodoList.vue": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
+    "/assets/myTodos.ba517ca0.css"
+  ],
+  "~icons/carbon/pen-fountain": [
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "~icons/octicon/checklist16": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/NewList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/NewList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/components/todos/NewList.vue": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/pages/myTodos.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/pages/myTodos.vue": [
-    "/assets/myTodos.550856eb.js",
+    "/assets/myTodos.f85cbf7c.js",
     "/assets/myTodos.ba517ca0.css"
   ],
   "src/pages/README.md": [
     "/assets/README.14c8274a.js"
   ],
   "src/pages/register.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/register.b12490d0.js",
+    "/assets/register.7872ad18.js",
     "/assets/register.a1786c91.css"
   ],
   "src/pages/register.vue": [
-    "/assets/register.b12490d0.js",
+    "/assets/register.7872ad18.js",
     "/assets/register.a1786c91.css"
   ],
   "src/pages/[...all}.vue?vue&type=route&index=0&lang.yaml": [
@@ -963,12 +966,12 @@
     "/assets/404.6bc6106b.js"
   ],
   "~icons/carbon/logout": [
-    "/assets/dashboard.be6a783b.js"
+    "/assets/dashboard.f7a8a2ee.js"
   ],
   "src/components/NavBarUser.vue": [
-    "/assets/dashboard.be6a783b.js"
+    "/assets/dashboard.f7a8a2ee.js"
   ],
   "src/layouts/dashboard.vue": [
-    "/assets/dashboard.be6a783b.js"
+    "/assets/dashboard.f7a8a2ee.js"
   ]
 }

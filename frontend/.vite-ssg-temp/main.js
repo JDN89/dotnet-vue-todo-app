@@ -815,13 +815,13 @@ var __glob_9_5 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   install
 });
-const _hoisted_1$g = {
+const _hoisted_1$f = {
   width: "1.2em",
   height: "1.2em",
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 16 16"
 };
-const _hoisted_2$g = /* @__PURE__ */ vue.createElementVNode("g", { fill: "currentColor" }, [
+const _hoisted_2$f = /* @__PURE__ */ vue.createElementVNode("g", { fill: "currentColor" }, [
   /* @__PURE__ */ vue.createElementVNode("path", {
     "fill-rule": "evenodd",
     d: "M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0z"
@@ -831,13 +831,13 @@ const _hoisted_2$g = /* @__PURE__ */ vue.createElementVNode("g", { fill: "curren
     d: "M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0z"
   })
 ], -1);
-const _hoisted_3$d = [
-  _hoisted_2$g
+const _hoisted_3$c = [
+  _hoisted_2$f
 ];
-function render$g(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$g, _hoisted_3$d);
+function render$f(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$f, _hoisted_3$c);
 }
-var __unplugin_components_0$7 = { name: "bi-x-lg", render: render$g };
+var __unplugin_components_0$7 = { name: "bi-x-lg", render: render$f };
 const useAlertStore = pinia.defineStore("alert", {
   state: () => ({
     showAlert: false,
@@ -875,17 +875,17 @@ _sfc_main$b.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/Alert/Alert.vue");
   return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
-const _hoisted_1$f = {
+const _hoisted_1$e = {
   width: "1.2em",
   height: "1.2em",
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$f = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_2$e = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M12 12h2v12h-2z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$c = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_3$b = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M18 12h2v12h-2z",
   fill: "currentColor"
 }, null, -1);
@@ -898,37 +898,37 @@ const _hoisted_5$1 = /* @__PURE__ */ vue.createElementVNode("path", {
   fill: "currentColor"
 }, null, -1);
 const _hoisted_6 = [
-  _hoisted_2$f,
-  _hoisted_3$c,
+  _hoisted_2$e,
+  _hoisted_3$b,
   _hoisted_4$6,
   _hoisted_5$1
 ];
-function render$f(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$f, _hoisted_6);
+function render$e(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$e, _hoisted_6);
 }
-var __unplugin_components_3$2 = { name: "carbon-trash-can", render: render$f };
-const _hoisted_1$e = {
+var __unplugin_components_3$2 = { name: "carbon-trash-can", render: render$e };
+const _hoisted_1$d = {
   width: "1.2em",
   height: "1.2em",
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32"
 };
-const _hoisted_2$e = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_2$d = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M6 18l1.41 1.41L15 11.83V30h2V11.83l7.59 7.58L26 18L16 8L6 18z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$b = /* @__PURE__ */ vue.createElementVNode("path", {
+const _hoisted_3$a = /* @__PURE__ */ vue.createElementVNode("path", {
   d: "M6 8V4h20v4h2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4z",
   fill: "currentColor"
 }, null, -1);
 const _hoisted_4$5 = [
-  _hoisted_2$e,
-  _hoisted_3$b
+  _hoisted_2$d,
+  _hoisted_3$a
 ];
-function render$e(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$e, _hoisted_4$5);
+function render$d(_ctx, _cache) {
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$d, _hoisted_4$5);
 }
-var __unplugin_components_0$6 = { name: "carbon-upload", render: render$e };
+var __unplugin_components_0$6 = { name: "carbon-upload", render: render$d };
 const useMessageStore = pinia.defineStore("messages", {
   state: () => ({
     changedMessage: {
@@ -1065,28 +1065,6 @@ _sfc_main$a.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/Messages/message/UpdateMessage.vue");
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-const _hoisted_1$d = {
-  width: "1.2em",
-  height: "1.2em",
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 32 32"
-};
-const _hoisted_2$d = /* @__PURE__ */ vue.createElementVNode("path", {
-  d: "M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16S9.4 4 16 4m0-2C8.3 2 2 8.3 2 16s6.3 14 14 14s14-6.3 14-14S23.7 2 16 2z",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_3$a = /* @__PURE__ */ vue.createElementVNode("path", {
-  d: "M24 15h-7V8h-2v7H8v2h7v7h2v-7h7z",
-  fill: "currentColor"
-}, null, -1);
-const _hoisted_4$4 = [
-  _hoisted_2$d,
-  _hoisted_3$a
-];
-function render$d(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$d, _hoisted_4$4);
-}
-var __unplugin_components_3$1 = { name: "carbon-add-alt", render: render$d };
 const _hoisted_1$c = {
   width: "1.2em",
   height: "1.2em",
@@ -1094,16 +1072,21 @@ const _hoisted_1$c = {
   viewBox: "0 0 32 32"
 };
 const _hoisted_2$c = /* @__PURE__ */ vue.createElementVNode("path", {
-  d: "M29.707 5.293l-3-3a1 1 0 0 0-1.414 0L19.586 8h-2.491a11.012 11.012 0 0 0-10.383 7.366L2.056 28.67a1 1 0 0 0 1.275 1.274l13.303-4.656A11.012 11.012 0 0 0 24 14.905v-2.49l5.707-5.708a1 1 0 0 0 0-1.414zm-7.414 6A1 1 0 0 0 22 12v2.905a9.01 9.01 0 0 1-6.027 8.495l-9.168 3.209L16 17.414L14.586 16L5.39 25.195L8.6 16.027A9.01 9.01 0 0 1 17.095 10H20a1 1 0 0 0 .707-.293L26 4.414L27.586 6z",
+  d: "M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16S9.4 4 16 4m0-2C8.3 2 2 8.3 2 16s6.3 14 14 14s14-6.3 14-14S23.7 2 16 2z",
   fill: "currentColor"
 }, null, -1);
-const _hoisted_3$9 = [
-  _hoisted_2$c
+const _hoisted_3$9 = /* @__PURE__ */ vue.createElementVNode("path", {
+  d: "M24 15h-7V8h-2v7H8v2h7v7h2v-7h7z",
+  fill: "currentColor"
+}, null, -1);
+const _hoisted_4$4 = [
+  _hoisted_2$c,
+  _hoisted_3$9
 ];
 function render$c(_ctx, _cache) {
-  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$c, _hoisted_3$9);
+  return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$c, _hoisted_4$4);
 }
-var __unplugin_components_1$1 = { name: "carbon-pen-fountain", render: render$c };
+var __unplugin_components_3$1 = { name: "carbon-add-alt", render: render$c };
 const _hoisted_1$b = {
   width: "1.2em",
   height: "1.2em",
@@ -1143,20 +1126,15 @@ const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_ant_design_message_filled = __unplugin_components_0$5;
-      const _component_carbon_pen_fountain = __unplugin_components_1$1;
       const _component_carbon_add_alt = __unplugin_components_3$1;
       const _component_Alert = _sfc_main$b;
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center" }, _attrs))} data-v-5258e1f2>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center" }, _attrs))} data-v-5cf109ec>`);
       if (!vue.unref(isVisible)) {
-        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("page.home"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-5258e1f2>`);
+        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("page.home"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-5cf109ec>`);
         _push(serverRenderer.ssrRenderComponent(_component_ant_design_message_filled, null, null, _parent));
         _push(`</button>`);
       } else {
-        _push(`<div class="hover msg relative min-w-xs" data-v-5258e1f2><div class="message mx-auto" data-v-5258e1f2><div class="mx-auto" data-v-5258e1f2>`);
-        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "mt-1 absolute" }, null, _parent));
-        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(message).Title)} class="transition duration-500 text-dark-900 bg-transparent focus:outline-none overflow-hidden" data-v-5258e1f2></div><div class="mx-auto" data-v-5258e1f2>`);
-        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "mt-1 absolute" }, null, _parent));
-        _push(`<textarea spellcheck="false" w:resize="none" type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.message"))} class="transition duration-500 bg-transparent focus:outline-none overflow-hidden" data-v-5258e1f2>${serverRenderer.ssrInterpolate(vue.unref(message).Body)}</textarea></div></div><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-5258e1f2>`);
+        _push(`<div class="hover msg relative min-w-xs" data-v-5cf109ec><div class="message" data-v-5cf109ec><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(message).Title)} class="transition duration-500 text-dark-900 bg-transparent focus:outline-none" data-v-5cf109ec><div class="description" data-v-5cf109ec><textarea spellcheck="false" w:resize="none" type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.message"))} class="transition duration-500 bg-transparent focus:outline-none overflow-hidden" data-v-5cf109ec>${serverRenderer.ssrInterpolate(vue.unref(message).Body)}</textarea></div></div><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-5cf109ec>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_add_alt, null, null, _parent));
         _push(`</button></div>`);
       }
@@ -1177,7 +1155,7 @@ _sfc_main$9.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/Messages/message/CreateNewMessage.vue");
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-var __unplugin_components_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-5258e1f2"]]);
+var __unplugin_components_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-5cf109ec"]]);
 const _hoisted_1$a = {
   width: "1.2em",
   height: "1.2em",
@@ -1314,15 +1292,15 @@ _sfc_main$6.setup = (props, ctx) => {
 };
 var _src_pages_index_vue = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
 const routes$1 = [{ "name": "about", "path": "/about", "component": () => Promise.resolve().then(function() {
-  return require("./assets/about.1498af31.js");
+  return require("./assets/about.22f48602.js");
 }), "props": true, "meta": { "layout": "default" } }, { "name": "index", "path": "/", "component": _src_pages_index_vue, "props": true, "meta": { "layout": "default" } }, { "name": "login", "path": "/login", "component": () => Promise.resolve().then(function() {
-  return require("./assets/login.de62363f.js");
+  return require("./assets/login.2f850635.js");
 }), "props": true }, { "name": "myTodos", "path": "/mytodos", "component": () => Promise.resolve().then(function() {
-  return require("./assets/myTodos.843ef7d4.js");
+  return require("./assets/myTodos.b6091b38.js");
 }), "props": true, "meta": { "name": "myTodos", "layout": "dashboard", "requiresAuth": true } }, { "name": "README", "path": "/readme", "component": () => Promise.resolve().then(function() {
   return require("./assets/README.a90754f0.js");
 }), "props": true }, { "name": "register", "path": "/register", "component": () => Promise.resolve().then(function() {
-  return require("./assets/register.2fdfc8ae.js");
+  return require("./assets/register.5f52559e.js");
 }), "props": true }, { "name": "[...all}", "path": "/[...all}", "component": () => Promise.resolve().then(function() {
   return require("./assets/_...all_.accd36e2.js");
 }), "props": true, "meta": { "layout": 404 } }];
@@ -1777,7 +1755,6 @@ viteSsg.ViteSSG(_sfc_main, { routes }, (ctx) => {
 });
 exports.__unplugin_components_0 = __unplugin_components_0$7;
 exports.__unplugin_components_0$1 = __unplugin_components_0$3;
-exports.__unplugin_components_1 = __unplugin_components_1$1;
 exports.__unplugin_components_3 = __unplugin_components_3$2;
 exports.__unplugin_components_3$1 = __unplugin_components_3$1;
 exports._export_sfc = _export_sfc;
