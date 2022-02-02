@@ -23,6 +23,8 @@ DEMO: https://dotnet-vue-todo-app.herokuapp.com/
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/mytodos.png)
 
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/todo_db.png)
+
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/lighthouse_stats.png)
     
 ### Usage
 On the Homepage you can leave a message and say hello.
