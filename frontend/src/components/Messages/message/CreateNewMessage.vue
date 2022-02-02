@@ -41,17 +41,9 @@ const addMessage = () => {
 </script>
 
 <template>
-  <div    class="container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center"
+  <div
+    class="container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center"
   >
-    <!-- <div
-      v-if="!isVisible"
-      w:border="yellow-300 1 rounded-lg"
-      w:dark="border-gray-50 bg-teal-700 text-white"
-      class="font-medium content-center align-middle w-25 bg-red-700 text-yellow-400"
-    >
-      <span>
-        {{ t("page.home") }}
-      </span> -->
     <button
       v-if="!isVisible"
       :title="t('page.home')"
@@ -60,15 +52,14 @@ const addMessage = () => {
     >
       <ant-design-message-filled />
     </button>
-    <!-- </div> -->
 
     <div v-else class="hover msg relative min-w-xs">
- <div class="message">
+      <div class="message">
         <input
           type="text"
           :placeholder="t('input.title')"
           v-model="message.Title"
-          class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
+          class="transition duration-500 float-left text-dark-900 bg-transparent focus:outline-none"
         />
         <div class="description">
           <textarea
@@ -77,13 +68,13 @@ const addMessage = () => {
             type="text"
             :placeholder="t('input.message')"
             v-model="message.Body"
-            class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
+            class="transition duration-500 float-left bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-        </div>
+      </div>
       <button
         @click="addMessage"
-        class="float-right hover"
+        class="float-right relative mt-15 hover"
         :title="t('button.submit')"
       >
         <carbon-add-alt />
@@ -95,12 +86,11 @@ const addMessage = () => {
 
 <style scoped>
 input {
-  padding-left: 33px;
+  padding-left: 13px;
 }
 
-
 textarea {
-  padding-left: 33px;
+  padding-left: 13px;
 }
 </style>
 
