@@ -14,7 +14,12 @@ DEMO: https://dotnet-vue-todo-app.herokuapp.com/
     - PostgreSQL
     - Dapper: object–relational mapping 
 
-## Print screens
+## Usage
+On the Homepage you can leave a message and say hello.
+
+Register with a fake email and login in order to create, modify and delete your personal todo lists.
+
+### Print screens
 
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/register.png)
 
@@ -26,10 +31,7 @@ DEMO: https://dotnet-vue-todo-app.herokuapp.com/
 
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/lighthouse_stats.png)
     
-### Usage
-On the Homepage you can leave a message and say hello.
 
-Register with a fake email and login in order to create, modify and delete your personal todo lists.
 #### Development
 
 
