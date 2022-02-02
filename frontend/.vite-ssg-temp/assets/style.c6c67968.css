@@ -1,4 +1,6 @@
-h4[data-v-451305d2] {
+input[data-v-6bbc4998], textarea[data-v-6bbc4998] {
+  padding-left: 33px;
+}h4[data-v-451305d2] {
   margin: 0em;
 }/* windicss layer base */
 *, ::before, ::after {
@@ -1456,6 +1458,9 @@ html.dark {
 .ml-2 {
   margin-left: 0.5rem;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
@@ -1467,6 +1472,12 @@ html.dark {
 }
 .ml-3 {
   margin-left: 0.75rem;
+}
+.mt-3\.5 {
+  margin-top: 0.875rem;
+}
+.ml-4\.5 {
+  margin-left: 1.125rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -1843,12 +1854,19 @@ html.dark {
 }
 li[data-v-535d577b]::before {
   background-color: dark;
+}input[data-v-728df19a] {
+  padding-left: 48px;
 }.todos[data-v-996a03fa], .archived[data-v-996a03fa] {
   text-align: left;
 }
 .list[data-v-996a03fa] {
   overflow-wrap: break-word;
   overflow: hidden;
-}.newTodos[data-v-7215ba42] {
+}.newTodos[data-v-28c55ecc] {
   text-align: left;
+}
+input[data-v-28c55ecc] {
+  padding-left: 33px;
+}input[data-v-65cadc52] {
+  padding-left: 48px;
 }

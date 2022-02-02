@@ -33,7 +33,7 @@ const _hoisted_4 = [
 function render$3(_ctx, _cache) {
   return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$3, _hoisted_4);
 }
-var __unplugin_components_2$1 = { name: "carbon-checkbox-checked", render: render$3 };
+var __unplugin_components_2$2 = { name: "carbon-checkbox-checked", render: render$3 };
 const _hoisted_1$2 = {
   width: "1.2em",
   height: "1.2em",
@@ -52,7 +52,7 @@ const _hoisted_3$2 = [
 function render$2(_ctx, _cache) {
   return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$2, _hoisted_3$2);
 }
-var __unplugin_components_2 = { name: "bi-plus-lg", render: render$2 };
+var __unplugin_components_2$1 = { name: "bi-plus-lg", render: render$2 };
 const _hoisted_1$1 = {
   width: "1.2em",
   height: "1.2em",
@@ -69,7 +69,7 @@ const _hoisted_3$1 = [
 function render$1(_ctx, _cache) {
   return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$1, _hoisted_3$1);
 }
-var __unplugin_components_1$1 = { name: "carbon-checkbox", render: render$1 };
+var __unplugin_components_2 = { name: "carbon-checkbox", render: render$1 };
 var block0$3 = {};
 const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,
@@ -81,9 +81,9 @@ const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
     let newTodo = vue.ref(null);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_bi_x_lg = main.__unplugin_components_0;
-      const _component_carbon_checkbox = __unplugin_components_1$1;
-      const _component_bi_plus_lg = __unplugin_components_2;
-      const _component_carbon_checkbox_checked = __unplugin_components_2$1;
+      const _component_carbon_checkbox = __unplugin_components_2;
+      const _component_bi_plus_lg = __unplugin_components_2$1;
+      const _component_carbon_checkbox_checked = __unplugin_components_2$2;
       const _component_Alert = main._sfc_main;
       _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "flex bg-gray-800 bg-opacity-50 fixed left-0 right-0 bottom-0 top-0 items-center" }, _attrs))}><div class="msg content-center min-h-44 max-h-lg w-full m-1 p-2 sm:max-w-70 sm:mx-auto mx-auto"><button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.close"))} class="float-right hover mt-1 mr-1">`);
       _push(serverRenderer.ssrRenderComponent(_component_bi_x_lg, null, null, _parent));
@@ -142,8 +142,8 @@ const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_masonry = vue.resolveComponent("masonry");
       const _component_carbon_edit = main.__unplugin_components_0$1;
-      const _component_carbon_checkbox = __unplugin_components_1$1;
-      const _component_carbon_checkbox_checked = __unplugin_components_2$1;
+      const _component_carbon_checkbox = __unplugin_components_2;
+      const _component_carbon_checkbox_checked = __unplugin_components_2$2;
       const _component_carbon_trash_can = main.__unplugin_components_3;
       _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({
         id: "List",
@@ -289,21 +289,26 @@ const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_octicon_checklist_16 = __unplugin_components_0$1;
-      const _component_carbon_checkbox = __unplugin_components_1$1;
-      const _component_carbon_add_alt = main.__unplugin_components_2;
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-7215ba42>`);
+      const _component_carbon_pen_fountain = main.__unplugin_components_1;
+      const _component_carbon_checkbox = __unplugin_components_2;
+      const _component_carbon_add_alt = main.__unplugin_components_3$1;
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-28c55ecc>`);
       if (!vue.unref(isVisible)) {
-        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-7215ba42>`);
+        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-28c55ecc>`);
         _push(serverRenderer.ssrRenderComponent(_component_octicon_checklist_16, null, null, _parent));
         _push(`</button>`);
       } else {
-        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-7215ba42><div class="title" data-v-7215ba42><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-7215ba42></div><div class="todo" data-v-7215ba42><input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-7215ba42></div><hr class="max-w-xs mx-auto" data-v-7215ba42><div class="newTodos" data-v-7215ba42><ul class="pt-3 items-end" data-v-7215ba42><!--[-->`);
+        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-28c55ecc><div class="title" data-v-28c55ecc>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "icon mt-1 absolute" }, null, _parent));
+        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-28c55ecc></div><div class="todo mb-1" data-v-28c55ecc>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "icon mt-1 absolute" }, null, _parent));
+        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-28c55ecc></div><hr class="max-w-xs mx-auto mt-1" data-v-28c55ecc><div class="newTodos" data-v-28c55ecc><ul class="pt-3 items-end" data-v-28c55ecc><!--[-->`);
         serverRenderer.ssrRenderList(vue.unref(newList).todos, (todo2) => {
-          _push(`<li class="flex justify-left items-start" data-v-7215ba42>`);
+          _push(`<li class="flex justify-left items-start" data-v-28c55ecc>`);
           _push(serverRenderer.ssrRenderComponent(_component_carbon_checkbox, { class: "mx-3 my-auto" }, null, _parent));
           _push(` ${serverRenderer.ssrInterpolate(todo2)}</li>`);
         });
-        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-7215ba42>`);
+        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-28c55ecc>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_add_alt, null, null, _parent));
         _push(`</button></div></div>`);
       }
@@ -319,7 +324,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/todos/NewList.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-7215ba42"]]);
+var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-28c55ecc"]]);
 var block0 = {};
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,

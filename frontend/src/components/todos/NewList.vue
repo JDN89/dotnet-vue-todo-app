@@ -68,6 +68,7 @@ const addList = () => {
     </button>
     <div v-else class="msg relative min-w-xs overflow-y-auto">
       <div class="title">
+          <carbon-pen-fountain class="icon mt-1 absolute"/>
         <input
           type="text"
           :placeholder="t('input.title')"
@@ -76,7 +77,8 @@ const addList = () => {
         />
       </div>
       <!-- <hr class="w-3/4 mx-auto dark:gray-100"   /> -->
-      <div class="todo">
+      <div class="todo mb-1">
+          <carbon-pen-fountain class="icon mt-1 absolute"/>
         <input
           type="text"
           :placeholder="t('input.todo')"
@@ -86,7 +88,7 @@ const addList = () => {
           class="bg-transparent transition duration-500 focus:outline-none"
         />
       </div>
-      <hr class="max-w-xs mx-auto" />
+      <hr class="max-w-xs mx-auto mt-1" />
       <div class="newTodos">
         <ul class="pt-3 items-end">
           <li
@@ -118,4 +120,11 @@ meta:
 .newTodos {
   text-align: left;
 }
-</style>
+
+
+input {
+  padding-left: 33px;
+}
+  </style>
+
+

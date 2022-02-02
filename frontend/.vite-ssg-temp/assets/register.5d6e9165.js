@@ -1,5 +1,6 @@
 "use strict";
 exports[Symbol.toStringTag] = "Module";
+var email = require("./email.ba0e9a8c.js");
 var vue = require("vue");
 var vueI18n = require("vue-i18n");
 var vueRouter = require("vue-router");
@@ -35,6 +36,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 var yup__namespace = /* @__PURE__ */ _interopNamespace(yup);
+var register_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
@@ -63,9 +65,12 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
       }
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "mx-auto min-w-xs max-w-xs py-6 prose" }, _attrs))}><h2 class>${serverRenderer.ssrInterpolate(vue.unref(t)("page.register"))}</h2>`);
+      const _component_carbon_email = email.__unplugin_components_0;
+      const _component_carbon_password = email.__unplugin_components_1;
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "mx-auto min-w-xs max-w-xs py-6 prose" }, _attrs))} data-v-65cadc52><h2 class data-v-65cadc52>${serverRenderer.ssrInterpolate(vue.unref(t)("page.register"))}</h2>`);
       if (vue.unref(userStore).getRegistrationFormIsVisible) {
-        _push(`<form class="flex flex-col"><div class="flex flex-col">`);
+        _push(`<form class="flex flex-col" data-v-65cadc52><div class="flex flex-col" data-v-65cadc52>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_email, { class: "mt-3.5 ml-4.5 absolute" }, null, _parent));
         _push(serverRenderer.ssrRenderComponent(vue.unref(veeValidate.Field), {
           name: "email",
           type: "email",
@@ -76,7 +81,8 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
           name: "email",
           class: "errorMessage"
         }, null, _parent));
-        _push(`</div><div class="flex flex-col">`);
+        _push(`</div><div class="flex flex-col" data-v-65cadc52>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_password, { class: "mt-3.5 ml-4.5 absolute" }, null, _parent));
         _push(serverRenderer.ssrRenderComponent(vue.unref(veeValidate.Field), {
           name: "password",
           type: "password",
@@ -87,7 +93,8 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
           name: "password",
           class: "errorMessage"
         }, null, _parent));
-        _push(`</div><div class="flex flex-col">`);
+        _push(`</div><div class="flex flex-col" data-v-65cadc52>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_password, { class: "mt-3.5 ml-4.5 absolute" }, null, _parent));
         _push(serverRenderer.ssrRenderComponent(vue.unref(veeValidate.Field), {
           name: "confirmPassword",
           type: "password",
@@ -98,9 +105,9 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
           name: "confirmPassword",
           class: "errorMessage"
         }, null, _parent));
-        _push(`</div><button type="submit" class="mt-2 hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto">${serverRenderer.ssrInterpolate(vue.unref(t)("button.submit"))}</button></form>`);
+        _push(`</div><button type="submit" class="mt-2 hover w-19 bg-red-900 dark:bg-teal-700 dark:text-light-50 text-yellow-300 rounded-2xl mx-auto" data-v-65cadc52>${serverRenderer.ssrInterpolate(vue.unref(t)("button.submit"))}</button></form>`);
       } else {
-        _push(`<p to="login" w:text="center 2xl  yellow-300 dark:light-50" w:bg="red-900 dark:teal-700" class="font-bold rounded-2xl text-yellow-300 mx-auto mx-1">${serverRenderer.ssrInterpolate(vue.unref(t)("text.registrationSuccessful"))}</p>`);
+        _push(`<p to="login" w:text="center 2xl  yellow-300 dark:light-50" w:bg="red-900 dark:teal-700" class="font-bold rounded-2xl text-yellow-300 mx-auto mx-1" data-v-65cadc52>${serverRenderer.ssrInterpolate(vue.unref(t)("text.registrationSuccessful"))}</p>`);
       }
       _push(`</div>`);
     };
@@ -112,4 +119,5 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/pages/register.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-exports["default"] = _sfc_main;
+var register = /* @__PURE__ */ main._export_sfc(_sfc_main, [["__scopeId", "data-v-65cadc52"]]);
+exports["default"] = register;

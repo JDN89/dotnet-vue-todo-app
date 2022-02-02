@@ -57,12 +57,14 @@ onUpdated(() => {
       class="flex flex-col"
     >
       <div class="flex flex-col">
+          <carbon-email class="mt-3.5 ml-4.5 absolute"/>
         <Field name="email" type="email" placeholder="Email" class="field" />
 
         <ErrorMessage name="email" class="errorMessage" />
       </div>
 
       <div class="flex flex-col">
+        <carbon-password class="mt-3.5 ml-4.5 absolute"/>
         <Field
           name="password"
           type="password"
@@ -73,6 +75,7 @@ onUpdated(() => {
       </div>
 
       <div class="flex flex-col">
+        <carbon-password class="mt-3.5 ml-4.5 absolute"/>
         <Field
           name="confirmPassword"
           type="password"
@@ -100,3 +103,9 @@ onUpdated(() => {
     </p>
   </div>
 </template>
+
+<style scoped>
+input{ padding-left: 48px;
+
+}
+</style>
