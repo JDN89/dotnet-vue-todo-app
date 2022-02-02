@@ -65,16 +65,16 @@ const addMessage = () => {
 
     <div v-else class="hover msg relative min-w-xs">
       <div class="message mx-auto">
-        <div>
+        <div class="mx-auto">
           <carbon-pen-fountain class="mt-1 absolute" />
           <input
             type="text"
             :placeholder="t('input.title')"
             v-model="message.Title"
-            class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
+            class="transition duration-500 text-dark-900 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-        <div>
+        <div class="mx-auto">
           <carbon-pen-fountain class="mt-1 absolute" />
           <textarea
             spellcheck="false"
@@ -99,7 +99,11 @@ const addMessage = () => {
 </template>
 
 <style scoped>
-input,
+input {
+  padding-left: 33px;
+}
+
+
 textarea {
   padding-left: 33px;
 }
