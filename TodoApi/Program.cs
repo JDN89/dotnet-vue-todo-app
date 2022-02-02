@@ -122,7 +122,7 @@ app.UseCsp(opt => opt
     .FontSources(s => s.Self())
     .FormActions(s => s.Self())
     .FrameAncestors(s => s.Self())
-    .ImageSources(s => s.Self())
+    //.ImageSources(s => s.Self())
     .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
 
