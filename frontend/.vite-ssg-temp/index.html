@@ -4,10 +4,27 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Keep clone</title>
-    <meta name="description" content="Google Inspired TodoApp">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00aba9" />
+    <meta name="description" content="Google Inspired TodoApp" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.2f385ad2.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFI0lEQVRYR8VXWUiVWxT+nK6piClOaYqQWFxRUUEh6UF8ECFJRVEcMHypwAmVrBwylUYHCCN6UHCesAfFRARRQVOjLAPBAY1QsjL0OOd0b9+G//ccjnpO6eUuOHiO/7/X+va31l7r2zr//DL8j6ZzEgC4Bx0dnT/axm8BYKCtrS3x0dXVxd7eHra3t8V3YyNjGPxlIIPQFpBWABhobW0Nq6ur6O3txdTUFL58+QKFQoGdnR2cOnUKZmZm8PL0gruHOy5cuAAjIyOtGNEIYGNjA9XV1RgcHMSrV6/w9evXIx0z8KVLl3D//n24u7vDwGCflYMWHgiAVO/u7mJiYgKxsbEYGRnRajfKL5mYmCAlJQVpaWkwNzcXafotAN3d3YiOjsa3b9/U1unp6cHNzQ02NjaiDvhZWVnB6OgoNjc35fdPnz6Ny5cvIz8/H05OTgcWqhoDLKq3b9/i6tWrGB8fVwlOJ5GRkbhy5YrIuZ2dHRRLCiiWFZiZmRFMEfiHDx+wvLws1pKJjIwMJCYmwtLSUm0zKgBIPR2FhITg48eP8svc8Y0bN5CTkwMLCwvw90FVzvXDw8NoaWlBT08P3rx5I3ycOXMGRUVFCA0NVStOGQAXs6pLSkpQUFCggjQrKwu5ubmioLQ5Xj9+/MC9e/fw7t07DAwMgL7t7e3R3t4uClPZhwyAeWxubkZ8fDx+/vwpA2AhFRcXiyLSJjgXMuDi4iJu3ryJz58/o6urS/i7fv268GVsbLzfL6ROyN1nZ2ejrKxMfnj+/HkMDQ2JfP+Jff/+HaWlpWhoaBCpNTU1RUdHBy5evChvRjBAxO/fv0d4eDimp6flWGSE/zuOLS0tiQKsra0Vbq5duybSLLEgA2hra0NERIRoszRbW1tBn6ZGogkcN1dZWSnYnZubQ0BAACoqKuDo6CiWCgDM/5MnT3Dr1i3ZHyuW1axt3o8CwuMcFhaGsbExWFtbo7+/H87OzqoAbt++jcePH8t+eHal38cFsb6+jqCgIPT19cHKykq09sDAwH0ApIlH7cGDBzKAO3fuoLCw8EQYYFrZ2Orr62FoaIi6ujrBiEoKWK3ctWQnmQICePTokeglNDLAGSMDIAOtra2iA0p27tw5TE5OnggDTEFVVRWSk5PF3GBRxsTEqAKYnZ0Fg3IWSMZO5unpqanQNT6nz+fPnyM1NRVnz55FXl4eEhIS9gHwG6cZj2FnZ6fskL8bGxuPzQI1RVJSEsrLy+Hg4CBqwc/PTxUAlQ1zIyHjU7ZftlF/f/8/BsH0MpXMOfuKr6+vON76+vqqAKT+7e3tjU+fPsksUExwPB82zzXxT33AgHFxcXB1dRVKKTg4WF6mMo53tnfQ1NwkBhIZkczFxQUvXrwQtEmjWNvewKFEiUY2fXx8xGzgTJBMTQ+wYu/evYunT5+qFCS1Xnp6uujlHK2ygyPkOFnljh8+fCh6DIeQl5eXCmlqiojHZGFhQTQOigoWkLKRDY5Vfg5Tvgy8sb6BmtoacfQyMzNFgbv+7QodXdX7w6GilGOYCuj169dCkisb6YyKihI7Y1XTpMsJ/1K2s4tywLGds6lxpB+kpA6V5XREkfny5UtxFJX1IfPPcVpTUyM3L4oY9pJnz54Jbch8Uz96eHgcKWaOvBcQBKuYwZuamoSk4lHi/0krJTfHNYWHxBQLjgOHlxWapmLVeDGR7q6sjfn5eVHBpFIWFL/YUL7fSgG1vS9qBKCce22davueYEjShJoayn/1/F/PdvW/9LzXsQAAAABJRU5ErkJggg=="
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGUlEQVQ4T32TT4ipYRTGn48Si2lCUrqaZlaymVs2WCikLJiZzWQlCwtJssFGUlIs7RQLS7KYKGJmM7GchrFgIRsJGxv5k/Jv7n1fXWVc3tXX977nd855znOY778HFw65Zhjm7AvmJ4AELJdLNJtNDIdDrFYrSH9Jcf/7HtfX1yegA4AELhYLBINBvLy8oN/vHz0WCoUIhUJwOBzgcDiHuwNgMpng8fERtVoNXC4XRqMRGo2GPqzX6yiXy5hOp3C73YjFYgcIBazXa0pOp9O4ublBsViEXC4Hi8WiAFLd5+cnDf76+kIqlYLVaqXaUEC1WoVWq6WZSTaZTHYiHIEQXZxOJ0ajEf0WCARgdrvdt8vlQiKRgMfjQTwevzQUvL29wWw2I5lMwmaz7QEkO6kin8/j4eHh4thmsxmt8Pn5mSajAL1ej/f3dxQKBQq4dLbbLdRqNdUql8vtAURAIkwgEEAkErkI2Gw2eHp6wtXVFTKZzF7EUqkEk8kEkUiETqcDPp9/FjKfz6FUKmn/Pp9vDyBuU6lUaDQaMBgMyGazFPI/CxOThcNhvL6+QiwW7wFkRO12GzqdDuPxGLe3t7QVi8UCNpt98MJgMIDdbkc0GoVCoaD/j6xcqVTg9/vRarXoJbE1yUYsTjJ/fHzA6/VCKpUeTHa0TKQSYlcyjV6vR90mkUjQ7XZxd3cHHo930tbJNv6z7s/+z631H1Q3I+CvHihVAAAAAElFTkSuQmCC"
+    />
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiIiwic2hvcnRfbmFtZSI6IiIsImljb25zIjpbeyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtMTkyeDE5Mi5wbmciLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn0seyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtNTEyeDUxMi5wbmciLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dLCJ0aGVtZV9jb2xvciI6IiNmZmZmZmYiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIn0=" />
+    <link rel="mask-icon" href="/assets/safari-pinned-tab.5895ba2e.svg" color="#00aba9" />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <meta name="theme-color" content="#ffffff" />
     <script>
