@@ -65,15 +65,17 @@ const addMessage = () => {
 
     <div v-else class="hover msg relative min-w-xs">
       <div class="message mx-auto">
-        <carbon-pen-fountain class="mt-1 absolute"/>
-        <input
-          type="text"
-          :placeholder="t('input.title')"
-          v-model="message.Title"
-          class="transition duration-500 text-dark-900 bg-transparent focus:outline-none "
-        />
-        <div class="description">
-          <carbon-pen-fountain class="icon mt-1 absolute"/>
+        <div>
+          <carbon-pen-fountain class="mt-1 absolute" />
+          <input
+            type="text"
+            :placeholder="t('input.title')"
+            v-model="message.Title"
+            class="transition duration-500 text-dark-900 bg-transparent focus:outline-none"
+          />
+        </div>
+        <div>
+          <carbon-pen-fountain class="mt-1 absolute" />
           <textarea
             spellcheck="false"
             w:resize="none"
@@ -83,29 +85,27 @@ const addMessage = () => {
             class="transition duration-500 bg-transparent focus:outline-none overflow-hidden"
           />
         </div>
-        <button
-          @click="addMessage"
-          class="float-right hover"
-          :title="t('button.submit')"
-        >
-          <carbon-add-alt />
-        </button>
       </div>
+      <button
+        @click="addMessage"
+        class="float-right hover"
+        :title="t('button.submit')"
+      >
+        <carbon-add-alt />
+      </button>
     </div>
-  <Alert v-if="alertStore.getShowAlert" class="pb-100 sm:pb-50" />
+    <Alert v-if="alertStore.getShowAlert" class="pb-100 sm:pb-50" />
   </div>
 </template>
 
 <style scoped>
-
-input, textarea {
+input,
+textarea {
   padding-left: 33px;
 }
-  </style>
+</style>
 
 <route lang="yaml">
 meta:
   layout: default
 </route>
-
-

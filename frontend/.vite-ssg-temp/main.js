@@ -1146,19 +1146,19 @@ const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
       const _component_carbon_pen_fountain = __unplugin_components_1$1;
       const _component_carbon_add_alt = __unplugin_components_3$1;
       const _component_Alert = _sfc_main$b;
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center" }, _attrs))} data-v-6bbc4998>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap pt-10 pb-5 sm:flex-grow-0 sm:flex-none sm: justify-center" }, _attrs))} data-v-ef758c16>`);
       if (!vue.unref(isVisible)) {
-        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("page.home"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-6bbc4998>`);
+        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("page.home"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-ef758c16>`);
         _push(serverRenderer.ssrRenderComponent(_component_ant_design_message_filled, null, null, _parent));
         _push(`</button>`);
       } else {
-        _push(`<div class="hover msg relative min-w-xs" data-v-6bbc4998><div class="message mx-auto" data-v-6bbc4998>`);
+        _push(`<div class="hover msg relative min-w-xs" data-v-ef758c16><div class="message mx-auto" data-v-ef758c16><div data-v-ef758c16>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "mt-1 absolute" }, null, _parent));
-        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(message).Title)} class="transition duration-500 text-dark-900 bg-transparent focus:outline-none" data-v-6bbc4998><div class="description" data-v-6bbc4998>`);
-        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "icon mt-1 absolute" }, null, _parent));
-        _push(`<textarea spellcheck="false" w:resize="none" type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.message"))} class="transition duration-500 bg-transparent focus:outline-none overflow-hidden" data-v-6bbc4998>${serverRenderer.ssrInterpolate(vue.unref(message).Body)}</textarea></div><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-6bbc4998>`);
+        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(message).Title)} class="transition duration-500 text-dark-900 bg-transparent focus:outline-none" data-v-ef758c16></div><div data-v-ef758c16>`);
+        _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "mt-1 absolute" }, null, _parent));
+        _push(`<textarea spellcheck="false" w:resize="none" type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.message"))} class="transition duration-500 bg-transparent focus:outline-none overflow-hidden" data-v-ef758c16>${serverRenderer.ssrInterpolate(vue.unref(message).Body)}</textarea></div></div><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-ef758c16>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_add_alt, null, null, _parent));
-        _push(`</button></div></div>`);
+        _push(`</button></div>`);
       }
       if (vue.unref(alertStore).getShowAlert) {
         _push(serverRenderer.ssrRenderComponent(_component_Alert, { class: "pb-100 sm:pb-50" }, null, _parent));
@@ -1177,7 +1177,7 @@ _sfc_main$9.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/Messages/message/CreateNewMessage.vue");
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-var __unplugin_components_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-6bbc4998"]]);
+var __unplugin_components_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-ef758c16"]]);
 const _hoisted_1$a = {
   width: "1.2em",
   height: "1.2em",
@@ -1314,15 +1314,15 @@ _sfc_main$6.setup = (props, ctx) => {
 };
 var _src_pages_index_vue = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
 const routes$1 = [{ "name": "about", "path": "/about", "component": () => Promise.resolve().then(function() {
-  return require("./assets/about.2bc83d3b.js");
+  return require("./assets/about.899a470e.js");
 }), "props": true, "meta": { "layout": "default" } }, { "name": "index", "path": "/", "component": _src_pages_index_vue, "props": true, "meta": { "layout": "default" } }, { "name": "login", "path": "/login", "component": () => Promise.resolve().then(function() {
-  return require("./assets/login.164c5d76.js");
+  return require("./assets/login.db14665b.js");
 }), "props": true }, { "name": "myTodos", "path": "/mytodos", "component": () => Promise.resolve().then(function() {
-  return require("./assets/myTodos.1318a3ac.js");
+  return require("./assets/myTodos.ab53c2a0.js");
 }), "props": true, "meta": { "name": "myTodos", "layout": "dashboard", "requiresAuth": true } }, { "name": "README", "path": "/readme", "component": () => Promise.resolve().then(function() {
   return require("./assets/README.a90754f0.js");
 }), "props": true }, { "name": "register", "path": "/register", "component": () => Promise.resolve().then(function() {
-  return require("./assets/register.5d6e9165.js");
+  return require("./assets/register.f3eb96bb.js");
 }), "props": true }, { "name": "[...all}", "path": "/[...all}", "component": () => Promise.resolve().then(function() {
   return require("./assets/_...all_.accd36e2.js");
 }), "props": true, "meta": { "layout": 404 } }];
