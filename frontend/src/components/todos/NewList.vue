@@ -21,6 +21,7 @@ const addNewTodo = () => {
   if (todo.value.length > 0) {
     newList.todos.push(todo.value);
     todo.value = "";
+    return document.getElementById("todoInput")!.focus();
   } else {
     alertStore.showAlert = true;
     return (alertStore.alertMessage = t("alert.todoNull"));
@@ -68,7 +69,7 @@ const addList = () => {
     </button>
     <div v-else class="msg relative min-w-xs overflow-y-auto">
       <div class="title">
-          <carbon-pen-fountain class="icon mt-1 absolute"/>
+        <carbon-pen-fountain class="icon mt-1 absolute" />
         <input
           type="text"
           :placeholder="t('input.title')"
@@ -78,8 +79,9 @@ const addList = () => {
       </div>
       <!-- <hr class="w-3/4 mx-auto dark:gray-100"   /> -->
       <div class="todo mb-1">
-          <carbon-pen-fountain class="icon mt-1 absolute"/>
+        <carbon-pen-fountain class="icon mt-1 absolute" />
         <input
+          id="todoInput"
           type="text"
           :placeholder="t('input.todo')"
           v-model="todo"
@@ -121,10 +123,7 @@ meta:
   text-align: left;
 }
 
-
 input {
   padding-left: 33px;
 }
-  </style>
-
-
+</style>

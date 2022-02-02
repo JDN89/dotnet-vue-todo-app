@@ -309,23 +309,23 @@ const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
       const _component_carbon_pen_fountain = __unplugin_components_1;
       const _component_carbon_checkbox = __unplugin_components_2;
       const _component_carbon_add_alt = main.__unplugin_components_3$1;
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-28c55ecc>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "container sm:flex mx-auto sm:flex-wrap sm:flex-grow-0 sm:flex-none sm: justify-center pt-12 pb-7" }, _attrs))} data-v-509489f7>`);
       if (!vue.unref(isVisible)) {
-        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-28c55ecc>`);
+        _push(`<button${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.createList"))} class="hover scale-220 hover:scale-270 bg-transparent text-red-900 hover:text-dark-600 dark:text-teal-500 hover:dark:text-gray-50" data-v-509489f7>`);
         _push(serverRenderer.ssrRenderComponent(_component_octicon_checklist_16, null, null, _parent));
         _push(`</button>`);
       } else {
-        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-28c55ecc><div class="title" data-v-28c55ecc>`);
+        _push(`<div class="msg relative min-w-xs overflow-y-auto" data-v-509489f7><div class="title" data-v-509489f7>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "icon mt-1 absolute" }, null, _parent));
-        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-28c55ecc></div><div class="todo mb-1" data-v-28c55ecc>`);
+        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.title"))}${serverRenderer.ssrRenderAttr("value", vue.unref(newList).title)} class="transition duration-500 bg-transparent focus:outline-none" data-v-509489f7></div><div class="todo mb-1" data-v-509489f7>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_pen_fountain, { class: "icon mt-1 absolute" }, null, _parent));
-        _push(`<input type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-28c55ecc></div><hr class="max-w-xs mx-auto mt-1" data-v-28c55ecc><div class="newTodos" data-v-28c55ecc><ul class="pt-3 items-end" data-v-28c55ecc><!--[-->`);
+        _push(`<input id="todoInput" type="text"${serverRenderer.ssrRenderAttr("placeholder", vue.unref(t)("input.todo"))}${serverRenderer.ssrRenderAttr("value", todo.value)} class="bg-transparent transition duration-500 focus:outline-none" data-v-509489f7></div><hr class="max-w-xs mx-auto mt-1" data-v-509489f7><div class="newTodos" data-v-509489f7><ul class="pt-3 items-end" data-v-509489f7><!--[-->`);
         serverRenderer.ssrRenderList(vue.unref(newList).todos, (todo2) => {
-          _push(`<li class="flex justify-left items-start" data-v-28c55ecc>`);
+          _push(`<li class="flex justify-left items-start" data-v-509489f7>`);
           _push(serverRenderer.ssrRenderComponent(_component_carbon_checkbox, { class: "mx-3 my-auto" }, null, _parent));
           _push(` ${serverRenderer.ssrInterpolate(todo2)}</li>`);
         });
-        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-28c55ecc>`);
+        _push(`<!--]--></ul><button class="float-right hover"${serverRenderer.ssrRenderAttr("title", vue.unref(t)("button.submit"))} data-v-509489f7>`);
         _push(serverRenderer.ssrRenderComponent(_component_carbon_add_alt, null, null, _parent));
         _push(`</button></div></div>`);
       }
@@ -341,7 +341,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = new Set())).add("src/components/todos/NewList.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-28c55ecc"]]);
+var __unplugin_components_0 = /* @__PURE__ */ main._export_sfc(_sfc_main$1, [["__scopeId", "data-v-509489f7"]]);
 var block0 = {};
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   __ssrInlineRender: true,
