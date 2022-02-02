@@ -123,7 +123,7 @@ app.UseCsp(opt => opt
     .FormActions(s => s.Self())
     .FrameAncestors(s => s.Self())
     .ImageSources(s => s.Self())
-    .ScriptSources(s => s.Self())
+    .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
 
 if (app.Environment.IsDevelopment())
