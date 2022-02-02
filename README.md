@@ -16,11 +16,11 @@ DEMO: https://dotnet-vue-todo-app.herokuapp.com/
 
 ## Print screens
 
-![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/Images/register)
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/ReadMe_images/register)
 
-![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/Images/login)
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/ReadMe_images/login)
 
-![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/Images/mytodos)
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/ReadMe_images/mytodos)
     
 ### Usage
 On the Homepage you can leave a message and say hello.
