@@ -16,7 +16,7 @@ DEMO: https://dotnet-vue-todo-app.herokuapp.com/
 
 ## Print screens
 
-![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/ReadMe_images/register)
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/register.png)
 
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/master/ReadMe_images/login)
 
