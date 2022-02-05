@@ -3,6 +3,7 @@
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
 
 DEMO: https://dotnet-vue-todo-app.herokuapp.com/
+PWA Hosted on Heroku hobby dev, so the application will take a few seconds to load completely.
 
  - Frontend:
     - Vue 3 Composition API 
