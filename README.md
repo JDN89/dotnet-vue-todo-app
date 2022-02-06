@@ -22,6 +22,8 @@ Register with a fake email and login in order to create, modify and delete your 
 
 ### Print screens
 
+![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/messageboard.png)
+
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/register.png)
 
 ![image](https://github.com/JDN89/dotnet-vue-todo-app/blob/main/ReadMe_images/login.png)
