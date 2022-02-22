@@ -1,3 +1,7 @@
+#Chore:
+Remove dapper and user other  method to register apiEndpoints and services => Dapper is slowing down minimal api, because it's trying to do the same thing.
+
+
 # Description
 
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
