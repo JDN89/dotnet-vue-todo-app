@@ -1,5 +1,5 @@
-#Chore:
-Remove dapper and user other  method to register apiEndpoints and services => Dapper is slowing down minimal api, because it's trying to do the same thing.
+# Chore:
+Remove **Carter** and user other  method to register apiEndpoints and services => Carter is slowing down minimal api, because it's trying to do the same thing -> redundant.
 
 
 # Description
