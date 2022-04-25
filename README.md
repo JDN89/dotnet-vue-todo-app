@@ -11,7 +11,11 @@ I implemented the Vertical Slice Architecture: grouping everything related to a 
 - https://www.youtube.com/watch?v=SUiWfhAhgQw
 
 DEMO: https://dotnet-vue-todo-app.herokuapp.com/
-PWA Hosted on Heroku hobby dev, so the application will take a few seconds to load completely.
+LOGIN (if you don't want to create a fake user account)
+- user: test@user.com
+- password: 12345678
+-
+PWA Hosted on Heroku **hobby dev**, so the application will take **between 10 and 20 seconds to load completely**.
 
  - Frontend:
     - Vue 3 Composition API 
