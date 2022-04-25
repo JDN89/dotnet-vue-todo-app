@@ -5,6 +5,10 @@ Remove **Carter** and user other  method to register apiEndpoints and services =
 # Description
 
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
+I implemented the Vertical Slice Architecture: grouping everything related to a single action (business logic, data access, domain transfer objects,...) into one place. Each feature covers a vertical slice of the application. I think this architecture goes well in combination with the minimal Api.
+- https://www.ghyston.com/insights/architecting-for-maintainability-through-vertical-slices
+- https://timdeschryver.dev/blog/maybe-its-time-to-rethink-our-project-structure-with-dot-net-6
+- https://www.youtube.com/watch?v=SUiWfhAhgQw
 
 DEMO: https://dotnet-vue-todo-app.herokuapp.com/
 PWA Hosted on Heroku hobby dev, so the application will take a few seconds to load completely.
