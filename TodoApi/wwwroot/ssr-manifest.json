@@ -35,7 +35,7 @@
   "src/components/Messages/MessageBoard.vue": [],
   "src/pages/index.vue?vue&type=route&index=0&lang.yaml": [],
   "src/pages/index.vue": [],
-  "../../../../../../@vite-plugin-pages/generated-pages": [],
+  "../../../../../../../@vite-plugin-pages/generated-pages": [],
   "~icons/carbon/language": [],
   "~icons/carbon/sun": [],
   "~icons/carbon/moon": [],
@@ -47,12 +47,12 @@
   "src/composables/dark.ts": [],
   "src/components/NavBarGuest.vue": [],
   "src/layouts/default.vue": [],
-  "../../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
+  "../../../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
   "src/App.vue": [],
-  "../../../../../../@windicss/windi-base.css": [],
-  "../../../../../../@windicss/windi-components.css": [],
+  "../../../../../../../@windicss/windi-base.css": [],
+  "../../../../../../../@windicss/windi-components.css": [],
   "src/styles/main.css": [],
-  "../../../../../../@windicss/windi-utilities.css": [],
+  "../../../../../../../@windicss/windi-utilities.css": [],
   "src/main.ts": [],
   "index.html": [],
   "node_modules/.pnpm/@intlify+shared@9.1.9/node_modules/@intlify/shared/dist/shared.esm-bundler.js": [
@@ -136,7 +136,7 @@
   "\u0000commonjsHelpers.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js?commonjs-module": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js?commonjs-module": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js": [
@@ -148,106 +148,106 @@
   "node_modules/.pnpm/pinia@2.0.9_typescript@4.5.5+vue@3.2.28/node_modules/pinia/dist/pinia.esm-browser.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/axios.js?commonjs-module": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/axios.js?commonjs-module": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/bind.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/bind.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/bind.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/utils.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/utils.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/utils.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/buildURL.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/buildURL.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/buildURL.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/InterceptorManager.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/InterceptorManager.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/InterceptorManager.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/normalizeHeaderName.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/normalizeHeaderName.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/normalizeHeaderName.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/enhanceError.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/enhanceError.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/enhanceError.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/createError.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/createError.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/createError.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/settle.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/settle.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/settle.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/cookies.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/cookies.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/cookies.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAbsoluteURL.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAbsoluteURL.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAbsoluteURL.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/combineURLs.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/combineURLs.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/combineURLs.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/buildFullPath.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/buildFullPath.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/buildFullPath.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/parseHeaders.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/parseHeaders.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/parseHeaders.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isURLSameOrigin.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isURLSameOrigin.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isURLSameOrigin.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/defaults.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/defaults.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/Cancel.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/Cancel.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/Cancel.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/adapters/xhr.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/adapters/xhr.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/adapters/xhr.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/defaults.js": [
@@ -256,67 +256,67 @@
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/transformData.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/transformData.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/transformData.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/isCancel.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/isCancel.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/isCancel.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/dispatchRequest.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/dispatchRequest.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/dispatchRequest.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/mergeConfig.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/mergeConfig.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/mergeConfig.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/env/data.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/env/data.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/env/data.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/validator.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/validator.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/validator.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/Axios.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/Axios.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/core/Axios.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/CancelToken.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/CancelToken.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/cancel/CancelToken.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/spread.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/spread.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/spread.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAxiosError.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAxiosError.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/helpers/isAxiosError.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/axios.js": [
     "/assets/vendor.8a5c162a.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/axios.js?commonjs-proxy": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/axios@0.24.0/node_modules/axios/lib/axios.js?commonjs-proxy": [
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/axios@0.24.0/node_modules/axios/index.js": [
@@ -344,29 +344,29 @@
     "/assets/vendor.8a5c162a.js"
   ],
   "node_modules/.pnpm/workbox-window@6.4.2/node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
-    "/assets/virtual_pwa-register.149c0d5d.js"
+    "/assets/virtual_pwa-register.030c1f01.js"
   ],
-  "../../../../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register.149c0d5d.js"
+  "../../../../../../../@vite-plugin-pwa/virtual:pwa-register": [
+    "/assets/virtual_pwa-register.030c1f01.js"
   ],
   "src/pages/about.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/about.5b76da44.js",
+    "/assets/about.55a9b5e4.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/about.5b76da44.js",
+    "/assets/about.55a9b5e4.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/about.vue": [
-    "/assets/about.5b76da44.js",
+    "/assets/about.55a9b5e4.js",
     "/assets/about.759233b6.css"
   ],
   "src/pages/login.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/login.754e08c9.js",
+    "/assets/login.0ec222fa.js",
     "/assets/login.8ec7bccd.css"
   ],
   "src/pages/login.vue": [
-    "/assets/login.754e08c9.js",
+    "/assets/login.0ec222fa.js",
     "/assets/login.8ec7bccd.css"
   ],
   "~icons/carbon/password": [
@@ -588,7 +588,7 @@
   "node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseTimes.js": [
     "/assets/object.46396afd.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/isBuffer.js?commonjs-module": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/isBuffer.js?commonjs-module": [
     "/assets/object.46396afd.js"
   ],
   "node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/stubFalse.js": [
@@ -603,7 +603,7 @@
   "node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseUnary.js": [
     "/assets/object.46396afd.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_nodeUtil.js?commonjs-module": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_nodeUtil.js?commonjs-module": [
     "/assets/object.46396afd.js"
   ],
   "node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_nodeUtil.js": [
@@ -867,7 +867,7 @@
   "node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/mapKeys.js": [
     "/assets/object.46396afd.js"
   ],
-  "\u0000/home/jan/Coding/Projects/dotnet-vue-todo-app/frontend/node_modules/.pnpm/toposort@2.0.2/node_modules/toposort/index.js?commonjs-module": [
+  "\u0000/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/frontend/node_modules/.pnpm/toposort@2.0.2/node_modules/toposort/index.js?commonjs-module": [
     "/assets/object.46396afd.js"
   ],
   "node_modules/.pnpm/toposort@2.0.2/node_modules/toposort/index.js": [
@@ -883,74 +883,74 @@
     "/assets/object.46396afd.js"
   ],
   "~icons/carbon/checkbox-checked": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "~icons/bi/plus-lg": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "~icons/carbon/checkbox": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/AddTodo.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/AddTodo.vue": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/TodoList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/TodoList.vue": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "~icons/carbon/pen-fountain": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "~icons/octicon/checklist16": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/NewList.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/NewList.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/components/todos/NewList.vue": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/pages/myTodos.vue?vue&type=route&index=0&lang.yaml": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/pages/myTodos.vue": [
-    "/assets/myTodos.e811d351.js",
+    "/assets/myTodos.d47f1a44.js",
     "/assets/myTodos.31f7a467.css"
   ],
   "src/pages/README.md": [
     "/assets/README.14c8274a.js"
   ],
   "src/pages/register.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/register.0b1257a0.js",
+    "/assets/register.93eefd7c.js",
     "/assets/register.a1786c91.css"
   ],
   "src/pages/register.vue": [
-    "/assets/register.0b1257a0.js",
+    "/assets/register.93eefd7c.js",
     "/assets/register.a1786c91.css"
   ],
   "src/pages/[...all}.vue?vue&type=route&index=0&lang.yaml": [
@@ -966,12 +966,12 @@
     "/assets/404.6bc6106b.js"
   ],
   "~icons/carbon/logout": [
-    "/assets/dashboard.ddbf59a3.js"
+    "/assets/dashboard.d44544bd.js"
   ],
   "src/components/NavBarUser.vue": [
-    "/assets/dashboard.ddbf59a3.js"
+    "/assets/dashboard.d44544bd.js"
   ],
   "src/layouts/dashboard.vue": [
-    "/assets/dashboard.ddbf59a3.js"
+    "/assets/dashboard.d44544bd.js"
   ]
 }

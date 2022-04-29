@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7OSxoSbbzVYj/2A2j9wQAMfPy22ehDVlArbQZbtmVO0buY52tAhCSfsDXhRWjEbEq2ne2dBp/PiZa2B6qy2aSA==",
+  "dgSpecHash": "1hsDnT5M9YtLRmO5e3P3uu9qDqbn8caibYVCHdzVzxeqs4L0rn+Gbwjsg2Y1unNNAX0n88CWaajyr7OfnhUaPA==",
   "success": true,
-  "projectFilePath": "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+  "projectFilePath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
     "/home/jan/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/home/jan/.nuget/packages/carter/6.0.0/carter.6.0.0.nupkg.sha512",
@@ -35,8 +35,7 @@
     "/home/jan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "/home/jan/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
-    "/home/jan/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
-    "/home/jan/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+    "/home/jan/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

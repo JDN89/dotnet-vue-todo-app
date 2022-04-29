@@ -483,7 +483,7 @@ const install$1 = ({ isClient, router }) => {
     return;
   router.isReady().then(async () => {
     const { registerSW } = await Promise.resolve().then(function() {
-      return require("./assets/virtual_pwa-register.84e39fe3.js");
+      return require("./assets/virtual_pwa-register.37bec419.js");
     });
     registerSW({ immediate: true });
   });
@@ -1292,15 +1292,15 @@ _sfc_main$6.setup = (props, ctx) => {
 };
 var _src_pages_index_vue = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
 const routes$1 = [{ "name": "about", "path": "/about", "component": () => Promise.resolve().then(function() {
-  return require("./assets/about.956190af.js");
+  return require("./assets/about.a7e19021.js");
 }), "props": true, "meta": { "layout": "default" } }, { "name": "index", "path": "/", "component": _src_pages_index_vue, "props": true, "meta": { "layout": "default" } }, { "name": "login", "path": "/login", "component": () => Promise.resolve().then(function() {
-  return require("./assets/login.8aeb5ea6.js");
+  return require("./assets/login.de39489f.js");
 }), "props": true }, { "name": "myTodos", "path": "/mytodos", "component": () => Promise.resolve().then(function() {
-  return require("./assets/myTodos.a2872824.js");
+  return require("./assets/myTodos.51b3eef1.js");
 }), "props": true, "meta": { "name": "myTodos", "layout": "dashboard", "requiresAuth": true } }, { "name": "README", "path": "/readme", "component": () => Promise.resolve().then(function() {
   return require("./assets/README.a90754f0.js");
 }), "props": true }, { "name": "register", "path": "/register", "component": () => Promise.resolve().then(function() {
-  return require("./assets/register.7a4214bb.js");
+  return require("./assets/register.70921cc4.js");
 }), "props": true }, { "name": "[...all}", "path": "/[...all}", "component": () => Promise.resolve().then(function() {
   return require("./assets/_...all_.accd36e2.js");
 }), "props": true, "meta": { "layout": 404 } }];

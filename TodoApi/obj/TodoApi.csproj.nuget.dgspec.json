@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {}
+    "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {}
   },
   "projects": {
-    "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
+    "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+        "projectUniqueName": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
         "projectName": "TodoApi",
-        "projectPath": "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+        "projectPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
         "packagesPath": "/home/jan/.nuget/packages/",
-        "outputPath": "/home/jan/Coding/Projects/dotnet-vue-todo-app/TodoApi/obj/",
+        "outputPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jan/.nuget/NuGet/NuGet.Config"
@@ -85,12 +85,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.0, 6.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -99,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }
