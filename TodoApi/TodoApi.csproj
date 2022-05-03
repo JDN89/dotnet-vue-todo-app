@@ -3,6 +3,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <NoWarn>CA225</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
