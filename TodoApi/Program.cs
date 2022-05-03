@@ -1,5 +1,4 @@
 using Npgsql;
-using Carter;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApi.modules.UserModule.Services;
@@ -83,7 +82,6 @@ builder.Services.AddSwaggerGen(x =>
 
 builder.Services.AddCors();
 
-builder.Services.AddCarter();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -140,7 +138,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/error");
-    app.Use(async(context,next) =>
+    app.Use(async (context, next) =>
     {
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000");
         await next.Invoke();
@@ -165,7 +163,6 @@ app.UseAuthorization();
 
 // useHttpLogging to log your endpoints
 
-app.MapCarter();
 
 app.Run();
 
@@ -199,23 +196,23 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 	CONSTRAINT todo_lists_fk FOREIGN KEY (user_id) REFERENCES users(id)
 );";
 
-    
+
     var sql3 = $@"CREATE TABLE IF NOT EXISTS todos (
 	id serial4 NOT NULL,
 	list_id int4 NOT NULL,
 	todo text NOT NULL,
 	CONSTRAINT todos_pk PRIMARY KEY (id),
 	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; 
+);";
 
-    
+
     var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
 	id serial4 NOT NULL,
 	list_id int4 NOT NULL,
 	archived text NOT NULL,
 	CONSTRAINT archived_todos_pk PRIMARY KEY (id),
 	CONSTRAINT archived_todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; 
+);";
 
 
     await db.ExecuteAsync(sql);
