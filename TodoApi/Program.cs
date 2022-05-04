@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApi.modules.UserModule.Services;
 using System.Text;
 using Dapper;
+using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
 using TodoApi.Endpoints.Internal;
 
@@ -31,6 +32,7 @@ builder.Services.AddScoped(_ =>
         {
             throw new Exception("connurl is null");
         }
+
         // Parse connection URL to connection string for Npgsql
         connUrl = connUrl.Replace("postgres://", string.Empty);
         var pgUserPass = connUrl.Split("@")[0];
@@ -109,7 +111,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<ITokenService, TokenService>();
-
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 var app = builder.Build();
 
 
@@ -149,10 +151,6 @@ else
         await next.Invoke();
     });
 }
-
-
-
-
 
 
 //routing and endpoints not necessary

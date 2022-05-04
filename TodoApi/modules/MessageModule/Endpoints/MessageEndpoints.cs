@@ -1,5 +1,7 @@
 using Dapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.MessageModule.models;
@@ -16,7 +18,7 @@ public class MessageEndpoints : IEndpoints
         app.MapPost("api/", CreateMessageAsync)
             .WithName("CreateMessage")
             .Accepts<NewMessage>(ContentType)
-            .Produces<Message>(201)
+            .Produces<Message>(201).Produces<IEnumerable<ValidationFailure>>(400)
             .WithTags(Tag)
             .AllowAnonymous();
 
@@ -41,8 +43,14 @@ public class MessageEndpoints : IEndpoints
     }
 
     internal static async Task<IResult> CreateMessageAsync(
-        NewMessage message, NpgsqlConnection db)
+        NewMessage message, NpgsqlConnection db, IValidator<NewMessage> validator)
     {
+        var validationResult = await validator.ValidateAsync(message);
+        if (!validationResult.IsValid)
+        {
+            return Results.BadRequest(validationResult.Errors);
+        }
+
         var createdMessage = await db.QuerySingleAsync<Message>(
             "INSERT INTO messages (title, body) VALUES (@Title, @Body) RETURNING * ", message);
 
