@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations;
 using Dapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.MessageModule.models;
@@ -31,7 +33,7 @@ public class MessageEndpoints : IEndpoints
 
         app.MapPut("api/", UpdateMessage)
             .WithName("UpdateMessage")
-            .Produces<Message>(201)
+            .Produces<Message>(201).Produces<IEnumerable<ValidationFailure>>(400)
             .WithTags(Tag)
             .AllowAnonymous();
 
@@ -68,8 +70,14 @@ public class MessageEndpoints : IEndpoints
 
 
     internal static async Task<IResult> UpdateMessage(Message updateMessage,
-        NpgsqlConnection db)
+        NpgsqlConnection db, IValidator<Message> validator)
     {
+        var validationResult = await validator.ValidateAsync(updateMessage);
+        if (!validationResult.IsValid)
+        {
+            return Results.BadRequest(validationResult.Errors);
+        }
+
         var updated = await db.QuerySingleAsync<Message>(
             "UPDATE messages SET title = @Title, body = @Body WHERE id = @Id RETURNING *", updateMessage);
 
