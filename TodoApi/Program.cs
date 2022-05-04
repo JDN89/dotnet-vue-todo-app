@@ -1,11 +1,12 @@
 using Npgsql;
-using Carter;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApi.modules.UserModule.Services;
 using System.Text;
 using Dapper;
+using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
+using TodoApi.Endpoints.Internal;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,10 @@ builder.Services.AddScoped(_ =>
     {
         // Use connection string provided at runtime by Heroku.
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+        if (connUrl is null)
+        {
+            throw new Exception("connurl is null");
+        }
 
         // Parse connection URL to connection string for Npgsql
         connUrl = connUrl.Replace("postgres://", string.Empty);
@@ -83,7 +88,7 @@ builder.Services.AddSwaggerGen(x =>
 
 builder.Services.AddCors();
 
-builder.Services.AddCarter();
+builder.Services.AddEndpoints<Program>(builder.Configuration);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -103,10 +108,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Inject Services as DI in your Api endpoints or services
-builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
-builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddSingleton<ITokenService, TokenService>();
-
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 var app = builder.Build();
 
 
@@ -134,22 +136,18 @@ if (app.Environment.IsDevelopment())
     app.UseSpaStaticFiles();
 
     // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-    app.MapSwagger();
+    app.UseSwagger();
     app.UseStaticFiles();
 }
 else
 {
     app.UseExceptionHandler("/error");
-    app.Use(async(context,next) =>
+    app.Use(async (context, next) =>
     {
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000");
         await next.Invoke();
     });
 }
-
-
-
-
 
 
 //routing and endpoints not necessary
@@ -165,8 +163,7 @@ app.UseAuthorization();
 
 // useHttpLogging to log your endpoints
 
-app.MapCarter();
-
+app.UseEndpoints<Program>();
 app.Run();
 
 
@@ -199,23 +196,23 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
 	CONSTRAINT todo_lists_fk FOREIGN KEY (user_id) REFERENCES users(id)
 );";
 
-    
+
     var sql3 = $@"CREATE TABLE IF NOT EXISTS todos (
 	id serial4 NOT NULL,
 	list_id int4 NOT NULL,
 	todo text NOT NULL,
 	CONSTRAINT todos_pk PRIMARY KEY (id),
 	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; 
+);";
 
-    
+
     var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
 	id serial4 NOT NULL,
 	list_id int4 NOT NULL,
 	archived text NOT NULL,
 	CONSTRAINT archived_todos_pk PRIMARY KEY (id),
 	CONSTRAINT archived_todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);"; 
+);";
 
 
     await db.ExecuteAsync(sql);
