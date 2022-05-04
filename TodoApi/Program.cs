@@ -108,9 +108,6 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Inject Services as DI in your Api endpoints or services
-builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
-builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddSingleton<ITokenService, TokenService>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 var app = builder.Build();
 
