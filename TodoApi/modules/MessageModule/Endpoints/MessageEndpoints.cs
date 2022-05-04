@@ -1,9 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Dapper;
 using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.MessageModule.models;
