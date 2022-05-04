@@ -5,12 +5,17 @@ namespace TodoApi.Endpoints.Internal;
 
 public static class EndpointExtensions
 {
+ // method twice for better api call
+ 
     public static void AddEndpoints<TMarker>(this IServiceCollection services,
         IConfiguration configuration)
     {
+        // call addEndpoints below
         AddEndpoints(services, typeof(TMarker), configuration);
     }
-
+    
+  //method scans everything in the assmebly that implements the IEndpoints interface
+    // then dynamically call DefineEndpoints and AddServices
     public static void AddEndpoints(this IServiceCollection services,
         Type typeMarker, IConfiguration configuration)
     {

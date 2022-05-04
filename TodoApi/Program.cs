@@ -6,6 +6,7 @@ using TodoApi.modules.UserModule.Services;
 using System.Text;
 using Dapper;
 using Microsoft.IdentityModel.Tokens;
+using TodoApi.Endpoints.Internal;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -83,7 +84,7 @@ builder.Services.AddSwaggerGen(x =>
 
 builder.Services.AddCors();
 
-builder.Services.AddCarter();
+builder.Services.AddEndpoints<Program>(builder.Configuration);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -165,8 +166,7 @@ app.UseAuthorization();
 
 // useHttpLogging to log your endpoints
 
-app.MapCarter();
-
+app.UseEndpoints<Program>();
 app.Run();
 
 
