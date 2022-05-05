@@ -1,7 +1,6 @@
 using Npgsql;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using TodoApi.modules.UserModule.Services;
 using System.Text;
 using Dapper;
 using FluentValidation;
@@ -15,25 +14,26 @@ builder.Services.AddScoped(_ =>
 {
     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
+    // string connStr;
     string connStr;
-
-    // Depending on if in development or production, use either Heroku-provided
-    // connection string, or development connection string from env var.
-    if (env == "Development")
+   
+    // to  run test comment out this part unitll 
+    if (env == "Development" )
     {
-        // Use connection string from file.
         connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+        return new NpgsqlConnection(connStr);
     }
     else
     {
-        // Use connection string provided at runtime by Heroku.
+        
+    }
+    
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
         if (connUrl is null)
         {
             throw new Exception("connurl is null");
         }
 
-        // Parse connection URL to connection string for Npgsql
         connUrl = connUrl.Replace("postgres://", string.Empty);
         var pgUserPass = connUrl.Split("@")[0];
         var pgHostPortDb = connUrl.Split("@")[1];
@@ -46,11 +46,11 @@ builder.Services.AddScoped(_ =>
 
         connStr =
             $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
-    }
+        return new NpgsqlConnection(connStr);
+    
 
-    // Whether the connection string came from the local development configuration file
-    // or from the environment variable from Heroku, use it to set up your DbContext.
-    return new NpgsqlConnection(connStr);
+// to run tests comment out until here
+      
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -221,3 +221,5 @@ async Task EnsureDb(IServiceProvider services, ILogger logger)
     await db.ExecuteAsync(sql3);
     await db.ExecuteAsync(sql4);
 }
+// Make the implicit Program class public so test projects can access it
+public partial class Program { }
