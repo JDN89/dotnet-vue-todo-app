@@ -1,11 +1,3 @@
- test if refactore bakcned works
-# Chore:
- - Remove **Carter** and user other  method to register apiEndpoints and services => Carter is slowing down minimal api, because it's trying to do the same thing -> redundant.
-- create Database folder:
-   - DbConnectionFactory.cs  (look at example Nick for inspiration) 
-   - DatabaseInitializer.cs  (look at example Nick for inspiration)
-
-
 # Description
 
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
