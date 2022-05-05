@@ -16,14 +16,6 @@ builder.Services.AddScoped(_ =>
 
     // string connStr;
     string connStr;
-    // for testing in dev uncomment underlying two lines and comment out from if statement untill connStr = $
-    // or find way to make Xunit run the testServer in dev environment and not in live env
-    // I didn't find a solution, documentation is running behind?
-    
-        connStr = builder.Configuration.GetConnectionString("DefaultConnection");
-       return new NpgsqlConnection(connStr);
-
-   /* 
    
     // to  run test comment out this part unitll 
     if (env == "Development" )
@@ -31,7 +23,10 @@ builder.Services.AddScoped(_ =>
         connStr = builder.Configuration.GetConnectionString("DefaultConnection");
         return new NpgsqlConnection(connStr);
     }
-
+    else
+    {
+        
+    }
     
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
         if (connUrl is null)
@@ -55,7 +50,7 @@ builder.Services.AddScoped(_ =>
     
 
 // to run tests comment out until here
-    */   
+      
 });
 
 builder.Services.AddEndpointsApiExplorer();

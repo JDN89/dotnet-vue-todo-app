@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.Logging;
 using TodoApi;
 using TodoApi.modules.MessageModule.models;
 using Xunit;
@@ -14,10 +17,10 @@ namespace Todo.Api.Tests.Integration;
 // WebApplicationFactory access a full fledged api
 // this api can't be called  through the web, only via httpclient
 // in memory api perfect for testing
-public class TodoApiEndpointsTests:IClassFixture<WebApplicationFactory<IApiMarker>>
+public class TodoApiEndpointsTests:IClassFixture<WebApplicationFactory<IApiMarker>>, IAsyncLifetime
 {
     private readonly WebApplicationFactory<IApiMarker> _factory;
-    
+    private readonly List<NewMessage> _createMessage = new();
 
     public TodoApiEndpointsTests(WebApplicationFactory<IApiMarker> factory)
     {
@@ -34,6 +37,7 @@ public class TodoApiEndpointsTests:IClassFixture<WebApplicationFactory<IApiMarke
     var message = GenerateMessage();
 //Act
         var result = await httpClient.PostAsJsonAsync("api/", message);
+        _createMessage.Add(message);
         var createdMessage =await result.Content.ReadFromJsonAsync<Message>();
 //Assert
         result.StatusCode.Should().Be(HttpStatusCode.Created);
@@ -52,6 +56,7 @@ public class TodoApiEndpointsTests:IClassFixture<WebApplicationFactory<IApiMarke
     message.Title = "";
 //Act
         var result = await httpClient.PostAsJsonAsync("api/", message);
+        _createMessage.Add(message);
         var errors = await result.Content.ReadFromJsonAsync<IEnumerable<ValidationError>>();
         var error = errors!.Single();
         
@@ -70,5 +75,20 @@ public class TodoApiEndpointsTests:IClassFixture<WebApplicationFactory<IApiMarke
 
 
         };
+    }
+
+    public async Task InitializeAsync()
+    {
+        var env = Environment.GetEnvironmentVariable("Test2");
+    } 
+
+    public async  Task DisposeAsync()
+    {
+        
+        var httpClient = _factory.CreateClient();
+        foreach (var message in _createMessage)
+        {
+            await httpClient.DeleteAsync("api/");
+        }
     }
 }
