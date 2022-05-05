@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi", "..\..\refactor-partII\dotnet-vue-todo-app\TodoApi\TodoApi.csproj", "{DEBA60CE-C50F-4660-83C0-17AA6706D578}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEBA60CE-C50F-4660-83C0-17AA6706D578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBA60CE-C50F-4660-83C0-17AA6706D578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBA60CE-C50F-4660-83C0-17AA6706D578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBA60CE-C50F-4660-83C0-17AA6706D578}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
