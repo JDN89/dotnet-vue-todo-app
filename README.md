@@ -1,7 +1,6 @@
-# hosted: heroku - free tier
-https://todo-app-minimal-api.herokuapp.com/
-
 # Description
+
+Demo: https://todo-app-minimal-api.herokuapp.com/
 
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
 I implemented the Vertical Slice Architecture: grouping everything related to a single action (business logic, data access, domain transfer objects,...) into one place. Each feature covers a vertical slice of the application. I think this architecture goes well in combination with the minimal Api.
