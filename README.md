@@ -1,3 +1,6 @@
+# hosted: heroku - free tier
+https://todo-app-minimal-api.herokuapp.com/
+
 # Description
 
 This project is inspired by Google keep and is not meant to be used as a real todo list app.
