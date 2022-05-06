@@ -109,7 +109,9 @@ export const useTodoStore = defineStore("todo", {
             const userToken = userStore.getToken;
             if (userToken)
                 await EventService.deleteTodoList(listId, userToken)
-                    .then(() => this.fetchTodoLists())
+                    .then(() => {
+                        this.toDoLists = this.toDoLists!.filter(x => x.listId !== listId)
+                    })
                     .catch((error) => {
                         if (axios.isAxiosError(error)) {
                             if (error.response) {
@@ -170,7 +172,10 @@ export const useTodoStore = defineStore("todo", {
             };
             if (userToken)
                 await EventService.addTodo(newTodo, userToken)
-                    .then(() => this.fetchTodoLists())
+                    .then(() => {
+                        const listIndex = this.toDoLists!.findIndex(x => x.listId == listId)
+                        this.toDoLists![listIndex].todos.push(todo)
+                    })
                     .catch((error) => {
                         if (axios.isAxiosError(error)) {
                             if (error.response) {
@@ -202,7 +207,13 @@ export const useTodoStore = defineStore("todo", {
             };
             if (userToken)
                 await EventService.archiveTodo(archiveTodo, userToken)
-                    .then(() => this.fetchTodoLists())
+                    .then(() => {
+
+                        const listIndex = this.toDoLists!.findIndex(x => x.listId == listId)
+                        this.toDoLists![listIndex].archived.push(todo)
+                        this.toDoLists![listIndex].todos = this.toDoLists![listIndex].todos.filter(x => x !== todo)
+                    })
+
                     .catch((error) => {
                         if (axios.isAxiosError(error)) {
                             if (error.response) {
@@ -233,7 +244,12 @@ export const useTodoStore = defineStore("todo", {
             };
             if (userToken)
                 await EventService.unArchiveTodo(unArchiveTodo, userToken)
-                    .then(() => this.fetchTodoLists())
+                    .then(() => {
+
+                        const listIndex = this.toDoLists!.findIndex(x => x.listId == listId)
+                        this.toDoLists![listIndex].todos.push(archived)
+                        this.toDoLists![listIndex].archived = this.toDoLists![listIndex].archived.filter(x => x !== archived)
+                    })
                     .catch((error) => {
                         if (axios.isAxiosError(error)) {
                             if (error.response) {

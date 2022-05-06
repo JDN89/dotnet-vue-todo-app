@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vuqXJPJmq/2Q0KG95wGtHlcYCZ+9LFfPKDbyz83oL1rrkGbqq5SmkiIPeclw85qLuC4buOqMu8hZ4EX0/bYI2A==",
+  "dgSpecHash": "NyNr4mpgR4h4MoaQAeeasdTgEsShy0Q+jr0an1a8B8ACTFlfRQykSwtRWhFyA9YlVp+CN0Fn8Ma7SI4OqNpe+Q==",
   "success": true,
-  "projectFilePath": "/home/jan/Coding/Projects/Heroku-Deployments/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+  "projectFilePath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
     "/home/jan/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/home/jan/.nuget/packages/carter/6.0.0/carter.6.0.0.nupkg.sha512",

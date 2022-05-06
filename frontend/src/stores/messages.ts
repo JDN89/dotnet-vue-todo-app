@@ -60,7 +60,7 @@ export const useMessageStore = defineStore("messages", {
         //other way by wrapping in try catch block
         async addMessage(message: NewMessageInterface) {
             await EventService.postMessage(message)
-                .then(() => this.fetchMessages())
+                .then((response) => this.messages.push(response.data))
                 .catch((error) => {
                     if (axios.isAxiosError(error)) {
                         if (error.response) {
@@ -85,7 +85,8 @@ export const useMessageStore = defineStore("messages", {
         async deleteMessage(id: number) {
             await EventService.deleteMessage(id)
                 .then(() => {
-                    this.fetchMessages();
+                    this.messages = this.messages.filter(x => x.id !== id)
+
                     this.isVisible = false;
                 })
                 .catch((error) => {
@@ -126,7 +127,8 @@ export const useMessageStore = defineStore("messages", {
         async updateMessage(message: MessageInterface) {
             await EventService.putMessage(message)
                 .then(() => {
-                    this.fetchMessages();
+                    this.messages = this.messages.filter(m => m.id !== message.id)
+                    this.messages.push(message)
                     this.isVisible = false;
                 })
                 .catch((error) => {
