@@ -59,9 +59,7 @@ public class MessageEndpoints : IEndpoints
     internal static async Task<IResult> GetAllMessagesAsync(
         NpgsqlConnection db)
     {
-        Console.WriteLine("fire");
-
-        var messages = await db.QueryAsync<Message>("SELECT * FROM messages");
+               var messages = await db.QueryAsync<Message>("SELECT * FROM messages");
         return Results.Ok(messages);
     }
 

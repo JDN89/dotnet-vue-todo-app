@@ -1,7 +1,26 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=198f7cc8_002Df6cf_002D4661_002Dbc12_002Dfd7fd3041b3f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Project Location="/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app" Presentation="&amp;lt;tests&amp;gt;" /&gt;
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/bin/Debug/net6.0/SQLitePCLRaw.batteries_v2.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=198f7cc8_002Df6cf_002D4661_002Dbc12_002Dfd7fd3041b3f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.CreateMessage_Fails_WhenTitleISInvalid&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9fc34d4b_002D051f_002D4638_002Db276_002Dc95d7830afbb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TodoApiEndpointsTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec530709_002D22c6_002D4f1f_002Db405_002D92b117f505ee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateMessage_Fails_WhenTitleISInvalid" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/EnvironmentVariablesIndexed/=ASPNETCORE_005FENVIRONMENT/@EntryIndexedValue">Development</s:String>
 	
 	
