@@ -2,6 +2,7 @@ using Dapper;
 using FluentValidation;
 using FluentValidation.Results;
 using Npgsql;
+using TodoApi.Data;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.UserModule.Dto;
 using TodoApi.modules.UserModule.Models;
@@ -32,7 +33,7 @@ public class UserEndpoints : IEndpoints
     }
 
     internal static async Task<IResult> Register(
-        UserDto oUser, NpgsqlConnection db, IValidator<UserDto> validator, IEncryptionService encryptionService)
+        UserDto oUser, IUserDbService userDbService, IValidator<UserDto> validator, IEncryptionService encryptionService)
     {
         var validationResult = await validator.ValidateAsync(oUser);
         if (!validationResult.IsValid)
@@ -41,7 +42,9 @@ public class UserEndpoints : IEndpoints
         }
 
         //check if user exists in DB
-        var exists = await db.QueryFirstOrDefaultAsync<bool>("SELECT * FROM public.users Where email=@Email", oUser);
+
+        var exists = await userDbService.CheckIfUserExists(oUser);
+            
         if (exists)
         {
             return Results.BadRequest("user is already registered");
@@ -57,12 +60,12 @@ public class UserEndpoints : IEndpoints
             Hash = hash
         };
 
-        var newUserId = await db.QuerySingleAsync(
-            "INSERT INTO users (email, hash) VALUES (@Email, @Hash) RETURNING id ", newUser);
+        var newUserId = await userDbService.StoreUserInDb(newUser);
+            
         return Results.Created("api/register", newUserId);
     }
 
-    private static async Task<IResult> Login(UserDto oUser, NpgsqlConnection db, IEncryptionService encryptionService,
+    private static async Task<IResult> Login(UserDto oUser, IUserDbService userDbService , IEncryptionService encryptionService,
         ITokenService tokenService, IValidator<UserDto> validator)
     {
         var validationResult = await validator.ValidateAsync(oUser);
@@ -72,7 +75,7 @@ public class UserEndpoints : IEndpoints
         }
 
         //check if oUser exists in db
-        var user = await db.QueryFirstOrDefaultAsync<User>("SELECT * FROM users Where email=@Email", oUser);
+        var user = await userDbService.CheckIfUserExistsAndRetrieveUserIfExists(oUser) ;
         if (user is null)
             return Results.NotFound("user not found");
 
@@ -95,5 +98,7 @@ public class UserEndpoints : IEndpoints
     {
         services.AddSingleton<ITokenService, TokenService>();
         services.AddSingleton<IEncryptionService, EncryptionService>();
+        services.AddSingleton<IUserService, UserService>();
+        services.AddSingleton<IUserDbService, UserDbService>();
     }
 }

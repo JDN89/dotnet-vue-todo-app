@@ -1,14 +1,10 @@
-using Npgsql;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
-using Dapper;
 using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
 using TodoApi.Data;
 using TodoApi.Endpoints.Internal;
-using TodoApi.Services;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,9 +16,6 @@ builder.Services.AddSwaggerGen(x =>
     {
         x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
-            // in the authorization lock > Bearer token
-            //so write Bearer and paste token
-            //above took me long time to figure out > REMEMBER for next project
             Description = "JWT Authorization header using the bearer scheme  ",
             Name = "Authorization",
             In = ParameterLocation.Header,
@@ -76,13 +69,13 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
         string connStr;
 
         // to  run test comment out this part unitll 
-        
+
         if (env == "Development")
         {
             connStr = builder.Configuration.GetConnectionString("DefaultConnection");
             return new PostgresConnectionFactory(connStr);
         }
- 
+
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
         if (connUrl is null)
         {
@@ -103,12 +96,10 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
             $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
         return new PostgresConnectionFactory(connStr);
     }
-
-
 );
 
 builder.Services.AddSingleton<DbInitializer>();
-builder.Services.AddSingleton<IMessageService, MessageService>();
+
 var app = builder.Build();
 
 
@@ -127,7 +118,6 @@ app.UseCsp(opt => opt
     //.ImageSources(s => s.Self())
     .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
-
 
 
 if (app.Environment.IsDevelopment())
@@ -154,7 +144,7 @@ else
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-        app.UseSpaStaticFiles();
+app.UseSpaStaticFiles();
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
     .ExcludeFromDescription();
 
@@ -164,18 +154,18 @@ app.UseAuthorization();
 // useHttpLogging to log your endpoints
 
 app.UseEndpoints<Program>();
-  var databaseInitializer = app.Services.GetRequiredService<DbInitializer>();
-    await databaseInitializer.InitializeAsync();
+var databaseInitializer = app.Services.GetRequiredService<DbInitializer>();
+await databaseInitializer.InitializeAsync();
 app.Run();
 
 
- void EnsureDb(IServiceProvider services, ILogger logger)
+void EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));
-    
-  
-
 }
+
 // Make the implicit Program class public so test projects can access it
-public partial class Program { }
+public partial class Program
+{
+}

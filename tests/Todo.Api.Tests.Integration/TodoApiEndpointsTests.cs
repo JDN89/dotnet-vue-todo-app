@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Logging;
 using TodoApi;
 using TodoApi.modules.MessageModule.models;
 using Xunit;
+using Xunit.Sdk;
 
 namespace Todo.Api.Tests.Integration;
 
@@ -37,6 +40,7 @@ public class TodoApiEndpointsTests : IClassFixture<WebApplicationFactory<IApiMar
         var message = GenerateMessage();
 //Act
         var result = await httpClient.PostAsJsonAsync("api/", message);
+        
         _createMessage.Add(message);
         var createdMessage = await result.Content.ReadFromJsonAsync<Message>();
 //Assert
@@ -75,17 +79,13 @@ public class TodoApiEndpointsTests : IClassFixture<WebApplicationFactory<IApiMar
         };
     }
 
-    public async Task InitializeAsync()
+    public Task InitializeAsync()
     {
-        var env = Environment.GetEnvironmentVariable("Test2");
+        throw new NotImplementedException();
     }
 
-    public async Task DisposeAsync()
+    public Task DisposeAsync()
     {
-        var httpClient = _factory.CreateClient();
-        foreach (var message in _createMessage)
-        {
-            await httpClient.DeleteAsync($"api/{message}");
-        }
+        throw new NotImplementedException();
     }
 }

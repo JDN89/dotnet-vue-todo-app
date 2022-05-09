@@ -13,7 +13,7 @@
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4134aab9_002D2770_002D493d_002Db735_002D3e8bf3eb21b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_CreateMessage_WhenDataIsCorrect #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4134aab9_002D2770_002D493d_002Db735_002D3e8bf3eb21b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_CreateMessage_WhenDataIsCorrect #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.CreateMessage_Fails_WhenTitleISInvalid&lt;/TestId&gt;
@@ -34,7 +34,7 @@
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec530709_002D22c6_002D4f1f_002Db405_002D92b117f505ee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateMessage_Fails_WhenTitleISInvalid" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec530709_002D22c6_002D4f1f_002Db405_002D92b117f505ee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateMessage_Fails_WhenTitleISInvalid" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
