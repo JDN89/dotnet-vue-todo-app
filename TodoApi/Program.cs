@@ -1,57 +1,12 @@
-using Npgsql;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
-using Dapper;
 using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
+using TodoApi.Data;
 using TodoApi.Endpoints.Internal;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddScoped(_ =>
-{
-    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-    // string connStr;
-    string connStr;
-   
-    // to  run test comment out this part unitll 
-    if (env == "Development" )
-    {
-        connStr = builder.Configuration.GetConnectionString("DefaultConnection");
-        return new NpgsqlConnection(connStr);
-    }
-    else
-    {
-        
-    }
-    
-        var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-        if (connUrl is null)
-        {
-            throw new Exception("connurl is null");
-        }
-
-        connUrl = connUrl.Replace("postgres://", string.Empty);
-        var pgUserPass = connUrl.Split("@")[0];
-        var pgHostPortDb = connUrl.Split("@")[1];
-        var pgHostPort = pgHostPortDb.Split("/")[0];
-        var pgDb = pgHostPortDb.Split("/")[1];
-        var pgUser = pgUserPass.Split(":")[0];
-        var pgPass = pgUserPass.Split(":")[1];
-        var pgHost = pgHostPort.Split(":")[0];
-        var pgPort = pgHostPort.Split(":")[1];
-
-        connStr =
-            $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
-        return new NpgsqlConnection(connStr);
-    
-
-// to run tests comment out until here
-      
-});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSpaStaticFiles(config => { config.RootPath = "dist"; });
@@ -61,9 +16,6 @@ builder.Services.AddSwaggerGen(x =>
     {
         x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
-            // in the authorization lock > Bearer token
-            //so write Bearer and paste token
-            //above took me long time to figure out > REMEMBER for next project
             Description = "JWT Authorization header using the bearer scheme  ",
             Name = "Authorization",
             In = ParameterLocation.Header,
@@ -109,10 +61,49 @@ builder.Services.AddAuthorization(options =>
 
 // Inject Services as DI in your Api endpoints or services
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
+    {
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        // string connStr;
+        string connStr;
+
+        // to  run test comment out this part unitll 
+
+        if (env == "Development")
+        {
+            connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+            return new PostgresConnectionFactory(connStr);
+        }
+
+        var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+        if (connUrl is null)
+        {
+            throw new Exception("connurl is null");
+        }
+
+        connUrl = connUrl.Replace("postgres://", string.Empty);
+        var pgUserPass = connUrl.Split("@")[0];
+        var pgHostPortDb = connUrl.Split("@")[1];
+        var pgHostPort = pgHostPortDb.Split("/")[0];
+        var pgDb = pgHostPortDb.Split("/")[1];
+        var pgUser = pgUserPass.Split(":")[0];
+        var pgPass = pgUserPass.Split(":")[1];
+        var pgHost = pgHostPort.Split(":")[0];
+        var pgPort = pgHostPort.Split(":")[1];
+
+        connStr =
+            $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
+        return new PostgresConnectionFactory(connStr);
+    }
+);
+
+builder.Services.AddSingleton<DbInitializer>();
+
 var app = builder.Build();
 
 
-await EnsureDb(app.Services, app.Logger);
+EnsureDb(app.Services, app.Logger);
 
 app.UseXContentTypeOptions();
 app.UseReferrerPolicy(opt => opt.NoReferrer());
@@ -128,16 +119,14 @@ app.UseCsp(opt => opt
     .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 
-    app.UseDefaultFiles();
-    app.UseSpaStaticFiles();
 
     // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
     app.UseSwagger();
-    app.UseStaticFiles();
 }
 else
 {
@@ -155,6 +144,7 @@ else
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+app.UseSpaStaticFiles();
 app.MapGet("/error", () => Results.Problem("An error occurred.", statusCode: 500))
     .ExcludeFromDescription();
 
@@ -164,62 +154,18 @@ app.UseAuthorization();
 // useHttpLogging to log your endpoints
 
 app.UseEndpoints<Program>();
+var databaseInitializer = app.Services.GetRequiredService<DbInitializer>();
+await databaseInitializer.InitializeAsync();
 app.Run();
 
 
-async Task EnsureDb(IServiceProvider services, ILogger logger)
+void EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));
-
-
-    await using var db = services.CreateScope().ServiceProvider.GetRequiredService<NpgsqlConnection>();
-
-    var sql = $@"CREATE TABLE IF NOT EXISTS messages (
-	id serial4 NOT NULL,
-	title text NOT NULL,
-	body text NOT NULL,
-	CONSTRAINT message_board_pk PRIMARY KEY (id)
-);";
-    var sql1 = $@"CREATE TABLE IF NOT EXISTS users (
-              id serial4 NOT NULL,
-    email text NOT NULL,
-    hash text NOT NULL,
-    CONSTRAINT users_pk PRIMARY KEY (id)
-                 );";
-
-    var sql2 = $@"CREATE TABLE IF NOT EXISTS todo_lists (
-	id serial4 NOT NULL,
-	user_id serial4 NOT NULL,
-	title text NOT NULL,
-	CONSTRAINT todo_lists_pk PRIMARY KEY (id),
-	CONSTRAINT todo_lists_fk FOREIGN KEY (user_id) REFERENCES users(id)
-);";
-
-
-    var sql3 = $@"CREATE TABLE IF NOT EXISTS todos (
-	id serial4 NOT NULL,
-	list_id int4 NOT NULL,
-	todo text NOT NULL,
-	CONSTRAINT todos_pk PRIMARY KEY (id),
-	CONSTRAINT todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);";
-
-
-    var sql4 = $@"CREATE TABLE IF NOT EXISTS archived_todos (
-	id serial4 NOT NULL,
-	list_id int4 NOT NULL,
-	archived text NOT NULL,
-	CONSTRAINT archived_todos_pk PRIMARY KEY (id),
-	CONSTRAINT archived_todos_fk FOREIGN KEY (list_id) REFERENCES todo_lists(id) ON DELETE CASCADE
-);";
-
-
-    await db.ExecuteAsync(sql);
-    await db.ExecuteAsync(sql1);
-    await db.ExecuteAsync(sql2);
-    await db.ExecuteAsync(sql3);
-    await db.ExecuteAsync(sql4);
 }
+
 // Make the implicit Program class public so test projects can access it
-public partial class Program { }
+public partial class Program
+{
+}

@@ -1,9 +1,9 @@
-using Dapper;
 using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
-using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.MessageModule.models;
+using TodoApi.modules.MessageModule.Services;
+using TodoApi.Services;
 
 namespace TodoApi.modules.MessageModule.Endpoints;
 
@@ -42,7 +42,7 @@ public class MessageEndpoints : IEndpoints
     }
 
     internal static async Task<IResult> CreateMessageAsync(
-        NewMessage message, NpgsqlConnection db, IValidator<NewMessage> validator)
+        NewMessage message, IMessageService messageService, IValidator<NewMessage> validator)
     {
         var validationResult = await validator.ValidateAsync(message);
         if (!validationResult.IsValid)
@@ -50,24 +50,21 @@ public class MessageEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        var createdMessage = await db.QuerySingleAsync<Message>(
-            "INSERT INTO messages (title, body) VALUES (@Title, @Body) RETURNING * ", message);
+        var createdMessage = await messageService.CreateAsync(message);
 
         return Results.Created("api/", createdMessage);
     }
 
     internal static async Task<IResult> GetAllMessagesAsync(
-        NpgsqlConnection db)
+        IMessageService messageService)
     {
-        Console.WriteLine("fire");
-
-        var messages = await db.QueryAsync<Message>("SELECT * FROM messages");
+        var messages = await messageService.GetAllMessages();
         return Results.Ok(messages);
     }
 
 
     internal static async Task<IResult> UpdateMessage(Message updateMessage,
-        NpgsqlConnection db, IValidator<Message> validator)
+        IMessageService messageService, IValidator<Message> validator)
     {
         var validationResult = await validator.ValidateAsync(updateMessage);
         if (!validationResult.IsValid)
@@ -75,28 +72,26 @@ public class MessageEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        var updated = await db.QuerySingleAsync<Message>(
-            "UPDATE messages SET title = @Title, body = @Body WHERE id = @Id RETURNING *", updateMessage);
+        var updated = await messageService.UpdateMessage(updateMessage);
 
         return Results.Created("api/", updated);
     }
 
 
     internal static async Task<IResult> DeleteMessage(int id,
-        NpgsqlConnection db)
+        IMessageService messageService)
     {
-        var deleted = await db.ExecuteAsync(
-            "DELETE FROM messages WHERE id = @id", new {id}) == 1;
+        var deleted = await messageService.DeleteMessage(id);
         return deleted
             ? Results.NoContent()
             : Results.NotFound();
     }
 
-// ======================================    
-// insert Services to which you offload extra logic here
-// ===========================================
+    // ======================================    
+    // insert Services to which you offload extra logic here
+    // ===========================================
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
-        // services.AddSingleton<IMessageService, MessageService>();
+        services.AddSingleton<IMessageService, MessageService>();
     }
 }

@@ -6,6 +6,7 @@ using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.TodoModule.Dto;
 using TodoApi.modules.TodoModule.Models;
+using TodoApi.modules.TodoModule.Services;
 using TodoApi.modules.UserModule.Services;
 
 namespace TodoApi.modules.TodoModule.Endpoints;
@@ -36,15 +37,13 @@ public class TodoEndpoints : IEndpoints
     }
 
 
-    internal static async Task<IEnumerable<FetchedList>> FetchLists(NpgsqlConnection db, IUserService userService)
+    internal static async Task<IEnumerable<FetchedList>> FetchLists(ITodoService todoService, IUserService userService)
     {
         var userId = int.Parse(userService.GetUserId());
-        return await db.QueryAsync<FetchedList>(
-            "SELECT L.id as ListId , L.title ,array_remove(ARRAY_AGG( distinct T.todo),NULL) as Todos ,array_remove(ARRAY_AGG(distinct A.archived),null)as Archived FROM todo_lists L left join todos T on(L.id = T.list_id)left join archived_todos A on(L.id = A.list_id) where L.user_id =@userId group by L.id, L.title ",
-            new {userId});
+        return await todoService.FetchLists(userId);
     }
 
-    private static async Task<IResult> CreateList(NewList newList, NpgsqlConnection db, IUserService userService,
+    private static async Task<IResult> CreateList(NewList newList, ITodoService todoService, IUserService userService,
         IValidator<NewList> validator)
     {
         var validationResult = await validator.ValidateAsync(newList);
@@ -55,20 +54,19 @@ public class TodoEndpoints : IEndpoints
 
         var id = int.Parse(userService.GetUserId());
         newList.UserId = id;
-        var listId = await db.QueryAsync<int>(
-            "WITH ins1 AS (INSERT INTO todo_lists(user_id ,title) VALUES (@UserId, @Title) RETURNING id) INSERT INTO todos (list_id, todo) SELECT ins1.id, unnest(array[@Todos]) from ins1 returning list_id ",
-            newList);
+        var listId =await todoService.CreateList(newList);
         return Results.Ok(listId);
     }
 
-    internal static async Task<IResult> DeleteList([FromQuery] int listId, NpgsqlConnection db) =>
-        await db.ExecuteAsync(
-            "DELETE FROM todo_lists WHERE id = @listId", new {listId}) == 1
-            ? Results.NoContent()
-            : Results.NotFound();
+    internal static async Task<IResult> DeleteList([FromQuery] int listId, ITodoService todoService)
+    {
+
+       return  await todoService.DeleteList(listId) ? Results.NoContent() : Results.NotFound(); 
+    }
+            
 
 
-    private static async Task<IResult> AddNewTodo(ArchiveTodo newTodo, NpgsqlConnection db,
+    private static async Task<IResult> AddNewTodo(ArchiveTodo newTodo, ITodoService todoService,
         IValidator<ArchiveTodo> validator)
     {
         var validationResult = await validator.ValidateAsync(newTodo);
@@ -77,9 +75,8 @@ public class TodoEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        var todoId = await db.QueryAsync<int>(
-            "insert into todos (list_id,todo) VALUES (@ListId, @Todo) returning id",
-            newTodo);
+        var todoId = await todoService.AddNewTodo(newTodo);
+        
         return Results.Ok(todoId);
     }
 
@@ -90,7 +87,7 @@ public class TodoEndpoints : IEndpoints
     // and then send it back with every archive and unarchive request
     // and then select where id = @todoId || id =@archiveId
 
-    private static async Task<IResult> ArchiveTheTodo(ArchiveTodo archivedTodo, NpgsqlConnection db,
+    private static async Task<IResult> ArchiveTheTodo(ArchiveTodo archivedTodo, ITodoService todoService,
         IValidator<ArchiveTodo> validator)
     {
         var validationResult = await validator.ValidateAsync(archivedTodo);
@@ -99,14 +96,10 @@ public class TodoEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        return await db.ExecuteAsync(
-            "with foo as (delete from todos where todo = @Todo AND list_id = @ListId returning list_id,todo) insert into archived_todos (list_id,archived) select * from foo ",
-            archivedTodo) == 1
-            ? Results.NoContent()
-            : Results.NotFound();
+        return await todoService.ArchiveTodo(archivedTodo) ? Results.NoContent() : Results.NotFound();
     }
 
-    private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, NpgsqlConnection db,
+    private static async Task<IResult> UnArchiveTodo(ArchiveTodo unArchivedTodo, ITodoService todoService,
         IValidator<ArchiveTodo> validator)
     {
         var validationResult = await validator.ValidateAsync(unArchivedTodo);
@@ -115,11 +108,8 @@ public class TodoEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        return await db.ExecuteAsync(
-            "with foo as (delete from archived_todos where archived = @Todo AND list_id = @ListId returning list_id,archived) insert into todos (list_id,todo) select * from foo ",
-            unArchivedTodo) == 1
-            ? Results.NoContent()
-            : Results.NotFound();
+        return await todoService.UnArchiveTodo(unArchivedTodo) ? Results.NoContent() : Results.NotFound();
+            
     }
     //=======================
     // ================ Add Services in DI
@@ -128,5 +118,6 @@ public class TodoEndpoints : IEndpoints
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
         services.AddSingleton<IUserService, UserService>();
+        services.AddSingleton<ITodoService, TodoService>();
     }
 }

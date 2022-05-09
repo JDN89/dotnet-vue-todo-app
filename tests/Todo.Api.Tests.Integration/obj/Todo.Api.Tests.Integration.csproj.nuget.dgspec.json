@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj": {}
+    "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj": {}
   },
   "projects": {
-    "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
+    "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+        "projectUniqueName": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
         "projectName": "TodoApi",
-        "projectPath": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+        "projectPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
         "packagesPath": "/home/jan/.nuget/packages/",
-        "outputPath": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/obj/",
+        "outputPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jan/.nuget/NuGet/NuGet.Config"
@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[6.0.1, )"
             },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
             "NWebsec.AspNetCore.Middleware": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -101,14 +105,14 @@
         }
       }
     },
-    "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj": {
+    "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj",
+        "projectUniqueName": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj",
         "projectName": "Todo.Api.Tests.Integration",
-        "projectPath": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj",
+        "projectPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/Todo.Api.Tests.Integration.csproj",
         "packagesPath": "/home/jan/.nuget/packages/",
-        "outputPath": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/obj/",
+        "outputPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jan/.nuget/NuGet/NuGet.Config"
@@ -123,8 +127,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
-                "projectPath": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj"
+              "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj": {
+                "projectPath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj"
               }
             }
           }
@@ -144,6 +148,10 @@
               "version": "[6.6.0, )"
             },
             "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[6.0.2, )"
             },

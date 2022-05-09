@@ -1,20 +1,20 @@
 {
   "Version": 1,
-  "Hash": "X6UXQlQJuEn4BTfCUqdTmmt1zI8W5oifQ1SzdafXySY=",
+  "Hash": "RpNOmfPvjuvxPllVYNnzukDQkc2iGSrQ7qGYOl0pRTQ=",
   "Source": "Todo.Api.Tests.Integration",
   "BasePath": "_content/Todo.Api.Tests.Integration",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
       "Version": 2,
       "Source": "TodoApi",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],
@@ -22,17 +22,17 @@
     {
       "Name": "TodoApi/wwwroot",
       "Source": "TodoApi",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/_headers",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/_headers",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "_headers",
       "AssetKind": "All",
@@ -46,10 +46,10 @@
       "OriginalItemSpec": "wwwroot/_headers"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/android-chrome-192x192.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/android-chrome-192x192.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "android-chrome-192x192.png",
       "AssetKind": "All",
@@ -63,10 +63,10 @@
       "OriginalItemSpec": "wwwroot/android-chrome-192x192.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/android-chrome-512x512.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/android-chrome-512x512.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "android-chrome-512x512.png",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot/android-chrome-512x512.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/apple-touch-icon.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/apple-touch-icon.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "apple-touch-icon.png",
       "AssetKind": "All",
@@ -97,10 +97,10 @@
       "OriginalItemSpec": "wwwroot/apple-touch-icon.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/_...all_.af56b585.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/_...all_.af56b585.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/_...all_.af56b585.js",
       "AssetKind": "All",
@@ -114,10 +114,10 @@
       "OriginalItemSpec": "wwwroot/assets/_...all_.af56b585.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/404.6bc6106b.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/404.6bc6106b.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/404.6bc6106b.js",
       "AssetKind": "All",
@@ -131,12 +131,12 @@
       "OriginalItemSpec": "wwwroot/assets/404.6bc6106b.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/about.55a9b5e4.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/about.28f317e9.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/about.55a9b5e4.js",
+      "RelativePath": "assets/about.28f317e9.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -145,13 +145,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/about.55a9b5e4.js"
+      "OriginalItemSpec": "wwwroot/assets/about.28f317e9.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/about.759233b6.css",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/about.759233b6.css",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/about.759233b6.css",
       "AssetKind": "All",
@@ -165,27 +165,10 @@
       "OriginalItemSpec": "wwwroot/assets/about.759233b6.css"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/app.101a15ff.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/apple-touch-icon.2f385ad2.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
-      "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/app.101a15ff.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/app.101a15ff.js"
-    },
-    {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/apple-touch-icon.2f385ad2.png",
-      "SourceId": "TodoApi",
-      "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/apple-touch-icon.2f385ad2.png",
       "AssetKind": "All",
@@ -199,12 +182,12 @@
       "OriginalItemSpec": "wwwroot/assets/apple-touch-icon.2f385ad2.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/dashboard.d44544bd.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/dashboard.715304de.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/dashboard.d44544bd.js",
+      "RelativePath": "assets/dashboard.715304de.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -213,30 +196,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/dashboard.d44544bd.js"
+      "OriginalItemSpec": "wwwroot/assets/dashboard.715304de.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/login.0ec222fa.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/login.8ec7bccd.css",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
-      "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/login.0ec222fa.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/login.0ec222fa.js"
-    },
-    {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/login.8ec7bccd.css",
-      "SourceId": "TodoApi",
-      "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/login.8ec7bccd.css",
       "AssetKind": "All",
@@ -250,10 +216,27 @@
       "OriginalItemSpec": "wwwroot/assets/login.8ec7bccd.css"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/main.577be5b4.css",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/login.e4bae470.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "BasePath": "_content/TodoApi",
+      "RelativePath": "assets/login.e4bae470.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/login.e4bae470.js"
+    },
+    {
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/main.577be5b4.css",
+      "SourceId": "TodoApi",
+      "SourceType": "Project",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/main.577be5b4.css",
       "AssetKind": "All",
@@ -267,12 +250,12 @@
       "OriginalItemSpec": "wwwroot/assets/main.577be5b4.css"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/main.e76f15b0.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/main.efe08dba.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/main.e76f15b0.js",
+      "RelativePath": "assets/main.efe08dba.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -281,15 +264,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/main.e76f15b0.js"
+      "OriginalItemSpec": "wwwroot/assets/main.efe08dba.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/myTodos.31f7a467.css",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/myTodos.670c0dde.css",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/myTodos.31f7a467.css",
+      "RelativePath": "assets/myTodos.670c0dde.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -298,15 +281,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/myTodos.31f7a467.css"
+      "OriginalItemSpec": "wwwroot/assets/myTodos.670c0dde.css"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/myTodos.d47f1a44.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/myTodos.e703eb16.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/myTodos.d47f1a44.js",
+      "RelativePath": "assets/myTodos.e703eb16.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -315,13 +298,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/myTodos.d47f1a44.js"
+      "OriginalItemSpec": "wwwroot/assets/myTodos.e703eb16.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/object.46396afd.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/object.46396afd.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/object.46396afd.js",
       "AssetKind": "All",
@@ -335,10 +318,10 @@
       "OriginalItemSpec": "wwwroot/assets/object.46396afd.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/README.14c8274a.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/README.14c8274a.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/README.14c8274a.js",
       "AssetKind": "All",
@@ -352,27 +335,10 @@
       "OriginalItemSpec": "wwwroot/assets/README.14c8274a.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/register.93eefd7c.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/register.a1786c91.css",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
-      "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/register.93eefd7c.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/register.93eefd7c.js"
-    },
-    {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/register.a1786c91.css",
-      "SourceId": "TodoApi",
-      "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/register.a1786c91.css",
       "AssetKind": "All",
@@ -386,10 +352,27 @@
       "OriginalItemSpec": "wwwroot/assets/register.a1786c91.css"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/safari-pinned-tab.5895ba2e.svg",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/register.a73e7d1f.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "BasePath": "_content/TodoApi",
+      "RelativePath": "assets/register.a73e7d1f.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/register.a73e7d1f.js"
+    },
+    {
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/safari-pinned-tab.5895ba2e.svg",
+      "SourceId": "TodoApi",
+      "SourceType": "Project",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/safari-pinned-tab.5895ba2e.svg",
       "AssetKind": "All",
@@ -403,10 +386,10 @@
       "OriginalItemSpec": "wwwroot/assets/safari-pinned-tab.5895ba2e.svg"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/vendor.8a5c162a.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/vendor.8a5c162a.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/vendor.8a5c162a.js",
       "AssetKind": "All",
@@ -420,10 +403,10 @@
       "OriginalItemSpec": "wwwroot/assets/vendor.8a5c162a.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/assets/virtual_pwa-register.030c1f01.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/virtual_pwa-register.030c1f01.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "assets/virtual_pwa-register.030c1f01.js",
       "AssetKind": "All",
@@ -437,10 +420,10 @@
       "OriginalItemSpec": "wwwroot/assets/virtual_pwa-register.030c1f01.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/favicon-16x16.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/favicon-16x16.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "favicon-16x16.png",
       "AssetKind": "All",
@@ -454,10 +437,10 @@
       "OriginalItemSpec": "wwwroot/favicon-16x16.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/favicon-32x32.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/favicon-32x32.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "favicon-32x32.png",
       "AssetKind": "All",
@@ -471,10 +454,10 @@
       "OriginalItemSpec": "wwwroot/favicon-32x32.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/favicon.ico",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/favicon.ico",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -488,10 +471,10 @@
       "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/index.html",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/index.html",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -505,10 +488,10 @@
       "OriginalItemSpec": "wwwroot/index.html"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/manifest.webmanifest",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/manifest.webmanifest",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "manifest.webmanifest",
       "AssetKind": "All",
@@ -522,10 +505,10 @@
       "OriginalItemSpec": "wwwroot/manifest.webmanifest"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/pwa-192x192.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/pwa-192x192.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "pwa-192x192.png",
       "AssetKind": "All",
@@ -539,10 +522,10 @@
       "OriginalItemSpec": "wwwroot/pwa-192x192.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/pwa-512x512.png",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/pwa-512x512.png",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "pwa-512x512.png",
       "AssetKind": "All",
@@ -556,10 +539,10 @@
       "OriginalItemSpec": "wwwroot/pwa-512x512.png"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/robots.txt",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/robots.txt",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "robots.txt",
       "AssetKind": "All",
@@ -573,10 +556,10 @@
       "OriginalItemSpec": "wwwroot/robots.txt"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/safari-pinned-tab.svg",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/safari-pinned-tab.svg",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "safari-pinned-tab.svg",
       "AssetKind": "All",
@@ -590,10 +573,10 @@
       "OriginalItemSpec": "wwwroot/safari-pinned-tab.svg"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/site.webmanifest",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/site.webmanifest",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "site.webmanifest",
       "AssetKind": "All",
@@ -607,27 +590,10 @@
       "OriginalItemSpec": "wwwroot/site.webmanifest"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/ssr-manifest.json",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/sw.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
-      "BasePath": "_content/TodoApi",
-      "RelativePath": "ssr-manifest.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/ssr-manifest.json"
-    },
-    {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/sw.js",
-      "SourceId": "TodoApi",
-      "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "sw.js",
       "AssetKind": "All",
@@ -641,10 +607,10 @@
       "OriginalItemSpec": "wwwroot/sw.js"
     },
     {
-      "Identity": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/workbox-455a0d7a.js",
+      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/workbox-455a0d7a.js",
       "SourceId": "TodoApi",
       "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-partII/dotnet-vue-todo-app/TodoApi/wwwroot/",
+      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
       "BasePath": "_content/TodoApi",
       "RelativePath": "workbox-455a0d7a.js",
       "AssetKind": "All",

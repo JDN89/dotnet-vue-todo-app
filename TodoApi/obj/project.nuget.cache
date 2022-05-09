@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NyNr4mpgR4h4MoaQAeeasdTgEsShy0Q+jr0an1a8B8ACTFlfRQykSwtRWhFyA9YlVp+CN0Fn8Ma7SI4OqNpe+Q==",
+  "dgSpecHash": "gLrDH+v8qh92HM/l27NIrveZb8a5GgMTOJk4j/XA536oqdJFy1uUP09AVQt830Zqf+bAxuhAIB/gETo4Epw3IQ==",
   "success": true,
   "projectFilePath": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,8 @@
     "/home/jan/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.1/microsoft.aspnetcore.authentication.jwtbearer.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.aspnetcore.spaservices.extensions/6.0.1/microsoft.aspnetcore.spaservices.extensions.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/jan/.nuget/packages/microsoft.data.sqlite/6.0.2/microsoft.data.sqlite.6.0.2.nupkg.sha512",
+    "/home/jan/.nuget/packages/microsoft.data.sqlite.core/6.0.2/microsoft.data.sqlite.core.6.0.2.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.1.0/microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.dependencymodel/6.0.0/microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/microsoft.extensions.fileproviders.abstractions/6.0.0/microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
@@ -28,6 +30,10 @@
     "/home/jan/.nuget/packages/npgsql/6.0.1/npgsql.6.0.1.nupkg.sha512",
     "/home/jan/.nuget/packages/nwebsec.aspnetcore.core/3.0.0/nwebsec.aspnetcore.core.3.0.0.nupkg.sha512",
     "/home/jan/.nuget/packages/nwebsec.aspnetcore.middleware/3.0.0/nwebsec.aspnetcore.middleware.3.0.0.nupkg.sha512",
+    "/home/jan/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.6/sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
+    "/home/jan/.nuget/packages/sqlitepclraw.core/2.0.6/sqlitepclraw.core.2.0.6.nupkg.sha512",
+    "/home/jan/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.6/sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
+    "/home/jan/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.0.6/sqlitepclraw.provider.e_sqlite3.2.0.6.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/jan/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
