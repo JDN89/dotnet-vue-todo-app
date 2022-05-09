@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Npgsql;
 using TodoApi.modules.MessageModule.Endpoints.Internal;
 using TodoApi.modules.MessageModule.models;
+using TodoApi.Services;
 
 namespace TodoApi.modules.MessageModule.Endpoints;
 
@@ -42,7 +43,7 @@ public class MessageEndpoints : IEndpoints
     }
 
     internal static async Task<IResult> CreateMessageAsync(
-        NewMessage message, NpgsqlConnection db, IValidator<NewMessage> validator)
+        NewMessage message, IMessageService messageService, IValidator<NewMessage> validator)
     {
         var validationResult = await validator.ValidateAsync(message);
         if (!validationResult.IsValid)
@@ -50,8 +51,7 @@ public class MessageEndpoints : IEndpoints
             return Results.BadRequest(validationResult.Errors);
         }
 
-        var createdMessage = await db.QuerySingleAsync<Message>(
-            "INSERT INTO messages (title, body) VALUES (@Title, @Body) RETURNING * ", message);
+        var createdMessage = await messageService.CreateAsync(message);
 
         return Results.Created("api/", createdMessage);
     }

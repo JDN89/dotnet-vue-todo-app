@@ -2,13 +2,34 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/tests/Todo.Api.Tests.Integration/bin/Debug/net6.0/SQLitePCLRaw.batteries_v2.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0adfedbf_002D0f1c_002D40d7_002D8d93_002D3d26ef97c62d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_CreateMessage_WhenDataIsCorrect" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=198f7cc8_002Df6cf_002D4661_002Dbc12_002Dfd7fd3041b3f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.CreateMessage_Fails_WhenTitleISInvalid&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9fc34d4b_002D051f_002D4638_002Db276_002Dc95d7830afbb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TodoApiEndpointsTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4134aab9_002D2770_002D493d_002Db735_002D3e8bf3eb21b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_CreateMessage_WhenDataIsCorrect #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.CreateMessage_Fails_WhenTitleISInvalid&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=42c480e2_002Dffe2_002D4134_002Db67c_002D44907e8520e1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TodoApiEndpointsTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99b80a44_002D1ccb_002D40db_002Da93b_002Da11ef90c602d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_CreateMessage_WhenDataIsCorrect #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests.Create_CreateMessage_WhenDataIsCorrect&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9fc34d4b_002D051f_002D4638_002Db276_002Dc95d7830afbb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TodoApiEndpointsTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::AB46A62B-1E33-4928-8DEA-5ADE6EB4B93C::net6.0::Todo.Api.Tests.Integration.TodoApiEndpointsTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;

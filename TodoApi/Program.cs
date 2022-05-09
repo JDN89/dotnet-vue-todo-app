@@ -7,52 +7,10 @@ using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
 using TodoApi.Data;
 using TodoApi.Endpoints.Internal;
+using TodoApi.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddScoped(_ =>
-{
-    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-    // string connStr;
-    string connStr;
-   
-    // to  run test comment out this part unitll 
-    if (env == "Development" )
-    {
-        connStr = builder.Configuration.GetConnectionString("DefaultConnection");
-        return new NpgsqlConnection(connStr);
-    }
-    else
-    {
-        
-    }
-    
-        var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-        if (connUrl is null)
-        {
-            throw new Exception("connurl is null");
-        }
-
-        connUrl = connUrl.Replace("postgres://", string.Empty);
-        var pgUserPass = connUrl.Split("@")[0];
-        var pgHostPortDb = connUrl.Split("@")[1];
-        var pgHostPort = pgHostPortDb.Split("/")[0];
-        var pgDb = pgHostPortDb.Split("/")[1];
-        var pgUser = pgUserPass.Split(":")[0];
-        var pgPass = pgUserPass.Split(":")[1];
-        var pgHost = pgHostPort.Split(":")[0];
-        var pgPort = pgHostPort.Split(":")[1];
-
-        connStr =
-            $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
-        return new NpgsqlConnection(connStr);
-    
-
-// to run tests comment out until here
-      
-});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSpaStaticFiles(config => { config.RootPath = "dist"; });
@@ -124,7 +82,7 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
             connStr = builder.Configuration.GetConnectionString("DefaultConnection");
             return new PostgresConnectionFactory(connStr);
         }
-
+ 
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
         if (connUrl is null)
         {
@@ -150,10 +108,11 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
 );
 
 builder.Services.AddSingleton<DbInitializer>();
+builder.Services.AddSingleton<IMessageService, MessageService>();
 var app = builder.Build();
 
 
-await EnsureDb(app.Services, app.Logger);
+EnsureDb(app.Services, app.Logger);
 
 app.UseXContentTypeOptions();
 app.UseReferrerPolicy(opt => opt.NoReferrer());
@@ -169,14 +128,7 @@ app.UseCsp(opt => opt
     .ScriptSources(s => s.Self().CustomSources("sha256-LMTRYXeCnUKKf767smVL/pXEsnE5au870Way+lsZuvQ="))
 );
 
-if (app.Environment.IsEnvironment("Testing"))
-{
-      app.UseDeveloperExceptionPage();
-    
-    
-        // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-        app.UseSwagger();
-}
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -217,7 +169,7 @@ app.UseEndpoints<Program>();
 app.Run();
 
 
-async Task EnsureDb(IServiceProvider services, ILogger logger)
+ void EnsureDb(IServiceProvider services, ILogger logger)
 {
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));

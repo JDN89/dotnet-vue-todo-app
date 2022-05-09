@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,14 +24,17 @@ namespace Todo.Api.Tests.Integration;
                 throw new Exception("parameter ASPENTCORE_ENV is empty");
             }
             */
-
+/*
             builder.ConfigureServices(collection =>
             {
                 
                 collection.RemoveAll(typeof(IDbConnectionFactory));
                 collection.AddSingleton<IDbConnectionFactory>(_ =>
-                    new SqliteConnectionFactory("Data Source=InMemorySample;Mode=Memory;Cache=Shared"));
+                    new SqliteConnectionFactory("DataSource=file:inmem?mode=memory&cache=shared"));
             });
+            */
+            var env =  Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            builder.UseEnvironment(env);
         }
     
 }
