@@ -21,12 +21,12 @@ namespace Todo.Api.Tests.Integration;
 // WebApplicationFactory access a full fledged api
 // this api can't be called  through the web, only via httpclient
 // in memory api perfect for testing
-public class TodoApiEndpointsTests : IClassFixture<WebApplicationFactory<IApiMarker>>, IAsyncLifetime
+public class TodoApiEndpointsTests : IClassFixture<TodoApiFactory>, IAsyncLifetime
 {
-    private readonly WebApplicationFactory<IApiMarker> _factory;
+    private readonly TodoApiFactory _factory;
     private readonly List<NewMessage> _createMessage = new();
 
-    public TodoApiEndpointsTests(WebApplicationFactory<IApiMarker> factory)
+    public TodoApiEndpointsTests(TodoApiFactory factory)
     {
         _factory = factory;
     }
@@ -79,13 +79,8 @@ public class TodoApiEndpointsTests : IClassFixture<WebApplicationFactory<IApiMar
         };
     }
 
-    public Task InitializeAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public Task InitializeAsync() => Task.CompletedTask;
 
-    public Task DisposeAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public Task DisposeAsync() => Task.CompletedTask;
+
 }

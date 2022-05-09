@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NlVRnRXuFf9L4TOD3Cund7eq+4BVOG9n4lSGGOQQ1mE=",
+  "Hash": "RpNOmfPvjuvxPllVYNnzukDQkc2iGSrQ7qGYOl0pRTQ=",
   "Source": "Todo.Api.Tests.Integration",
   "BasePath": "_content/Todo.Api.Tests.Integration",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "TodoApi",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],
