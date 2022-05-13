@@ -79,7 +79,7 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
         var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
         if (connUrl is null)
         {
-            throw new Exception("connurl is null");
+            throw new Exception("connUrel is null");
         }
 
         connUrl = connUrl.Replace("postgres://", string.Empty);
@@ -161,6 +161,8 @@ app.Run();
 
 void EnsureDb(IServiceProvider services, ILogger logger)
 {
+    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+    logger.LogInformation($"environment is {env}");
     logger.LogInformation("Ensuring database exists at connection string '{ConnectionString}'",
         builder.Configuration.GetConnectionString("DefaultConnection"));
 }
