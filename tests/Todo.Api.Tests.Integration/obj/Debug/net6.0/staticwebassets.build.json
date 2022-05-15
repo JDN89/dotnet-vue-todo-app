@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RpNOmfPvjuvxPllVYNnzukDQkc2iGSrQ7qGYOl0pRTQ=",
+  "Hash": "cgDWr/rKXLMx6tkepaT1l9CJmgu9iCfSST9qGhmvgnE=",
   "Source": "Todo.Api.Tests.Integration",
   "BasePath": "_content/Todo.Api.Tests.Integration",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "TodoApi",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],
@@ -367,23 +367,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/register.a73e7d1f.js"
-    },
-    {
-      "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/safari-pinned-tab.5895ba2e.svg",
-      "SourceId": "TodoApi",
-      "SourceType": "Project",
-      "ContentRoot": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/",
-      "BasePath": "_content/TodoApi",
-      "RelativePath": "assets/safari-pinned-tab.5895ba2e.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/safari-pinned-tab.5895ba2e.svg"
     },
     {
       "Identity": "/home/jan/Coding/Projects/refactor-todo-app/dotnet-vue-todo-app/TodoApi/wwwroot/assets/vendor.8a5c162a.js",

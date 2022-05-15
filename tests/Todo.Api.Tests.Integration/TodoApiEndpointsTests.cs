@@ -2,16 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Logging;
 using TodoApi;
 using TodoApi.modules.MessageModule.models;
+using TodoApi.modules.UserModule.Dto;
+using TodoApi.modules.UserModule.Models;
 using Xunit;
 using Xunit.Sdk;
 
@@ -70,6 +74,19 @@ public class TodoApiEndpointsTests : IClassFixture<TodoApiFactory>, IAsyncLifeti
         error.ErrorMessage.Should().Be("'Title' must not be empty.");
     }
 
+    [Fact]
+    public async Task GetAllMessages_Succes()
+    {
+//Arrange
+        var httpClient = _factory.CreateClient();
+        var message = GenerateMessage(); 
+        var messages = new List<NewMessage>{message};
+//Act
+        var result = await httpClient.GetAsync("api/" );
+
+//Assert
+        result.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
     private NewMessage GenerateMessage(string title = "test title", string body = "test body")
     {
         return new NewMessage
@@ -79,6 +96,7 @@ public class TodoApiEndpointsTests : IClassFixture<TodoApiFactory>, IAsyncLifeti
         };
     }
 
+    
     public Task InitializeAsync() => Task.CompletedTask;
 
     public Task DisposeAsync() => Task.CompletedTask;

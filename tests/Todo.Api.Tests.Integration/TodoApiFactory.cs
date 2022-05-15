@@ -22,6 +22,7 @@ namespace Todo.Api.Tests.Integration;
                     new PostgresConnectionFactory("User ID=jan; Password=9450; Host=localhost; Port=5432; Database=todo-test-db; Pooling=true;"));
 
             });
+            
         }
         
 
